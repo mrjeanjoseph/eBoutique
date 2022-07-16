@@ -2,16 +2,240 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMG Chicken!</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&family=Lemonada:wght@300;700&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
-  <main>
-    <h1>Welcome to Azure static websites Jean-Joseph</h1>
-  </main>
+    <!-- header section -->
+    <header id="header">
+        <nav>
+            <ul>
+                <li><a href="#home">home</a></li>
+                <li><a href="#special">special</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#dish">dish</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+        </nav>
+        <div class="fa-solid fa-drumstick-bite"></div>
+        <a href="#" class="logo">crud<i class="fa-solid fa-pen-fancy"></i></a>
+    </header>
+
+    <!-- Home section -->
+    <section id="home" class="container-fluid">
+        <div class="row min-vh-100 align-items-center">
+            <!-- Hook -->
+            <div class="col-md-8 ml-md-5 text-md-left text-center content">
+                <h1>chicken you won't resists</h1>
+                <h2>enjoy the marvelous taste</h2>
+                <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae inventore hic error numquam.
+                    Voluptate sed tempore praesentium?</p>
+                <a href="#special"><button>take a bite</button></a>
+            </div>
+            <!-- Video background -->
+            <div class="video-container">
+                <video width="100%" src="https://media.istockphoto.com/videos/delicious-fried-chicken-video-id487607938"
+                    autoplay loop class="vid vid1"></video>
+                <video width="100%" src="https://media.istockphoto.com/videos/barbecue-video-id473024919" autoplay loop
+                    class="vid vid2"></video>
+                <video width="100%" src="https://media.istockphoto.com/videos/fast-food-concepts-video-id1165707668"
+                    autoplay loop class="vid vid3"></video>
+            </div>
+            <div class="controls">
+                <div class="dots dot1"></div>
+                <div class="dots dot2"></div>
+                <div class="dots dot3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- special section -->
+    <section id="special" class="container-fluid">
+
+        <div class="heading text-center">
+            <h1>our <span>special</span></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, suscipit. facere at tenetur mollitia
+                fugain, enim, ea ab?</p>
+        </div>
+
+        <div class="card-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1585703900468-13c7a978ad86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                    alt="Card 1">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ipsa nam quas dolorem assumenda dicta.
+                </p>
+                <a href="#"><button>get this</button></a>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1605291581926-df4bf7ee3e89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                    alt="Card 1">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ipsa nam quas dolorem assumenda dicta.
+                </p>
+                <a href="#"><button>get that</button></a>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1588923930957-81c81fd6262b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                    alt="Card 1">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ipsa nam quas dolorem assumenda dicta.
+                </p>
+                <a href="#"><button>better</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- about section -->
+    <section style="background:whitesmoke" id="about" class="container-fluid">
+        <div class="heading text-center">
+            <h1><span>about</span> us</h1>
+        </div>
+
+        <div class="row min-vh-100">
+            <div class="col-md-6 text-center text-md-left align-self-center content">
+                <p>Lorem, ipsum minus rerum dolore cteturadi dolor sit amet consectetur adipisicing elit. Culpa
+                    recusandae minus rerum dolore ctet uradi quibu sdam sapiente quod adipisci. Iusto sit excepturi, qui
+                    minus rerum dolore cteturadipis.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus nemo, similique laudantium
+                    quibusdam impedit aspernatur omnis error!</p>
+                <a href="#"><button>learn more</button></a>
+            </div>
+            <div class="col-md-6 image">
+                <img src="https://thumbs.dreamstime.com/b/african-female-chef-17871226.jpg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!--  dish section-->
+    <section id="dish" class="container-fluid">
+        <div class="heading text-center">
+            <h1>our <span>dishes</span></h1>
+        </div>
+        <div class="box-container">
+
+            <div class="box">
+                <img src="https://austinfoodmagazine.com/wp-content/uploads/2020/03/Tumble-22-scaled.jpg" alt="">
+                <div class="info">
+                    <h3>dish1</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolorem voluptatibus.</p>
+                    <a href="#"><button>view</button></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://s.hdnux.com/photos/01/00/61/50/16980493/3/ratio3x2_1800.jpg" alt="">
+                <div class="info">
+                    <h3>dish2</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolorem voluptatibus.</p>
+                    <a href="#"><button>view</button></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe5jPjXECdzFV3Ibq9GgHGXXa8l3pPVQOfpg&usqp=CAU"
+                    alt="">
+                <div class="info">
+                    <h3>dish3</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolorem voluptatibus.</p>
+                    <a href="#"><button>view</button></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://ca-times.brightspotcdn.com/dims4/default/083072c/2147483647/strip/true/crop/2048x1152+0+86/resize/1200x675!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F4a%2F5f%2Fce64147160ebdca352ff3e354057%2Fla-la-dd-freerange5-la0033244849-20151231"
+                    alt="">
+                <div class="info">
+                    <h3>dish4</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolorem voluptatibus.</p>
+                    <a href="#"><button>view</button></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://ilovetheburg.com/wp-content/uploads/2020/08/96688091_800276823831983_5802225823024939008_n-2-1024x576.jpg"
+                    alt="">
+                <div class="info">
+                    <h3>dish5</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolorem voluptatibus.</p>
+                    <a href="#"><button>view</button></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://res.cloudinary.com/culturemap-com/image/upload/ar_4:3,c_fill,g_faces:center,w_980/v1643669073/photos/328625_original.jpg"
+                    alt="">
+                <div class="info">
+                    <h3>dish6</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolorem voluptatibus.</p>
+                    <a href="#"><button>view</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container-fluid">
+        <div class="heading text-center">
+            <h1><span>contact</span> us</h1>
+        </div>
+        <div class="row justify-content-center">
+            <form action="/" class="col-md-7">
+
+                <div class="inputBox" required>
+                    <input type="text">
+                    <h3>full name</h3>
+                </div>
+                <div class="inputBox" required>
+                    <input type="text">
+                    <h3>e-mail address</h3>
+                </div>
+                <div class="inputBox">
+                    <textarea required name="" id="" cols="30" rows="10"></textarea>
+                    <h3>your message</h3>
+                </div>
+                <input type="submit" value="send">
+            </form>
+        </div>
+    </section>
+
+    <!-- section footer -->
+    <section class="container-fluid" id="footer">
+        <div class="row align-items-center">
+            <div class="col-md-4 brand">
+
+                <a href="#" class="logo">crud<i class="fa-solid fa-pen-fancy"></i></a>
+                <div class="icons">
+                    <a href="#" class="fa-brands fa-linkedin"></a>
+                    <a href="#" class="fa-brands fa-github"></a>
+                    <a href="#" class="fa-brands fa-hackerrank"></a>
+                    <a href="#" class="fa-brands fa-twitter"></a>
+                </div>
+            </div>
+            <div class="col-md-4 footer-links">
+                <h3>links</h3>
+                <a href="#home">home</a>
+                <a href="#special">special</a>
+                <a href="#about">about</a>
+                <a href="#dish">dish</a>
+                <a href="#contact">contact</a>
+            </div>
+            <div class="col-md-4 text-center text-md-left letter">
+                <h2>newsletter</h2>
+                <input type="text"><br>
+                <input type="submit" value="subscribe">
+            </div>
+        </div>
+        <h1>&copy; copyrights @ 2022 by <span>crud all day</span></h1>
+    </section>
+
+
+    <!-- JS & JQ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
