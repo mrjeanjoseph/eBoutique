@@ -49,9 +49,30 @@ document.querySelector("#student-form").addEventListener("submit", (e) => {
             list.appendChild(row);
             selectedRow = null;
             showAlert("Student Added", "danger");
+        } else {
+            selectedRow.children[0].textContent = firstName;
+            selectedRow.children[1].textContent = lastName;
+            selectedRow.children[2].textContent = stuNum;
+            selectedRow = null;
+            showAlert("Student Info Edited", "info");
         }
+        clearFields();
+
     }
 });
+
+//Edit Data
+document.querySelector("#student-list").addEventListener("click", (e) => {
+    target = e.target;
+    if(target.classList.contains("edit")) {
+        selectedRow = target.parentElement.parentElement;
+
+        document.querySelector("#firstName").value = selectedRow.children[0].textContent;
+        document.querySelector("#lastName").value = selectedRow.children[1].textContent;
+        document.querySelector("#studentNumber").value = selectedRow.children[2].textContent;
+    }
+
+})
 
 //Delete Data
 document.querySelector("#student-list").addEventListener("click", (e) => {
