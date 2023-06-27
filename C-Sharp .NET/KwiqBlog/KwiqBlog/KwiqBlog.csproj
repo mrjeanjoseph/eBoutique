@@ -13,4 +13,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.32" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KwiqBlog.Data\KwiqBlog.Data.csproj" />
+  </ItemGroup>
+
 </Project>
