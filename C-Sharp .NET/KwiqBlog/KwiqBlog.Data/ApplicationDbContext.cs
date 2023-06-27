@@ -1,12 +1,10 @@
-﻿
-
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace KwiqBlog.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    internal class ApplicationDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> opt) : base(opt) { }
     }
 }
