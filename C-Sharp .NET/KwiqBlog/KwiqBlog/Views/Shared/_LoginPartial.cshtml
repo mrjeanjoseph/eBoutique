@@ -8,11 +8,12 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item px-lg-3 py-3 py-lg-4">
-        <a  class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+        <a  class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @((await UserManager.GetUserAsync(User)).firstName)</a>
     </li>
     <li class="nav-item px-lg-3 py-3 py-lg-4">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link">Logout+++</button>
+        <a class="nav-link" onclick="$('#logoutForm').submit();" style="cursor: pointer;">Logout</a>
+        <form id="logoutForm"  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            
         </form>
     </li>
 }
