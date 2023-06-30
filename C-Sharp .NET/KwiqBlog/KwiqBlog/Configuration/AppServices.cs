@@ -1,9 +1,12 @@
-﻿using KwiqBlog.Data;
+﻿using KwiqBlog.BusinessManagers;
+using KwiqBlog.BusinessManagers.Interfaces;
+using KwiqBlog.Data;
 using KwiqBlog.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Net.NetworkInformation;
 
 namespace KwiqBlog.Configuration
 {
@@ -19,6 +22,11 @@ namespace KwiqBlog.Configuration
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             serviceCollection.AddControllersWithViews().AddRazorRuntimeCompilation();
             serviceCollection.AddRazorPages();
+        }
+
+        public static void AddCustomServices(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddScoped<IBlogBusinessManager, BlogBusinessManager>();
         }
     }
 }

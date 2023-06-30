@@ -1,9 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using KwiqBlog.BusinessManagers.Interfaces;
+using KwiqBlog.Models.BlogViewModels;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace KwiqBlog.Controllers
 {
     public class BlogController : Controller
     {
+        private readonly IBlogBusinessManager blogBusinessManager;
+
+        public BlogController(IBlogBusinessManager blogBusinessManager)
+        {
+            this.blogBusinessManager = blogBusinessManager;
+        }
         public IActionResult Index()
         {
             return View();
@@ -11,6 +20,13 @@ namespace KwiqBlog.Controllers
 
         public IActionResult Create()
         {
+            return View(new CreateBlogViewModel());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(CreateBlogViewModel createblogViewModel)
+        {
+            await blogBusinessManager.CreateBlog(createblogViewModel, User);
             return View();
         }
     }
