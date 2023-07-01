@@ -1,9 +1,12 @@
 ﻿using KwiqBlog.BusinessManagers.Interfaces;
 using KwiqBlog.Data.Models;
 using KwiqBlog.Models.BlogViewModels;
+using KwiqBlog.Services;
 using KwiqBlog.Services.Interfaces;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using System;
+using System.IO;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -13,20 +16,44 @@ namespace KwiqBlog.BusinessManagers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IBlogService _blogService;
+        private readonly IWebHostEnvironment _webHostEnv;
 
-        public BlogBusinessManager(UserManager<ApplicationUser> userManager, IBlogService blogService)
+        public BlogBusinessManager(UserManager<ApplicationUser> userManager, IBlogService blogService, IWebHostEnvironment webHostEnv)
         {
-               this._userManager = userManager;
-               this._blogService = blogService;
+            this._userManager = userManager;
+            this._blogService = blogService;
+            this._webHostEnv = webHostEnv;
         }
 
-        public async Task<Blog> CreateBlog(CreateBlogViewModel createBlogViewModel, ClaimsPrincipal claimsPrincipal)
+        public async Task<Blog> CreateBlog(CreateViewModel createViewModel, ClaimsPrincipal claimsPrincipal)
         {
-            Blog createdBlog = createBlogViewModel.Blog;
+            Blog createdBlog = createViewModel.Blog;
+
             createdBlog.BlogCreator = await _userManager.GetUserAsync(claimsPrincipal);
             createdBlog.CreatedDate = DateTime.UtcNow;
+            createdBlog = await _blogService.Add(createdBlog);
 
-            return await _blogService.Add(createdBlog);
+            string webRootPath = _webHostEnv.WebRootPath;
+            string pathToImg = $@"{webRootPath}\UserFiles\{createdBlog.Id}\HeaderImg.png";
+
+            DoesFolderExist(pathToImg);
+
+            using(var fileSystem = new FileStream(pathToImg, FileMode.Create))
+            {
+                await createViewModel.BlogHeaderImg.CopyToAsync(fileSystem);
+            }
+            return createdBlog;
+
+
+        }
+
+        private void DoesFolderExist(string folderPath)
+        {
+            string dirName = Path.GetDirectoryName(folderPath);
+            if(dirName.Length > 0)
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(dirName));
+            }
         }
     }
 }

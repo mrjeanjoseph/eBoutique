@@ -7,6 +7,8 @@ using KwiqBlog.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace KwiqBlog.Configuration
 {
@@ -24,6 +26,8 @@ namespace KwiqBlog.Configuration
             serviceCollection.AddControllersWithViews().AddRazorRuntimeCompilation();
 
             serviceCollection.AddRazorPages();
+
+            serviceCollection.AddSingleton<IFileProvider>(new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
         }
 
         public static void AddCustomServices(this IServiceCollection serviceCollection)

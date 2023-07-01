@@ -20,11 +20,11 @@ namespace KwiqBlog.Controllers
 
         public IActionResult Create()
         {
-            return View(new CreateBlogViewModel());
+            return View(new CreateViewModel());
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(CreateBlogViewModel createblogViewModel)
+        public async Task<IActionResult> Add(CreateViewModel createblogViewModel)
         {
             await blogBusinessManager.CreateBlog(createblogViewModel, User);
             return RedirectToAction("Create");
