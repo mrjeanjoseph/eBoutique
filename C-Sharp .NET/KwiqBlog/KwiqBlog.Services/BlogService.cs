@@ -7,16 +7,16 @@ namespace KwiqBlog.Services
 {
     public class BlogService : IBlogService
     {
-        private readonly ApplicationDbContext _dbConn;
+        private readonly ApplicationDbContext appDbContext;
 
-        private BlogService(ApplicationDbContext dbConn)
+        public BlogService(ApplicationDbContext dbConn)
         {
-            _dbConn = dbConn;
+            this.appDbContext = dbConn;
         }
         public async Task<Blog> Add(Blog blog)
         {
-            _dbConn.Add(blog);
-            await _dbConn.SaveChangesAsync();
+            appDbContext.Add(blog);
+            await appDbContext.SaveChangesAsync();
             return blog;
         }
     }

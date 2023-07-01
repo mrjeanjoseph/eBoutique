@@ -14,13 +14,15 @@ namespace KwiqBlog.Configuration
     {
         public static void AddDefaultServices(this IServiceCollection serviceCollection, IConfiguration configuration)
         {
-
             serviceCollection.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConn")));
+
             serviceCollection.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             serviceCollection.AddControllersWithViews().AddRazorRuntimeCompilation();
+
             serviceCollection.AddRazorPages();
         }
 
@@ -28,6 +30,7 @@ namespace KwiqBlog.Configuration
         {
             //These two are running errors like crazy - This cause migration to stop running
             serviceCollection.AddScoped<IBlogBusinessManager, BlogBusinessManager>();
+
             serviceCollection.AddScoped<IBlogService, BlogService>();
         }
     }
