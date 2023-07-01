@@ -19,7 +19,8 @@ namespace KwiqBlog
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDefaultServices(Configuration);
-            services.AddCustomServices(); //There's errors running this  
+            services.AddCustomServices(); 
+            services.AddCustomAuthorization();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

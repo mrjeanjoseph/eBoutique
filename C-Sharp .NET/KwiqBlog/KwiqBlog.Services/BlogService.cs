@@ -11,26 +11,37 @@ namespace KwiqBlog.Services
 {
     public class BlogService : IBlogService
     {
-        private readonly ApplicationDbContext appDbContext;
+        private readonly ApplicationDbContext _appDbContext;
 
         public BlogService(ApplicationDbContext dbConn)
         {
-            this.appDbContext = dbConn;
+            _appDbContext = dbConn;
         }
-        public async Task<Blog> Add(Blog blog)
+
+        public Blog GetBlog(int blogId)
         {
-            appDbContext.Add(blog);
-            await appDbContext.SaveChangesAsync();
-            return blog;
+            return _appDbContext.Blogs.FirstOrDefault(b => b.Id == blogId);
         }
 
         public IEnumerable<Blog> GetBlogs(ApplicationUser appUser)
         {
-            return appDbContext.Blogs
+            return _appDbContext.Blogs
                 .Include(blog => blog.BlogCreator)
                 .Include(blog => blog.Approver)
                 .Include(blog => blog.Posts)
                 .Where(blog => blog.BlogCreator == appUser);
+        }
+        public async Task<Blog> Add(Blog blog)
+        {
+            _appDbContext.Add(blog);
+            await _appDbContext.SaveChangesAsync();
+            return blog;
+        }
+        public async Task<Blog> Add(Blog blog)
+        {
+            _appDbContext.Add(blog);
+            await _appDbContext.SaveChangesAsync();
+            return blog;
         }
     }
 }

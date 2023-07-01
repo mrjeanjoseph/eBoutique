@@ -1,9 +1,11 @@
-﻿using KwiqBlog.BusinessManagers;
+﻿using KwiqBlog.Authorization;
+using KwiqBlog.BusinessManagers;
 using KwiqBlog.BusinessManagers.Interfaces;
 using KwiqBlog.Data;
 using KwiqBlog.Data.Models;
 using KwiqBlog.Services;
 using KwiqBlog.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,6 +40,10 @@ namespace KwiqBlog.Configuration
 
 
             serviceCollection.AddScoped<IBlogService, BlogService>();
+        }
+
+        public static void AddCustomAuthorization(this IServiceCollection serviceCollection) {
+            serviceCollection.AddSingleton<IAuthorizationHandler, BlogAuthHandler>();
         }
     }
 }

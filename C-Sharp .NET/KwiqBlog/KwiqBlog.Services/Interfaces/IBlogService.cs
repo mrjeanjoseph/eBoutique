@@ -7,6 +7,7 @@ namespace KwiqBlog.Services.Interfaces
     public interface IBlogService
     {
         Task<Blog> Add(Blog blog);
-        public IEnumerable<Blog> GetBlogs(ApplicationUser appUser);
+        IEnumerable<Blog> GetBlogs(ApplicationUser appUser);
+        Blog GetBlog(int blogId);
     }
 }
