@@ -31,10 +31,12 @@ namespace KwiqBlog.BusinessManagers
 
             createdBlog.BlogCreator = await _userManager.GetUserAsync(claimsPrincipal);
             createdBlog.CreatedDate = DateTime.UtcNow;
+            createdBlog.UpdatedDate = DateTime.UtcNow;
+
             createdBlog = await _blogService.Add(createdBlog);
 
             string webRootPath = _webHostEnv.WebRootPath;
-            string pathToImg = $@"{webRootPath}\UserFiles\{createdBlog.Id}\HeaderImg.png";
+            string pathToImg = $@"{webRootPath}\UserFiles\Blogs\{createdBlog.Id}\HeaderImg.png";
 
             DoesFolderExist(pathToImg);
 
@@ -52,7 +54,7 @@ namespace KwiqBlog.BusinessManagers
             string dirName = Path.GetDirectoryName(folderPath);
             if(dirName.Length > 0)
             {
-                Directory.CreateDirectory(Path.GetDirectoryName(dirName));
+                Directory.CreateDirectory(Path.GetDirectoryName(folderPath));
             }
         }
     }

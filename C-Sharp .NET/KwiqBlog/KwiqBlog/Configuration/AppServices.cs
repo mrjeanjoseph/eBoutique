@@ -32,8 +32,10 @@ namespace KwiqBlog.Configuration
 
         public static void AddCustomServices(this IServiceCollection serviceCollection)
         {
-            //These two are running errors like crazy - This cause migration to stop running
             serviceCollection.AddScoped<IBlogBusinessManager, BlogBusinessManager>();
+
+            serviceCollection.AddScoped<IAdminBusinessManager, AdminBusinessManager>();
+
 
             serviceCollection.AddScoped<IBlogService, BlogService>();
         }

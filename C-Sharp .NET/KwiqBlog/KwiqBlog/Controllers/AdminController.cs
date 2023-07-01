@@ -1,12 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using KwiqBlog.BusinessManagers.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace KwiqBlog.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
-        public IActionResult Index()
+        private readonly IAdminBusinessManager _adminBusinessManager;
+
+        public AdminController(IAdminBusinessManager adminBusinessManager)
         {
-            return View();
+            _adminBusinessManager = adminBusinessManager;
+        }
+        
+        public async Task<IActionResult> Index()
+        {
+            return View(await _adminBusinessManager.GetAdminDashboard(User));
         }
     }
 }

@@ -12,6 +12,7 @@ namespace KwiqBlog.Data.Models
         public string Title { get; set; }
         public string Content { get; set; }
         public DateTime CreatedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
         public bool Published { get; set; }
 
         public bool Approved { get; set; }
