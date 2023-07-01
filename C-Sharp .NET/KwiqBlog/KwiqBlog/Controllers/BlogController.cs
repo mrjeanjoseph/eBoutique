@@ -27,7 +27,7 @@ namespace KwiqBlog.Controllers
         public async Task<IActionResult> Add(CreateBlogViewModel createblogViewModel)
         {
             await blogBusinessManager.CreateBlog(createblogViewModel, User);
-            return View();
+            return RedirectToAction("Create");
         }
     }
 }

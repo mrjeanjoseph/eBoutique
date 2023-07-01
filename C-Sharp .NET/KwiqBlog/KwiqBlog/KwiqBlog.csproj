@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KwiqBlog.Data\KwiqBlog.Data.csproj" />
+    <ProjectReference Include="..\KwiqBlog.Services\KwiqBlog.Services.csproj" />
   </ItemGroup>
 
 </Project>
