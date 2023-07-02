@@ -1,5 +1,6 @@
 ﻿using KwiqBlog.Data.Models;
 using PagedList;
+using PagedList.Core;
 
 namespace KwiqBlog.Models.HomeViewModels {
     public class IndexViewModel {

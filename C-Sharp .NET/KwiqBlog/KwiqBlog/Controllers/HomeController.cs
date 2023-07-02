@@ -9,22 +9,16 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KwiqBlog.Controllers
-{
-    public class HomeController : Controller
-    {
+namespace KwiqBlog.Controllers {
+    public class HomeController : Controller {
         private readonly IBlogBusinessManager _blogBusinessManager;
 
-        public HomeController(IBlogBusinessManager blogBusinessManager)
-        {
+        public HomeController(IBlogBusinessManager blogBusinessManager) {
             _blogBusinessManager = blogBusinessManager;
         }
 
-        public IActionResult Index(string searchStr, int ? page)
-        {
-            var blogResult = _blogBusinessManager.GetIndexViewModel(searchStr, page);
-
-            return View(blogResult);
+        public IActionResult Index(string searchStr, int? page) {
+            return View(_blogBusinessManager.GetIndexViewModel(searchStr, page));
         }
     }
 }

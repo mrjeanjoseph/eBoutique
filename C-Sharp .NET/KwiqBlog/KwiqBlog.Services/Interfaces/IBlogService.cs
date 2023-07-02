@@ -6,7 +6,7 @@ namespace KwiqBlog.Services.Interfaces {
     public interface IBlogService {
         Blog GetBlog(int blogId);
 
-        IEnumerable<Blog> GetBlogs(string searchString);
+        IEnumerable<Blog> GetBlogs(string str);
 
         IEnumerable<Blog> GetBlogs(ApplicationUser appUser);
 

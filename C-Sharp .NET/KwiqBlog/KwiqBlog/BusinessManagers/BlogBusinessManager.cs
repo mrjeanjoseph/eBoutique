@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PagedList;
+using PagedList.Core;
 using System;
 using System.IO;
 using System.Linq;
@@ -33,14 +34,15 @@ namespace KwiqBlog.BusinessManagers {
             _authService = authService;
         }
 
-        public IndexViewModel GetIndexViewModel(string searchStr, int? page) {
-            int pageSize = 20;
+        public IndexViewModel GetIndexViewModel(string str, int? page) {
+            int pageSize = 4;
             int pageNumber = page ?? 1;
-            var blogs = _blogService.GetBlogs(searchStr ?? string.Empty);
+            var blogs = _blogService.GetBlogs(str ?? string.Empty)
+                .Where(b => b.Published);
 
             return new IndexViewModel {
-                Blogs = new StaticPagedList<Blog>(blogs.Skip((pageNumber - 1) * pageSize), pageNumber, pageSize, blogs.Count()),
-                SearchString = searchStr,
+                Blogs = new StaticPagedList<Blog>(blogs.Skip((pageNumber - 1) * pageSize).Take(pageSize), pageNumber, pageSize, blogs.Count()),
+                SearchString = str,
                 PageNumber = pageNumber
             };
         }

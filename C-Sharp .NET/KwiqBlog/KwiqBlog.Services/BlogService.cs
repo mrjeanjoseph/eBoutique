@@ -18,21 +18,21 @@ namespace KwiqBlog.Services {
             return _appDbContext.Blogs.FirstOrDefault(b => b.Id == blogId);
         }
 
-        public IEnumerable<Blog> GetBlogs(string searchString) {
+        public IEnumerable<Blog> GetBlogs(string str) {
             return _appDbContext.Blogs
                 .OrderByDescending(b => b.UpdatedDate)
                 .Include(b => b.BlogCreator)
                 .Include(b => b.Posts)
-                .Where(b => b.Title.Contains(searchString) 
-                || b.Content.Contains(searchString));
+                .Where(b => b.Title.Contains(str) 
+                || b.Content.Contains(str));
         }
 
         public IEnumerable<Blog> GetBlogs(ApplicationUser appUser) {
             return _appDbContext.Blogs
-                .Include(blog => blog.BlogCreator)
-                .Include(blog => blog.Approver)
-                .Include(blog => blog.Posts)
-                .Where(blog => blog.BlogCreator == appUser);
+                .Include(b => b.BlogCreator)
+                .Include(b => b.Approver)
+                .Include(b => b.Posts)
+                .Where(b => b.BlogCreator == appUser);
         }
 
         public async Task<Blog> Add(Blog blog) {
