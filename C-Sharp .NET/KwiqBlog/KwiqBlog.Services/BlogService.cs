@@ -2,7 +2,6 @@
 using KwiqBlog.Data.Models;
 using KwiqBlog.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -34,7 +33,7 @@ namespace KwiqBlog.Services {
         }
 
         public async Task<Blog> Update(Blog blog) {
-            _appDbContext.Add(blog);
+            _appDbContext.Update(blog);
             await _appDbContext.SaveChangesAsync();
             return blog;
         }

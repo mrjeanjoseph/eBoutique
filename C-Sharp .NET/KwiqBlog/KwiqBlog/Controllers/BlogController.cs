@@ -37,7 +37,8 @@ namespace KwiqBlog.Controllers {
             var updateResult =  await _blogBusinessManager.UpdateBlog(viewModel, User);
 
             if (updateResult.Result is null)
-                return RedirectToAction("Edit", new { viewModel.Blog.Id });
+                return RedirectToAction("Index");
+            //return RedirectToAction("Edit", new { viewModel.Blog.Id });
 
             return updateResult.Result;
         }
