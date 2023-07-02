@@ -2,14 +2,16 @@
 using KwiqBlog.BusinessManagers.Interfaces;
 using KwiqBlog.Data.Models;
 using KwiqBlog.Models.BlogViewModels;
-using KwiqBlog.Services;
+using KwiqBlog.Models.HomeViewModels;
 using KwiqBlog.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using PagedList;
 using System;
 using System.IO;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -20,11 +22,27 @@ namespace KwiqBlog.BusinessManagers {
         private readonly IWebHostEnvironment _webHostEnv;
         private readonly IAuthorizationService _authService;
 
-        public BlogBusinessManager(UserManager<ApplicationUser> userManager, IBlogService blogService, IWebHostEnvironment webHostEnv, IAuthorizationService authService) {
+        public BlogBusinessManager(
+            UserManager<ApplicationUser> userManager, 
+            IBlogService blogService, 
+            IWebHostEnvironment webHostEnv, 
+            IAuthorizationService authService) {
             _userManager = userManager;
             _blogService = blogService;
             _webHostEnv = webHostEnv;
             _authService = authService;
+        }
+
+        public IndexViewModel GetIndexViewModel(string searchStr, int? page) {
+            int pageSize = 20;
+            int pageNumber = page ?? 1;
+            var blogs = _blogService.GetBlogs(searchStr ?? string.Empty);
+
+            return new IndexViewModel {
+                Blogs = new StaticPagedList<Blog>(blogs.Skip((pageNumber - 1) * pageSize), pageNumber, pageSize, blogs.Count()),
+                SearchString = searchStr,
+                PageNumber = pageNumber
+            };
         }
 
         public async Task<Blog> CreateBlog(CreateViewModel createViewModel, ClaimsPrincipal claimsPrincipal) {

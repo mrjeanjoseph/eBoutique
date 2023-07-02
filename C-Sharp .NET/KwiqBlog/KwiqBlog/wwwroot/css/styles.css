@@ -91,6 +91,10 @@
   }
 }
 
+.content {
+    min-height: calc(100vh - 100px);
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);

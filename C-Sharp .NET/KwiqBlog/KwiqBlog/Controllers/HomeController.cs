@@ -1,4 +1,6 @@
-﻿using KwiqBlog.Models;
+﻿using KwiqBlog.BusinessManagers;
+using KwiqBlog.BusinessManagers.Interfaces;
+using KwiqBlog.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,22 +13,18 @@ namespace KwiqBlog.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IBlogBusinessManager _blogBusinessManager;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IBlogBusinessManager blogBusinessManager)
         {
-            _logger = logger;
+            _blogBusinessManager = blogBusinessManager;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchStr, int ? page)
         {
-            return View();
-        }
+            var blogResult = _blogBusinessManager.GetIndexViewModel(searchStr, page);
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(blogResult);
         }
     }
 }

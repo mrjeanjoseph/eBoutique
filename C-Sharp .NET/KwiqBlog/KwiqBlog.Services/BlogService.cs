@@ -18,6 +18,15 @@ namespace KwiqBlog.Services {
             return _appDbContext.Blogs.FirstOrDefault(b => b.Id == blogId);
         }
 
+        public IEnumerable<Blog> GetBlogs(string searchString) {
+            return _appDbContext.Blogs
+                .OrderByDescending(b => b.UpdatedDate)
+                .Include(b => b.BlogCreator)
+                .Include(b => b.Posts)
+                .Where(b => b.Title.Contains(searchString) 
+                || b.Content.Contains(searchString));
+        }
+
         public IEnumerable<Blog> GetBlogs(ApplicationUser appUser) {
             return _appDbContext.Blogs
                 .Include(blog => blog.BlogCreator)
