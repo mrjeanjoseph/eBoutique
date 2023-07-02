@@ -11,12 +11,12 @@ namespace KwiqBlog.BusinessManagers
     public class AdminBusinessManager : IAdminBusinessManager
     {
         private UserManager<ApplicationUser> _userManager;
-        private IPostService _blogService;
+        private IPostService _postService;
 
-        public AdminBusinessManager(UserManager<ApplicationUser> userManager, IPostService blogService)
+        public AdminBusinessManager(UserManager<ApplicationUser> userManager, IPostService postService)
         {
             _userManager = userManager;
-            _blogService = blogService;
+            _postService = postService;
         }
         public async Task<IndexViewModel> GetAdminDashboard(ClaimsPrincipal claimsPrincipal)
         {
@@ -24,7 +24,7 @@ namespace KwiqBlog.BusinessManagers
 
             return new IndexViewModel
             {
-                Blogs = _blogService.GetBlogs(applicationUser),
+                Posts = _postService.GetPosts(applicationUser),
             };
         }
     }

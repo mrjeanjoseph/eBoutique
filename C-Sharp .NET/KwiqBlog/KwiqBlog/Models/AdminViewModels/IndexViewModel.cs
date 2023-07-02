@@ -6,6 +6,6 @@ namespace KwiqBlog.Models.AdminViewModels
 {
     public class IndexViewModel
     {
-        public IEnumerable<Post> Blogs { get; set; }
+        public IEnumerable<Post> Posts { get; set; }
     }
 }

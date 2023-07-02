@@ -1,14 +1,14 @@
 ﻿using KwiqBlog.BusinessManagers.Interfaces;
-using KwiqBlog.Models.BlogViewModels;
+using KwiqBlog.Models.PostViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace KwiqBlog.Controllers {
-    public class BlogController : Controller {
-        private readonly IBlogBusinessManager _blogBusinessManager;
+    public class PostController : Controller {
+        private readonly IPostBusinessManager _postBusinessManager;
 
-        public BlogController(IBlogBusinessManager blogBusinessManager) {
-            _blogBusinessManager = blogBusinessManager;
+        public PostController(IPostBusinessManager postBusinessManager) {
+            _postBusinessManager = postBusinessManager;
         }
         public IActionResult Index() {
             return View();
@@ -19,7 +19,7 @@ namespace KwiqBlog.Controllers {
         }
 
         public async Task<IActionResult> Edit(int? id) {
-            var editResult = await _blogBusinessManager.GetEditViewModel(id, User);
+            var editResult = await _postBusinessManager.GetEditViewModel(id, User);
             if (editResult.Result is null)
                 return View(editResult.Value);
 
@@ -28,13 +28,13 @@ namespace KwiqBlog.Controllers {
 
         [HttpPost]
         public async Task<IActionResult> Add(CreateViewModel viewModel) {
-            await _blogBusinessManager.CreateBlog(viewModel, User);
+            await _postBusinessManager.CreatePost(viewModel, User);
             return RedirectToAction("Index");
         }
 
         [HttpPost]
         public async Task<IActionResult> Update(EditViewModel viewModel) {
-            var updateResult =  await _blogBusinessManager.UpdateBlog(viewModel, User);
+            var updateResult =  await _postBusinessManager.UpdatePost(viewModel, User);
 
             if (updateResult.Result is null)
                 return RedirectToAction("Index");

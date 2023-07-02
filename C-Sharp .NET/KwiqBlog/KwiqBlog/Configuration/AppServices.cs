@@ -34,7 +34,7 @@ namespace KwiqBlog.Configuration
 
         public static void AddCustomServices(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddScoped<IBlogBusinessManager, BlogBusinessManager>();
+            serviceCollection.AddScoped<IPostBusinessManager, PostBusinessManager>();
 
             serviceCollection.AddScoped<IAdminBusinessManager, AdminBusinessManager>();
 
@@ -43,7 +43,7 @@ namespace KwiqBlog.Configuration
         }
 
         public static void AddCustomAuthorization(this IServiceCollection serviceCollection) {
-            serviceCollection.AddTransient<IAuthorizationHandler, BlogAuthHandler>();
+            serviceCollection.AddTransient<IAuthorizationHandler, PostAuthHandler>();
         }
     }
 }

@@ -1,14 +1,13 @@
 ﻿using KwiqBlog.Authorization;
 using KwiqBlog.BusinessManagers.Interfaces;
 using KwiqBlog.Data.Models;
-using KwiqBlog.Models.BlogViewModels;
 using KwiqBlog.Models.HomeViewModels;
+using KwiqBlog.Models.PostViewModels;
 using KwiqBlog.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using PagedList;
 using PagedList.Core;
 using System;
 using System.IO;
@@ -17,19 +16,19 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace KwiqBlog.BusinessManagers {
-    public class BlogBusinessManager : IBlogBusinessManager {
+    public class PostBusinessManager : IPostBusinessManager {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IPostService _blogService;
+        private readonly IPostService _postService;
         private readonly IWebHostEnvironment _webHostEnv;
         private readonly IAuthorizationService _authService;
 
-        public BlogBusinessManager(
+        public PostBusinessManager(
             UserManager<ApplicationUser> userManager, 
-            IPostService blogService, 
+            IPostService postService, 
             IWebHostEnvironment webHostEnv, 
             IAuthorizationService authService) {
             _userManager = userManager;
-            _blogService = blogService;
+            _postService = postService;
             _webHostEnv = webHostEnv;
             _authService = authService;
         }
@@ -37,64 +36,64 @@ namespace KwiqBlog.BusinessManagers {
         public IndexViewModel GetIndexViewModel(string str, int? page) {
             int pageSize = 4;
             int pageNumber = page ?? 1;
-            var blogs = _blogService.GetBlogs(str ?? string.Empty)
+            var posts = _postService.GetPosts(str ?? string.Empty)
                 .Where(b => b.Published);
 
             return new IndexViewModel {
-                Blogs = new StaticPagedList<Post>(blogs.Skip((pageNumber - 1) * pageSize).Take(pageSize), pageNumber, pageSize, blogs.Count()),
+                Posts = new StaticPagedList<Post>(posts.Skip((pageNumber - 1) * pageSize).Take(pageSize), pageNumber, pageSize, posts.Count()),
                 SearchString = str,
                 PageNumber = pageNumber
             };
         }
 
-        public async Task<Post> CreateBlog(CreateViewModel createViewModel, ClaimsPrincipal claimsPrincipal) {
-            Post createdBlog = createViewModel.Blog;
+        public async Task<Post> CreatePost(CreateViewModel createViewModel, ClaimsPrincipal claimsPrincipal) {
+            Post createdPost = createViewModel.Post;
 
-            createdBlog.BlogCreator = await _userManager.GetUserAsync(claimsPrincipal);
-            createdBlog.CreatedDate = DateTime.UtcNow;
-            createdBlog.UpdatedDate = DateTime.UtcNow;
+            createdPost.PostCreator = await _userManager.GetUserAsync(claimsPrincipal);
+            createdPost.CreatedDate = DateTime.UtcNow;
+            createdPost.UpdatedDate = DateTime.UtcNow;
 
-            createdBlog = await _blogService.Add(createdBlog);
+            createdPost = await _postService.Add(createdPost);
 
             string webRootPath = _webHostEnv.WebRootPath;
-            string pathToImg = $@"{webRootPath}\UserFiles\Blogs\{createdBlog.Id}\HeaderImg.png";
+            string pathToImg = $@"{webRootPath}\UserFiles\Posts\{createdPost.Id}\HeaderImg.png";
 
             DoesFolderExist(pathToImg);
 
             using (var fileSystem = new FileStream(pathToImg, FileMode.Create)) {
-                await createViewModel.BlogHeaderImg.CopyToAsync(fileSystem);
+                await createViewModel.HeaderImg.CopyToAsync(fileSystem);
             }
-            return createdBlog;
+            return createdPost;
         }
 
-        public async Task<ActionResult<EditViewModel>> UpdateBlog(EditViewModel editViewModel, ClaimsPrincipal claimsPrincipal) {
-            var updatedBlog = _blogService.GetBlog(editViewModel.Blog.Id);
+        public async Task<ActionResult<EditViewModel>> UpdatePost(EditViewModel editViewModel, ClaimsPrincipal claimsPrincipal) {
+            var updatedPost = _postService.GetPost(editViewModel.Post.Id);
 
-            if (updatedBlog is null)
+            if (updatedPost is null)
                 return new NotFoundResult();
-            var authResult = await _authService.AuthorizeAsync(claimsPrincipal, updatedBlog, BlogOperations.Update);
+            var authResult = await _authService.AuthorizeAsync(claimsPrincipal, updatedPost, PostOperations.Update);
             if (!authResult.Succeeded) return CheckeActionResult(claimsPrincipal);
 
-            updatedBlog.Published = editViewModel.Blog.Published;
-            updatedBlog.Title = editViewModel.Blog.Title;
-            updatedBlog.Content = editViewModel.Blog.Content;
-            updatedBlog.UpdatedDate = DateTime.UtcNow;
+            updatedPost.Published = editViewModel.Post.Published;
+            updatedPost.Title = editViewModel.Post.Title;
+            updatedPost.Content = editViewModel.Post.Content;
+            updatedPost.UpdatedDate = DateTime.UtcNow;
 
             //Header img is option, so we will check if they want to upload a new img
-            if (editViewModel.BlogHeaderImg != null) {
+            if (editViewModel.HeaderImg != null) {
                 string webRootPath = _webHostEnv.WebRootPath;
-                string pathToImg = $@"{webRootPath}\UserFiles\Blogs\{updatedBlog.Id}\HeaderImg.png";
+                string pathToImg = $@"{webRootPath}\UserFiles\Posts\{updatedPost.Id}\HeaderImg.png";
 
                 DoesFolderExist(pathToImg);
                 using (var fileSystem = new FileStream(pathToImg, FileMode.Create)) {
-                    await editViewModel.BlogHeaderImg.CopyToAsync(fileSystem);
+                    await editViewModel.HeaderImg.CopyToAsync(fileSystem);
                 }
 
             }
 
             //If we make it this far
             return new EditViewModel {
-                Blog = await _blogService.Update(updatedBlog)
+                Post = await _postService.Update(updatedPost)
             };
 
         }
@@ -103,17 +102,17 @@ namespace KwiqBlog.BusinessManagers {
             if (id is null)
                 return new BadRequestResult();
 
-            var blogId = id.Value;
-            var blog = _blogService.GetBlog(blogId);
-            if (blog == null)
+            var postId = id.Value;
+            var post = _postService.GetPost(postId);
+            if (post == null)
                 return new NotFoundResult();
 
-            var authResult = await _authService.AuthorizeAsync(claimsPrincipal, blog, BlogOperations.Update);
+            var authResult = await _authService.AuthorizeAsync(claimsPrincipal, post, PostOperations.Update);
 
             if (!authResult.Succeeded) return CheckeActionResult(claimsPrincipal);
 
             return new EditViewModel {
-                Blog = blog,
+                Post = post,
             };
         }
 

@@ -2,7 +2,7 @@
 
 namespace KwiqBlog.Authorization
 {
-    public static class BlogOperations
+    public static class PostOperations
     {
         public static OperationAuthorizationRequirement Create = new OperationAuthorizationRequirement { Name = nameof(Create)};
         public static OperationAuthorizationRequirement Read = new OperationAuthorizationRequirement { Name = nameof(Read) };

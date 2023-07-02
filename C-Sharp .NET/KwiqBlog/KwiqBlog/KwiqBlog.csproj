@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Authorization\NewFolder\" />
+    <Folder Include="wwwroot\UserFiles\" />
   </ItemGroup>
 
 </Project>
