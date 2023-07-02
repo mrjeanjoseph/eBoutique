@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace KwiqBlog.Services.Interfaces
-{
-    public interface IBlogService
-    {
-        Task<Blog> Add(Blog blog);
-        IEnumerable<Blog> GetBlogs(ApplicationUser appUser);
+namespace KwiqBlog.Services.Interfaces {
+    public interface IBlogService {
         Blog GetBlog(int blogId);
+
+        IEnumerable<Blog> GetBlogs(ApplicationUser appUser);
+
+        Task<Blog> Add(Blog blog);
+
+        Task<Blog> Update(Blog blog);
     }
 }

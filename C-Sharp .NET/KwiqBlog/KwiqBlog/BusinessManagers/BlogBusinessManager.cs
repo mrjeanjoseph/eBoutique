@@ -47,6 +47,38 @@ namespace KwiqBlog.BusinessManagers {
             return createdBlog;
         }
 
+        public async Task<ActionResult<EditViewModel>> UpdateBlog(EditViewModel editViewModel, ClaimsPrincipal claimsPrincipal) {
+            var updatedBlog = _blogService.GetBlog(editViewModel.Blog.Id);
+
+            if (updatedBlog is null)
+                return new NotFoundResult();
+            var authResult = await _authService.AuthorizeAsync(claimsPrincipal, updatedBlog, BlogOperations.Update);
+            if (!authResult.Succeeded) return CheckeActionResult(claimsPrincipal);
+
+            updatedBlog.Published = editViewModel.Blog.Published;
+            updatedBlog.Title = editViewModel.Blog.Title;
+            updatedBlog.Content = editViewModel.Blog.Content;
+            updatedBlog.UpdatedDate = DateTime.UtcNow;
+
+            //Header img is option, so we will check if they want to upload a new img
+            if (editViewModel.BlogHeaderImg != null) {
+                string webRootPath = _webHostEnv.WebRootPath;
+                string pathToImg = $@"{webRootPath}\UserFiles\Blogs\{updatedBlog.Id}\HeaderImg.png";
+
+                DoesFolderExist(pathToImg);
+                using (var fileSystem = new FileStream(pathToImg, FileMode.Create)) {
+                    await editViewModel.BlogHeaderImg.CopyToAsync(fileSystem);
+                }
+
+            }
+
+            //If we make it this far
+            return new EditViewModel {
+                Blog = await _blogService.Update(updatedBlog)
+            };
+
+        }
+
         public async Task<ActionResult<EditViewModel>> GetEditViewModel(int? id, ClaimsPrincipal claimsPrincipal) {
             if (id is null)
                 return new BadRequestResult();
@@ -57,16 +89,19 @@ namespace KwiqBlog.BusinessManagers {
                 return new NotFoundResult();
 
             var authResult = await _authService.AuthorizeAsync(claimsPrincipal, blog, BlogOperations.Update);
-            if (!authResult.Succeeded) {
-                if (claimsPrincipal.Identity.IsAuthenticated)
-                    return new ForbidResult();
-                else
-                    return new ChallengeResult();
-            }
+
+            if (!authResult.Succeeded) return CheckeActionResult(claimsPrincipal);
 
             return new EditViewModel {
                 Blog = blog,
             };
+        }
+
+        private ActionResult CheckeActionResult(ClaimsPrincipal claimsPrincipal) {
+            if (claimsPrincipal.Identity.IsAuthenticated)
+                return new ForbidResult();
+            else
+                return new ChallengeResult();
         }
 
         private void DoesFolderExist(string folderPath) {

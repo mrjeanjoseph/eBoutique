@@ -27,9 +27,19 @@ namespace KwiqBlog.Controllers {
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(CreateViewModel createblogViewModel) {
-            await _blogBusinessManager.CreateBlog(createblogViewModel, User);
-            return RedirectToAction("Create");
+        public async Task<IActionResult> Add(CreateViewModel viewModel) {
+            await _blogBusinessManager.CreateBlog(viewModel, User);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(EditViewModel viewModel) {
+            var updateResult =  await _blogBusinessManager.UpdateBlog(viewModel, User);
+
+            if (updateResult.Result is null)
+                return RedirectToAction("Edit", new { viewModel.Blog.Id });
+
+            return updateResult.Result;
         }
     }
 }

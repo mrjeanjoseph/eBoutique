@@ -43,7 +43,7 @@ namespace KwiqBlog.Configuration
         }
 
         public static void AddCustomAuthorization(this IServiceCollection serviceCollection) {
-            serviceCollection.AddSingleton<IAuthorizationHandler, BlogAuthHandler>();
+            serviceCollection.AddTransient<IAuthorizationHandler, BlogAuthHandler>();
         }
     }
 }
