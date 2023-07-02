@@ -9,6 +9,6 @@ namespace KwiqBlog.Models.BlogViewModels
     {
         [Display(Name = "Header Image")]
         public IFormFile BlogHeaderImg { get; set; }
-        public Blog Blog { get; set; }
+        public Post Blog { get; set; }
     }
 }

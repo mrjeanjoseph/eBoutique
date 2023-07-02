@@ -19,13 +19,13 @@ using System.Threading.Tasks;
 namespace KwiqBlog.BusinessManagers {
     public class BlogBusinessManager : IBlogBusinessManager {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IBlogService _blogService;
+        private readonly IPostService _blogService;
         private readonly IWebHostEnvironment _webHostEnv;
         private readonly IAuthorizationService _authService;
 
         public BlogBusinessManager(
             UserManager<ApplicationUser> userManager, 
-            IBlogService blogService, 
+            IPostService blogService, 
             IWebHostEnvironment webHostEnv, 
             IAuthorizationService authService) {
             _userManager = userManager;
@@ -41,14 +41,14 @@ namespace KwiqBlog.BusinessManagers {
                 .Where(b => b.Published);
 
             return new IndexViewModel {
-                Blogs = new StaticPagedList<Blog>(blogs.Skip((pageNumber - 1) * pageSize).Take(pageSize), pageNumber, pageSize, blogs.Count()),
+                Blogs = new StaticPagedList<Post>(blogs.Skip((pageNumber - 1) * pageSize).Take(pageSize), pageNumber, pageSize, blogs.Count()),
                 SearchString = str,
                 PageNumber = pageNumber
             };
         }
 
-        public async Task<Blog> CreateBlog(CreateViewModel createViewModel, ClaimsPrincipal claimsPrincipal) {
-            Blog createdBlog = createViewModel.Blog;
+        public async Task<Post> CreateBlog(CreateViewModel createViewModel, ClaimsPrincipal claimsPrincipal) {
+            Post createdBlog = createViewModel.Blog;
 
             createdBlog.BlogCreator = await _userManager.GetUserAsync(claimsPrincipal);
             createdBlog.CreatedDate = DateTime.UtcNow;

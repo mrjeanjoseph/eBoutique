@@ -11,9 +11,9 @@ namespace KwiqBlog.BusinessManagers
     public class AdminBusinessManager : IAdminBusinessManager
     {
         private UserManager<ApplicationUser> _userManager;
-        private IBlogService _blogService;
+        private IPostService _blogService;
 
-        public AdminBusinessManager(UserManager<ApplicationUser> userManager, IBlogService blogService)
+        public AdminBusinessManager(UserManager<ApplicationUser> userManager, IPostService blogService)
         {
             _userManager = userManager;
             _blogService = blogService;

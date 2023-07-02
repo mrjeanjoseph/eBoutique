@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KwiqBlog.Authorization
 {
-    public class BlogAuthHandler : AuthorizationHandler<OperationAuthorizationRequirement, Blog>
+    public class BlogAuthHandler : AuthorizationHandler<OperationAuthorizationRequirement, Post>
     {
         private readonly UserManager<ApplicationUser> _userManager;
 
@@ -14,7 +14,7 @@ namespace KwiqBlog.Authorization
         {
             _userManager = userManager;
         }
-        protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, OperationAuthorizationRequirement requirement, Blog resource)
+        protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, OperationAuthorizationRequirement requirement, Post resource)
         {
             var applicationUser = await _userManager.GetUserAsync(context.User);
             if((requirement.Name == BlogOperations.Update.Name || requirement.Name == BlogOperations.Delete.Name) && applicationUser == resource.BlogCreator)
