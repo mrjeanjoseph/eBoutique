@@ -10,8 +10,8 @@ namespace KwiqBlog.BusinessManagers
 {
     public class AdminBusinessManager : IAdminBusinessManager
     {
-        private UserManager<ApplicationUser> _userManager;
-        private IPostService _postService;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IPostService _postService;
 
         public AdminBusinessManager(UserManager<ApplicationUser> userManager, IPostService postService)
         {
