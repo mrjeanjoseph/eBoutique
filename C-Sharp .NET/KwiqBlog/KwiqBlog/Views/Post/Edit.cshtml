@@ -6,9 +6,9 @@
         <div class="col-lg-6">
             <div class="card mb-4">
 
-                <form asp-controller="Blog" asp-action="Update" method="post" enctype="multipart/form-data">
+                <form asp-controller="Post" asp-action="Update" method="post" enctype="multipart/form-data">
                     <input asp-for="Post.Id" readonly hidden />
-                    <div class="card-header"><i class="fas fa-pen-fancy mr-1"></i>Edit this Blog</div>
+                    <div class="card-header"><i class="fas fa-pen-fancy mr-1"></i>Edit this Post</div>
                     <div class="card-body">
                         <div class="form-group">
                             <label asp-for="HeaderImg"></label>
