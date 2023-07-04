@@ -3,6 +3,7 @@ using KwiqBlog.Data.Models;
 using KwiqBlog.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +13,11 @@ namespace KwiqBlog.Services {
 
         public UserService(ApplicationDbContext appDbContext) {
             _appDbContext = appDbContext;
+        }
+
+        public ApplicationUser Get(string id) {
+            return _appDbContext.Users
+                .FirstOrDefault(u => u.Id == id);
         }
 
         public async Task<ApplicationUser> Update(ApplicationUser appUser) {

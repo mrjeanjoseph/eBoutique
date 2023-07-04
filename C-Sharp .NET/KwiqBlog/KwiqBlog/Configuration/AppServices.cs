@@ -12,12 +12,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 
-namespace KwiqBlog.Configuration
-{
-    public static class AppServices
-    {
-        public static void AddDefaultServices(this IServiceCollection serviceCollection, IConfiguration configuration)
-        {
+namespace KwiqBlog.Configuration {
+    public static class AppServices {
+        public static void AddDefaultServices(this IServiceCollection serviceCollection, IConfiguration configuration) {
             serviceCollection.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConn")));
@@ -32,14 +29,12 @@ namespace KwiqBlog.Configuration
             serviceCollection.AddSingleton<IFileProvider>(new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
         }
 
-        public static void AddCustomServices(this IServiceCollection serviceCollection)
-        {
+        public static void AddCustomServices(this IServiceCollection serviceCollection) {
             serviceCollection.AddScoped<IPostBusinessManager, PostBusinessManager>();
-
             serviceCollection.AddScoped<IAdminBusinessManager, AdminBusinessManager>();
+            serviceCollection.AddScoped<IHomeBusinessManager, HomeBusinessManager>();
 
             serviceCollection.AddScoped<IPostService, PostService>();
-
             serviceCollection.AddScoped<IUserService, UserService>();
         }
 

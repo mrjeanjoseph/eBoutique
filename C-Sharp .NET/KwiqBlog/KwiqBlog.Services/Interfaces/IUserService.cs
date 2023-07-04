@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace KwiqBlog.Services.Interfaces {
     public interface IUserService {
+
+        public ApplicationUser Get(string id);
         Task<ApplicationUser> Update(ApplicationUser appUser);
 
     }
