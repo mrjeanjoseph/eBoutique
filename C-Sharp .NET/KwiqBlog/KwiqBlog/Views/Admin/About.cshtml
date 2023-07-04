@@ -1,7 +1,7 @@
 ﻿@model KwiqBlog.Models.AdminViewModels.AboutViewModel
 
 <div class="container-fluid">
-    <h1 class="mt-4">About Info</h1>
+    <h1 class="mt-4">About Me</h1>
     <div class="row">
         <div class="col-lg-6">
             <div class="card mb-4">
@@ -32,7 +32,7 @@
                     <div class="card-footer">
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">Submit</button>
-                            <a asp-controller="Home" asp-action="Author" asp-route-AuthorId="@Model.AppUser.Id" class="btn btn-secondary float-right">View</a>
+                            <a asp-controller="Home" asp-action="Author" asp-route-authorId="@Model.AppUser.Id" class="btn btn-secondary float-right">View</a>
                         </div>
                     </div>
                 </form>

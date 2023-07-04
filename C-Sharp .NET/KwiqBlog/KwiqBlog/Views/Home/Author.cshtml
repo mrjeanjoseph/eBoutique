@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="row col-lg-8 col-md-10 mx-auto">
-            <form asp-controller="Home" asp-action="AboutAuthor" class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+            <form asp-controller="Home" asp-action="Author" class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group mb-3">
                     <input name="AuthorId" hidden readonly value="@Model.Author.Id" />
                     <input type="text" asp-for="SearchString" class="form-control" placeholder="Search posts for...+" />
@@ -42,12 +42,13 @@
                 }
             </div>
 
-            <pager class="pager-container"
-                   list="@Model.Posts"
-                   options="@PagedListRenderOptions.Bootstrap4PageNumbersPlusFirstAndLast"
-                   asp-action="Index"
-                   asp-controller="Home"
-                   asp-route-query="@Model.SearchString" />
+            <div list="@Model.Posts" count="20">
+                <pager class="pager-container"
+                       list="@Model.Posts"
+                       options="@PagedListRenderOptions.Bootstrap4PageNumbersPlusFirstAndLast"
+                       asp-action="Index"
+                       asp-controller="Home"
+                       asp-route-query="@Model.SearchString" />
+            </div>
         </div>
-    </div>
 </article>

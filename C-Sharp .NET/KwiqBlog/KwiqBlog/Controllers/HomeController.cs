@@ -17,7 +17,7 @@ namespace KwiqBlog.Controllers {
             return View(_postBusinessManager.GetIndexViewModel(searchStr, page));
         }
 
-        public IActionResult AboutAuthor(string authorId, string str, int? page) {
+        public IActionResult Author(string authorId, string str, int? page) {
             var actionResult = _homeBusinessManager.GetAuthorViewModel(authorId, str, page);
 
             if(actionResult.Result is null) return View(actionResult.Value);
