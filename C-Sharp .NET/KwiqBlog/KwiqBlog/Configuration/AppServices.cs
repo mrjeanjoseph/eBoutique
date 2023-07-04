@@ -38,8 +38,9 @@ namespace KwiqBlog.Configuration
 
             serviceCollection.AddScoped<IAdminBusinessManager, AdminBusinessManager>();
 
-
             serviceCollection.AddScoped<IPostService, PostService>();
+
+            serviceCollection.AddScoped<IUserService, UserService>();
         }
 
         public static void AddCustomAuthorization(this IServiceCollection serviceCollection) {
