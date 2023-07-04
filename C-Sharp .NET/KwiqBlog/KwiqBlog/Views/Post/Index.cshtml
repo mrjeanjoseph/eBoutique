@@ -1,11 +1,12 @@
 ﻿@model KwiqBlog.Models.PostViewModels.PostViewModel
 
 @{
-    Layout = "_ReadLayout";
+    Layout = "_HomeLayout";
     ViewData["HeaderImg"] = $"../../UserFiles/Posts/{Model.Post.Id}/HeaderImg.png";
     ViewData["HeaderTitle"] = Model.Post.Title;
     ViewData["AuthorName"] = $"{Model.Post.PostCreator.FirstName} {Model.Post.PostCreator.LastName}";
     ViewData["PostDate"] = Model.Post.UpdatedDate.ToString("MMM d, yyyy");
+    ViewData["AuthorId"] = Model.Post.PostCreator.Id;
 }
 
 <article>
