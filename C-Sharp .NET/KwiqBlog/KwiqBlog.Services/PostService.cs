@@ -1,10 +1,10 @@
-﻿using KwiqBlog.Data;
-using KwiqBlog.Data.Models;
+﻿using Microsoft.EntityFrameworkCore;
 using KwiqBlog.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using KwiqBlog.Data.Models;
+using KwiqBlog.Data;
+using System.Linq;
 
 namespace KwiqBlog.Services {
     public class PostService : IPostService {
@@ -15,7 +15,13 @@ namespace KwiqBlog.Services {
         }
 
         public Post GetPost(int postId) {
-            return _appDbContext.Posts.FirstOrDefault(b => b.Id == postId);
+            return _appDbContext.Posts
+                .Include(p => p.PostCreator)
+                .Include(p => p.Comments)
+                    .ThenInclude(c => c.Commentor)
+                .Include(p => p.Comments)
+                    .ThenInclude(c => c.Comments)
+                .FirstOrDefault(b => b.Id == postId);
         }
 
         public IEnumerable<Post> GetPosts(string str) {

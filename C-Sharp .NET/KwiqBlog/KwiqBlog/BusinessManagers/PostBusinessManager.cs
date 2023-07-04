@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using PagedList.Core;
-using System;
-using System.IO;
-using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Security.Claims;
+using PagedList.Core;
+using System.Linq;
+using System.IO;
+using System;
 
 namespace KwiqBlog.BusinessManagers {
     public class PostBusinessManager : IPostBusinessManager {
@@ -23,9 +23,9 @@ namespace KwiqBlog.BusinessManagers {
         private readonly IAuthorizationService _authService;
 
         public PostBusinessManager(
-            UserManager<ApplicationUser> userManager, 
-            IPostService postService, 
-            IWebHostEnvironment webHostEnv, 
+            UserManager<ApplicationUser> userManager,
+            IPostService postService,
+            IWebHostEnvironment webHostEnv,
             IAuthorizationService authService) {
             _userManager = userManager;
             _postService = postService;
@@ -34,7 +34,7 @@ namespace KwiqBlog.BusinessManagers {
         }
 
         public IndexViewModel GetIndexViewModel(string str, int? page) {
-            int pageSize = 4;
+            int pageSize = 20;
             int pageNumber = page ?? 1;
             var posts = _postService.GetPosts(str ?? string.Empty)
                 .Where(b => b.Published);
@@ -43,6 +43,25 @@ namespace KwiqBlog.BusinessManagers {
                 Posts = new StaticPagedList<Post>(posts.Skip((pageNumber - 1) * pageSize).Take(pageSize), pageNumber, pageSize, posts.Count()),
                 SearchString = str,
                 PageNumber = pageNumber
+            };
+        }
+
+        public async Task<ActionResult<PostViewModel>> GetPostViewModel(int? id, ClaimsPrincipal claimsPrincipal) {
+            if (id is null) return new BadRequestResult();
+
+            var postId = id.Value;
+            var post = _postService.GetPost(postId);
+
+            if (post is null) return new NotFoundResult();
+
+            if (!post.Published) {
+                var authResult = await _authService.AuthorizeAsync(claimsPrincipal, post, PostOperations.Read);
+
+                if (!authResult.Succeeded) return CheckeActionResult(claimsPrincipal);
+            }
+
+            return new PostViewModel {
+                Post = post,
             };
         }
 

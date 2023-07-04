@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System;
 
-namespace KwiqBlog.Data.Models
-{
-    public class Post
-    {
+namespace KwiqBlog.Data.Models {
+    public class Post {
         public int Id { get; set; }
         public ApplicationUser PostCreator { get; set; }
 
