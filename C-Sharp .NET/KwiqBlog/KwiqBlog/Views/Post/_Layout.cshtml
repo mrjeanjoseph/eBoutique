@@ -40,6 +40,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
     @*<environment names="Development">@RenderSection("Scripts", required: false)</environment>*@
+    @*@RenderSection("Scripts", required: false);*@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
