@@ -9,12 +9,14 @@ namespace KwiqBlog.BusinessManagers.Interfaces {
     public interface IPostBusinessManager {
         IndexViewModel GetIndexViewModel(string searchStr, int? page);
 
-        Task<ActionResult<PostViewModel>> GetPostViewModel(int? id, ClaimsPrincipal claimsPrincipal);
+        Task<ActionResult<PostViewModel>> GetPostViewModel(int? id, ClaimsPrincipal principal);
 
-        Task<Post> CreatePost(CreateViewModel createViewModel, ClaimsPrincipal claimsPrincipal);
+        Task<Post> CreatePost(CreateViewModel viewModel, ClaimsPrincipal principal);
 
-        Task<ActionResult<EditViewModel>> UpdatePost(EditViewModel editViewModel, ClaimsPrincipal claimsPrincipal);
+        Task<ActionResult<Comment>> CreateComment(PostViewModel viewModel, ClaimsPrincipal principal);
 
-        Task<ActionResult<EditViewModel>> GetEditViewModel(int? id, ClaimsPrincipal claimsPrincipal);
+        Task<ActionResult<EditViewModel>> UpdatePost(EditViewModel viewModel, ClaimsPrincipal principal);
+
+        Task<ActionResult<EditViewModel>> GetEditViewModel(int? id, ClaimsPrincipal principal);
     }
 }

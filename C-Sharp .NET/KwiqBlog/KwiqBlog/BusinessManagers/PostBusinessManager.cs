@@ -46,7 +46,7 @@ namespace KwiqBlog.BusinessManagers {
             };
         }
 
-        public async Task<ActionResult<PostViewModel>> GetPostViewModel(int? id, ClaimsPrincipal claimsPrincipal) {
+        public async Task<ActionResult<PostViewModel>> GetPostViewModel(int? id, ClaimsPrincipal principal) {
             if (id is null) return new BadRequestResult();
 
             var postId = id.Value;
@@ -55,9 +55,9 @@ namespace KwiqBlog.BusinessManagers {
             if (post is null) return new NotFoundResult();
 
             if (!post.Published) {
-                var authResult = await _authService.AuthorizeAsync(claimsPrincipal, post, PostOperations.Read);
+                var authResult = await _authService.AuthorizeAsync(principal, post, PostOperations.Read);
 
-                if (!authResult.Succeeded) return CheckeActionResult(claimsPrincipal);
+                if (!authResult.Succeeded) return CheckeActionResult(principal);
             }
 
             return new PostViewModel {
@@ -65,10 +65,10 @@ namespace KwiqBlog.BusinessManagers {
             };
         }
 
-        public async Task<Post> CreatePost(CreateViewModel createViewModel, ClaimsPrincipal claimsPrincipal) {
+        public async Task<Post> CreatePost(CreateViewModel createViewModel, ClaimsPrincipal principal) {
             Post createdPost = createViewModel.Post;
 
-            createdPost.PostCreator = await _userManager.GetUserAsync(claimsPrincipal);
+            createdPost.PostCreator = await _userManager.GetUserAsync(principal);
             createdPost.CreatedDate = DateTime.UtcNow;
             createdPost.UpdatedDate = DateTime.UtcNow;
 
@@ -85,13 +85,31 @@ namespace KwiqBlog.BusinessManagers {
             return createdPost;
         }
 
-        public async Task<ActionResult<EditViewModel>> UpdatePost(EditViewModel editViewModel, ClaimsPrincipal claimsPrincipal) {
+        public async Task<ActionResult<Comment>> CreateComment(PostViewModel viewModel, ClaimsPrincipal principal) {
+            if (viewModel.Post is null || viewModel.Post.Id == 0) return new BadRequestResult();
+
+            var post = _postService.GetPost(viewModel.Post.Id);
+
+            if(post is null) return new NotFoundResult();
+
+            var comment = viewModel.Comment;
+
+            comment.Commentor = await _userManager.GetUserAsync(principal);
+            comment.Post = post;
+            comment.CreateDate = DateTime.Now;
+
+            if(comment.Parent != null) comment.Parent = _postService.GetComment(comment.Parent.Id);
+
+            return await _postService.Add(comment);
+        }
+
+        public async Task<ActionResult<EditViewModel>> UpdatePost(EditViewModel editViewModel, ClaimsPrincipal principal) {
             var updatedPost = _postService.GetPost(editViewModel.Post.Id);
 
             if (updatedPost is null)
                 return new NotFoundResult();
-            var authResult = await _authService.AuthorizeAsync(claimsPrincipal, updatedPost, PostOperations.Update);
-            if (!authResult.Succeeded) return CheckeActionResult(claimsPrincipal);
+            var authResult = await _authService.AuthorizeAsync(principal, updatedPost, PostOperations.Update);
+            if (!authResult.Succeeded) return CheckeActionResult(principal);
 
             updatedPost.Published = editViewModel.Post.Published;
             updatedPost.Title = editViewModel.Post.Title;
@@ -117,7 +135,7 @@ namespace KwiqBlog.BusinessManagers {
 
         }
 
-        public async Task<ActionResult<EditViewModel>> GetEditViewModel(int? id, ClaimsPrincipal claimsPrincipal) {
+        public async Task<ActionResult<EditViewModel>> GetEditViewModel(int? id, ClaimsPrincipal principal) {
             if (id is null)
                 return new BadRequestResult();
 
@@ -126,17 +144,17 @@ namespace KwiqBlog.BusinessManagers {
             if (post == null)
                 return new NotFoundResult();
 
-            var authResult = await _authService.AuthorizeAsync(claimsPrincipal, post, PostOperations.Update);
+            var authResult = await _authService.AuthorizeAsync(principal, post, PostOperations.Update);
 
-            if (!authResult.Succeeded) return CheckeActionResult(claimsPrincipal);
+            if (!authResult.Succeeded) return CheckeActionResult(principal);
 
             return new EditViewModel {
                 Post = post,
             };
         }
 
-        private ActionResult CheckeActionResult(ClaimsPrincipal claimsPrincipal) {
-            if (claimsPrincipal.Identity.IsAuthenticated)
+        private ActionResult CheckeActionResult(ClaimsPrincipal principal) {
+            if (principal.Identity.IsAuthenticated)
                 return new ForbidResult();
             else
                 return new ChallengeResult();

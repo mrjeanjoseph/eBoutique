@@ -52,5 +52,14 @@ namespace KwiqBlog.Controllers {
 
             return updateResult.Result;
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Comment(PostViewModel viewModel) {
+            var commentResult = await _postBusinessManager.CreateComment(viewModel, User);
+
+            if(commentResult.Result is null) return RedirectToAction("Index", new {viewModel.Post.Id});
+
+            return commentResult.Result;
+        }
     }
 }

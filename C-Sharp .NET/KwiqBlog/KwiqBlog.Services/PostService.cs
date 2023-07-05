@@ -21,6 +21,7 @@ namespace KwiqBlog.Services {
                     .ThenInclude(c => c.Commentor)
                 .Include(p => p.Comments)
                     .ThenInclude(c => c.Comments)
+                        .ThenInclude(r => r.Parent)
                 .FirstOrDefault(b => b.Id == postId);
         }
 
@@ -29,8 +30,16 @@ namespace KwiqBlog.Services {
                 .OrderByDescending(p => p.UpdatedDate)
                 .Include(p => p.PostCreator)
                 .Include(p => p.Comments)
-                .Where(p => p.Title.Contains(str) 
+                .Where(p => p.Title.Contains(str)
                 || p.Content.Contains(str));
+        }
+
+        public Comment GetComment(int commentId) {
+            return _appDbContext.Comments
+                .Include(c => c.Commentor)
+                .Include(c => c.Post)
+                .Include(c => c.Parent)
+                .FirstOrDefault(c => c.Id == commentId);
         }
 
         public IEnumerable<Post> GetPosts(ApplicationUser appUser) {
@@ -45,6 +54,11 @@ namespace KwiqBlog.Services {
             _appDbContext.Add(post);
             await _appDbContext.SaveChangesAsync();
             return post;
+        }
+        public async Task<Comment> Add(Comment comment) {
+            _appDbContext.Add(comment);
+            await _appDbContext.SaveChangesAsync();
+            return comment;
         }
 
         public async Task<Post> Update(Post post) {
