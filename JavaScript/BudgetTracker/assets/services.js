@@ -54,31 +54,71 @@ export default class Services {
     }
 
     loadData() {
-
+        const entries = JSON.parse(localStorage.getItem("budget-tracker") || "[]");
+        for (const entry of entries) {
+            this.addEntry(entry);
+        }
+        this.updateSummary();
     }
 
     updateSummary() {
+        const total = this.getEntryRows().reduce((total, row) => {
+            const amount = row.querySelector(".input-amount").value;
+            const isExpense = row.querySelector(".input-type").value === "expense";
+            const modifier = isExpense ? -1 : 1;
 
+            return total + (amount * modifier);
+        }, 0);
+
+        const totalFormatted = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD"
+        }).format(total);
+
+        this.root.querySelector(".total").textContent = totalFormatted;
     }
 
     saveData() {
-
+        const data = this.getEntryRows().map(row => {
+            return {
+                date: row.querySelector(".input-date").value,
+                description: row.querySelector(".input-description").value,
+                type: row.querySelector(".input-type").value,
+                amount: row.querySelector(".input-amount").value,
+            };
+        });
+        
+        localStorage.setItem("budget-tracker", JSON.stringify(data));
+        this.updateSummary();
     }
 
     addEntry(entry = {}) {
+        this.root.querySelector(".entries").insertAdjacentHTML("beforeend", Services.entryHtml());
 
+        const row = this.root.querySelector(".entries tr:last-of-type");
+
+        row.querySelector(".input-date").value = entry.date || new Date().toISOString().replace(/T.*/, "");
+        row.querySelector(".input-description").value = entry.description || "";
+        row.querySelector(".input-type").value = entry.type || "income";
+        row.querySelector(".input-amount").value = entry.amount || 0;
+        row.querySelector(".delete-entry").addEventListener("click", e => {
+            this.onDeleteEntryBtnClick(e);
+        });
+        row.querySelectorAll(".input").forEach(input => {
+            input.addEventListener("change", () => this.saveData());
+        });
     }
 
     getEntryRows() {
-
+        return Array.from(this.root.querySelectorAll(".entries tr"));
     }
 
     onNewEntryBtnClick() {
-
+        this.addEntry();
     }
 
-    onDeleteEntryBtnClick() {
-
+    onDeleteEntryBtnClick(e) {
+        e.target.closest("tr").remove();
+        this.saveData();
     }
-
 }
