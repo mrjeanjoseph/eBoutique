@@ -1,3 +1,3 @@
-import NavHeader from "./project1.js";
+import NavHeader from "./_HomeLayout.js";
 
 new NavHeader("#nav-header")
