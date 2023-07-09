@@ -17,7 +17,7 @@
             <th>Office Location</th>
             <th>Age</th>
             <th>Salary</th>
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
 </table>
@@ -32,14 +32,6 @@
 
     <script>
         var Popup, dataTable;
-        var btnEditDelete = `
-            <a class="btn btn-outline-secondary btn-sm">
-                Edit <i class="fas fa-edit"></i>
-            </a>
-            <a class="btn btn-outline-danger btn-sm">
-                Delete <i class="fas fa-trash"></i>
-            </a>`;
-
 
         $(document).ready(function () {
 
@@ -56,15 +48,25 @@
                     { "data": "OfficeLocation" },
                     { "data": "Age" },
                     { "data": "Salary" },
-                    { "data": "EmployeeID", "render": function () { return btnEditDelete; }, "width": "125px", "targets": 0 },
-                    
-                    
+                    {
+                        "data": "EmployeeID",
+                        "render": function (data) {
+                            return `
+                                <a class="btn btn-outline-secondary btn-sm"
+                                onclick=PopupForm('@Url.Action("AddOrEdit", "Associate")/${data}')>
+                                    Edit <i class="fas fa-edit"></i>
+                                </a>
+                                <a class="btn btn-outline-danger btn-sm" onclick=Delete(${data})>
+                                    Delete <i class="fas fa-trash"></i>
+                                </a>`;
+                        },
+                        "width": "150px", "targets": 0, "orderable": false, "searchable":false
+                    },
                 ],
                 "language": {
                     "emptyTable": 'No record found! Please <b>Add New</b> record to be displayed'
                 }
             });
-
         });
 
         function PopupForm(url) {
@@ -99,19 +101,40 @@
                     success: function (data) {
                         if (data.success) {
                             Popup.dialog('close');
-                            dataTable.ajax.reload();
+                            //dataTable.ajax.reload();
 
                             //Popup notification on success
                             $.notify(data.message, {
                                 globalPosition: "top-center",
                                 className: "success"
                             });
+
+                            window.location.reload();
                         }
                     }
                 });
-                return false;
+
             }
             return false;
+        }
+
+        function Delete(id) {
+            if (confirm("Are you sure - Kinga?")) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Delete", "Associate")/' + id,
+                    success: function (data) {
+
+                        //dataTable.ajax.reload();
+                        $.notify(data.message, {
+                            globalPosition: "top center", className: "danger"
+                        });
+
+
+                        window.location.reload();
+                    }
+                });
+            }
         }
     </script>
 }
