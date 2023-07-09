@@ -1,8 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-namespace AssociateManagement.Web.Models {
 
+namespace AssociateManagement.Web.Models {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     public partial class EmployeeRecord {
         public int EmployeeID { get; set; }
 

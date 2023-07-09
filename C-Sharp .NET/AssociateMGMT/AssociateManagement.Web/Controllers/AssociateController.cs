@@ -1,5 +1,6 @@
 ﻿using AssociateManagement.Web.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace AssociateManagement.Models {
@@ -11,21 +12,23 @@ namespace AssociateManagement.Models {
 
         public ActionResult GetData() {
             using (DBModel dbModel = new DBModel()) {
-                List<EmployeeRecord> employees = new List<EmployeeRecord>();
-                return Json(new {data=employees}, JsonRequestBehavior.AllowGet);
+                List<EmployeeRecord> employees = dbModel.EmployeeRecords.ToList<EmployeeRecord>();
+                return Json(new { data = employees }, JsonRequestBehavior.AllowGet);
             }
         }
 
-        [HttpGet] public ActionResult AddOrEdit(int id = 0) {
+        [HttpGet]
+        public ActionResult AddOrEdit(int id = 0) {
 
             return View(new EmployeeRecord());
         }
 
-        [HttpPost] public ActionResult AddOrEdit(EmployeeRecord emp) {
+        [HttpPost]
+        public ActionResult AddOrEdit(EmployeeRecord emp) {
             using (DBModel dbModel = new DBModel()) {
                 dbModel.EmployeeRecords.Add(emp);
                 dbModel.SaveChanges();
-                return Json(new { success = true, message = "Record Saved successfully" }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = true, message = "Record Saved Successfully" }, JsonRequestBehavior.AllowGet);
             }
         }
     }
