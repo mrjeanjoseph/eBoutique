@@ -25,9 +25,12 @@ namespace AssociateManagement.Models {
             return View(new EmployeeRecord());
         }
 
-        [HttpGet] public ActionResult AddOrEdit() {
-            return View();
+        [HttpGet] public ActionResult AddOrEdit(EmployeeRecord emp) {
+            using (DBModel dbModel = new DBModel()) {
+                dbModel.EmployeeRecords.Add(emp);
+                dbModel.SaveChanges();
+                return Json(new { success = true, message = "Record Saved successfully" }, JsonRequestBehavior.AllowGet);
+            }
         }
     }
-
 }
