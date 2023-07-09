@@ -18,7 +18,7 @@ namespace AssociateManagement.Web.Models
         public string FullName { get; set; }
         public string Position { get; set; }
         public string OfficeLocation { get; set; }
-        public string Age { get; set; }
-        public string Salary { get; set; }
+        public Nullable<int> Age { get; set; }
+        public Nullable<int> Salary { get; set; }
     }
 }
