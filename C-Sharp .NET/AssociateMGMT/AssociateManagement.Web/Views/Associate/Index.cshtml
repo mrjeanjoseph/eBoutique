@@ -14,9 +14,10 @@
         <tr>
             <th>Full Name</th>
             <th>Position</th>
-            <th>Office</th>
+            <th>Office Location</th>
             <th>Age</th>
             <th>Salary</th>
+            <th>Actions</th>
         </tr>
     </thead>
 </table>
@@ -42,11 +43,25 @@
                     "datatype": "json"
                 },
                 "columns": [
-                    { "data": "Full Name" },
+                    { "data": "FullName" },
                     { "data": "Position" },
-                    { "data": "Office" },
+                    { "data": "OfficeLocation" },
                     { "data": "Age" },
-                    { "data": "Salary" }
+                    { "data": "Salary" },
+                    {
+                        "data": "EmployeeID",
+                        "render": function (data) {
+                            return `
+                                <a class="btn btn-outline-secondary btn-sm"
+                                onclick=PopupForm('@Url.Action("AddOrEdit", "Associate")/${data}')>
+                                    Edit <i class="fas fa-edit"></i>
+                                </a>
+                                <a class="btn btn-outline-danger btn-sm" onclick=Delete(${data})>
+                                    Delete <i class="fas fa-trash"></i>
+                                </a>`;
+                        },
+                        "width": "150px", "targets": 0, "orderable": false, "searchable":false
+                    },
                 ],
                 "language": {
                     "emptyTable": 'No record found! Please <b>Add New</b> record to be displayed'
@@ -86,12 +101,40 @@
                     success: function (data) {
                         if (data.success) {
                             Popup.dialog('close');
-                            dataTable.ajax.reload();
+                            //dataTable.ajax.reload();
+
+                            //Popup notification on success
+                            $.notify(data.message, {
+                                globalPosition: "top-center",
+                                className: "success"
+                            });
+
+                            window.location.reload();
                         }
                     }
                 });
+
             }
             return false;
+        }
+
+        function Delete(id) {
+            if (confirm("Are you sure - Kinga?")) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Delete", "Associate")/' + id,
+                    success: function (data) {
+
+                        //dataTable.ajax.reload();
+                        $.notify(data.message, {
+                            globalPosition: "top center", className: "danger"
+                        });
+
+
+                        window.location.reload();
+                    }
+                });
+            }
         }
     </script>
 }
