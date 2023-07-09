@@ -4,7 +4,7 @@
 }
 
 
-@using (Html.BeginForm("AddOrEdit", "Employee", FormMethod.Post)) {
+@using (Html.BeginForm("AddOrEdit", "Employee", FormMethod.Post, new {onsubmit = "return SubmitForm(this)"})) {
     @Html.HiddenFor(model => model.EmployeeID)
 
     <div class="mb-3 row">
