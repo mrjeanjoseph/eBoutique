@@ -13,10 +13,10 @@ namespace AssociateManagement.Web.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DBModel : DbContext
+    public partial class AssociateMGMTEntities : DbContext
     {
-        public DBModel()
-            : base("name=DBModel")
+        public AssociateMGMTEntities()
+            : base("name=AssociateMGMTEntities")
         {
         }
     

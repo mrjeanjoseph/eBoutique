@@ -13,8 +13,8 @@
           <Property Name="FullName" Type="nchar" MaxLength="50" />
           <Property Name="Position" Type="nchar" MaxLength="50" />
           <Property Name="OfficeLocation" Type="nchar" MaxLength="50" />
-          <Property Name="Age" Type="nchar" MaxLength="50" />
-          <Property Name="Salary" Type="nchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Salary" Type="int" />
         </EntityType>
         <EntityContainer Name="AssociateMGMTModelStoreContainer">
           <EntitySet Name="EmployeeRecord" EntityType="Self.EmployeeRecord" Schema="dbo" store:Type="Tables" />
@@ -32,10 +32,10 @@
           <Property Name="FullName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="Position" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="OfficeLocation" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="Age" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="Salary" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Salary" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AssociateMGMTEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="EmployeeRecords" EntityType="Self.EmployeeRecord" />
         </EntityContainer>
       </Schema>
@@ -43,7 +43,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AssociateMGMTModelStoreContainer" CdmEntityContainer="DBModel">
+        <EntityContainerMapping StorageEntityContainer="AssociateMGMTModelStoreContainer" CdmEntityContainer="AssociateMGMTEntities">
           <EntitySetMapping Name="EmployeeRecords">
             <EntityTypeMapping TypeName="AssociateMGMTModel.EmployeeRecord">
               <MappingFragment StoreEntitySet="EmployeeRecord">

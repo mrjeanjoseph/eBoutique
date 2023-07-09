@@ -20,12 +20,12 @@ namespace AssociateManagement.Models {
             }
         }
 
-        [HttpPost] public ActionResult AddOrEdit(int id = 0) {
+        [HttpGet] public ActionResult AddOrEdit(int id = 0) {
 
             return View(new EmployeeRecord());
         }
 
-        [HttpGet] public ActionResult AddOrEdit(EmployeeRecord emp) {
+        [HttpPost] public ActionResult AddOrEdit(EmployeeRecord emp) {
             using (DBModel dbModel = new DBModel()) {
                 dbModel.EmployeeRecords.Add(emp);
                 dbModel.SaveChanges();

@@ -58,19 +58,20 @@
             var formDiv = $('<div/>');
             $.get(url)
                 .done(function (response) {
-                    formDiv.html(response);
+                //Something happened here - We're getting a 500 response error
+                formDiv.html(response);
 
-                    Popup = formDiv.dialog({
-                        autoOpen: true,
-                        resizable: false,
-                        title: 'Fill Employee Details',
-                        height: 500,
-                        width: 700,
-                        close: function () {
-                            Popup.dialog('destroy').remove();
-                        }
-                    });
+                Popup = formDiv.dialog({
+                    autoOpen: true,
+                    resizable: false,
+                    title: 'Fill Employee Details',
+                    height: 500,
+                    width: 700,
+                    close: function () {
+                        Popup.dialog('destroy').remove();
+                    }
                 });
+            });
         }
 
         function SubmitForm(form) {
@@ -91,7 +92,6 @@
                 });
             }
             return false;
-
         }
     </script>
 }

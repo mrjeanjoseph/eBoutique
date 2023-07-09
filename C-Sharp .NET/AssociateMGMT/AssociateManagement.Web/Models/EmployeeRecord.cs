@@ -11,18 +11,12 @@ namespace AssociateManagement.Web.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class EmployeeRecord
     {
         public int EmployeeID { get; set; }
-
-        [Required(ErrorMessage = "This Field is Required")]
         public string FullName { get; set; }
-
-        [Required(ErrorMessage = "This Field is Required")]
         public string Position { get; set; }
-
         public string OfficeLocation { get; set; }
         public Nullable<int> Age { get; set; }
         public Nullable<int> Salary { get; set; }
