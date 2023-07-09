@@ -57,34 +57,39 @@
         function PopupForm(url) {
             var formDiv = $('<div/>');
             $.get(url)
-            .done(function (response) {
-                formDiv.html(response);
+                .done(function (response) {
+                    formDiv.html(response);
 
-                Popup = formDiv.dialog({
-                    autoOpen: true,
-                    resizable: false,
-                    title: 'Fill Employee Details',
-                    height: 500,
-                    width: 700,
-                    close: function () {
-                        Popup.dialog('destroy').remove();
-                    }
+                    Popup = formDiv.dialog({
+                        autoOpen: true,
+                        resizable: false,
+                        title: 'Fill Employee Details',
+                        height: 500,
+                        width: 700,
+                        close: function () {
+                            Popup.dialog('destroy').remove();
+                        }
+                    });
                 });
-            });
         }
 
         function SubmitForm(form) {
-            $.ajax({
-                type: "POST",
-                url: form.action,
-                data: $(form).serialize(),
-                success: function (data) {
-                    if (data.success) {
-                        Popup.dialog('close');
-                        dataTable.ajax.reload();
+            $.validator.unobstrusive.parse(form);
+
+            if ($(form).valid()) {
+
+                $.ajax({
+                    type: "POST",
+                    url: form.action,
+                    data: $(form).serialize(),
+                    success: function (data) {
+                        if (data.success) {
+                            Popup.dialog('close');
+                            dataTable.ajax.reload();
+                        }
                     }
-                }
-            });
+                });
+            }
             return false;
 
         }
