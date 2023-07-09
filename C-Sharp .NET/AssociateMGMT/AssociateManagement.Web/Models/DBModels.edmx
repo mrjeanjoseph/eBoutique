@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AssociateMGMTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="AssociateDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="EmployeeRecord">
           <Key>
             <PropertyRef Name="EmployeeID" />
@@ -16,14 +16,14 @@
           <Property Name="Age" Type="int" />
           <Property Name="Salary" Type="int" />
         </EntityType>
-        <EntityContainer Name="AssociateMGMTModelStoreContainer">
+        <EntityContainer Name="AssociateDBModelStoreContainer">
           <EntitySet Name="EmployeeRecord" EntityType="Self.EmployeeRecord" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AssociateMGMTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="AssociateDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="EmployeeRecord">
           <Key>
             <PropertyRef Name="EmployeeID" />
@@ -35,7 +35,7 @@
           <Property Name="Age" Type="Int32" />
           <Property Name="Salary" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="AssociateMGMTEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="EmployeeRecords" EntityType="Self.EmployeeRecord" />
         </EntityContainer>
       </Schema>
@@ -43,9 +43,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AssociateMGMTModelStoreContainer" CdmEntityContainer="AssociateMGMTEntities">
+        <EntityContainerMapping StorageEntityContainer="AssociateDBModelStoreContainer" CdmEntityContainer="DBModel">
           <EntitySetMapping Name="EmployeeRecords">
-            <EntityTypeMapping TypeName="AssociateMGMTModel.EmployeeRecord">
+            <EntityTypeMapping TypeName="AssociateDBModel.EmployeeRecord">
               <MappingFragment StoreEntitySet="EmployeeRecord">
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />

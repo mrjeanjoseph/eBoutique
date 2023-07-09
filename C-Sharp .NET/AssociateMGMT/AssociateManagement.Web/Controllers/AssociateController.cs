@@ -1,10 +1,6 @@
 ﻿using AssociateManagement.Web.Models;
 using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
 using System.Web.Mvc;
-using System;
-using System.Linq;
-using System.Web;
 
 namespace AssociateManagement.Models {
     public class AssociateController : Controller {
