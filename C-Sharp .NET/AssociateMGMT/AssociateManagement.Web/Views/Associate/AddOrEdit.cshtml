@@ -1,0 +1,35 @@
+﻿@model AssociateManagement.Web.Models.EmployeeRecord
+@{
+    Layout = null;
+}
+
+
+@using (Html.BeginForm("AddOrEdit", "Employee", FormMethod.Post)) {
+    @Html.HiddenFor(model => model.EmployeeID)
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.FullName, new { @class = "control-label" })
+        @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "control-label" } })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Position, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Position, new { htmlAttributes = new { @class = "control-label" } })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(model => model.OfficeLocation, new { @class = "control-label" })
+        @Html.EditorFor(model => model.OfficeLocation, new { htmlAttributes = new { @class = "control-label" } })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Age, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "control-label" } })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Salary, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Salary, new { htmlAttributes = new { @class = "control-label" } })
+    </div>
+
+    <div class="mb-3">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+        <input type="reset" value="Reset" class="btn btn-danger" />
+    </div>
+}

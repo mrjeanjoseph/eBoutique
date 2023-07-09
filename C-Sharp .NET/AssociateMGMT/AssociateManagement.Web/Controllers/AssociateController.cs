@@ -19,6 +19,15 @@ namespace AssociateManagement.Models {
                 return Json(new {data=employees}, JsonRequestBehavior.AllowGet);
             }
         }
+
+        [HttpPost] public ActionResult AddOrEdit(int id = 0) {
+
+            return View(new EmployeeRecord());
+        }
+
+        [HttpGet] public ActionResult AddOrEdit() {
+            return View();
+        }
     }
 
 }
