@@ -1,10 +1,12 @@
 ﻿using EmployeeRecord.Models;
+using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 
 namespace EmployeeRecord.Controllers {
     public class HomeController : Controller {
 
-        EmployeeDbContext _empObject;
+        EmployeeDbContext _empDbContext;
 
         public ActionResult Index() {
             return View();
@@ -12,21 +14,31 @@ namespace EmployeeRecord.Controllers {
 
         [HttpPost]
         public ActionResult Index(EmployeeModel emp) {
-            _empObject = new EmployeeDbContext();
+            _empDbContext = new EmployeeDbContext();
 
-            Employee empData = new Employee {
-                Name = emp.Name,
-                Code = emp.Code,
-                Age = emp.Age,
-                Department = emp.Department,
-                Email = emp.Email,
-                Salary = emp.Salary,
-            };
+            if (_empDbContext.Employees.Any(m => m.Code == emp.Code)) {
 
-            _empObject.Employees.Add(empData);
-            _empObject.SaveChanges();
+                //Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return Json(new { responseMessage = $"Employee Code: {emp.Code} already exists." }, JsonRequestBehavior.AllowGet);
+            } else {
 
-            return Json(new { SuccessMessage = "Data Added Successfully." }, JsonRequestBehavior.AllowGet);
+                Employee empData = new Employee {
+                    Name = emp.Name,
+                    Code = emp.Code,
+                    Age = emp.Age,
+                    Department = emp.Department,
+                    Email = emp.Email,
+                    Salary = emp.Salary,
+                };
+
+                _empDbContext.Employees.Add(empData);
+                _empDbContext.SaveChanges();
+
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return Json(new { responseMessage = "Data Added Successfully." }, JsonRequestBehavior.AllowGet);
+
+            }
+
 
         }
 
