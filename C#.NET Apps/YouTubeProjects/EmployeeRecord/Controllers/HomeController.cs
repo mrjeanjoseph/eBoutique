@@ -4,7 +4,7 @@ using System.Web.Mvc;
 namespace EmployeeRecord.Controllers {
     public class HomeController : Controller {
 
-        DEFAULTDB _empObject;
+        EmployeeDbContext _empObject;
 
         public ActionResult Index() {
             return View();
@@ -12,21 +12,21 @@ namespace EmployeeRecord.Controllers {
 
         [HttpPost]
         public ActionResult Index(EmployeeModel emp) {
-            _empObject = new DEFAULTDB();
+            _empObject = new EmployeeDbContext();
 
-            EmployeeRecord2 empData = new EmployeeRecord2 {
-                FirstName = emp.FirstName,
-                LastName = emp.LastName,
-                PhoneNumber = emp.PhoneNumber,
-                DateOfBirth = emp.DateOfBirth,
-                Address = emp.Address,
-                DepartmentId = emp.DepartmentId
+            Employee empData = new Employee {
+                Name = emp.Name,
+                Code = emp.Code,
+                Age = emp.Age,
+                Department = emp.Department,
+                Email = emp.Email,
+                Salary = emp.Salary,
             };
 
-            _empObject.EmployeeRecords.Add(empData);
+            _empObject.Employees.Add(empData);
             _empObject.SaveChanges();
 
-            return Json(new {SuccessMessage = "Data Added Successfully."}, JsonRequestBehavior.AllowGet);
+            return Json(new { SuccessMessage = "Data Added Successfully." }, JsonRequestBehavior.AllowGet);
 
         }
 

@@ -9,28 +9,28 @@
 <div class="container">
     <div class="row g-3">
         <div class="col">
-            <input type="text" class="form-control" id="firstName" placeholder="First name" aria-label="First name">
+            <input type="text" class="form-control" id="fullName" placeholder="Full Name" aria-label="First and Last Name">
         </div>
         <div class="col">
-            <input type="text" class="form-control" id="lastName" placeholder="Last name" aria-label="Last name">
-        </div>
-    </div>
-
-    <div class="row g-3">
-        <div class="col">
-            <input type="date" class="form-control" id="dateOfBirth" placeholder="Date of Birth" aria-label="Date of Birth">
-        </div>
-        <div class="col">
-            <input type="text" class="form-control" id="cityState" placeholder="City & State" aria-label="Address">
+            <input type="text" class="form-control" id="code" placeholder="Employee code" aria-label="Employee code">
         </div>
     </div>
 
     <div class="row g-3">
         <div class="col">
-            <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number" aria-label="Phone Number">
+            <input type="text" class="form-control" id="age" placeholder="Your age" aria-label="Your age">
         </div>
         <div class="col">
             <input type="text" class="form-control" id="deptId" placeholder="Department ID" aria-label="Department ID">
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col">
+            <input type="text" class="form-control" id="emailAddress" placeholder="Email Address" aria-label="Email Address">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" id="salary" placeholder="Your Salary" aria-label="Your Salary">
         </div>
     </div>
 
@@ -47,12 +47,12 @@
             $('#btnSave').click(function (event) {
                 event.preventDefault();
                 var empData = {
-                    FirstName: $("#firstName").val(),
-                    LastName: $("#lastName").val(),
-                    DateOfBirth: $("#dateOfBirth").val(),
-                    CityState: $("#cityState").val(),
-                    PhoneNumber: $("#phoneNumber").val(),
-                    DepartmentId: $("#deptId").val(),
+                    Name: $("#fullName").val(),
+                    Code: $("#code").val(),
+                    age: $("#age").val(),
+                    Department: $("#deptId").val(),
+                    Email: $("#emailAddress").val(),
+                    Salary: $("#salary").val(),
                 }
                 console.log(empData)
 
@@ -65,7 +65,7 @@
                         alert(response.SuccessMessage);
                     },
                     error: function (response) {
-                        alert("An error has occurred. Looks like we're SOL");
+                        alert("An error has occurred. Please try again.");
                     }
                 })
             })
