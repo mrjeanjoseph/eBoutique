@@ -13,18 +13,15 @@ namespace EmployeeRecord.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DEFAULTDBEntities : DbContext
+    public partial class EmployeeDbContext : DbContext
     {
-        public DEFAULTDBEntities()
-            : base("name=DEFAULTDBEntities")
-        {
-        }
+        public EmployeeDbContext() : base("name=CONN") { }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<EmployeeRecord> EmployeeRecords { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
     }
 }

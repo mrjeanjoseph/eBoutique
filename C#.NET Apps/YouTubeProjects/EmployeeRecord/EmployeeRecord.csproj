@@ -129,23 +129,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\EmployeeDBModel.Context.cs">
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>EmployeeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeeDBModel.Context.tt</DependentUpon>
+      <DependentUpon>EmployeeModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EmployeeDBModel.cs">
+    <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\EmployeeModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeeDBModel.tt</DependentUpon>
+      <DependentUpon>EmployeeModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\EmployeeDBModel.Designer.cs">
+    <Compile Include="Models\EmployeeModel1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeeDBModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EmployeeRecord.cs">
-      <DependentUpon>EmployeeDBModel.tt</DependentUpon>
+      <DependentUpon>EmployeeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -155,26 +156,26 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\EmployeeDBModel.Context.tt">
+    <Content Include="Models\EmployeeModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EmployeeDBModel.Context.cs</LastGenOutput>
-      <DependentUpon>EmployeeDBModel.edmx</DependentUpon>
+      <DependentUpon>EmployeeModel.edmx</DependentUpon>
+      <LastGenOutput>EmployeeModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\EmployeeDBModel.tt">
+    <Content Include="Models\EmployeeModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EmployeeDBModel.edmx</DependentUpon>
-      <LastGenOutput>EmployeeDBModel.cs</LastGenOutput>
+      <DependentUpon>EmployeeModel.edmx</DependentUpon>
+      <LastGenOutput>EmployeeModel1.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\EmployeeDBModel.edmx">
+    <EntityDeploy Include="Models\EmployeeModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EmployeeDBModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>EmployeeModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\EmployeeDBModel.edmx.diagram">
-      <DependentUpon>EmployeeDBModel.edmx</DependentUpon>
+    <Content Include="Models\EmployeeModel.edmx.diagram">
+      <DependentUpon>EmployeeModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />

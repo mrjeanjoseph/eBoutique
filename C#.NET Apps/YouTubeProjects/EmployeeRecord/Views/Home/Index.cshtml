@@ -1,33 +1,74 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
-
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
-
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+﻿<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
-</main>
+</div>
+
+<div class="container">
+    <div class="row g-3">
+        <div class="col">
+            <input type="text" class="form-control" id="fullName" placeholder="Full Name" aria-label="First and Last Name">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" id="code" placeholder="Employee code" aria-label="Employee code">
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col">
+            <input type="text" class="form-control" id="age" placeholder="Your age" aria-label="Your age">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" id="deptId" placeholder="Department ID" aria-label="Department ID">
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col">
+            <input type="text" class="form-control" id="emailAddress" placeholder="Email Address" aria-label="Email Address">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" id="salary" placeholder="Your Salary" aria-label="Your Salary">
+        </div>
+    </div>
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="button" id="btnSave">Button</button>
+    </div>
+
+</div>
+
+<script src="~/Scripts/jquery-3.7.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(function () {
+            $('#btnSave').click(function (event) {
+                event.preventDefault();
+                var empData = {
+                    Name: $("#fullName").val(),
+                    Code: $("#code").val(),
+                    age: $("#age").val(),
+                    Department: $("#deptId").val(),
+                    Email: $("#emailAddress").val(),
+                    Salary: $("#salary").val(),
+                }
+                console.log(empData)
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Home/Index',
+                    data: JSON.stringify(empData),
+                    contentType: 'application/json; charset-utf-8',
+                    success: function (response) {
+                        alert(response.responseMessage);
+                    },
+                    error: function (response) {
+                        alert("An error occured");
+                    }
+                })
+            })
+        });
+    })
+</script>
