@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Projects</h2>
+
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-5 mb-5"><strong>Student Form Application</strong></h1>
+    </div>
+    <div class="main row justify-content-center">
+
+        <form action="" id="student-form" class="row justify-content-center mb-4" autocomplete="off">
+            <div class="col-7 mb-3">
+                <label for="firstName">First Name: </label>
+                <input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
+            </div>
+            <div class="col-7 mb-3">
+                <label for="lastName">Last Name: </label>
+                <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
+            </div>
+            <div class="col-7 mb-3">
+                <label for="studentNumber">Student Number: </label>
+                <input type="text" class="form-control" id="studentNumber" placeholder="Enter Student Number">
+            </div>
+            <div class="col-7">
+                <input type="submit" class="btn btn-success add-btn" value="Submit">
+            </div>
+        </form>
+
+        <div class="col-10 mt-5">
+            <table class="table table-stripped table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Student Number</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="student-list">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
