@@ -7,41 +7,79 @@
 
 <div class="container mt-5">
     <div class="text-center">
-        <h1 class="display-5 mb-5"><strong>Student Form Application</strong></h1>
+        <h1 class="display-5 mb-5"><strong>Department Information</strong></h1>
     </div>
     <div class="main row justify-content-center">
 
-        <form action="" id="student-form" class="row justify-content-center mb-4" autocomplete="off">
+        @*<form action="" id="student-form" class="row justify-content-center mb-4" autocomplete="off">
             <div class="col-7 mb-3">
-                <label for="firstName">First Name: </label>
-                <input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
+                <label for="DepartmentName">Department Name: </label>
+                <input type="text" class="form-control" id="Department Name" placeholder="Department Name">
             </div>
             <div class="col-7 mb-3">
-                <label for="lastName">Last Name: </label>
-                <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
+                <label for="GroupName">Group Name: </label>
+                <input type="text" class="form-control" id="Group Name" placeholder="Group Name">
             </div>
             <div class="col-7 mb-3">
-                <label for="studentNumber">Student Number: </label>
-                <input type="text" class="form-control" id="studentNumber" placeholder="Enter Student Number">
+                <label for="UpdatedDate">Updated Date: </label>
+                <input type="date" class="form-control" id="UpdatedDate">
             </div>
             <div class="col-7">
                 <input type="submit" class="btn btn-success add-btn" value="Submit">
             </div>
-        </form>
+        </form>*@
+
 
         <div class="col-10 mt-5">
-            <table class="table table-stripped table-dark">
+            <button type="button" class="btn btn-dark mb-3" id="CreateProduct">Create Product</button>
+
+            <table class="table table-stripped table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Student Number</th>
+                        <th scope="col">Department Name</th>
+                        <th scope="col">Group Name</th>
+                        <th scope="col">Updated Date</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
-                <tbody id="student-list">
+                <tbody class="tbody">
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
+<script src="~/Scripts/jquery-3.7.0.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        loadDepartmentData();
+
+    });
+
+    function loadDepartmentData() {
+        $.ajax({
+            async: true,
+            url: '/project/GetDepartmentDetails',
+            type: 'GET',
+            contentType: 'application/json;charset=utf-8',
+            success: function (response) {
+                var html = '';
+                $.each(response, function (key, value) {
+                    html += `<tr>`;
+                    html += `<td> ${value.Name} </td>`;
+                    html += `<td> ${value.GroupName} </td>`;
+                    html += `<td> ${value.ModifiedDate.toString()} </td>`;
+                    html += `<td> // </td>`;
+                    html += `</tr>`;
+                });
+                $('.tbody').html(html);
+            },
+            error: function () {
+                alert('An error has occurred. Unable to display data')
+            }
+        })
+    }
+
+</script>
