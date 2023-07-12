@@ -5,6 +5,9 @@
 
 <h2>List of Projects</h2>
 
+@{ 
+    string getDateTime = "HardReset";
+}
 <div class="container mt-5">
     <div class="text-center">
         <h1 class="display-5 mb-5"><strong>Department Information</strong></h1>
@@ -31,7 +34,7 @@
 
 
         <div class="col-10 mt-5">
-            <button type="button" class="btn btn-dark mb-3" id="CreateProduct">Create Product</button>
+            <button type="button" class="@getDateTime btn btn-dark mb-3" id="CreateProduct">Create Product</button>
 
             <table class="table table-stripped table-bordered table-hover">
                 <thead>
@@ -58,7 +61,15 @@
 
     });
 
+    function EditClick(id) {
+        alert(id);
+    }
+    function DeleteClick(id) {
+        alert(id);
+    }
+
     function loadDepartmentData() {
+
         $.ajax({
             async: true,
             url: '/project/GetDepartmentDetails',
@@ -71,7 +82,10 @@
                     html += `<td> ${value.Name} </td>`;
                     html += `<td> ${value.GroupName} </td>`;
                     html += `<td> ${value.ModifiedDate.toString()} </td>`;
-                    html += `<td> // </td>`;
+                    html += `<td>
+                                <input type="button" value="Edit" onclick="EditClick(${value.DepartmentID})"/> || 
+                                <input type="button" value="Delete" onclick="DeleteClick(${value.DepartmentID})"/>                                
+                            </td>`;
                     html += `</tr>`;
                 });
                 $('.tbody').html(html);

@@ -21,6 +21,7 @@ namespace RecordKeeping.Projects.Controllers {
             List<DepartmentModel> deptList = 
                 (from obj in _dptObj.Departments
                 select new DepartmentModel {
+                    DepartmentID = obj.DepartmentID,
                     Name = obj.Name,
                     GroupName = obj.GroupName,
                     ModifiedDate = obj.ModifiedDate,
