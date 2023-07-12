@@ -7,17 +7,17 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6A4E75C8-5F2B-4FEC-844E-01A063FE35B3}</ProjectGuid>
+    <ProjectGuid>{6C709F71-0DA0-42D0-8243-BBB8FFF82252}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EmployeeRecord</RootNamespace>
-    <AssemblyName>EmployeeRecord</AssemblyName>
+    <RootNamespace>RecordKeeping.Projects</RootNamespace>
+    <AssemblyName>RecordKeeping.Projects</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44342</IISExpressSSLPort>
+    <IISExpressSSLPort>44302</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -126,28 +126,29 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Employee.cs">
-      <DependentUpon>EmployeeModel.tt</DependentUpon>
+    <Compile Include="Models\Department.cs">
+      <DependentUpon>DepartmentDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EmployeeModel.Context.cs">
+    <Compile Include="Models\DepartmentDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeeModel.Context.tt</DependentUpon>
+      <DependentUpon>DepartmentDBModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EmployeeModel.cs" />
-    <Compile Include="Models\EmployeeModel.Designer.cs">
+    <Compile Include="Models\DepartmentDBModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeeModel.edmx</DependentUpon>
+      <DependentUpon>DepartmentDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EmployeeModel1.cs">
+    <Compile Include="Models\DepartmentDBModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeeModel.tt</DependentUpon>
+      <DependentUpon>DepartmentDBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -156,26 +157,26 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\EmployeeModel.Context.tt">
+    <Content Include="Models\DepartmentDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EmployeeModel.edmx</DependentUpon>
-      <LastGenOutput>EmployeeModel.Context.cs</LastGenOutput>
+      <LastGenOutput>DepartmentDBModel.Context.cs</LastGenOutput>
+      <DependentUpon>DepartmentDBModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\EmployeeModel.tt">
+    <Content Include="Models\DepartmentDBModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EmployeeModel.edmx</DependentUpon>
-      <LastGenOutput>EmployeeModel1.cs</LastGenOutput>
+      <DependentUpon>DepartmentDBModel.edmx</DependentUpon>
+      <LastGenOutput>DepartmentDBModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\EmployeeModel.edmx">
+    <EntityDeploy Include="Models\DepartmentDBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EmployeeModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>DepartmentDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\EmployeeModel.edmx.diagram">
-      <DependentUpon>EmployeeModel.edmx</DependentUpon>
+    <Content Include="Models\DepartmentDBModel.edmx.diagram">
+      <DependentUpon>DepartmentDBModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
@@ -187,7 +188,6 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -202,6 +202,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Project\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -230,9 +231,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>56004</DevelopmentServerPort>
+          <DevelopmentServerPort>55193</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44342/</IISUrl>
+          <IISUrl>https://localhost:44302/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

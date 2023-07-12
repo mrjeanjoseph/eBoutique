@@ -7,21 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EmployeeRecord.Models
+namespace RecordKeeping.Projects.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EmployeeDbContext : DbContext
+    public partial class AdventureWorksEntities : DbContext
     {
-        public EmployeeDbContext() : base("name=CONN") { }
+        public AdventureWorksEntities()
+            : base("name=AdventureWorksEntities")
+        {
+        }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Department> Departments { get; set; }
     }
 }

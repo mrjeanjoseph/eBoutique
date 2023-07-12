@@ -7,16 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EmployeeRecord.Models {
+namespace RecordKeeping.Projects.Models {
 
-    public partial class Employee
+    public partial class Department
     {
-        public int EmployeeId { get; set; }
+        public short DepartmentID { get; set; }
         public string Name { get; set; }
-        public string Code { get; set; }
-        public string Age { get; set; }
-        public string Department { get; set; }
-        public string Email { get; set; }
-        public string Salary { get; set; }
+        public string GroupName { get; set; }
+        public System.DateTime ModifiedDate { get; set; }
     }
 }
