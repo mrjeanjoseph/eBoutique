@@ -98,7 +98,7 @@ namespace RecordKeeping.Projects.DataAccess {
 
         public string InsertData(Customer objcust) {
             SqlConnection con = null;
-            string result;
+            string result = "";
 
             try {
                 con = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ToString());
