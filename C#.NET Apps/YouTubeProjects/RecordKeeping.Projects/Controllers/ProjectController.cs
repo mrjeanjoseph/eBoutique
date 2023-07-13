@@ -25,8 +25,7 @@ namespace RecordKeeping.Projects.Controllers {
                     DepartmentID = obj.DepartmentID,
                     Name = obj.Name,
                     GroupName = obj.GroupName,
-                    ModifiedDate = DateTime.Parse(obj.ModifiedDate)
-                    //DateTime.Parse(obj.ModifiedDate).Date
+                    ModifiedDate = obj.ModifiedDate
                 }).ToList();
 
             return Json(deptList, JsonRequestBehavior.AllowGet);
