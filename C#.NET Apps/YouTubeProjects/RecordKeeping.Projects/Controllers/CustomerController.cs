@@ -6,13 +6,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace RecordKeeping.Projects.Controllers
-{
-    public class CustomerController : Controller
-    {
+namespace RecordKeeping.Projects.Controllers {
+    public class CustomerController : Controller {
         // GET: Customer
-        public ActionResult Index()
-        {
+        public ActionResult Index() {
             return View();
         }
 
@@ -20,7 +17,7 @@ namespace RecordKeeping.Projects.Controllers
         public ActionResult Insert(Customer Customer) {
             Customer.Birthdate = Convert.ToDateTime(Customer.Birthdate);
 
-            if (ModelState.IsValid){ //checking model is valid or not
+            if (ModelState.IsValid) { //checking model is valid or not
                 DataAccessLayer objDB = new DataAccessLayer();
                 string result = objDB.InsertData(Customer);
                 ViewData["result"] = result;
