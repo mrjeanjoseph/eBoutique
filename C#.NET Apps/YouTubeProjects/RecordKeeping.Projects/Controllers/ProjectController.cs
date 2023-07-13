@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Linq;
+using System;
 
 namespace RecordKeeping.Projects.Controllers {
     public class ProjectController : Controller
@@ -24,7 +25,8 @@ namespace RecordKeeping.Projects.Controllers {
                     DepartmentID = obj.DepartmentID,
                     Name = obj.Name,
                     GroupName = obj.GroupName,
-                    ModifiedDate = obj.ModifiedDate,
+                    ModifiedDate = DateTime.Parse(obj.ModifiedDate)
+                    //DateTime.Parse(obj.ModifiedDate).Date
                 }).ToList();
 
             return Json(deptList, JsonRequestBehavior.AllowGet);
