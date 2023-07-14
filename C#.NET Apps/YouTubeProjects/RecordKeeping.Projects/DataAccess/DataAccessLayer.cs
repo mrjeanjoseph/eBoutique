@@ -14,7 +14,7 @@ namespace RecordKeeping.Projects.DataAccess {
             List<Customer> custlist = null;
 
             try {
-                con = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ToString());
+                con = new SqlConnection(ConfigurationManager.ConnectionStrings["defaultConn"].ToString());
                 SqlCommand cmd = new SqlCommand("Usp_InsertUpdateDelete_Customer", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CustomerID", null);
@@ -60,7 +60,7 @@ namespace RecordKeeping.Projects.DataAccess {
             Customer cobj = null;
 
             try {
-                con = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ToString());
+                con = new SqlConnection(ConfigurationManager.ConnectionStrings["defaultConn"].ToString());
                 SqlCommand cmd = new SqlCommand("Usp_InsertUpdateDelete_Customer", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
@@ -101,7 +101,7 @@ namespace RecordKeeping.Projects.DataAccess {
             string result = "";
 
             try {
-                con = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ToString());
+                con = new SqlConnection(ConfigurationManager.ConnectionStrings["defaultConn"].ToString());
                 SqlCommand cmd = new SqlCommand("Usp_InsertUpdateDelete_Customer", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CustomerID", 0);
@@ -129,7 +129,7 @@ namespace RecordKeeping.Projects.DataAccess {
             string result = "";
 
             try {
-                con = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ToString());
+                con = new SqlConnection(ConfigurationManager.ConnectionStrings["defaultConn"].ToString());
                 SqlCommand cmd = new SqlCommand("Usp_InsertUpdateDelete_Customer", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CustomerID", objcust.CustomerID);
@@ -148,6 +148,34 @@ namespace RecordKeeping.Projects.DataAccess {
                 return result = "";
 
             } finally {
+                con.Close();
+            }
+        }
+
+        public string DeleteData(Customer objcust) {
+            SqlConnection con = null;
+            string result = "";
+            try {
+                con = new SqlConnection(ConfigurationManager.ConnectionStrings["defaultConn"].ToString());
+                SqlCommand cmd = new SqlCommand("Usp_InsertUpdateDelete_Customer", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@CustomerID", objcust.CustomerID);
+                cmd.Parameters.AddWithValue("@Name", null);
+                cmd.Parameters.AddWithValue("@Address", null);
+                cmd.Parameters.AddWithValue("@Mobileno", null);
+                cmd.Parameters.AddWithValue("@Birthdate", null);
+                cmd.Parameters.AddWithValue("@EmailID", null);
+                cmd.Parameters.AddWithValue("@Query", 3);
+
+                con.Open();
+                result = cmd.ExecuteScalar().ToString();
+                return result;
+
+            } catch {
+
+                return result = "";
+            } finally {
+
                 con.Close();
             }
         }

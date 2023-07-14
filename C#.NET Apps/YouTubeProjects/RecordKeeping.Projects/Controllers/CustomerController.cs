@@ -73,5 +73,15 @@ namespace RecordKeeping.Projects.Controllers {
             DataAccessLayer objDB = new DataAccessLayer(); //calling class DBdata
             return View(objDB.SelectDatabyID(ID));
         }
+
+        [HttpPost]
+        public ActionResult Delete(Customer objCustomer) {
+            DataAccessLayer objDB = new DataAccessLayer();
+            string result = objDB.DeleteData(objCustomer);
+
+            ViewData["result"] = result;
+            ModelState.Clear(); //clearing model
+            return View();
+        }
     }
 }
