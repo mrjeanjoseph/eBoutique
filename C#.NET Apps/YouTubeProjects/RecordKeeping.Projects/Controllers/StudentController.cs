@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
-using RecordKeeping.Projects.DataAccess;
+﻿using RecordKeeping.Projects.DataAccess;
 using RecordKeeping.Projects.Models;
-using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 using System.Web.Mvc;
+using System;
 
 namespace RecordKeeping.Projects.Controllers {
     public class StudentController : Controller {

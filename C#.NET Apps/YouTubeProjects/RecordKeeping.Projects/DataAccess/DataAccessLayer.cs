@@ -216,6 +216,7 @@ namespace RecordKeeping.Projects.DataAccess {
                 cmd.Parameters.AddWithValue("@Email", student.Email);
                 cmd.Parameters.AddWithValue("@Mobile", student.Mobile);
                 cmd.Parameters.AddWithValue("@Address", student.Address);
+
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -233,6 +234,7 @@ namespace RecordKeeping.Projects.DataAccess {
                 cmd.Parameters.AddWithValue("@Email", student.Email);
                 cmd.Parameters.AddWithValue("@Mobile", student.Mobile);
                 cmd.Parameters.AddWithValue("@Address", student.Address);
+
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -263,11 +265,14 @@ namespace RecordKeeping.Projects.DataAccess {
         public void DeleteStudent(int? id) {
             using (SqlConnection con = new SqlConnection(connectionString)) {
                 SqlCommand cmd = new SqlCommand("spDeleteStudent", con);
+
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id", id);
+
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
+
             }
         }
     }
