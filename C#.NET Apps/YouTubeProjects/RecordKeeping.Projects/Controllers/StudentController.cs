@@ -1,11 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
+using RecordKeeping.Projects.DataAccess;
+using RecordKeeping.Projects.Models;
+using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace RecordKeeping.Projects.Controllers {
     public class StudentController : Controller {
         // GET: Student  
         public ActionResult Index() {
-            return View();
+            IEnumerable<Student> students = DataAccessLayer.GetAllStudent();
+            return View(students);
         }
 
         // GET: Student/Details/5  
@@ -21,12 +26,13 @@ namespace RecordKeeping.Projects.Controllers {
         // POST: Student/Create  
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection) {
+        public ActionResult Create(Student student) {
             try {
                 // TODO: Add insert logic here  
+                DataAccessLayer.AddStudent(student);
 
                 return RedirectToAction(nameof(Index));
-            } catch {
+            } catch (Exception ex) {
                 return View();
             }
         }
