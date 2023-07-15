@@ -37,7 +37,7 @@ namespace RecordKeeping.Projects.Controllers {
         }
 
         [HttpGet]
-        public ActionResult ShowAllCustomerDetails() {
+        public ActionResult DisplayAll() {
             Customer objCustomer = new Customer();
             DataAccessLayer objDB = new DataAccessLayer(); //calling class DBdata
             objCustomer.ShowallCustomer = objDB.Selectalldata();

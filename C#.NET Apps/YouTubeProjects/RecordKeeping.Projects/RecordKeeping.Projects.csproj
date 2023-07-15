@@ -196,7 +196,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\InsertCustomer.cshtml" />
-    <Content Include="Views\Customer\ShowAllCustomerDetails.cshtml" />
+    <Content Include="Views\Customer\DisplayAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
