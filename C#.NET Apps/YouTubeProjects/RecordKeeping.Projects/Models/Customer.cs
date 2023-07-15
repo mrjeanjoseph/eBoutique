@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace RecordKeeping.Projects.Models {
@@ -21,5 +22,7 @@ namespace RecordKeeping.Projects.Models {
 
         [Required(ErrorMessage = "Enter EmailID")]
         public string EmailID { get; set; }
+
+        public List<Customer> ShowallCustomer { get; set; }
     }
 }

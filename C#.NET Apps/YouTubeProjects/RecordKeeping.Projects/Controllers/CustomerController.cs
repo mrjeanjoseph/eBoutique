@@ -20,7 +20,7 @@ namespace RecordKeeping.Projects.Controllers {
         public ActionResult InsertCustomer(Customer objCustomer) {
 
             objCustomer.Birthdate = Convert.ToDateTime(objCustomer.Birthdate);
-            if (ModelState.IsValid){ //checking model is valid or not
+            if (ModelState.IsValid) { //checking model is valid or not
 
                 DataAccessLayer objDB = new DataAccessLayer();
                 string result = objDB.InsertData(objCustomer);
@@ -34,6 +34,14 @@ namespace RecordKeeping.Projects.Controllers {
 
                 return View();
             }
+        }
+
+        [HttpGet]
+        public ActionResult ShowAllCustomerDetails() {
+            Customer objCustomer = new Customer();
+            DataAccessLayer objDB = new DataAccessLayer(); //calling class DBdata
+            objCustomer.ShowallCustomer = objDB.Selectalldata();
+            return View(objCustomer);
         }
     }
 }
