@@ -10,7 +10,7 @@ namespace RecordKeeping.Projects.DataAccess {
             string result = "";
 
             try {
-                con = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ToString());
+                con = new SqlConnection(ConfigurationManager.ConnectionStrings["defaultConn"].ToString());
                 SqlCommand cmd = new SqlCommand("Usp_InsertUpdateDelete_Customer", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CustomerID", 0);
