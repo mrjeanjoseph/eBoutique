@@ -17,6 +17,7 @@ namespace RecordKeeping.Projects.Models {
 
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Enter Birthdate")]
+
         public DateTime Birthdate { get; set; }
 
         [Required(ErrorMessage = "Enter EmailID")]
