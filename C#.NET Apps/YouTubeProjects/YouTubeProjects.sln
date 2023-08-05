@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Documentation.txt = Documentation.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssociateManagement.Web", "AssociateManagement.Web\AssociateManagement.Web.csproj", "{F81081F8-20EC-4F50-8AE0-9D6AF302E693}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{6C709F71-0DA0-42D0-8243-BBB8FFF82252}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C709F71-0DA0-42D0-8243-BBB8FFF82252}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C709F71-0DA0-42D0-8243-BBB8FFF82252}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F81081F8-20EC-4F50-8AE0-9D6AF302E693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F81081F8-20EC-4F50-8AE0-9D6AF302E693}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F81081F8-20EC-4F50-8AE0-9D6AF302E693}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F81081F8-20EC-4F50-8AE0-9D6AF302E693}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
