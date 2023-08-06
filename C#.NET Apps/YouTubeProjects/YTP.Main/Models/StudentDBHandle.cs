@@ -45,6 +45,7 @@ namespace YTP.Main.Models {
             SqlCommand cmd = new SqlCommand("GetStudentDetails", con) {
                 CommandType = CommandType.StoredProcedure
             };
+
             SqlDataAdapter sd = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
 
@@ -56,9 +57,12 @@ namespace YTP.Main.Models {
                 studentlist.Add(
                     new StudentModel {
                         Id = Convert.ToInt32(dr["Id"]),
-                        Name = Convert.ToString(dr["Name"]),
-                        City = Convert.ToString(dr["City"]),
-                        Address = Convert.ToString(dr["Address"])
+                        FirstName = Convert.ToString(dr["FirstName"]),
+                        LastName = Convert.ToString(dr["LastName"]),
+                        PrimaryAddress = Convert.ToString(dr["PrimaryAddress"]),
+                        CityStateZip = Convert.ToString(dr["CityStateZip"]),
+                        PrimaryEmailAddress = Convert.ToString(dr["PrimaryEmailAddress"]),
+                        PhoneNumber = Convert.ToString(dr["PhoneNumber"]),
                     });
             }
             return studentlist;
@@ -72,9 +76,12 @@ namespace YTP.Main.Models {
             };
 
             cmd.Parameters.AddWithValue("@StdId", smodel.Id);
-            cmd.Parameters.AddWithValue("@Name", smodel.Name);
-            cmd.Parameters.AddWithValue("@City", smodel.City);
-            cmd.Parameters.AddWithValue("@Address", smodel.Address);
+            cmd.Parameters.AddWithValue("@FirstName", smodel.FirstName);
+            cmd.Parameters.AddWithValue("@LastName", smodel.LastName);
+            cmd.Parameters.AddWithValue("@PrimaryAddress", smodel.PrimaryAddress);
+            cmd.Parameters.AddWithValue("@CityStateZip", smodel.CityStateZip);
+            cmd.Parameters.AddWithValue("@PrimaryEmailAddress", smodel.PrimaryEmailAddress);
+            cmd.Parameters.AddWithValue("@PhoneNumber", smodel.PhoneNumber);
 
             con.Open();
             int i = cmd.ExecuteNonQuery();
