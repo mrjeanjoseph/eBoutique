@@ -5,7 +5,7 @@ using System.Web;
 
 namespace YTP.Main.Models {
     public class CustomerModel {
-        public int CustomerId { get; set; }
+        public string CustomerId { get; set; }
 
         public string CompanyName { get; set; }
 

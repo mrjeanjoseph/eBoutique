@@ -8,8 +8,9 @@ namespace YTP.Main.Models {
     public class CustomerDBHandle {
 
         private SqlConnection con;
+
         private void Connection() {
-            string constring = ConfigurationManager.ConnectionStrings["mycon"].ToString();
+            string constring = ConfigurationManager.ConnectionStrings["mycon2"].ToString();
             con = new SqlConnection(constring);
         }
 
@@ -32,15 +33,15 @@ namespace YTP.Main.Models {
             foreach (DataRow dr in dt.Rows) {
                 studentlist.Add(
                     new CustomerModel {
-                        CustomerId = Convert.ToInt32(dr["CustomerId"]),
+                        CustomerId = Convert.ToString(dr["CustomerId"]),
                         CompanyName = Convert.ToString(dr["CompanyName"]),
                         ContactName = Convert.ToString(dr["ContactName"]),
                         ContactTitle = Convert.ToString(dr["ContactTitle"]),
                         Country = Convert.ToString(dr["Country"])
                     });
             }
+
             return studentlist;
         }
-
     }
 }
