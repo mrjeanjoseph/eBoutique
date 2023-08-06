@@ -7,13 +7,16 @@ namespace YTP.Main.Models {
         public int Id { get; set; }
 
         [Required(ErrorMessage = "First name is required.")]
-        public string Name { get; set; }
+        public string FirstName { get; set; }
 
-        [Required(ErrorMessage = "City is required.")]
-        public string City { get; set; }
+        [Required(ErrorMessage = "Last name is required.")]
+        public string LastName { get; set; }
 
-        [Required(ErrorMessage = "Address is required.")]
-        public string Address { get; set; }
+        [Required(ErrorMessage = "PrimaryAddress is required.")]
+        public string PrimaryAddress { get; set; }
+        public string CityStateZip { get; set; }
+        public string PrimaryEmailAddress { get; set; }
+        public string PhoneNumber { get; set; }
 
     }
 }

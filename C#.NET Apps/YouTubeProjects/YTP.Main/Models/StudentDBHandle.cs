@@ -1,29 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Web;
+using System.Data.SqlClient;
 
 namespace YTP.Main.Models {
     public class StudentDBHandle {
 
         private SqlConnection con;
-        private void connection() {
-            string constring = ConfigurationManager.ConnectionStrings["studentconn"].ToString();
+        private void Connection() {
+            string constring = ConfigurationManager.ConnectionStrings["mycon"].ToString();
             con = new SqlConnection(constring);
         }
 
         // **************** ADD NEW STUDENT *********************
         public bool AddStudent(StudentModel smodel) {
-            connection();
-            SqlCommand cmd = new SqlCommand("AddNewStudent", con);
-            cmd.CommandType = CommandType.StoredProcedure;
+            Connection();
+            SqlCommand cmd = new SqlCommand("AddNewStudent", con) {
+                CommandType = CommandType.StoredProcedure
+            };
 
-            cmd.Parameters.AddWithValue("@Name", smodel.Name);
-            cmd.Parameters.AddWithValue("@City", smodel.City);
-            cmd.Parameters.AddWithValue("@Address", smodel.Address);
+            cmd.Parameters.AddWithValue("@FirstName", smodel.FirstName);
+            cmd.Parameters.AddWithValue("@LastName", smodel.LastName);
+            cmd.Parameters.AddWithValue("@PrimaryAddress", smodel.PrimaryAddress);
+            cmd.Parameters.AddWithValue("@CityStateZip", smodel.CityStateZip);
+            cmd.Parameters.AddWithValue("@PrimaryEmailAddress", smodel.PrimaryEmailAddress);
+            cmd.Parameters.AddWithValue("@PhoneNumber", smodel.PhoneNumber);
 
             con.Open();
             int i = cmd.ExecuteNonQuery();
@@ -37,11 +39,12 @@ namespace YTP.Main.Models {
 
         // ********** VIEW STUDENT DETAILS ********************
         public List<StudentModel> GetStudent() {
-            connection();
+            Connection();
             List<StudentModel> studentlist = new List<StudentModel>();
 
-            SqlCommand cmd = new SqlCommand("GetStudentDetails", con);
-            cmd.CommandType = CommandType.StoredProcedure;
+            SqlCommand cmd = new SqlCommand("GetStudentDetails", con) {
+                CommandType = CommandType.StoredProcedure
+            };
             SqlDataAdapter sd = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
 
@@ -63,9 +66,10 @@ namespace YTP.Main.Models {
 
         // ***************** UPDATE STUDENT DETAILS *********************
         public bool UpdateDetails(StudentModel smodel) {
-            connection();
-            SqlCommand cmd = new SqlCommand("UpdateStudentDetails", con);
-            cmd.CommandType = CommandType.StoredProcedure;
+            Connection();
+            SqlCommand cmd = new SqlCommand("UpdateStudentDetails", con) {
+                CommandType = CommandType.StoredProcedure
+            };
 
             cmd.Parameters.AddWithValue("@StdId", smodel.Id);
             cmd.Parameters.AddWithValue("@Name", smodel.Name);
@@ -84,9 +88,10 @@ namespace YTP.Main.Models {
 
         // ********************** DELETE STUDENT DETAILS *******************
         public bool DeleteStudent(int id) {
-            connection();
-            SqlCommand cmd = new SqlCommand("DeleteStudent", con);
-            cmd.CommandType = CommandType.StoredProcedure;
+            Connection();
+            SqlCommand cmd = new SqlCommand("DeleteStudent", con) {
+                CommandType = CommandType.StoredProcedure
+            };
 
             cmd.Parameters.AddWithValue("@StdId", id);
 
