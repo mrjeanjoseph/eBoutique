@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Web;
+using System.Data.SqlClient;
 
 namespace YTP.Main.Models {
     public class db {
@@ -23,10 +20,12 @@ namespace YTP.Main.Models {
                 com.Parameters.AddWithValue("@Country", emp.Country);
                 com.Parameters.AddWithValue("@Department", emp.Department);
                 com.Parameters.AddWithValue("@flag", emp.flag);
+
                 SqlDataAdapter da = new SqlDataAdapter(com);
                 da.Fill(ds);
                 msg = "OK";
                 return ds;
+
             } catch (Exception ex) {
                 msg = ex.Message;
                 return ds;
