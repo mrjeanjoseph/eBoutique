@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -22,8 +23,10 @@
                     <li>@Html.ActionLink("My Order", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
 
-                <div class="ml-auto">
-                    <i class="fa fa-shopping-cart"></i> <span class="h4">2</span>
+                <div class="navbar-nav ml-auto">
+                    <div class="nav-link">
+                        <i class="fa-solid fa-cart-shopping xl-3"></i> <span class="h4">2</span>
+                    </div>
                 </div>
             </div>
         </div>
