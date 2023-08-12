@@ -19,8 +19,12 @@
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("My Order", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
+
+                <div class="ml-auto">
+                    <i class="fa-solid fa-cart-shopping fa-3x"></i>
+                </div>
             </div>
         </div>
     </nav>
@@ -28,12 +32,13 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year -It me people!</p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/fontawesome")
     @RenderSection("scripts", required: false)
 </body>
 </html>

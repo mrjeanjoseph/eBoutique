@@ -19,9 +19,14 @@ namespace YTP.AddToCart {
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
+            bundles.Add(new Bundle("~/bundles/fontawesome").Include(
+                      "~/Scripts/fontawesome.all.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap.css",                      
+                      "~/Content/style.css").Include(
+                "~/Content/fontawesome.all.min.css", new CssRewriteUrlTransform()));
+
         }
     }
 }
