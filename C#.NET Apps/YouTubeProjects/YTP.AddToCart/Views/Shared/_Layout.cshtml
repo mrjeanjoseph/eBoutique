@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     @Scripts.Render("~/bundles/modernizr")
+    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />*@
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
@@ -44,8 +44,22 @@
     @Scripts.Render("~/bundles/script")
     @RenderSection("scripts", required: false)
 
-    <script>
+<script>
 
-    </script>
+    function AddToCart(pid) {
+        $.ajax({
+            url: "@Url.Action("AddToCart", "Home")",
+            type: "POST",
+            data: { id: pid },
+            dataType: "json",
+            success: function (res) {
+                console.clear();
+                console.log(res);
+            }
+        });
+
+        console.log("outside the Ajax");
+    }
+</script> 
 </body>
 </html>

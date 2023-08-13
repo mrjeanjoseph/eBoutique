@@ -17,13 +17,15 @@ namespace YTP.AddToCart {
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/fontawesome.js", //Testing fontawesome - looks like it's working
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new Bundle("~/bundles/script").Include(
                       "~/Scripts/main.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",                      
+                      "~/Content/bootstrap.css",
+                      "~/Content/fontawesome.css", //Testing fontawesome - looks like it's working
                       "~/Content/style.css"));
 
         }
