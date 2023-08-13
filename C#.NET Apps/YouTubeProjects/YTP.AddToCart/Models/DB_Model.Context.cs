@@ -15,10 +15,7 @@ namespace YTP.AddToCart.Models
     
     public partial class CONN : DbContext
     {
-        public CONN()
-            : base("name=CONN")
-        {
-        }
+        public CONN(): base("name=CONN"){ }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

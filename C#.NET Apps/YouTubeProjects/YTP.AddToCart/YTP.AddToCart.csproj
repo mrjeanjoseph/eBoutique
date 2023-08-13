@@ -132,9 +132,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Customer.cs">
-      <DependentUpon>DB_Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\DB_Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -150,13 +147,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DB_Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\StudentReg.cs">
-      <DependentUpon>DB_Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\tbl_cart.cs">
-      <DependentUpon>DB_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tbl_Employee.cs">
       <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_product.cs">
