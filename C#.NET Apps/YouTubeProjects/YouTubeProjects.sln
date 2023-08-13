@@ -15,6 +15,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTP.Main", "YTP.Main\YTP.Main.csproj", "{781106F4-D96D-4400-81D1-BBB82F172D5A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database Scripts", "Database Scripts", "{3DDDFF31-C727-4438-801E-4DC892490D47}"
+	ProjectSection(SolutionItems) = preProject
+		immigration_mgmt.sql = immigration_mgmt.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
