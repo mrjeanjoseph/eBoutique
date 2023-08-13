@@ -24,9 +24,11 @@
                 </ul>
 
                 <div class="navbar-nav ml-auto">
-                    <div class="nav-link">
-                        <i class="fa-solid fa-cart-shopping xl-3"></i> <span class="h4">2</span>
-                    </div>
+                    <a href="@Url.Action("ViewCart", "Home")">
+                        <div class="nav-link">
+                            <i class="fa-solid fa-cart-shopping xl-3"></i><span class="h4" id="count">0</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -53,12 +55,10 @@
             data: { id: pid },
             dataType: "json",
             success: function (res) {
-                console.clear();
-                console.log(res);
+                document.getElementById("count").innerHTML = res.length;
+                //$("#count").text(res.length);
             }
         });
-
-        console.log("outside the Ajax");
     }
 </script> 
 </body>
