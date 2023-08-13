@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Web;
+using System.Data.SqlClient;
 
 namespace YTP.Main.Models {
     public class DbAccess {
-        SqlConnection DefaultConn = new SqlConnection("Data Source=JeanPC;Initial Catalog=DEFAULTDB;Integrated Security=True");
+        readonly SqlConnection DefaultConn = new SqlConnection("Data Source=JeanPC;Initial Catalog=DEFAULTDB;Integrated Security=True");
 
         // For View record
         public DataSet Empget(Employee emp, out string msg) {
