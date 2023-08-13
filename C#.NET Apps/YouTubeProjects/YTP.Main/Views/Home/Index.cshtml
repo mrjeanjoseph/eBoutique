@@ -1,35 +1,39 @@
 ﻿@model IEnumerable<YTP.Main.Models.Employee>
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Index";
 }
 
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { @class = "btn btn-primary" })
+</p>
 <table class="table">
-    <thead>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Sr_no)</th>
+        <th>@Html.DisplayNameFor(model => model.Emp_name)</th>
+        <th>@Html.DisplayNameFor(model => model.City)</th>
+        <th>@Html.DisplayNameFor(model => model.State)</th>
+        <th>@Html.DisplayNameFor(model => model.Country)</th>
+        <th>@Html.DisplayNameFor(model => model.Department)</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model) {
         <tr>
-            <th>Sr No.</th>
-            <th>Employee Name</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Country</th>
-            <th>Department</th>
-            <th>Actions</th>
+            <td>@Html.DisplayFor(modelItem => item.Sr_no)</td>
+            <td>@Html.DisplayFor(modelItem => item.Emp_name)</td>
+            <td>@Html.DisplayFor(modelItem => item.City)</td>
+            <td>@Html.DisplayFor(modelItem => item.State)</td>
+            <td>@Html.DisplayFor(modelItem => item.Country)</td>
+            <td>@Html.DisplayFor(modelItem => item.Department)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Sr_no, @class = "btn btn-primary" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Sr_no }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Sr_no })
+            </td>
         </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model) {
-            <tr>
-                <td>@item.Sr_no</td>
-                <td>@item.Emp_name</td>
-                <td>@item.City</td>
-                <td>@item.State</td>
-                <td>@item.Country</td>
-                <td>@item.Department</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Sr_no">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@item.Sr_no">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
+    }
+
 </table>

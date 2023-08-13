@@ -10,9 +10,11 @@ namespace YTP.Main.Controllers {
         readonly DbAccess dbop = new DbAccess();
         string msg;
         public ActionResult Index() {
+
             Employee emp = new Employee();
             emp.flag = "get";
             DataSet ds = dbop.Empget(emp, out msg);
+
             List<Employee> list = new List<Employee>();
             foreach (DataRow dr in ds.Tables[0].Rows) {
                 list.Add(new Employee {
@@ -32,7 +34,8 @@ namespace YTP.Main.Controllers {
         }
 
         [HttpPost]
-        public ActionResult Create([Bind] Employee emp) {
+        public ActionResult Create(Employee emp) {
+
             try {
                 emp.flag = "insert";
                 dbop.Empdml(emp, out msg);
@@ -44,9 +47,11 @@ namespace YTP.Main.Controllers {
         }
 
         public ActionResult Edit(int id) {
+
             Employee emp = new Employee();
             emp.Sr_no = id;
             emp.flag = "getid";
+
             DataSet ds = dbop.Empget(emp, out msg);
             foreach (DataRow dr in ds.Tables[0].Rows) {
                 emp.Sr_no = Convert.ToInt32(dr["Sr_no"]);
@@ -58,6 +63,7 @@ namespace YTP.Main.Controllers {
             }
             return View(emp);
         }
+
         [HttpPost]
         public ActionResult Edit(int id, [Bind] Employee emp) {
             try {
@@ -83,5 +89,6 @@ namespace YTP.Main.Controllers {
             }
             return RedirectToAction("Index");
         }
+
     }
 }
