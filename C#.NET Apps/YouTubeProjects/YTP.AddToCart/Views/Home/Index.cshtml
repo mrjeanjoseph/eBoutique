@@ -1,17 +1,27 @@
-﻿@model IEnumerable<YTP.AddToCart.Models.tbl_product>;
+﻿@model IEnumerable<YTP.AddToCart.Models.tbl_product>
+
 
 @{
     ViewBag.Title = "Home Page";
 }
 
 
-<div class="card">
-    <div class="card-header">
-        Featured
-    </div>
-    <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="container">
+    <div class="row">
+
+        @foreach(var item in Model) {            
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="~/Content/img/@item.PImage" alt="image one" class="card-img-top" />
+                    <div class="card-body">
+                        <h3>@item.PName</h3>
+                    </div>
+                    <button class="btn btn-danger rounded-0">
+                        <i class="fa-solid fa-cart-arrow-down fa-fade text-white"> Add to Cart</i>
+                    </button>
+                </div>
+            </div>
+        }
+
     </div>
 </div>

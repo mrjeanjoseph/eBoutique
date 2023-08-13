@@ -22,11 +22,8 @@ namespace YTP.AddToCart.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<StudentReg> StudentRegs { get; set; }
         public virtual DbSet<tbl_cart> tbl_cart { get; set; }
         public virtual DbSet<tbl_product> tbl_product { get; set; }
         public virtual DbSet<tbl_u> tbl_u { get; set; }
-        public virtual DbSet<tbl_Employee> tbl_Employee { get; set; }
     }
 }
