@@ -1,1 +1,4 @@
-Keep a clean documenation of all the projects here
+** Keep a clean documentation of all the projects here **
+
+08/13/2023
+So far we have not kept documentation and we're not sure of what projects are working. We need to document up to the day.

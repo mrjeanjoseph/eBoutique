@@ -3,16 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordKeeping.Projects", "RecordKeeping.Projects\RecordKeeping.Projects.csproj", "{6C709F71-0DA0-42D0-8243-BBB8FFF82252}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A25D5C5B-3250-4E9D-934C-9AFE33A46881}"
 	ProjectSection(SolutionItems) = preProject
 		Documentation.txt = Documentation.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssociateManagement.Web", "AssociateManagement.Web\AssociateManagement.Web.csproj", "{F81081F8-20EC-4F50-8AE0-9D6AF302E693}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTP.Main", "YTP.Main\YTP.Main.csproj", "{781106F4-D96D-4400-81D1-BBB82F172D5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database Scripts", "Database Scripts", "{3DDDFF31-C727-4438-801E-4DC892490D47}"
+	ProjectSection(SolutionItems) = preProject
+		immigration_mgmt.sql = immigration_mgmt.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,14 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6C709F71-0DA0-42D0-8243-BBB8FFF82252}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C709F71-0DA0-42D0-8243-BBB8FFF82252}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C709F71-0DA0-42D0-8243-BBB8FFF82252}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C709F71-0DA0-42D0-8243-BBB8FFF82252}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F81081F8-20EC-4F50-8AE0-9D6AF302E693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F81081F8-20EC-4F50-8AE0-9D6AF302E693}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F81081F8-20EC-4F50-8AE0-9D6AF302E693}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F81081F8-20EC-4F50-8AE0-9D6AF302E693}.Release|Any CPU.Build.0 = Release|Any CPU
 		{781106F4-D96D-4400-81D1-BBB82F172D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{781106F4-D96D-4400-81D1-BBB82F172D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{781106F4-D96D-4400-81D1-BBB82F172D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,6 +28,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3DDDFF31-C727-4438-801E-4DC892490D47} = {A25D5C5B-3250-4E9D-934C-9AFE33A46881}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12EF082F-AB2C-462D-9800-1023203B1FC5}
