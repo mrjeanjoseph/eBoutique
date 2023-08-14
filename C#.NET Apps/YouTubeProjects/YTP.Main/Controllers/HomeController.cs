@@ -7,14 +7,13 @@ using YTP.Main.Models;
 namespace YTP.Main.Controllers {
     public class HomeController : Controller
     {
-        readonly DbAccess dbop = new DbAccess();
+        readonly DbAccess dbaccessoperation = new DbAccess();
         string msg;
         public ActionResult Index() {
 
-            Employee emp = new Employee {
-                flag = "get"
-            };
-            DataSet ds = dbop.Empget(emp, out msg);
+            Employee emp = new Employee { flag = "get" };
+
+            DataSet ds = dbaccessoperation.GetEmployeeDetail(emp, out msg);
 
             List<Employee> list = new List<Employee>();
             foreach (DataRow dr in ds.Tables[0].Rows) {
@@ -39,11 +38,12 @@ namespace YTP.Main.Controllers {
 
             try {
                 emp.flag = "insert";
-                dbop.Empdml(emp, out msg);
+                dbaccessoperation.ManupilateEmployeeRecord(emp, out msg);
                 TempData["msg"] = msg;
             } catch (Exception ex) {
                 TempData["msg"] = ex.Message;
             }
+
             return RedirectToAction("Index");
         }
 
@@ -53,7 +53,7 @@ namespace YTP.Main.Controllers {
             emp.Sr_no = id;
             emp.flag = "getid";
 
-            DataSet ds = dbop.Empget(emp, out msg);
+            DataSet ds = dbaccessoperation.GetEmployeeDetail(emp, out msg);
             foreach (DataRow dr in ds.Tables[0].Rows) {
                 emp.Sr_no = Convert.ToInt32(dr["Sr_no"]);
                 emp.Emp_name = dr["Emp_name"].ToString();
@@ -67,27 +67,31 @@ namespace YTP.Main.Controllers {
 
         [HttpPost]
         public ActionResult Edit(int id, [Bind] Employee emp) {
+
             try {
                 emp.Sr_no = id;
                 emp.flag = "update";
-                dbop.Empdml(emp, out msg);
+                dbaccessoperation.ManupilateEmployeeRecord(emp, out msg);
                 TempData["msg"] = msg;
             } catch (Exception ex) {
                 TempData["msg"] = ex.Message;
             }
+
             return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id) {
+
             try {
                 Employee emp = new Employee();
                 emp.flag = "delete";
                 emp.Sr_no = id;
-                dbop.Empdml(emp, out msg);
+                dbaccessoperation.ManupilateEmployeeRecord(emp, out msg);
                 TempData["msg"] = msg;
             } catch (Exception ex) {
                 TempData["msg"] = ex.Message;
             }
+
             return RedirectToAction("Index");
         }
 

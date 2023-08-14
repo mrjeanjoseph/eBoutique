@@ -5,10 +5,7 @@
 }
 
 <h2>Index</h2>
-
-
-    @Html.ActionLink("Create New", "Create", "", null, new { @class = "btn btn-primary" })
-
+@Html.ActionLink("Create New", "Create", "", null, new { @class = "btn btn-primary" })
 
 <table class="table">
     <tr>
@@ -29,12 +26,18 @@
             <td>@Html.DisplayFor(modelItem => item.State)</td>
             <td>@Html.DisplayFor(modelItem => item.Country)</td>
             <td>@Html.DisplayFor(modelItem => item.Department)</td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", "", null, new { id = item.Sr_no, @class = "btn btn-primary" }) |
-                @Html.ActionLink("Details", "Details", "", null, new { id = item.Sr_no, @class = "btn btn-warning" }) |
-                @Html.ActionLink("Delete", "Delete", "", null, new { id = item.Sr_no, @class = "btn btn-danger" })
+            <td class="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Edit Record
+                </button>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Choose", null, null, new { @class = "dropdown-item disabled" })</li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>@Html.ActionLink("Edit", "Edit", null, new { @class = "dropdown-item" })</li>
+                    <li>@Html.ActionLink("Details", "Details", null, new { @class = "dropdown-item" })</li>
+                    <li>@Html.ActionLink("Delete", "Delete", null, new { @class = "dropdown-item" })</li>
+                </ul>
             </td>
         </tr>
     }
-
 </table>
