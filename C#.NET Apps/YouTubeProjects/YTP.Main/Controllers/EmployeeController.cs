@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using YTP.Main.Models;
 
 namespace YTP.Main.Controllers {
-    public class HomeController : Controller
+    public class EmployeeController : Controller
     {
         readonly DbAccess dbaccessoperation = new DbAccess();
         string msg;

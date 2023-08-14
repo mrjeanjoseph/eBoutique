@@ -33,9 +33,9 @@
                 <ul class="dropdown-menu">
                     <li>@Html.ActionLink("Choose", null, null, new { @class = "dropdown-item disabled" })</li>
                     <li><hr class="dropdown-divider"></li>
-                    <li>@Html.ActionLink("Edit", "Edit", null, new { @class = "dropdown-item" })</li>
-                    <li>@Html.ActionLink("Details", "Details", null, new { @class = "dropdown-item" })</li>
-                    <li>@Html.ActionLink("Delete", "Delete", null, new { @class = "dropdown-item" })</li>
+                    <li>@Html.ActionLink("Edit", "Edit", null, new { id = @item.Sr_no }, new { @class = "dropdown-item" })</li>
+                    <li>@Html.ActionLink("Details", "Details", null, new { id = @item.Sr_no }, new { @class = "dropdown-item" })</li>
+                    <li>@Html.ActionLink("Delete", "Delete", null, new { id = @item.Sr_no }, new { @class = "dropdown-item" })</li>
                 </ul>
             </td>
         </tr>
