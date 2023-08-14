@@ -6,9 +6,10 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create", new { @class = "btn btn-primary" })
-</p>
+
+    @Html.ActionLink("Create New", "Create", "", null, new { @class = "btn btn-primary" })
+
+
 <table class="table">
     <tr>
         <th>@Html.DisplayNameFor(model => model.Sr_no)</th>
@@ -29,9 +30,9 @@
             <td>@Html.DisplayFor(modelItem => item.Country)</td>
             <td>@Html.DisplayFor(modelItem => item.Department)</td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Sr_no, @class = "btn btn-primary" }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Sr_no }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Sr_no })
+                @Html.ActionLink("Edit", "Edit", "", null, new { id = item.Sr_no, @class = "btn btn-primary" }) |
+                @Html.ActionLink("Details", "Details", "", null, new { id = item.Sr_no, @class = "btn btn-warning" }) |
+                @Html.ActionLink("Delete", "Delete", "", null, new { id = item.Sr_no, @class = "btn btn-danger" })
             </td>
         </tr>
     }

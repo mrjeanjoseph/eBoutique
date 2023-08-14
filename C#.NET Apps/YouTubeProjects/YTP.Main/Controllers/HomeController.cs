@@ -11,8 +11,9 @@ namespace YTP.Main.Controllers {
         string msg;
         public ActionResult Index() {
 
-            Employee emp = new Employee();
-            emp.flag = "get";
+            Employee emp = new Employee {
+                flag = "get"
+            };
             DataSet ds = dbop.Empget(emp, out msg);
 
             List<Employee> list = new List<Employee>();
