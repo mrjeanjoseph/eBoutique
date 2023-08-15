@@ -15,8 +15,6 @@ namespace YTP.Main.Models {
         public string State { get; set; } = "";
         public string Country { get; set; } = "";
         public string Department { get; set; } = "";
-
-        [Required(ErrorMessage = "type insert, update or delete")]
-        public string flag { get; set; } = "";
+        public string flag { get; set; }
     }
 }

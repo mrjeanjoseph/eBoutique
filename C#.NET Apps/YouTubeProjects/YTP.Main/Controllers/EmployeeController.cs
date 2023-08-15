@@ -12,7 +12,6 @@ namespace YTP.Main.Controllers {
         public ActionResult Index() {
 
             Employee emp = new Employee { flag = "get" };
-
             DataSet ds = dbaccessoperation.GetEmployeeDetail(emp, out msg);
 
             List<Employee> list = new List<Employee>();
@@ -36,6 +35,7 @@ namespace YTP.Main.Controllers {
         [HttpPost]
         public ActionResult Create(Employee emp) {
 
+            emp = new Employee { flag = "insert" };
             try {
                 emp.flag = "insert";
                 dbaccessoperation.ManupilateEmployeeRecord(emp, out msg);
@@ -83,9 +83,10 @@ namespace YTP.Main.Controllers {
         public ActionResult Delete(int id) {
 
             try {
-                Employee emp = new Employee();
-                emp.flag = "delete";
-                emp.Sr_no = id;
+                Employee emp = new Employee {
+                    flag = "delete",
+                    Sr_no = id
+                };
                 dbaccessoperation.ManupilateEmployeeRecord(emp, out msg);
                 TempData["msg"] = msg;
             } catch (Exception ex) {
