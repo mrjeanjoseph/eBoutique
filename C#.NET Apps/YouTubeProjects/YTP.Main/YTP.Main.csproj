@@ -118,11 +118,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\NorthwindEmployeeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DbAccess.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\NorthwindEmployees.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +168,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Home\" />
+    <Folder Include="Views\NorthwindEmployee\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

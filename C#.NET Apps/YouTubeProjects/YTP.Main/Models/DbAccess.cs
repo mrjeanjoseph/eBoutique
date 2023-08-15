@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 
 namespace YTP.Main.Models {
     public class DbAccess {
@@ -11,9 +14,9 @@ namespace YTP.Main.Models {
             DataSet ds = new DataSet();
             msg = "";
             try {
-                SqlCommand com = new SqlCommand("Sp_Employee", DefaultConn);
-
-                com.CommandType = CommandType.StoredProcedure;
+                SqlCommand com = new SqlCommand("Sp_Employee", DefaultConn) {
+                    CommandType = CommandType.StoredProcedure
+                };
                 com.Parameters.AddWithValue("@Sr_no", emp.Sr_no);
                 com.Parameters.AddWithValue("@Emp_name", emp.Emp_name);
                 com.Parameters.AddWithValue("@City", emp.City);
@@ -37,9 +40,9 @@ namespace YTP.Main.Models {
         public string ManupilateEmployeeRecord(Employee emp, out string msg) {
             msg = "";
             try {
-                SqlCommand com = new SqlCommand("Sp_Employee", DefaultConn);
-
-                com.CommandType = CommandType.StoredProcedure;
+                SqlCommand com = new SqlCommand("Sp_Employee", DefaultConn) {
+                    CommandType = CommandType.StoredProcedure
+                };
                 com.Parameters.AddWithValue("@Sr_no", emp.Sr_no);
                 com.Parameters.AddWithValue("@Emp_name", emp.Emp_name);
                 com.Parameters.AddWithValue("@City", emp.City);
@@ -62,5 +65,42 @@ namespace YTP.Main.Models {
                 return msg;
             }
         }
+
+        #region Accessing Northwind DB
+        
+        private SqlConnection _nwDbConn;
+        private void Connection() {
+            string constring = ConfigurationManager.ConnectionStrings["NorthwindDbConn"].ToString();
+            _nwDbConn = new SqlConnection(constring);
+        }
+
+        // ********** VIEW STUDENT DETAILS ********************
+        public List<NorthwindEmployees> GetNorthwindEmployees() {
+            Connection();
+            List<NorthwindEmployees> studentlist = new List<NorthwindEmployees>();
+
+            SqlCommand cmd = new SqlCommand("DBO.GetNorthwindEmployees", _nwDbConn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            _nwDbConn.Open();
+            sd.Fill(dt);
+            _nwDbConn.Close();
+
+            foreach (DataRow dr in dt.Rows) {
+                studentlist.Add(
+                    new NorthwindEmployees {
+                        EmployeeID = Convert.ToInt32(dr["EmployeeID"]),
+                        Title = Convert.ToString(dr["Title"]),
+                        FullName = Convert.ToString(dr["FullName"]),
+                        HireDate = Convert.ToDateTime(dr["HireDate"]),
+                        Location = Convert.ToString(dr["Location"]),
+                        PhoneNumber = Convert.ToString(dr["PhoneNumber"])
+                    });
+            }
+            return studentlist;
+        }
+        #endregion
     }
 }
