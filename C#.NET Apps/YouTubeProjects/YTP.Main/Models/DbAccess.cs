@@ -74,10 +74,10 @@ namespace YTP.Main.Models {
             _nwDbConn = new SqlConnection(constring);
         }
 
-        // ********** VIEW STUDENT DETAILS ********************
+        // ********** GET NORTHWIND EMPLOYEE DETAILS ********************
         public List<NorthwindEmployees> GetNorthwindEmployees() {
             Connection();
-            List<NorthwindEmployees> studentlist = new List<NorthwindEmployees>();
+            List<NorthwindEmployees> nwEmployeeList = new List<NorthwindEmployees>();
 
             SqlCommand cmd = new SqlCommand("DBO.GetNorthwindEmployees", _nwDbConn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -89,17 +89,18 @@ namespace YTP.Main.Models {
             _nwDbConn.Close();
 
             foreach (DataRow dr in dt.Rows) {
-                studentlist.Add(
+                nwEmployeeList.Add(
                     new NorthwindEmployees {
                         EmployeeID = Convert.ToInt32(dr["EmployeeID"]),
                         Title = Convert.ToString(dr["Title"]),
                         FullName = Convert.ToString(dr["FullName"]),
-                        HireDate = Convert.ToDateTime(dr["HireDate"]),
+                        HireDate = Convert.ToString(dr["HireDate"]),
                         Location = Convert.ToString(dr["Location"]),
                         PhoneNumber = Convert.ToString(dr["PhoneNumber"])
                     });
             }
-            return studentlist;
+
+            return nwEmployeeList;
         }
         #endregion
     }

@@ -15,7 +15,7 @@ namespace YTP.Main.Models {
         public string FullName { get; set; }
 
         [Display(Name = "Hire Date")]
-        public DateTime HireDate { get; set; }
+        public string HireDate { get; set; }
 
         public string Location { get; set; }
 
