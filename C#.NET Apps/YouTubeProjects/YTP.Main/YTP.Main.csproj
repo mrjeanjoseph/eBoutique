@@ -118,6 +118,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NorthwindEmployeeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -128,6 +129,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\favicon_io\about.txt" />
+    <Content Include="Content\assets\favicon_io\icon001.png" />
+    <Content Include="Content\assets\favicon_io\icon002.png" />
+    <Content Include="Content\assets\favicon_io\apple-touch-icon.png" />
+    <Content Include="Content\assets\favicon_io\favicon-16x16.png" />
+    <Content Include="Content\assets\favicon_io\favicon-32x32.png" />
+    <Content Include="Content\assets\favicon_io\main.ico" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -139,6 +147,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\assets\favicon_io\site.webmanifest" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -165,10 +174,11 @@
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\NorthwindEmployee\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Home\" />
+    <Folder Include="Content\assets\images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
