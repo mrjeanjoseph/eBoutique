@@ -18,3 +18,7 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.menu-color {
+    background-color: #0A58CA;
+}
