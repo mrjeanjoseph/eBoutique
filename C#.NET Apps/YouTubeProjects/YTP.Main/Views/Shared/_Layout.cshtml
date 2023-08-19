@@ -27,7 +27,7 @@
                         @Html.ActionLink("Contact", "ContactUs", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Product", "Index", "Product", new { area = "" }, new { @class = "nav-link" })
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -61,7 +61,7 @@
         <hr />
     </div>
 
-    @{ string myInfo = "Jean Built this!";} 
+    @{ string myInfo = "Jean Built this!";}
     <nav class="navbar fixed-bottom bg-body-tertiary">
         <div class="container-fluid">
             <p>&copy; @DateTime.Now.Year - @myInfo</p>
