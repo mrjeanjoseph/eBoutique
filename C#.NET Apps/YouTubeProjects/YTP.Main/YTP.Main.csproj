@@ -128,32 +128,12 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NorthwindEmployeeController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DbAccess.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\NorthwindEmployees.cs" />
-    <Compile Include="Models\Product.cs">
-      <DependentUpon>ProductDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProductDBModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductDBModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProductDBModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProductDBModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductDBModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -169,16 +149,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\ProductDBModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ProductDBModel.Context.cs</LastGenOutput>
-      <DependentUpon>ProductDBModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\ProductDBModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ProductDBModel.edmx</DependentUpon>
-      <LastGenOutput>ProductDBModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -186,13 +156,6 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\assets\favicon_io\site.webmanifest" />
-    <EntityDeploy Include="Models\ProductDBModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ProductDBModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ProductDBModel.edmx.diagram">
-      <DependentUpon>ProductDBModel.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -220,7 +183,6 @@
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\NorthwindEmployee\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
