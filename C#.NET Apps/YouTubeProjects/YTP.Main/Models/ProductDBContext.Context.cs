@@ -7,24 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YTP.Main.Models
-{
-    using System;
+namespace YTP.Main.Models {
+
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
-    public partial class ProductContext : DbContext
-    {
-        public ProductContext()
-            : base("name=ProductContext")
-        {
-        }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
+
+    public partial class ProductContext : DbContext {
+
+        public ProductContext() : base("name=ProductContext") { }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<Product> Products { get; set; }
     }
 }

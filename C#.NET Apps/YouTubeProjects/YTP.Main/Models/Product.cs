@@ -7,13 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YTP.Main.Models
-{
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class Product
-    {
+namespace YTP.Main.Models {
+
+    public partial class Product {
+
         public int ProductId { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
