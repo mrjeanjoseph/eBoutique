@@ -133,9 +133,33 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DbAccess.cs" />
+    <Compile Include="Models\DefaultDBModels.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DefaultDBModels.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DefaultDBModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DefaultDBModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DefaultDBModels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DefaultDBModels.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\NorthwindEmployees.cs" />
-    <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>DefaultDBModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\ProductModel.cs" />
+    <Compile Include="Models\tbl_Employee.cs">
+      <DependentUpon>DefaultDBModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBS_Employee.cs">
+      <DependentUpon>DefaultDBModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +175,16 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
+    <Content Include="Models\DefaultDBModels.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DefaultDBModels.edmx</DependentUpon>
+      <LastGenOutput>DefaultDBModels.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DefaultDBModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DefaultDBModels.edmx</DependentUpon>
+      <LastGenOutput>DefaultDBModels.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -158,6 +192,13 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\assets\favicon_io\site.webmanifest" />
+    <EntityDeploy Include="Models\DefaultDBModels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DefaultDBModels.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DefaultDBModels.edmx.diagram">
+      <DependentUpon>DefaultDBModels.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -192,7 +233,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\assets\images\" />
-    <Folder Include="Models\ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
