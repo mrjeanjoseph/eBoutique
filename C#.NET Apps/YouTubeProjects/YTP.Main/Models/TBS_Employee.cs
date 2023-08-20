@@ -17,7 +17,7 @@ namespace YTP.Main.Models
         public int EmployeeId { get; set; }
         public string FullName { get; set; }
         public string Position { get; set; }
-        public string OfiiceLoc { get; set; }
+        public string OfficeLoc { get; set; }
         public Nullable<int> Age { get; set; }
         public Nullable<int> Salary { get; set; }
     }

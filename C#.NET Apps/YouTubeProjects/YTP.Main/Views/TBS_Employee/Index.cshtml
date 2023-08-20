@@ -2,10 +2,10 @@
 @{
     ViewBag.Title = "TBS Employees";
 }
+<link href="~/Content/datatables.min.css" rel="stylesheet" />
 
 <h2>Employee Details</h2>
-
-<table id="employeeTable">
+<table id="employeeTable" class="display">
     <thead>
         <tr>
             <th>FullName</th>
@@ -17,3 +17,25 @@
     </thead>
 </table>
 
+@section scripts{
+    <script src="~/Scripts/datatables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#employeeTable').DataTable({
+                "ajax": {
+                    "url": "/TBS_Employee/GetData",
+                    "type": "GET",
+                    "datatype" : "json"
+                },
+                "columns": [
+                    {"data" : "FullName"},
+                    {"data" : "Position"},
+                    {"data" : "OfficeLoc"},
+                    {"data" : "Age"},
+                    {"data" : "Salary"}
+                ]
+            })
+        });
+    </script>
+}

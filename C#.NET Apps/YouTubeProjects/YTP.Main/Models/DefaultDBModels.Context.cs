@@ -26,7 +26,7 @@ namespace YTP.Main.Models
         }
     
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<TBS_Employee> TBS_Employee { get; set; }
+        public virtual DbSet<TBS_Employee> tbs_Employees { get; set; }
         public virtual DbSet<tbl_Employee> tbl_Employee { get; set; }
     }
 }

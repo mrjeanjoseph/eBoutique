@@ -36,7 +36,7 @@ warning 6002: The table/view 'DEFAULTDB.dbo.tbl_Employee' does not have a primar
           <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FullName" Type="nvarchar" MaxLength="50" />
           <Property Name="Position" Type="nvarchar" MaxLength="50" />
-          <Property Name="OfiiceLoc" Type="nvarchar" MaxLength="50" />
+          <Property Name="OfficeLoc" Type="nvarchar" MaxLength="50" />
           <Property Name="Age" Type="int" />
           <Property Name="Salary" Type="int" />
         </EntityType>
@@ -77,7 +77,7 @@ warning 6002: The table/view 'DEFAULTDB.dbo.tbl_Employee' does not have a primar
           <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OfiiceLoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OfficeLoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Age" Type="Int32" />
           <Property Name="Salary" Type="Int32" />
         </EntityType>
@@ -121,7 +121,7 @@ warning 6002: The table/view 'DEFAULTDB.dbo.tbl_Employee' does not have a primar
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="OfiiceLoc" ColumnName="OfiiceLoc" />
+                <ScalarProperty Name="OfficeLoc" ColumnName="OfficeLoc" />
                 <ScalarProperty Name="Age" ColumnName="Age" />
                 <ScalarProperty Name="Salary" ColumnName="Salary" />
               </MappingFragment>
