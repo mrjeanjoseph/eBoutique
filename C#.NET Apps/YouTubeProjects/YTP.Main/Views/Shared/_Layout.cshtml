@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - CRUD ALLDAY!</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -11,7 +11,7 @@
 
     <nav class="navbar bg-dark navbar-expand-lg border-bottom border-bottom-dark bg-body-tertiary" data-bs-theme="dark">
         <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("CRUD ALLDAY!", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -21,13 +21,13 @@
                         @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("About", "AboutCRUD", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Contact", "ContactUs", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Product", "Index", "Product", new { area = "" }, new { @class = "nav-link" })
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -48,9 +48,7 @@
                             <li>@Html.ActionLink("Project Four", "Contact", "Home", new { area = "" }, new { @class = "nav-link dropdown-item" })</li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Admin</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link disabled">Admin</a></li>
                 </ul>
             </div>
         </div>
@@ -61,14 +59,16 @@
         <hr />
     </div>
 
+    @{ string myInfo = "Jean Built this!";}
     <nav class="navbar fixed-bottom bg-body-tertiary">
         <div class="container-fluid">
-            <p>&copy; @DateTime.Now.Year - Jean Built this!</p>
+            <p>&copy; @DateTime.Now.Year - @myInfo</p>
         </div>
     </nav>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/scripts")
     @RenderSection("scripts", required: false)
 </body>
 </html>
