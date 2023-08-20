@@ -25,7 +25,15 @@ namespace YTP.Main.Controllers {
         [HttpGet]
         public ActionResult AddOrEdit(int id = 0) {
 
-            return View(new TBS_Employee());
+            if(id == 0)
+                return View(new TBS_Employee());
+            else {
+                using (DBContext dbAccess=new DBContext()) {
+                    var result = dbAccess.tbs_Employees.Where(e => e.EmployeeId == id).FirstOrDefault<TBS_Employee>();
+
+                    return View(result);
+                }
+            }
         }
 
         [HttpPost]

@@ -29,6 +29,7 @@ namespace YTP.Main {
                       "~/Scripts/bootstrap.bundle.js"));
 
             bundles.Add(new Bundle("~/bundles/scripts").Include(
+                      "~/Scripts/notify.min.js",
                       "~/Scripts/productdetail.js",
                       "~/Scripts/tbs_emp.js",
                       "~/Scripts/script.js"));

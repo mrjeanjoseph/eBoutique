@@ -7,16 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YTP.Main.Models
-{
+namespace YTP.Main.Models {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TBS_Employee
-    {
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class TBS_Employee {
+
         public int EmployeeId { get; set; }
+
+        [Required(ErrorMessage = "The Full Name is required")]
+        [Display(Name = "Full Name")]
         public string FullName { get; set; }
+
+        [Required(ErrorMessage = "The Position Field is required")]
         public string Position { get; set; }
+
+        [Display(Name = "Office Location")]
         public string OfficeLoc { get; set; }
         public Nullable<int> Age { get; set; }
         public Nullable<int> Salary { get; set; }
