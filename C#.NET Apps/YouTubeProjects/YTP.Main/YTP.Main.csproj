@@ -282,7 +282,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\TBS_Employee\Index.cshtml" />
-    <Content Include="Views\TBS_Employee\AddOrEdit2.cshtml" />
     <Content Include="Views\TBS_Employee\AddOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>

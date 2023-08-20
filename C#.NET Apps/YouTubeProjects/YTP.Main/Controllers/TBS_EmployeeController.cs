@@ -8,7 +8,7 @@ using YTP.Main.Models;
 namespace YTP.Main.Controllers {
     public class TBS_EmployeeController : Controller {
         // GET: TBS_Employee
-        
+
         public ActionResult Index() {
             return View();
         }
@@ -18,18 +18,25 @@ namespace YTP.Main.Controllers {
             using (DBContext dbAccess = new DBContext()) {
 
                 List<TBS_Employee> empList = dbAccess.tbs_Employees.ToList<TBS_Employee>();
-                return Json(new {data = empList }, JsonRequestBehavior.AllowGet);
+                return Json(new { data = empList }, JsonRequestBehavior.AllowGet);
             }
         }
 
-        [HttpGet] public ActionResult AddOrEdit(int id = 0) {
+        [HttpGet]
+        public ActionResult AddOrEdit(int id = 0) {
 
             return View(new TBS_Employee());
         }
-        [HttpPost] public ActionResult AddOrEdit() {
 
+        [HttpPost]
+        public ActionResult AddOrEdit(TBS_Employee empObj) {
+
+            using (DBContext dbAccess = new DBContext()) {
+                dbAccess.tbs_Employees.Add(empObj);
+                dbAccess.SaveChanges();
+
+                return Json(new { success = true, message = "Data entry saved successfully." }, JsonRequestBehavior.AllowGet);
+            }
         }
     }
-
-
 }
