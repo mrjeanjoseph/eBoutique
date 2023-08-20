@@ -154,6 +154,24 @@
       <DependentUpon>ProductDBContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\TBS_Employee.cs">
+      <DependentUpon>TBS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBS_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TBS_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBS_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TBS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBS_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TBS_Model.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +197,16 @@
       <DependentUpon>ProductDBContext.edmx</DependentUpon>
       <LastGenOutput>ProductDBContext.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\TBS_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TBS_Model.edmx</DependentUpon>
+      <LastGenOutput>TBS_Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\TBS_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TBS_Model.edmx</DependentUpon>
+      <LastGenOutput>TBS_Model.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -192,6 +220,13 @@
     </EntityDeploy>
     <Content Include="Models\ProductDBContext.edmx.diagram">
       <DependentUpon>ProductDBContext.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\TBS_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TBS_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\TBS_Model.edmx.diagram">
+      <DependentUpon>TBS_Model.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
