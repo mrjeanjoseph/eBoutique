@@ -34,7 +34,7 @@ namespace YTP.Main.Controllers {
         public ActionResult PostProductDetails(ProductModel model) {
 
             _dbContext = new ProductContext();
-            Product product = new Product();
+            ProductModel product = new ProductModel();
 
             product.ProductId = model.ProductId;
             product.Code = model.Code;

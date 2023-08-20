@@ -133,26 +133,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DbAccess.cs" />
-    <Compile Include="Models\DefaultDBModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DefaultDBModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DefaultDBModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DefaultDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DefaultDBModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DefaultDBModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\NorthwindEmployees.cs" />
-    <Compile Include="Models\Product.cs">
-      <DependentUpon>DefaultDBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ProductDBContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -169,27 +151,6 @@
       <DependentUpon>ProductDBContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductModel.cs" />
-    <Compile Include="Models\tbl_Employee.cs">
-      <DependentUpon>DefaultDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TBS_Employee.cs">
-      <DependentUpon>DefaultDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TBS_Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TBS_Model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TBS_Model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TBS_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TBS_Model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TBS_Model.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -205,16 +166,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
-    <Content Include="Models\DefaultDBModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DefaultDBModel.edmx</DependentUpon>
-      <LastGenOutput>DefaultDBModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DefaultDBModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DefaultDBModel.edmx</DependentUpon>
-      <LastGenOutput>DefaultDBModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Models\ProductDBContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ProductDBContext.edmx</DependentUpon>
@@ -224,16 +175,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ProductDBContext.edmx</DependentUpon>
       <LastGenOutput>ProductDBContext.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\TBS_Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TBS_Model.edmx</DependentUpon>
-      <LastGenOutput>TBS_Model.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\TBS_Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TBS_Model.edmx</DependentUpon>
-      <LastGenOutput>TBS_Model.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -248,20 +189,6 @@
     </EntityDeploy>
     <Content Include="Models\ProductDBContext.edmx.diagram">
       <DependentUpon>ProductDBContext.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\TBS_Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TBS_Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\TBS_Model.edmx.diagram">
-      <DependentUpon>TBS_Model.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\DefaultDBModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DefaultDBModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DefaultDBModel.edmx.diagram">
-      <DependentUpon>DefaultDBModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
@@ -297,6 +224,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\assets\images\" />
+    <Folder Include="Models\ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

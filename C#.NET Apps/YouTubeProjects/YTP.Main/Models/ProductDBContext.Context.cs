@@ -20,6 +20,6 @@ namespace YTP.Main.Models {
             throw new UnintentionalCodeFirstException();
         }
 
-        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ProductModel> Products { get; set; }
     }
 }
