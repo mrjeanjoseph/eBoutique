@@ -14,15 +14,21 @@ namespace YTP.Main {
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/DataTables").Include(
+                        "~/Scripts/jquery.dataTables.min.js",
+                        "~/Scripts/dataTables.bootstrap5.min.js"));
+
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.bundle.js"));
 
             bundles.Add(new Bundle("~/bundles/scripts").Include(
-                      "~/Scripts/script.js",
-                      "~/Scripts/productdetail.js"));
+                      "~/Scripts/productdetail.js",
+                      "~/Scripts/tbs_emp.js",
+                      "~/Scripts/script.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/dataTables.bootstrap5.css",
                       "~/Content/site.css"));
 
         }

@@ -82,5 +82,3 @@ function LoadProductData() {
         }
     });
 }
-
-console.log("logic moved");
