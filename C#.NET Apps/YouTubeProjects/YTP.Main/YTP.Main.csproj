@@ -135,21 +135,6 @@
     <Compile Include="Models\DbAccess.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\NorthwindEmployees.cs" />
-    <Compile Include="Models\ProductDBContext.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductDBContext.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProductDBContext.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductDBContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProductDBContext.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductDBContext.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -166,16 +151,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
-    <Content Include="Models\ProductDBContext.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ProductDBContext.edmx</DependentUpon>
-      <LastGenOutput>ProductDBContext.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ProductDBContext.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ProductDBContext.edmx</DependentUpon>
-      <LastGenOutput>ProductDBContext.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -183,13 +158,6 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\assets\favicon_io\site.webmanifest" />
-    <EntityDeploy Include="Models\ProductDBContext.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ProductDBContext.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ProductDBContext.edmx.diagram">
-      <DependentUpon>ProductDBContext.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
