@@ -18,7 +18,8 @@ namespace YTP.Main {
                       "~/Scripts/bootstrap.bundle.js"));
 
             bundles.Add(new Bundle("~/bundles/scripts").Include(
-                      "~/Scripts/script.js"));
+                      "~/Scripts/script.js",
+                      "~/Scripts/productdetail.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
