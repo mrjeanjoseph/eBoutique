@@ -6,7 +6,7 @@ using System.Linq;
 namespace YTP.Main.Controllers {
     public class ProductController : Controller {
 
-        private ProductContext _dbContext;
+        private DBContext _dbContext;
         // GET: Product
         public ActionResult Index() {
             return View();
@@ -15,7 +15,7 @@ namespace YTP.Main.Controllers {
         [HttpGet]
         public ActionResult GetProductDetails() {
 
-            _dbContext = new ProductContext();
+            _dbContext = new DBContext();
 
             List<ProductModel> listOfProducts = (from prodObj in _dbContext.Products
                             select new ProductModel {
@@ -33,7 +33,7 @@ namespace YTP.Main.Controllers {
         [HttpPost]
         public ActionResult PostProductDetails(ProductModel model) {
 
-            _dbContext = new ProductContext();
+            _dbContext = new DBContext();
             Product product = new Product();
 
             product.ProductId = model.ProductId;

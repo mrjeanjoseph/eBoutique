@@ -1,4 +1,11 @@
 ** Keep a clean documentation of all the projects here **
+** Most of these documentation should be in the PMC **
+
+
+08/20/23
+We're unable to find part 2 of these two videos
+	Ajax jQuery In Asp Net MVC   CRUD Operations Using JSON Part 1
+	ASP.NET MVC CRUD Operation Using JQuery Ajax Part 1
 
 08/13/2023
-So far we have not kept documentation and we're not sure of what projects are working. We need to document up to the day.
+	So far we have not kept documentation and we're not sure of what projects are working. We need to document up to the day.
