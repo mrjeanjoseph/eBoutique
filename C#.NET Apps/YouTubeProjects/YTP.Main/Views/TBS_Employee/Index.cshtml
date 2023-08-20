@@ -9,7 +9,7 @@
         <tr>
             <th>FullName</th>
             <th>Position</th>
-            <th>Office Loc</th>
+            <th>Office Location</th>
             <th>Age</th>
             <th>Salary</th>
             <th class="text-center">Action</th>
@@ -36,12 +36,13 @@
                     { "data" : "Age" },
                     { "data" : "Salary" },
                     {
-                        "data" : "EmployeeId", "render": function () {
+                        "data" : "EmployeeId", "render": function (data) {
                             return `
-                                <a class="btn btn-warning btn-sm">&#x270E; Edit</a>
+                                <a class="btn btn-warning btn-sm" onclick=PopupForm('@Url.Action("AddOrEdit", "TBS_Employee")/${data}')>&#x270E; Edit</a>
                                 <a class="btn btn-danger btn-sm">&#x2716; Delete</a>`
                         },
-                        "orderable" : false,
+                        "orderable": false,
+                        "searchable" : false,
                         "width" : "150px"
                     }
                 ],
@@ -62,9 +63,9 @@
                 Popup = formDiv.dialog({
                     autoOpen: true,
                     resizable: false,
-                    title: 'Fill Employee Details',
+                    title: 'Add New Employee Record',
                     height: 500,
-                    width: 700,
+                    width: 500,
                     close: function () {
                         Popup.dialog('destroy').remove();
                     }
