@@ -21,6 +21,14 @@ namespace YTP.Main.Controllers {
                 return Json(new {data = empList }, JsonRequestBehavior.AllowGet);
             }
         }
+
+        [HttpGet] public ActionResult AddOrEdit(int id = 0) {
+
+            return View(new TBS_Employee());
+        }
+        [HttpPost] public ActionResult AddOrEdit() {
+
+        }
     }
 
 

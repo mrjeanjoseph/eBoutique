@@ -11,7 +11,7 @@
 
     <nav class="navbar bg-dark navbar-expand-lg border-bottom border-bottom-dark bg-body-tertiary" data-bs-theme="dark">
         <div class="container">
-            @Html.ActionLink("CRUD ALLDAY!", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("CRUD ALLDAY", null, null, new { area = "" }, new { @class = "navbar-brand" }) 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,6 +25,9 @@
                     </li>
                     <li class="nav-item">
                         @Html.ActionLink("Contact", "ContactUs", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("TBS Employee", "Index", "TBS_Employee", new { area = "" }, new { @class = "nav-link" })
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
