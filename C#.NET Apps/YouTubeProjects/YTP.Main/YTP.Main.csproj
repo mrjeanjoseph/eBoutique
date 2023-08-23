@@ -126,13 +126,21 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccEmpController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NorthwindEmployeeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\TBS_EmployeeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Acc_CityData.cs">
+      <DependentUpon>DefaultDBModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Acc_EmpData.cs">
+      <DependentUpon>DefaultDBModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DbAccess.cs" />
     <Compile Include="Models\DefaultDBModels.Context.cs">
@@ -283,6 +291,8 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\TBS_Employee\Index.cshtml" />
     <Content Include="Views\TBS_Employee\AddOrEdit.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\AccEmp\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,13 +12,14 @@ namespace YTP.Main.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TBS_Employee
+    public partial class Acc_EmpData
     {
         public int EmployeeId { get; set; }
-        public string FullName { get; set; }
-        public string Position { get; set; }
-        public string OfficeLoc { get; set; }
-        public Nullable<int> Age { get; set; }
-        public Nullable<int> Salary { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Department { get; set; }
+        public string PositionType { get; set; }
+        public decimal Salary { get; set; }
+        public int CityId { get; set; }
     }
 }
