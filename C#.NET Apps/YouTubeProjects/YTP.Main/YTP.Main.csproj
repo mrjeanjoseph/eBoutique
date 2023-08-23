@@ -126,6 +126,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Ouest\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Ouest\OuestAreaRegistration.cs" />
     <Compile Include="Controllers\AccEmpController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -254,6 +256,8 @@
     <Content Include="Models\DefaultDBModels.edmx.diagram">
       <DependentUpon>DefaultDBModels.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Ouest\Views\web.config" />
+    <Content Include="Areas\Ouest\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
@@ -296,6 +300,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Ouest\Data\" />
+    <Folder Include="Areas\Ouest\Views\Shared\" />
     <Folder Include="Content\assets\images\" />
   </ItemGroup>
   <ItemGroup>
