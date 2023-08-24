@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Web.Mvc;
 using YTP.Main.Models;
@@ -58,8 +59,10 @@ namespace YTP.Main.Controllers {
         public ActionResult Delete(int id) {
 
             TBS_Employee empOjb = dbAccess.tbs_Employees.Where(e => e.EmployeeId == id).FirstOrDefault<TBS_Employee>();
+            var result = empOjb.FullName.Length;
             dbAccess.tbs_Employees.Remove(empOjb);
             dbAccess.SaveChanges();
+            
 
             return Json(new { success = true, message = "Data Deleted successfully." }, JsonRequestBehavior.AllowGet);
 

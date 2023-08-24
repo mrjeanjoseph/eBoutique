@@ -32,6 +32,7 @@ namespace YTP.Main {
                       "~/Scripts/notify.min.js",
                       "~/Scripts/productdetail.js",
                       "~/Scripts/tbs_emp.js",
+                      "~/Scripts/accemp.js",
                       "~/Scripts/script.js"));
         }
     }

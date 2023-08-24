@@ -126,13 +126,23 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Ouest\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Ouest\OuestAreaRegistration.cs" />
+    <Compile Include="Controllers\AccEmpController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NorthwindEmployeeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\TBS_EmployeeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Acc_CityData.cs">
+      <DependentUpon>DefaultDBModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Acc_EmpData.cs">
+      <DependentUpon>DefaultDBModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DbAccess.cs" />
     <Compile Include="Models\DefaultDBModels.Context.cs">
@@ -163,6 +173,7 @@
       <DependentUpon>DefaultDBModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\AccEmpData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\favicon_io\about.txt" />
@@ -232,6 +243,7 @@
       <DependentUpon>DefaultDBModels.edmx</DependentUpon>
       <LastGenOutput>DefaultDBModels.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\accemp.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -246,6 +258,8 @@
     <Content Include="Models\DefaultDBModels.edmx.diagram">
       <DependentUpon>DefaultDBModels.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Ouest\Views\web.config" />
+    <Content Include="Areas\Ouest\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
@@ -283,9 +297,13 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\TBS_Employee\Index.cshtml" />
     <Content Include="Views\TBS_Employee\AddOrEdit.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\AccEmp\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Ouest\Data\" />
+    <Folder Include="Areas\Ouest\Views\Shared\" />
     <Folder Include="Content\assets\images\" />
   </ItemGroup>
   <ItemGroup>

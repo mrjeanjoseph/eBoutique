@@ -15,10 +15,7 @@ namespace YTP.Main.Models
     
     public partial class DBContext : DbContext
     {
-        public DBContext()
-            : base("name=DBContext")
-        {
-        }
+        public DBContext() : base("name=DBContext") { }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -28,5 +25,7 @@ namespace YTP.Main.Models
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<TBS_Employee> tbs_Employees { get; set; }
         public virtual DbSet<tbl_Employee> tbl_Employee { get; set; }
+        public virtual DbSet<Acc_CityData> Acc_CityData { get; set; }
+        public virtual DbSet<Acc_EmpData> Acc_EmpData { get; set; }
     }
 }

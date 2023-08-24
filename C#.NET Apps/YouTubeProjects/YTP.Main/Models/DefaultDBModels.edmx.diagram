@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="DEFAULTDBModel.Product" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DEFAULTDBModel.TBS_Employee" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DEFAULTDBModel.tbl_Employee" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEFAULTDBModel.Acc_CityData" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="DEFAULTDBModel.Acc_EmpData" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
