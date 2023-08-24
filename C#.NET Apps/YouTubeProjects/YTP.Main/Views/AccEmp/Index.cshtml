@@ -15,7 +15,7 @@
             <th>Department</th>
             <th>Position Type</th>
             <th>Salary</th>
-            <th>City</th>
+            <th>City Name</th>
             <th class="text-center">Action</th>
         </tr>
     </thead>
@@ -76,3 +76,37 @@
 
     </script>
 }
+
+<table>
+    <tr>
+        <td>First Name</td>
+        <td><input type="text" name="FirstName" id="firstNameInput" /></td>
+    </tr>
+    <tr>
+        <td>Last Name</td>
+        <td><input type="text" name="LastName" id="lastNameInput" /></td>
+    </tr>
+    <tr>
+        <td>Department</td>
+        <td><input type="text" name="Department" id="departmentInput" /></td>
+    </tr>
+    <tr>
+        <td>Position Type</td>
+        <td><input type="text" name="PositionType" id="PositionTypeInput" /></td>
+    </tr>
+    <tr>
+        <td>Salary</td>
+        <td><input type="text" name="Salary" id="salaryInput" /></td>
+    </tr>
+    <tr>
+        <td>City Name</td>
+        <td>@Html.DropDownList("Cities", @ViewBag.Cities as IEnumerable<SelectListItem>)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <input type="button" class="btn btn-primary" id="btnSave" value="Add Employee" onclick="SaveDataEntry()" />
+            <input type="button" class="btn btn-danger" id="btnDelete" value="Reset Entry" onclick="ResetDataEntry()" />
+        </td>
+    </tr>
+</table>

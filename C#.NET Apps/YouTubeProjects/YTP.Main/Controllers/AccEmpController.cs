@@ -14,6 +14,12 @@ namespace YTP.Main.Controllers {
         }
         // GET: AccEmp
         public ActionResult Index() {
+
+            ViewBag.Cities = (from city in _dbContext.Acc_CityData
+                              select new SelectListItem() {
+                                  Text = city.CityName, Value = city.CityId.ToString()
+                              }).ToList();
+
             return View();
         }
 
@@ -28,6 +34,7 @@ namespace YTP.Main.Controllers {
                     empData.LastName,
                     empData.Department,
                     empData.PositionType,
+                    empData.Salary,
                     empData.CityId,
                     cityData.CityName
                 }).ToList();
