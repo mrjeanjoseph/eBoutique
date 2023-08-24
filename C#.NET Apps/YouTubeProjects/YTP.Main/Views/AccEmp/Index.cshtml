@@ -36,9 +36,22 @@
             alert(`Employee Id: ${employeeId}`)
         }
 
+        function ResetDataEntry() {
+            $("#EmployeeId").val("");
+            $("#firstNameInput, #lastNameInput").val("");
+            $("#departmentInput").val("");
+            $("#PositionTypeInput").val("");
+            $("#salaryInput").val("");
+            $("#Cities").val("2");
+
+            $("#btnSave").val("Add Employee+");
+            $("#ErrorMessages").empty();
+
+        }
+
         function SaveDataEntry() {
             var EmployeeObject = {
-                EmployeeId : $("#EmployeeId").val(),
+                EmployeeId: $("#EmployeeId").val(),
                 FirstName: $("#firstNameInput").val(),
                 LastName: $("#lastNameInput").val(),
                 Department: $("#departmentInput").val(),
@@ -46,6 +59,8 @@
                 Salary: $("#salaryInput").val(),
                 CityId: $("#Cities").val()
             }
+
+            var errorMessage = ""
 
             $.ajax({
                 async: true,
@@ -55,7 +70,19 @@
                 dataType: 'JSON',
                 contentType: 'application/json; charset=utf-8',
                 success: function (result) {
+                    if (result.Success) {
+                        alert(result.Message);
+                        LoadEmployee();
+                        ResetDataEntry();
+                    }
+                    else {
+                        $.each(result.ErrorList, function (index, value) {
+                            errorMessage += value + '<br>';
+                        });
+                        $("#ErrorMessages").empty();
+                        $("#ErrorMessages").append(errorMessage);
 
+                    }
                 },
                 error: function (result) {
                     alert('An error has occurred!');
@@ -76,22 +103,23 @@
                     if (result.Success) {
                         $.each(result.data, function (index, value) {
                             accEmpData += `
-                            <tr>
-                                <td> ${index + 1} </td>
-                                <td> ${value.FirstName} </td>
-                                <td> ${value.LastName} </td>
-                                <td> ${value.Department} </td>
-                                <td> ${value.PositionType} </td>
-                                <td> ${value.Salary} </td>
-                                <td> ${value.CityName} </td>
-                                <td>
-                                   <input type="button" class="btn btn-warning btn-sm" value="Edit" onclick=EditEmployee(${value.EmployeeId})>
-                                   <input type="button" class="btn btn-danger btn-sm" value="Delete" onclick=DeleteEmployee(${value.EmployeeId})>
-                                </td>
-                            </tr>
-                            `;
+                                <tr>
+                                    <td> ${index + 1} </td>
+                                    <td> ${value.FirstName} </td>
+                                    <td> ${value.LastName} </td>
+                                    <td> ${value.Department} </td>
+                                    <td> ${value.PositionType} </td>
+                                    <td> ${value.Salary} </td>
+                                    <td> ${value.CityName} </td>
+                                    <td>
+                                       <input type="button" class="btn btn-warning btn-sm" value="Edit" onclick=EditEmployee(${value.EmployeeId})>
+                                       <input type="button" class="btn btn-danger btn-sm" value="Delete" onclick=DeleteEmployee(${value.EmployeeId})>
+                                    </td>
+                                </tr>
+                                `;
                         });
 
+                        $("#AccEmpData").find("tr:gt(0)").remove();
                         $('#AccEmpData').append(accEmpData);
                     }
                 },
@@ -106,6 +134,7 @@
 
 
 <input type="hidden" value="0" id="employeeId" />
+<div class="text-danger" id="ErrorMessages"></div>
 
 <table class="mt-3">
     <tr>
