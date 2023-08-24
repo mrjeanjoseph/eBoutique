@@ -173,7 +173,7 @@
       <DependentUpon>DefaultDBModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\AccEmp.cs" />
+    <Compile Include="ViewModel\AccEmpData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\favicon_io\about.txt" />

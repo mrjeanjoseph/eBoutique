@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 
 namespace YTP.Main.ViewModel {
-    public class AccEmp {
+    public class AccEmpData {
 
         public int EmployeeId { get; set; }
 
