@@ -24,34 +24,95 @@
 
 @section scripts{
     <script type="text/javascript">
+        var ajaxErrorResult = "An error has occur and we all concur";
         $(document).ready(function () {
             LoadEmployee();
         });
 
         function EditEmployee(employeeId) {
-            alert(`Employee Id: ${employeeId}`)
+
+            $.ajax({
+                async: true,
+                type: 'GET',
+                url: '/AccEmp/EditEmployee',
+                data: {employeeId: employeeId },
+                dataType: 'JSON',
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    $("#firstNameInput").val(result.FirstName);
+                    $("#lastNameInput").val(result.LastName);
+                    $("#departmentInput").val(result.Department);
+                    $("#PositionTypeInput").val(result.PositionType);
+                    $("#salaryInput").val(result.Salary);
+                    $("#Cities").val(result.CityId);
+
+                    $("#employeeId").val(employeeId);
+                    $("#btnSave").val("Update Employee");
+
+
+                    $.notify(result.message, {
+                        globalPosition: "top right",
+                        className: "success"
+                    });
+                },
+                error: function (result) {
+
+                    alert(ajaxErrorResult);
+                    console.log(result);
+                }
+            });
         }
 
         function DeleteEmployee(employeeId) {
-            alert(`Employee Id: ${employeeId}`)
+
+            var employeeId = { employeeId: employeeId };
+            confirm(`Are you sure you want to delete ${JSON.stringify(employeeId) } record.`);
+
+            $.ajax({
+                async: true,
+                type: 'POST',
+                url: '/AccEmp/DeleteEmployee',
+                data: JSON.stringify(employeeId),
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    if (result.Success) {                        
+                        LoadEmployee();
+
+                        $.notify(result.message, {
+                            globalPosition: "top right",
+                            className: "success"
+                        });
+                    }
+                    else {
+                        //alert(result.message);
+                        $.notify(result.message, {
+                            globalPosition: "top right",
+                            className: "danger"
+                        });
+                    }
+                },
+                error: function (result) {
+                    alert(ajaxErrorResult);
+                    console.log(result);
+                }
+            });
         }
 
         function ResetDataEntry() {
-            $("#EmployeeId").val("");
-            $("#firstNameInput, #lastNameInput").val("");
-            $("#departmentInput").val("");
-            $("#PositionTypeInput").val("");
-            $("#salaryInput").val("");
-            $("#Cities").val("2");
 
-            $("#btnSave").val("Add Employee+");
+            $("#employeeId").val("0");
+            $("#firstNameInput, #lastNameInput").val("");
+            $("#departmentInput,#PositionTypeInput,#salaryInput").val("");
+            $("#Cities").val("Select a City: ");
+
+            $("#btnSave").val("Add Employee");
             $("#ErrorMessages").empty();
 
         }
 
         function SaveDataEntry() {
             var EmployeeObject = {
-                EmployeeId: $("#EmployeeId").val(),
+                EmployeeId: $("#employeeId").val(),
                 FirstName: $("#firstNameInput").val(),
                 LastName: $("#lastNameInput").val(),
                 Department: $("#departmentInput").val(),
@@ -71,21 +132,31 @@
                 contentType: 'application/json; charset=utf-8',
                 success: function (result) {
                     if (result.Success) {
-                        alert(result.Message);
+
                         LoadEmployee();
                         ResetDataEntry();
-                    }
-                    else {
-                        $.each(result.ErrorList, function (index, value) {
-                            errorMessage += value + '<br>';
-                        });
-                        $("#ErrorMessages").empty();
-                        $("#ErrorMessages").append(errorMessage);
 
+                        $.notify(result.message, {
+                            globalPosition: "top right",
+                            className: "success"
+                        });
+                    }
+                    else {                       
+                        $("#ErrorMessages").empty();
+
+                        $.each(result.ErrorList, function (index, value) {
+                            errorMessage = value;
+                            $.notify(errorMessage, {
+                                globalPosition: "top middle",
+                                className: "error"
+                            });
+                        });
+                        //$("#ErrorMessages").append(errorMessage);
                     }
                 },
                 error: function (result) {
-                    alert('An error has occurred!');
+                    alert(ajaxErrorResult);
+                    console.log(result);
                 }
             });
         }
@@ -124,7 +195,12 @@
                     }
                 },
                 error: function (result) {
-                    alert('There are errors in return your data.')
+
+                    $.notify(ajaxErrorResult, {
+                        globalPosition: "middle middle",
+                        className: "error"
+                    });
+                    console.log(result);
                 }
             });
         }
@@ -134,7 +210,7 @@
 
 
 <input type="hidden" value="0" id="employeeId" />
-<div class="text-danger" id="ErrorMessages"></div>
+
 
 <table class="mt-3">
     <tr>
@@ -169,3 +245,5 @@
         </td>
     </tr>
 </table>
+<div class="text-danger" id="ErrorMessages"></div>
+
