@@ -1,0 +1,5 @@
+﻿var AccEmployee = {
+    pageInit: function () {
+       
+    }
+}

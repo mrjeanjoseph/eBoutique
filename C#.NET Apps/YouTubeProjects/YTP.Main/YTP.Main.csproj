@@ -173,6 +173,7 @@
       <DependentUpon>DefaultDBModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\AccEmp.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\favicon_io\about.txt" />
@@ -242,6 +243,7 @@
       <DependentUpon>DefaultDBModels.edmx</DependentUpon>
       <LastGenOutput>DefaultDBModels.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\accemp.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />

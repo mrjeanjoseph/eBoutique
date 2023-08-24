@@ -3,5 +3,76 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Accenture Employee</h2>
 
+
+<table class="table table-hover" id="AccEmpData">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Department</th>
+            <th>Position Type</th>
+            <th>Salary</th>
+            <th>City</th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+</table>
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            LoadEmployee();
+        });
+
+        function EditEmployee(employeeId) {
+            alert(`Employee Id: ${employeeId}`)
+        }
+
+        function DeleteEmployee(employeeId) {
+            alert(`Employee Id: ${employeeId}`)
+        }
+
+        function LoadEmployee() {
+            var accEmpData = "";
+
+            $.ajax({
+                async: true,
+                type: 'GET',
+                url: '/AccEmp/GetAllEmployee',
+                dataType: 'JSON',
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    if (result.Success) {
+                        $.each(result.data, function (index, value) {
+                            accEmpData += `
+                            <tr>
+                                <td> ${index + 1} </td>
+                                <td> ${value.FirstName} </td>
+                                <td> ${value.LastName} </td>
+                                <td> ${value.Department} </td>
+                                <td> ${value.PositionType} </td>
+                                <td> ${value.Salary} </td>
+                                <td> ${value.CityName} </td>
+                                <td>
+                                   <input type="button" class="btn btn-warning btn-sm" value="Edit" onclick=EditEmployee(${value.EmployeeId})>
+                                   <input type="button" class="btn btn-danger btn-sm" value="Delete" onclick=DeleteEmployee(${value.EmployeeId})>
+                                </td>
+                            </tr>
+                            `;
+                        });
+
+                        $('#AccEmpData').append(accEmpData);
+                    }
+                },
+                error: function (result) {
+                    alert('There are errors in return your data.')
+                }
+            });
+        }
+
+    </script>
+}
