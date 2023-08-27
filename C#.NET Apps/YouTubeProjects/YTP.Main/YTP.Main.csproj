@@ -126,8 +126,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Ouest\Controllers\MainController.cs" />
-    <Compile Include="Areas\Ouest\OuestAreaRegistration.cs" />
+    <Compile Include="Areas\ShoppingCart\Controllers\MainController.cs" />
+    <Compile Include="Areas\ShoppingCart\ShoppingCartAreaRegistration.cs" />
     <Compile Include="Controllers\AccEmpController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -259,8 +259,6 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\assets\favicon_io\site.webmanifest" />
-    <Content Include="Areas\Ouest\Views\web.config" />
-    <Content Include="Areas\Ouest\Views\Main\Index.cshtml" />
     <EntityDeploy Include="DataAccess\DefaultDBAccess.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DefaultDBAccess.Designer.cs</LastGenOutput>
@@ -268,6 +266,7 @@
     <Content Include="DataAccess\DefaultDBAccess.edmx.diagram">
       <DependentUpon>DefaultDBAccess.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\ShoppingCart\Views\web.config" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
@@ -310,8 +309,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Ouest\Data\" />
-    <Folder Include="Areas\Ouest\Views\Shared\" />
+    <Folder Include="Areas\ShoppingCart\Data\" />
+    <Folder Include="Areas\ShoppingCart\Views\Shared\" />
     <Folder Include="Content\assets\images\" />
   </ItemGroup>
   <ItemGroup>

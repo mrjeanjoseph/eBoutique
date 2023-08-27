@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace YTP.Main.Areas.Ouest
+namespace YTP.Main.Areas.ShoppingCart
 {
-    public class OuestAreaRegistration : AreaRegistration 
+    public class ShoppingCartAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "Ouest";
+                return "ShoppingCart";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Ouest_default",
-                "Ouest/{controller}/{action}/{id}",
+                "ShoppingCart_default",
+                "ShoppingCart/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

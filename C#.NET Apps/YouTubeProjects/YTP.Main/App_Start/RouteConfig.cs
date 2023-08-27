@@ -13,10 +13,10 @@ namespace YTP.Main {
 
             );
             routes.MapRoute(
-                name: "Ouest",
+                name: "ShoppingCart",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "YTP.Main.Areas.Ouest.Controllers" }
+                defaults: new { controller = "Main", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "YTP.Main.Areas.ShoppingCart.Controllers" }
             );
 
         }
