@@ -7,18 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YTP.Main.Models
+namespace YTP.Main.DataAccess
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_Employee
+    public partial class Acc_CityData
     {
-        public int Sr_no { get; set; }
-        public string Emp_name { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public string Country { get; set; }
-        public string Department { get; set; }
+        public int CityId { get; set; }
+        public string CityName { get; set; }
     }
 }

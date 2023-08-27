@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YTP.Main.Models
+namespace YTP.Main.DataAccess
 {
     using System;
     using System.Collections.Generic;
