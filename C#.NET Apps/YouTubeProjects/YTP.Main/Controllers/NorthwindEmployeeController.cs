@@ -7,7 +7,7 @@ namespace YTP.Main.Controllers {
         // GET: NorthwindEmployee
         public ActionResult Index()
         {
-            DbAccess dbhandle = new DbAccess();
+            Sp_EmpDBAccess dbhandle = new Sp_EmpDBAccess();
             ModelState.Clear();
             return View(dbhandle.GetNorthwindEmployees());
         }

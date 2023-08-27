@@ -159,7 +159,7 @@
     <Compile Include="DataAccess\Acc_EmpData.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataAccess\DbAccess.cs" />
+    <Compile Include="DataAccess\Sp_EmpDBAccess.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\NorthwindEmployees.cs" />
     <Compile Include="DataAccess\Product.cs">

@@ -7,7 +7,7 @@ using YTP.Main.Models;
 namespace YTP.Main.Controllers {
     public class EmployeeController : Controller
     {
-        readonly DbAccess dbaccessoperation = new DbAccess();
+        readonly Sp_EmpDBAccess dbaccessoperation = new Sp_EmpDBAccess();
         string msg;
         public ActionResult Index() {
 

@@ -5,7 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 
 namespace YTP.Main.Models {
-    public class DbAccess {
+    public class Sp_EmpDBAccess {
         readonly SqlConnection DefaultConn = new SqlConnection("Data Source=JeanPC;Initial Catalog=DEFAULTDB;Integrated Security=True");
 
         // For View record
