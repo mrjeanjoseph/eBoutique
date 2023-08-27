@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace YTP.Main.Areas.Ouest.Controllers
 {
-    public class HomeController : Controller
+    public class MainController : Controller
     {
         // GET: Ouest/Home
         public ActionResult Index()

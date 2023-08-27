@@ -126,7 +126,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Ouest\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Ouest\Controllers\MainController.cs" />
     <Compile Include="Areas\Ouest\OuestAreaRegistration.cs" />
     <Compile Include="Controllers\AccEmpController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
@@ -259,7 +259,7 @@
       <DependentUpon>DefaultDBModels.edmx</DependentUpon>
     </Content>
     <Content Include="Areas\Ouest\Views\web.config" />
-    <Content Include="Areas\Ouest\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Ouest\Views\Main\Index.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />

@@ -10,7 +10,15 @@ namespace YTP.Main {
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+
             );
+            routes.MapRoute(
+                name: "Ouest",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "YTP.Main.Areas.Ouest.Controllers" }
+            );
+
         }
     }
 }
