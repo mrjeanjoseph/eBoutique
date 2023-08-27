@@ -7,14 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YTP.Main.DataAccess {
-
+namespace YTP.Main.DataAccess
+{
+    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class DBContext : DbContext
     {
-        public DBContext() : base("name=DBContext") {}
+        public DBContext()
+            : base("name=DBContext")
+        {
+        }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -24,7 +28,9 @@ namespace YTP.Main.DataAccess {
         public virtual DbSet<Acc_CityData> Acc_CityData { get; set; }
         public virtual DbSet<Acc_EmpData> Acc_EmpData { get; set; }
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<TBS_Employee> tbs_Employee { get; set; }
+        public virtual DbSet<TBS_Employee> TBS_Employee { get; set; }
         public virtual DbSet<tbl_Employee> tbl_Employee { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
     }
 }
