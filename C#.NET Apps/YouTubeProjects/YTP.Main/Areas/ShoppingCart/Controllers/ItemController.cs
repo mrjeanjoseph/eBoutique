@@ -37,13 +37,16 @@ namespace YTP.Main.Areas.ShoppingCart.Controllers {
             viewModel.ImagePath.SaveAs(Server.MapPath(shoppingCartDir));
 
             Item objItem = new Item {
+
                 ImagePath = shoppingCartDir,
                 CategoryId = viewModel.CategoryId,
                 Description = viewModel.Description,
                 ItemId = Guid.NewGuid(),
+
                 ItemCode = viewModel.ItemCode,
                 ItemName = viewModel.ItemName,
                 ItemPrice = viewModel.ItemPrice
+
             };
 
             _itemdbcontext.Items.Add(objItem);

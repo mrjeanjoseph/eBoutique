@@ -25,6 +25,7 @@ namespace YTP.Main.Areas.ShoppingCart.Controllers {
                     select new VM_ShoppingCart() {
 
                         ItemId = item.ItemId,
+                        ItemCode = item.ItemCode,
                         Category = category.CategoryName,
                         ItemName = item.ItemName,
                         Description = item.Description,
