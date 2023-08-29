@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div class="container">
+    <h2 class="text-center">Product List</h2>
+    @foreach (var item in Model) {
+        <div class="col-md-3 mb-3">
+            <div style="text-align:center;border-bottom: 1px solid maroon">
+                <h4>@item.ItemName</h4>
+            </div>
+            <div class="thumbnail">
+                <div class="image m-2">
+                    <img src="@Url.Content(@item.ImagePath)" alt="" class="img-responsive" height="200" width="200" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

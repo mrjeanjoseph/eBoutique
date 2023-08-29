@@ -33,11 +33,11 @@ namespace YTP.Main.Areas.ShoppingCart.Controllers {
         public JsonResult SaveItems(VM_Item viewModel) {
 
             string newImage = Guid.NewGuid() + Path.GetExtension(viewModel.ImagePath.FileName);
-            string shoppingCartDir = "~/Areas/ShoppingCart/Content/Images/";
-            viewModel.ImagePath.SaveAs(Server.MapPath($"~/Content/images/{newImage}"));
+            string shoppingCartDir = $"~/Areas/ShoppingCart/Content/images/{newImage}";
+            viewModel.ImagePath.SaveAs(Server.MapPath(shoppingCartDir));
 
             Item objItem = new Item {
-                ImagePath = $"{shoppingCartDir}{newImage}",
+                ImagePath = shoppingCartDir,
                 CategoryId = viewModel.CategoryId,
                 Description = viewModel.Description,
                 ItemId = Guid.NewGuid(),

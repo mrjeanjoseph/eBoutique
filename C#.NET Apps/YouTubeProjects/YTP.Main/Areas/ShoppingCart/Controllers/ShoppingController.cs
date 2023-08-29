@@ -18,19 +18,20 @@ namespace YTP.Main.Areas.ShoppingCart.Controllers {
         public ActionResult Index() {
 
             IEnumerable<VM_ShoppingCart> viewModel = (
-                                from item in _cartdbcontext.Items
-                                join category in _cartdbcontext.Categories
-                                on item.CategoryId equals category.CategoryId
-                                select new VM_ShoppingCart() {
 
-                                    ItemId = item.ItemId,
-                                    Category = category.CategoryName,
-                                    ItemName = item.ItemName,
-                                    Description = item.Description,
-                                    ItemPrice = item.ItemPrice,
-                                    ImagePath = item.ImagePath
+                    from item in _cartdbcontext.Items
+                    join category in _cartdbcontext.Categories
+                    on item.CategoryId equals category.CategoryId
+                    select new VM_ShoppingCart() {
 
-                                }).ToList();
+                        ItemId = item.ItemId,
+                        Category = category.CategoryName,
+                        ItemName = item.ItemName,
+                        Description = item.Description,
+                        ItemPrice = item.ItemPrice,
+                        ImagePath = item.ImagePath
+
+                    }).ToList();
                             
             return View(viewModel);
         }

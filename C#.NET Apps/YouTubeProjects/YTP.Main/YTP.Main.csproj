@@ -272,6 +272,7 @@
     <Content Include="Areas\ShoppingCart\Views\web.config" />
     <Content Include="Areas\ShoppingCart\Views\Item\Index.cshtml" />
     <Content Include="Areas\ShoppingCart\Views\Main\Index.cshtml" />
+    <Content Include="Areas\ShoppingCart\Views\Shopping\Index.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
@@ -314,9 +315,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\ShoppingCart\Content\Images\" />
+    <Folder Include="Areas\ShoppingCart\Content\images\" />
     <Folder Include="Areas\ShoppingCart\Views\Shared\" />
-    <Folder Include="Areas\ShoppingCart\Views\Shopping\" />
     <Folder Include="Content\assets\images\" />
     <Folder Include="Content\images\" />
   </ItemGroup>
