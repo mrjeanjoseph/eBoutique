@@ -7,24 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YTP.Main.DataAccess
-{
-    using System;
+namespace YTP.Main.DataAccess {
+
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
-    public partial class DBContext : DbContext
-    {
+
+    public partial class DBContext : DbContext {
         public DBContext()
-            : base("name=DBContext")
-        {
+            : base("name=DBContext") {
         }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<Acc_CityData> Acc_CityData { get; set; }
         public virtual DbSet<Acc_EmpData> Acc_EmpData { get; set; }
         public virtual DbSet<Product> Products { get; set; }
