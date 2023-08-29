@@ -9,6 +9,7 @@ namespace YTP.Main.Areas.ShoppingCart.Models {
         public string ItemPath { get; set; }
         public string Description { get; set; }
         public decimal ItemPrice { get; set; }
+        public string Category { get; set; }
 
     }
 }

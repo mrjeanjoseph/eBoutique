@@ -9,17 +9,17 @@ namespace YTP.Main.Areas.ShoppingCart.Controllers {
 
     public class ItemController : Controller {
 
-        private readonly DBContext _cartdbcontext;
+        private readonly DBContext _itemdbcontext;
 
         public ItemController() {
 
-            _cartdbcontext = new DBContext();
+            _itemdbcontext = new DBContext();
         }
         // GET: ShoppingCart/Item
         public ActionResult Index() {
 
             VM_Item viewModel = new VM_Item();
-            viewModel.CategorySelectListItem = from objCat in _cartdbcontext.Categories
+            viewModel.CategorySelectListItem = from objCat in _itemdbcontext.Categories
                     select new SelectListItem() { // This is to load all the categories into the dropdown.
                         Text = objCat.CategoryName,
                         Value = objCat.CategoryId.ToString(),
@@ -46,8 +46,8 @@ namespace YTP.Main.Areas.ShoppingCart.Controllers {
                 ItemPrice = viewModel.ItemPrice
             };
 
-            _cartdbcontext.Items.Add(objItem);
-            _cartdbcontext.SaveChanges();
+            _itemdbcontext.Items.Add(objItem);
+            _itemdbcontext.SaveChanges();
 
             return Json(new {Success = true, Message = "Entry Added Successfully!"}, JsonRequestBehavior.AllowGet);
         }

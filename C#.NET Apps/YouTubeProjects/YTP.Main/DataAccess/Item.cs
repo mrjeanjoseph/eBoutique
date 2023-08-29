@@ -7,11 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YTP.Main.DataAccess
-{
-    using System;
-    using System.Collections.Generic;
-    
+namespace YTP.Main.DataAccess {
+
     public partial class Item
     {
         public System.Guid ItemId { get; set; }
