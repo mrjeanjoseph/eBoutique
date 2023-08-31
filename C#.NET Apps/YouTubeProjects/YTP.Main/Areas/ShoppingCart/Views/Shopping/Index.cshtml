@@ -20,7 +20,13 @@
                         <h5 class="card-title">@item.ItemName</h5>
                         <p class="card-text">@item.Description</p>
                         <p class="card-text"><small class="text-muted">@string.Format("{0:c}", item.ItemPrice)</small></p>
-                        <input type="button" name="AddToCart" value="Add to Cart" class="btn btn-primary mb-2" itemid="@item.ItemId" id="btnaddtocart" />
+                        <input type="button" 
+                               name="AddToCart" 
+                               value="Add to Cart" 
+                               class="btn btn-primary mb-2" 
+                               itemid="@item.ItemId" 
+                               id="btnaddtocart"
+                               onclick="AddToCart(this)"/>
                     </div>
 
                 </div>
@@ -30,3 +36,35 @@
 
 </div>
 
+
+
+
+@section scripts{
+    <script type="text/javascript">
+
+        function AddToCart(item) {
+            var itemId = $(item).attr("itemid");
+            var formData = new FormData();
+
+            formData.append("ItemId", itemId);
+
+            $.ajax({
+                async: true,
+                type: 'POST',
+                contentType: false,
+                processData: false,
+                data: formData,
+                url: '/Shopping/Index',
+                success: function (data) {
+                    if (data.Success) {
+                        $('#cartitem').text(`Cart (${data.Counter})`);
+                    }
+                },
+                error: function () {
+                    alert("An error occur saving items to your cart.");
+                }
+            });
+
+        }
+    </script>
+}

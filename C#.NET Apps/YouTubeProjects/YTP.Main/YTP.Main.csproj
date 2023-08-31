@@ -129,6 +129,7 @@
     <Compile Include="Areas\ShoppingCart\Controllers\ShoppingController.cs" />
     <Compile Include="Areas\ShoppingCart\Controllers\ItemController.cs" />
     <Compile Include="Areas\ShoppingCart\Controllers\MainController.cs" />
+    <Compile Include="Areas\ShoppingCart\Models\VM_Cart.cs" />
     <Compile Include="Areas\ShoppingCart\Models\VM_ShoppingCart.cs" />
     <Compile Include="Areas\ShoppingCart\ShoppingCartAreaRegistration.cs" />
     <Compile Include="Controllers\AccEmpController.cs" />
