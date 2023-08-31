@@ -1,6 +1,5 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Collections.Generic;
 using System.Web.Mvc;
 using YTP.Main.Areas.ShoppingCart.Models;
 using YTP.Main.DataAccess;
@@ -73,7 +72,11 @@ namespace YTP.Main.Areas.ShoppingCart.Controllers {
                 Counter = _listcartitemcontext.Count, 
                 Message = "Item added to cart successfully"
             }, JsonRequestBehavior.AllowGet);
+        }
 
+        public ActionResult ShoppingCart() {
+            _listcartitemcontext = Session["cartitem"] as List<VM_Cart>;
+            return View(_listcartitemcontext);
         }
     }
 }
