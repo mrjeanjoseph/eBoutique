@@ -1,8 +1,8 @@
 ﻿//Project incomplete. We did not get to implement the full CRUD Operation. We're still missing the Edit and Delete Click operation.
 
-var errMsg = "An error has occur. Please see check the console";
+var errMsg = "Check the console for error detail";
 $(document).ready(function () {
-    LoadProductData();
+    //LoadProductData();  // return 500 error. Will address later
 });
 
 function EditClick(ProductId) {
@@ -32,19 +32,28 @@ function SaveProduct() {
         dataType: 'JSON',
         contentType: 'application/json;charset=utf-8',
         success: function (result) {
-            console.log("in the Success logic")
             if (result.IsValid == true) {
-                alert(result.Message)
+
+                $.notify(result.Message, { globalPosition: "top right", className: "success" });
+
                 LoadProductData();
             }
             else {
-                alert(errMsg);
+
+                $.notify(`An error occurred attempting to save your entry. ${errMsg}`, {
+                    globalPosition: "top right",
+                    className: "error"
+                });
                 console.log(result.ErrorMessage);
             }
 
         },
         error: function (result) {
-            alert(errMsg);
+
+            $.notify(errMsg, {
+                globalPosition: "top right",
+                className: "error"
+            });
             console.log(result)
         }
     });
@@ -52,7 +61,7 @@ function SaveProduct() {
 
 function LoadProductData() {
     $.ajax({
-        async: true,
+        //async: true,
         url: '/Product/GetProductDetails',
         type: 'GET',
         contentType: 'application/json;charset=utf-8',
@@ -75,9 +84,14 @@ function LoadProductData() {
                 productData += '</tr>';
             });
             $('.loadProduct').html(productData);
+            $.notify(result.Message, { globalPosition: "top right", className: "success" });
         },
         error: function (result) {
-            alert(errMsg);
+
+            $.notify(`An error occurred attempting to load product data. ${errMsg}`, {
+                globalPosition: "top right",
+                className: "error"
+            });
             console.log(result);
         }
     });

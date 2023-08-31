@@ -7,18 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YTP.Main.Models
-{
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class TBS_Employee
+namespace YTP.Main.DataAccess {
+
+    public partial class Item
     {
-        public int EmployeeId { get; set; }
-        public string FullName { get; set; }
-        public string Position { get; set; }
-        public string OfficeLoc { get; set; }
-        public Nullable<int> Age { get; set; }
-        public Nullable<int> Salary { get; set; }
+        public System.Guid ItemId { get; set; }
+        public int CategoryId { get; set; }
+        public string ItemCode { get; set; }
+        public string ItemName { get; set; }
+        public string Description { get; set; }
+        public string ImagePath { get; set; }
+        public decimal ItemPrice { get; set; }
     }
 }

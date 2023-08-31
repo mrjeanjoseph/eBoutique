@@ -1,0 +1,130 @@
+﻿@model YTP.Main.Models.VM_Item
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Items - Shopping Cart</h2>
+
+<div class="container">
+
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <div class="form-group">
+                Category: @Html.DropDownListFor(model => model.CategoryId, new SelectList(Model.CategorySelectListItem, "Value", "Text"), new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                Item Code: @Html.TextBoxFor(model => model.ItemCode, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                Item Name: @Html.TextBoxFor(model => model.ItemName, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <div class="form-group">
+                Description: @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                Item Price: @Html.TextBoxFor(model => model.ItemPrice, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                Image: @Html.TextBoxFor(model => model.ImagePath, new { type = "file", @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" value="Save" class="btn btn-primary" id="btnsave"/>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" value="Reset" class="btn btn-danger" id="btnreset"/>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                @*<input type="button" value="Back to main Page" class="btn btn-info" id="btnbackToMainPage"/>*@
+                <a type="button" class="btn btn-info" id="btnbackToMainPage" href="~/ShoppingCart/Shopping">Back to main Page</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#btnsave").click(function () { SaveItem(); });
+
+            $("#btnreset").click(function () { ClearAllFields(); });
+        });
+
+        function ClearAllFields() {
+            $("#CategoryId").val("1");
+            $("#ItemCode").val("");
+            $("#ItemName").val("");
+            $("#Description").val("");
+            $("#ItemPrice").val("");
+            $("#ImagePath").val("");
+        }
+
+        function SaveItem() {
+
+            var formData = new FormData();
+
+            formData.append("CategoryId", $("#CategoryId").val());
+            formData.append("ItemCode", $("#ItemCode").val());
+            formData.append("ItemName", $("#ItemName").val());
+            formData.append("Description", $("#Description").val());
+            formData.append("ItemPrice", $("#ItemPrice").val());
+            formData.append("ImagePath", $("#ImagePath").get(0).files[0]);
+
+            $.ajax({
+                async: true,
+                dataType: 'JSON',
+                type: 'POST',
+                contentType: false,
+                processData: false,
+                url: '/Item/SaveItems',
+                data: formData,
+                success: function (data) {
+                    if (data.Success) {
+                        $.notify(data.Message, {
+                            globalPosition: "top right",
+                            className: "success"
+                        });
+                        ClearAllFields();
+                    }
+                },
+                error: function (data) {
+                    $.notify("An error attempting to save your entry.", {
+                        globalPosition: "top right",
+                        className: "error"
+                    });
+                }
+            });
+        }
+    </script>
+}

@@ -20,13 +20,13 @@
                         @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("About", "AboutCRUD", "Home", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Services", "Index", "Services", new { area = "ShoppingCart" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Contact", "ContactUs", "Home", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("About", "Aboutus", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Acc Employee", "Index", "AccEmp", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Contact", "Contactus", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -41,13 +41,16 @@
                         <ul class="dropdown-menu">
                             <li class="nav-item"><a class="nav-link disabled">All Projects</a></li>
                             <li><hr class="dropdown-divider"></li>
+                            <li>@Html.ActionLink("Shopping Cart", "Index", "Shopping", new { area = "ShoppingCart" }, new { @class = "nav-link dropdown-item" })</li>
                             <li>@Html.ActionLink("Employee Management", "Index", "Employee", new { area = "" }, new { @class = "nav-link dropdown-item" })</li>
                             <li>@Html.ActionLink("Northwind Employees", "Index", "NorthwindEmployee", new { area = "" }, new { @class = "nav-link dropdown-item" })</li>
                             <li>@Html.ActionLink("Product Management", "Index", "Product", new { area = "" }, new { @class = "nav-link dropdown-item" })</li>
                             <li>@Html.ActionLink("TBS Employee", "Index", "TBS_Employee", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Acc Employee", "Index", "AccEmp", new { area = "" }, new { @class = "nav-link" })</li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link disabled">Admin</a></li>
+                    @Html.Partial("~/Areas/ShoppingCart/Views/Shared/_CartIndex.cshtml")
                 </ul>
             </div>
         </div>

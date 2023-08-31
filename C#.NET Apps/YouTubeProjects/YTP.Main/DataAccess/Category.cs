@@ -7,19 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YTP.Main.Models
+namespace YTP.Main.DataAccess
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Acc_EmpData
+    public partial class Category
     {
-        public int EmployeeId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Department { get; set; }
-        public string PositionType { get; set; }
-        public decimal Salary { get; set; }
-        public int CityId { get; set; }
+        public int CategoryId { get; set; }
+        public string CategoryCode { get; set; }
+        public string CategoryName { get; set; }
     }
 }
