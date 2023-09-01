@@ -12,14 +12,13 @@ namespace YTP.Main.DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Item
+    public partial class OrderDetail
     {
-        public System.Guid ItemId { get; set; }
-        public int CategoryId { get; set; }
-        public string ItemCode { get; set; }
-        public string ItemName { get; set; }
-        public string Description { get; set; }
-        public string ImagePath { get; set; }
-        public decimal ItemPrice { get; set; }
+        public int OrderDetailId { get; set; }
+        public int OrderId { get; set; }
+        public string ItemId { get; set; }
+        public decimal Quantity { get; set; }
+        public decimal UnitPrice { get; set; }
+        public decimal Total { get; set; }
     }
 }

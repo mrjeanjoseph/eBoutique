@@ -18,14 +18,16 @@ namespace YTP.Main.Areas.ShoppingCart.Controllers {
         // GET: ShoppingCart/Item
         public ActionResult Index() {
 
-            VM_Item viewModel = new VM_Item();
-            viewModel.CategorySelectListItem = from objCat in _itemdbcontext.Categories
-                    select new SelectListItem() { // This is to load all the categories into the dropdown.
-                        Text = objCat.CategoryName,
-                        Value = objCat.CategoryId.ToString(),
-                        Selected = true
-                    };
-            
+            VM_Item viewModel = new VM_Item {
+                CategorySelectListItem = 
+                from objCat in _itemdbcontext.Categories
+                select new SelectListItem() { // This is to load all the categories into the dropdown.
+                    Text = objCat.CategoryName,
+                    Value = objCat.CategoryId.ToString(),
+                    Selected = true
+                }
+            };
+
             return View(viewModel);
         }
 

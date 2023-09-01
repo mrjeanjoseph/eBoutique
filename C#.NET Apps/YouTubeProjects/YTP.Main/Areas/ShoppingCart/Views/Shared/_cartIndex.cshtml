@@ -1,12 +1,12 @@
 ﻿
 <ul class="nav-item">
     <li>
-        @if (Session["CartCounter"] == null) {
+        @if (Session["cartcounter"] == null) {
 
             @Html.ActionLink("Cart", "ShoppingCart", "Shopping", new { @class = "nav-link", id = "cartitem" })
         } else {
 
-            @Html.ActionLink("Cart("+ Session["CartCounter"] + ")", "ShoppingCart", "Shopping", new { @class = "nav-link", id = "cartitem" })
+            @Html.ActionLink("Cart("+ Session["cartcounter"] + ")", "ShoppingCart", "Shopping", new { @class = "nav-link", id = "cartitem" })
         }
     </li>
 </ul>

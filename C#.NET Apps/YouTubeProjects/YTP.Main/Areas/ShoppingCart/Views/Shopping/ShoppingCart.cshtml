@@ -8,25 +8,26 @@
 
 <h2>Shopping Cart</h2>
 
-<table class="table table-responsive-sm">
-    @foreach (var item in Model) {
-        TotalAmount += item.Total;
+@using (Html.BeginForm("AddOrder", "Shopping", FormMethod.Post)) {
+    <table class="table table-responsive-sm">
+        @foreach (var item in Model) {
+            TotalAmount += item.Total;
 
-        <tr>
-            <td><img src="@Url.Content(item.ImagePath)" alt="No Desc" height="50" width="50" class="img-fluid" /></td>
-            <td>@item.ItemName</td>
-            <td>@item.Quantity.ToString("#,##0")</td>
-            <td>@item.UnitPrice.ToString("#,##0.00")</td>
-            <td>@item.Total.ToString("#,##0.00")</td>
-        </tr>
-    } 
+            <tr>
+                <td><img src="@Url.Content(item.ImagePath)" alt="No Desc" height="50" width="50" class="img-fluid" /></td>
+                <td>@item.ItemName</td>
+                <td>@item.Quantity.ToString("#,##0")</td>
+                <td>@item.UnitPrice.ToString("#,##0.00")</td>
+                <td>@item.Total.ToString("#,##0.00")</td>
+            </tr>
+        }
 
         <tr>
             <td colspan="4" style="text-align:right;"><h3>Total Amount: </h3></td>
             <td style="text-align:right;"><h3>@TotalAmount.ToString("#,##0.00")</h3></td>
         </tr>
         <tr style="text-align:right;">
-            <td colspan="5"><input type="button" name="Save" value="Save" class="btn btn-primary"/></td>
+            <td colspan="5"><input type="submit" name="Save" value="Save" class="btn btn-primary" id="SaveOrder" /></td>
         </tr>
-</table>
-
+    </table>
+}
