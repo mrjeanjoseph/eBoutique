@@ -83,12 +83,13 @@ namespace YTP.Main.Areas.ShoppingCart.Controllers {
         [HttpPost]
         public ActionResult AddOrder() {
 
-            int OrderId = 0;
+            int OrderId;
             _listcartitemcontext = Session["cartitem"] as List<VM_Cart>;
 
             Order orderObj = new Order() {
                 OrderDate = DateTime.Now,
                 OrderNumber = String.Format("{0:ddmmyyyyHHmmsss}",DateTime.Now),
+                Status = "Default",
             };
 
             _cartdbcontext.Orders.Add(orderObj);
