@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Linq;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using YTP.Main.Areas.ShoppingCart.Models;
 using YTP.Main.DataAccess;
@@ -8,7 +8,7 @@ using YTP.Main.DataAccess;
 namespace YTP.Main.Areas.ShoppingCart.Controllers {
     public class ShoppingController : Controller {
 
-        private readonly DBContext _cartdbcontext;
+        private DBContext _cartdbcontext;
         private List<VM_Cart> _listcartitemcontext;
 
         public ShoppingController() {
@@ -45,7 +45,7 @@ namespace YTP.Main.Areas.ShoppingCart.Controllers {
             VM_Cart cartmodel = new VM_Cart();
             Item item = _cartdbcontext.Items.Single(model => model.ItemId.ToString() == ItemId);
 
-            if (Session["CartCounter"] != null) {
+            if (Session["cartcounter"] != null) {
                 _listcartitemcontext = Session["cartitem"] as List<VM_Cart>;
             }
 
@@ -65,15 +65,53 @@ namespace YTP.Main.Areas.ShoppingCart.Controllers {
                 _listcartitemcontext.Add(cartmodel);
             }
 
-            Session["CartCounter"] = _listcartitemcontext.Count;
-            Session["CartItem"] = _listcartitemcontext;
+            Session["cartcounter"] = _listcartitemcontext.Count;
+            Session["cartitem"] = _listcartitemcontext;
 
             return Json(new {
                 Success = true, 
                 Counter = _listcartitemcontext.Count, 
                 Message = "Item added to cart successfully"
             }, JsonRequestBehavior.AllowGet);
+        }
 
+        public ActionResult ShoppingCart() {
+            _listcartitemcontext = Session["cartitem"] as List<VM_Cart>;
+            return View(_listcartitemcontext);
+        }
+
+        [HttpPost]
+        public ActionResult AddOrder() {
+
+            int OrderId;
+            _listcartitemcontext = Session["cartitem"] as List<VM_Cart>;
+
+            Order orderObj = new Order() {
+                OrderDate = DateTime.Now,
+                OrderNumber = String.Format("{0:ddmmyyyyHHmmsss}",DateTime.Now),
+                Status = "Default",
+            };
+
+            _cartdbcontext.Orders.Add(orderObj);
+            _cartdbcontext.SaveChanges();
+
+            OrderId = orderObj.OrderId;
+            foreach( var item in _listcartitemcontext ) {
+                OrderDetail od = new OrderDetail {
+                    Total = item.Total,
+                    ItemId = item.ItemId,
+                    OrderId = OrderId,
+                    Quantity = item.Quantity,
+                    UnitPrice = item.UnitPrice
+                };
+                _cartdbcontext.OrderDetails.Add(od);
+                _cartdbcontext.SaveChanges();
+            }
+
+            Session["cartcounter"] = null;
+            Session["cartitem"] = null;
+            return RedirectToAction("Index");
+            //return Json(new {Success = true, Message = "Data Saved successfully"}, JsonRequestBehavior.AllowGet);
         }
     }
 }

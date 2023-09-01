@@ -130,6 +130,8 @@
     <Compile Include="Areas\ShoppingCart\Controllers\ItemController.cs" />
     <Compile Include="Areas\ShoppingCart\Controllers\MainController.cs" />
     <Compile Include="Areas\ShoppingCart\Models\VM_Cart.cs" />
+    <Compile Include="Areas\ShoppingCart\Models\VM_Order.cs" />
+    <Compile Include="Areas\ShoppingCart\Models\VM_OrderDetail.cs" />
     <Compile Include="Areas\ShoppingCart\Models\VM_ShoppingCart.cs" />
     <Compile Include="Areas\ShoppingCart\ShoppingCartAreaRegistration.cs" />
     <Compile Include="Controllers\AccEmpController.cs" />
@@ -158,6 +160,12 @@
       <DependentUpon>DefaultDBAccess.edmx</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\Item.cs">
+      <DependentUpon>DefaultDBAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\Order.cs">
+      <DependentUpon>DefaultDBAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\OrderDetail.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -275,6 +283,7 @@
     <Content Include="Areas\ShoppingCart\Views\Main\Index.cshtml" />
     <Content Include="Areas\ShoppingCart\Views\Shopping\Index.cshtml" />
     <Content Include="Areas\ShoppingCart\Views\Shared\_CartIndex.cshtml" />
+    <Content Include="Areas\ShoppingCart\Views\Shopping\ShoppingCart.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
