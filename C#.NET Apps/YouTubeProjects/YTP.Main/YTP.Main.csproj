@@ -126,6 +126,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\HaitiEmployee\Controllers\HomeController.cs" />
     <Compile Include="Areas\HaitiEmployee\DataAccess\EmployeeDB.cs" />
     <Compile Include="Areas\HaitiEmployee\HaitiEmployeeAreaRegistration.cs" />
     <Compile Include="Areas\HaitiEmployee\Models\EmployeeModel.cs" />
@@ -288,8 +289,10 @@
     <Content Include="Areas\ShoppingCart\Views\Shared\_CartIndex.cshtml" />
     <Content Include="Areas\ShoppingCart\Views\Shopping\ShoppingCart.cshtml" />
     <Content Include="Areas\HaitiEmployee\Views\web.config" />
+    <Content Include="Areas\HaitiEmployee\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap5.min.js" />
+    <Content Include="Scripts\haitiemployee.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
     <Content Include="Scripts\jquery-3.7.0.slim.js" />
@@ -330,7 +333,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\HaitiEmployee\Controllers\" />
     <Folder Include="Areas\HaitiEmployee\Views\Shared\" />
     <Folder Include="Areas\ShoppingCart\Content\images\" />
     <Folder Include="Content\assets\images\" />

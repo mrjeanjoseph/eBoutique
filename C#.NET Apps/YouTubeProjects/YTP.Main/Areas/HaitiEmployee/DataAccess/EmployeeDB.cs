@@ -1,23 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Web;
+using System.Data.SqlClient;
 using YTP.Main.Areas.HaitiEmployee.Models;
 
 namespace YTP.Main.Areas.HaitiEmployee.DataAccess {
     public class EmployeeDB {
         //declare connection string  
-        readonly string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+        readonly string cs = ConfigurationManager.ConnectionStrings["DefaultConn"].ConnectionString;
 
         //Return list of all Employees  
         public List<EmployeeModel> ListAll() {
             List<EmployeeModel> lst = new List<EmployeeModel>();
             using (SqlConnection con = new SqlConnection(cs)) {
                 con.Open();
-                SqlCommand com = new SqlCommand("SelectEmployee", con);
+                SqlCommand com = new SqlCommand("SP_Select_Haiti_Employee", con);
                 com.CommandType = CommandType.StoredProcedure;
                 SqlDataReader rdr = com.ExecuteReader();
                 while (rdr.Read()) {
@@ -38,9 +36,9 @@ namespace YTP.Main.Areas.HaitiEmployee.DataAccess {
             int i;
             using (SqlConnection con = new SqlConnection(cs)) {
                 con.Open();
-                SqlCommand com = new SqlCommand("InsertUpdateEmployee", con);
+                SqlCommand com = new SqlCommand("SP_InsertUpdate_Haiti_Employee", con);
                 com.CommandType = CommandType.StoredProcedure;
-                com.Parameters.AddWithValue("@EmployeeId", emp.EmployeeID);
+                com.Parameters.AddWithValue("@EmployeeID", emp.EmployeeID);
                 com.Parameters.AddWithValue("@EmployeeName", emp.EmployeeName);
                 com.Parameters.AddWithValue("@EmployeeAge", emp.EmployeeAge);
                 com.Parameters.AddWithValue("@State", emp.State);
@@ -56,9 +54,9 @@ namespace YTP.Main.Areas.HaitiEmployee.DataAccess {
             int i;
             using (SqlConnection con = new SqlConnection(cs)) {
                 con.Open();
-                SqlCommand com = new SqlCommand("InsertUpdateEmployee", con);
+                SqlCommand com = new SqlCommand("SP_InsertUpdate_Haiti_Employee", con);
                 com.CommandType = CommandType.StoredProcedure;
-                com.Parameters.AddWithValue("@EmployeeId", emp.EmployeeID);
+                com.Parameters.AddWithValue("@EmployeeID", emp.EmployeeID);
                 com.Parameters.AddWithValue("@EmployeeName", emp.EmployeeName);
                 com.Parameters.AddWithValue("@EmployeeAge", emp.EmployeeAge);
                 com.Parameters.AddWithValue("@State", emp.State);
@@ -74,9 +72,9 @@ namespace YTP.Main.Areas.HaitiEmployee.DataAccess {
             int i;
             using (SqlConnection con = new SqlConnection(cs)) {
                 con.Open();
-                SqlCommand com = new SqlCommand("DeleteEmployee", con);
+                SqlCommand com = new SqlCommand("SP_Delete_Haiti_Employee", con);
                 com.CommandType = CommandType.StoredProcedure;
-                com.Parameters.AddWithValue("@EmployeeId", ID);
+                com.Parameters.AddWithValue("@EmployeeID", ID);
                 i = com.ExecuteNonQuery();
             }
             return i;
