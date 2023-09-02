@@ -41,6 +41,7 @@
                         <ul class="dropdown-menu">
                             <li class="nav-item"><a class="nav-link disabled">All Projects</a></li>
                             <li><hr class="dropdown-divider"></li>
+                            <li>@Html.ActionLink("Haiti Employee", "Index", "HaitiEmployee", new { area = "HaitiEmployee" }, new { @class = "nav-link dropdown-item" })</li>
                             <li>@Html.ActionLink("Shopping Cart", "Index", "Shopping", new { area = "ShoppingCart" }, new { @class = "nav-link dropdown-item" })</li>
                             <li>@Html.ActionLink("Employee Management", "Index", "Employee", new { area = "" }, new { @class = "nav-link dropdown-item" })</li>
                             <li>@Html.ActionLink("Northwind Employees", "Index", "NorthwindEmployee", new { area = "" }, new { @class = "nav-link dropdown-item" })</li>
@@ -73,7 +74,7 @@
     @Scripts.Render("~/bundles/DataTables")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/jqueryUI")
-    @Scripts.Render("~/bundles/scripts")
+    @Scripts.Render("~/bundles/globalscripts")
 
     @RenderSection("scripts", required: false)
 </body>

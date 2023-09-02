@@ -20,7 +20,13 @@
                         @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Services", "Index", "Services", new { area = "ShoppingCart" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Services1", "Index", "Services", new { area = "ShoppingCart" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Services2", "Index", "Services", new { area = "ShoppingCart" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Services3", "Index", "Services", new { area = "ShoppingCart" }, new { @class = "nav-link" })
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -35,14 +41,9 @@
                         <ul class="dropdown-menu">
                             <li class="nav-item"><a class="nav-link disabled">All Projects</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li>@Html.ActionLink("Shopping Cart", "Index", "Shopping", new { area = "ShoppingCart" }, new { @class = "nav-link dropdown-item" })</li>
-                            <li>@Html.ActionLink("Employee Management", "Index", "Employee", new { area = "" }, new { @class = "nav-link dropdown-item" })</li>
-                            <li>@Html.ActionLink("Northwind Employees", "Index", "NorthwindEmployee", new { area = "" }, new { @class = "nav-link dropdown-item" })</li>
-                            <li>@Html.ActionLink("Product Management", "Index", "Product", new { area = "" }, new { @class = "nav-link dropdown-item" })</li>
-  
+                            <li>@Html.ActionLink("Haiti Employee", "Index", "HaitiEmployee", new { area = "HaitiEmployee" }, new { @class = "nav-link dropdown-item" })</li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link disabled">Admin</a></li>
                 </ul>
             </div>
         </div>
@@ -65,7 +66,8 @@
     @Scripts.Render("~/bundles/DataTables")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/jqueryUI")
-    @Scripts.Render("~/bundles/scripts")
+    @Scripts.Render("~/bundles/globalscripts")
+    @Scripts.Render("~/bundles/localscripts")
 
     @RenderSection("scripts", required: false)
 </body>

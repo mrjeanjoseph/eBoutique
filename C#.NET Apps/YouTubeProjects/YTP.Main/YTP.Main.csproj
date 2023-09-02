@@ -201,7 +201,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HaitiEmployee\LocalAssets\site.home.js" />
-    <Content Include="Content\Site.css" />
     <Content Include="GlobalAssets\favicon_io\about.txt" />
     <Content Include="GlobalAssets\favicon_io\icon001.png" />
     <Content Include="GlobalAssets\favicon_io\icon002.png" />

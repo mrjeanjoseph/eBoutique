@@ -15,7 +15,12 @@ namespace YTP.Main {
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
 
             );
+            routes.MapRoute(
+                name: "HaitiEmployee",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "HaitiEmployee", action = "Index", id = UrlParameter.Optional }
 
+            );
         }
     }
 }
