@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace YTP.Main.Areas.HaitiEmployee.Models {
+﻿namespace YTP.Main.Areas.HaitiEmployee.Models {
     public class EmployeeModel {
         public int EmployeeID { get; set; }
 

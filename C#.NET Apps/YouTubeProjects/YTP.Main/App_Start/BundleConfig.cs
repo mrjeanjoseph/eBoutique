@@ -1,16 +1,15 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace YTP.Main {
     public class BundleConfig {
 
         public static void RegisterBundles(BundleCollection bundles) {
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/dataTables.bootstrap5.css",
-                      "~/Content/themes/base/jquery-ui.min.css",
-                      "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/GlobalAssets/Stylings").Include(
+                      "~/GlobalAssets/Stylings/bootstrap.css",
+                      "~/GlobalAssets/Stylings/dataTables.bootstrap5.css",
+                      "~/GlobalAssets/Stylings/themes/base/jquery-ui.min.css",
+                      "~/GlobalAssets/Stylings/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
