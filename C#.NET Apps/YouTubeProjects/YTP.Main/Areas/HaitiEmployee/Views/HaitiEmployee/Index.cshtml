@@ -1,8 +1,9 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<h2>Index</h2>
 
 <div class="container">
     <h2>Employees Record</h2>
@@ -10,16 +11,15 @@
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Age</th>
+                <th>Employee</th>
+                <th>EmployeeName</th>
+                <th>EmployeeAge</th>
                 <th>State</th>
                 <th>Country</th>
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody class="tbody">
-        </tbody>
+        <tbody class="tbody"></tbody>
     </table>
 </div>
 
@@ -27,7 +27,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
+                @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">&times;</span></button>*@
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">Add Employee</h4>
             </div>
             <div class="modal-body">
@@ -38,11 +39,11 @@
                     </div>
                     <div class="form-group">
                         <label for="Name">Name</label>
-                        <input type="text" class="form-control" id="Name" placeholder="Name" />
+                        <input type="text" class="form-control" id="EmployeeName" placeholder="Name" />
                     </div>
                     <div class="form-group">
                         <label for="Age">Age</label>
-                        <input type="text" class="form-control" id="Age" placeholder="Age" />
+                        <input type="text" class="form-control" id="EmployeeAge" placeholder="Age" />
                     </div>
                     <div class="form-group">
                         <label for="State">State</label>
@@ -61,4 +62,4 @@
             </div>
         </div>
     </div>
-</div>  
+</div>

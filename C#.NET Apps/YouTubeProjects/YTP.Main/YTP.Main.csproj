@@ -126,7 +126,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\HaitiEmployee\Controllers\HomeController.cs" />
+    <Compile Include="Areas\HaitiEmployee\Controllers\HaitiEmployeeController.cs" />
     <Compile Include="Areas\HaitiEmployee\DataAccess\EmployeeDB.cs" />
     <Compile Include="Areas\HaitiEmployee\HaitiEmployeeAreaRegistration.cs" />
     <Compile Include="Areas\HaitiEmployee\Models\EmployeeModel.cs" />
@@ -200,6 +200,8 @@
     <Compile Include="Models\AccEmpData.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\HaitiEmployee\LocalAssets\site.home.js" />
+    <Content Include="Content\Site.css" />
     <Content Include="GlobalAssets\favicon_io\about.txt" />
     <Content Include="GlobalAssets\favicon_io\icon001.png" />
     <Content Include="GlobalAssets\favicon_io\icon002.png" />
@@ -289,10 +291,12 @@
     <Content Include="Areas\ShoppingCart\Views\Shared\_CartIndex.cshtml" />
     <Content Include="Areas\ShoppingCart\Views\Shopping\ShoppingCart.cshtml" />
     <Content Include="Areas\HaitiEmployee\Views\web.config" />
-    <Content Include="Areas\HaitiEmployee\Views\Home\Index.cshtml" />
+    <Content Include="Areas\HaitiEmployee\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\HaitiEmployee\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HaitiEmployee\Views\HaitiEmployee\Index.cshtml" />
     <None Include="GlobalAssets\ScriptFiles\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAssets\ScriptFiles\dataTables.bootstrap5.min.js" />
-    <Content Include="GlobalAssets\ScriptFiles\haitiemployee.js" />
+    <Content Include="Areas\HaitiEmployee\LocalAssets\haitiemployee.js" />
     <Content Include="GlobalAssets\ScriptFiles\jquery-3.7.0.js" />
     <Content Include="GlobalAssets\ScriptFiles\jquery-3.7.0.min.js" />
     <Content Include="GlobalAssets\ScriptFiles\jquery-3.7.0.slim.js" />
@@ -333,8 +337,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\HaitiEmployee\LocalAssets\" />
-    <Folder Include="Areas\HaitiEmployee\Views\Shared\" />
     <Folder Include="Areas\ShoppingCart\LocalAssets\images\" />
     <Folder Include="Areas\ShoppingCart\LocalAssets\ScriptFiles\" />
     <Folder Include="Areas\ShoppingCart\LocalAssets\Stylings\" />

@@ -3,7 +3,7 @@ using YTP.Main.Areas.HaitiEmployee.DataAccess;
 using YTP.Main.Areas.HaitiEmployee.Models;
 
 namespace YTP.Main.Areas.HaitiEmployee.Controllers {
-    public class HomeController : Controller
+    public class HaitiEmployeeController : Controller
     {
         readonly EmployeeDB empDB = new EmployeeDB();
         // GET: Home  
