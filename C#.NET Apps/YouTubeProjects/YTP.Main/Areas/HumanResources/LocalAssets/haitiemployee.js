@@ -1,6 +1,6 @@
 ﻿//Load Data in Table when documents is ready
 
-var mainUrl = '/HaitiEmployee/HaitiEmployee';
+var mainUrl = '/HumanResources/HaitiEmployee';
 $(document).ready(function () {
     loadData();
 });

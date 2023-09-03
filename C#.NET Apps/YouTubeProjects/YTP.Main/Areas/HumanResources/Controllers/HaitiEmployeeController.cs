@@ -13,14 +13,14 @@ namespace YTP.Main.Areas.HaitiEmployee.Controllers {
         public JsonResult List() {
             return Json(empDB.ListAll(), JsonRequestBehavior.AllowGet);
         }
-        public JsonResult Add(EmployeeModel emp) {
+        public JsonResult Add(HaitiEmployeeModel emp) {
             return Json(empDB.Add(emp), JsonRequestBehavior.AllowGet);
         }
         public JsonResult GetbyID(int ID) {
             var Employee = empDB.ListAll().Find(x => x.EmployeeID.Equals(ID));
             return Json(Employee, JsonRequestBehavior.AllowGet);
         }
-        public JsonResult Update(EmployeeModel emp) {
+        public JsonResult Update(HaitiEmployeeModel emp) {
             return Json(empDB.Update(emp), JsonRequestBehavior.AllowGet);
         }
         public JsonResult Delete(int ID) {

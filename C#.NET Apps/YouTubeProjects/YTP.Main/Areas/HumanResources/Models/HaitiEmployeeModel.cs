@@ -1,5 +1,5 @@
 ﻿namespace YTP.Main.Areas.HaitiEmployee.Models {
-    public class EmployeeModel {
+    public class HaitiEmployeeModel {
         public int EmployeeID { get; set; }
 
         public string EmployeeName { get; set; }

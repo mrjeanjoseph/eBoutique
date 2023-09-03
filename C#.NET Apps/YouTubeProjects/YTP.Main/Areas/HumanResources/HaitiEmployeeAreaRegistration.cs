@@ -1,19 +1,19 @@
 ﻿using System.Web.Mvc;
 
-namespace YTP.Main.Areas.HaitiEmployee
+namespace YTP.Main.Areas.HumanResources
 {
-    public class HaitiEmployeeAreaRegistration : AreaRegistration 
+    public class HumanResourcesAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
-            get{return "HaitiEmployee";}
+            get{return "HumanResources"; }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "HaitiEmployee_default",
-                "HaitiEmployee/{controller}/{action}/{id}",
+                "HumanResources",
+                "HumanResources/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

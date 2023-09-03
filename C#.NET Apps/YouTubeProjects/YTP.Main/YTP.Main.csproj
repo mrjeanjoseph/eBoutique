@@ -126,10 +126,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\HaitiEmployee\Controllers\HaitiEmployeeController.cs" />
-    <Compile Include="Areas\HaitiEmployee\DataAccess\EmployeeDB.cs" />
-    <Compile Include="Areas\HaitiEmployee\HaitiEmployeeAreaRegistration.cs" />
-    <Compile Include="Areas\HaitiEmployee\Models\EmployeeModel.cs" />
+    <Compile Include="Areas\HumanResources\Controllers\HaitiEmployeeController.cs" />
+    <Compile Include="Areas\HumanResources\DataAccess\EmployeeDB.cs" />
+    <Compile Include="Areas\HumanResources\HaitiEmployeeAreaRegistration.cs" />
+    <Compile Include="Areas\HumanResources\Models\HaitiEmployeeModel.cs" />
     <Compile Include="Areas\RoySecHR\Controllers\RSHR_EmaployeeController.cs" />
     <Compile Include="Areas\RoySecHR\RoySecHRAreaRegistration.cs" />
     <Compile Include="Areas\ShoppingCart\Controllers\ShoppingController.cs" />
@@ -205,7 +205,7 @@
     <Compile Include="Models\AccEmpData.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\HaitiEmployee\LocalAssets\site.home.js" />
+    <Content Include="Areas\HumanResources\LocalAssets\site.home.js" />
     <Content Include="Areas\RoySecHR\Documentation.txt" />
     <Content Include="Content\Site.css" />
     <Content Include="GlobalAssets\favicon_io\about.txt" />
@@ -296,18 +296,18 @@
     <Content Include="Areas\ShoppingCart\Views\Shopping\Index.cshtml" />
     <Content Include="Areas\ShoppingCart\Views\Shared\_CartIndex.cshtml" />
     <Content Include="Areas\ShoppingCart\Views\Shopping\ShoppingCart.cshtml" />
-    <Content Include="Areas\HaitiEmployee\Views\web.config" />
-    <Content Include="Areas\HaitiEmployee\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\HaitiEmployee\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\HaitiEmployee\Views\HaitiEmployee\Index.cshtml" />
-    <Content Include="Areas\HaitiEmployee\Views\HaitiEmployee\_createform.cshtml" />
+    <Content Include="Areas\HumanResources\Views\web.config" />
+    <Content Include="Areas\HumanResources\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\HumanResources\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HumanResources\Views\HaitiEmployee\Index.cshtml" />
+    <Content Include="Areas\HumanResources\Views\HaitiEmployee\_createform.cshtml" />
     <Content Include="Areas\RoySecHR\Views\web.config" />
     <Content Include="Areas\RoySecHR\Views\_ViewStart.cshtml" />
     <Content Include="Areas\RoySecHR\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\RoySecHR\Views\RSHR_Emaployee\Index.cshtml" />
     <None Include="GlobalAssets\ScriptFiles\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAssets\ScriptFiles\dataTables.bootstrap5.min.js" />
-    <Content Include="Areas\HaitiEmployee\LocalAssets\haitiemployee.js" />
+    <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
     <Content Include="GlobalAssets\ScriptFiles\jquery-3.7.0.js" />
     <Content Include="GlobalAssets\ScriptFiles\jquery-3.7.0.min.js" />
     <Content Include="GlobalAssets\ScriptFiles\jquery-3.7.0.slim.js" />

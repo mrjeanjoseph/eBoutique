@@ -11,15 +11,15 @@ namespace YTP.Main.Areas.HaitiEmployee.DataAccess {
         readonly string cs = ConfigurationManager.ConnectionStrings["DefaultConn"].ConnectionString;
 
         //Return list of all Employees  
-        public List<EmployeeModel> ListAll() {
-            List<EmployeeModel> lst = new List<EmployeeModel>();
+        public List<HaitiEmployeeModel> ListAll() {
+            List<HaitiEmployeeModel> lst = new List<HaitiEmployeeModel>();
             using (SqlConnection con = new SqlConnection(cs)) {
                 con.Open();
                 SqlCommand com = new SqlCommand("SP_Select_Haiti_Employee", con);
                 com.CommandType = CommandType.StoredProcedure;
                 SqlDataReader rdr = com.ExecuteReader();
                 while (rdr.Read()) {
-                    lst.Add(new EmployeeModel {
+                    lst.Add(new HaitiEmployeeModel {
                         EmployeeID = Convert.ToInt32(rdr["EmployeeID"]),
                         EmployeeName = rdr["EmployeeName"].ToString(),
                         EmployeeAge = Convert.ToInt32(rdr["EmployeeAge"]),
@@ -32,7 +32,7 @@ namespace YTP.Main.Areas.HaitiEmployee.DataAccess {
         }
 
         //Method for Adding an Employee  
-        public int Add(EmployeeModel emp) {
+        public int Add(HaitiEmployeeModel emp) {
             int i;
             using (SqlConnection con = new SqlConnection(cs)) {
                 con.Open();
@@ -50,7 +50,7 @@ namespace YTP.Main.Areas.HaitiEmployee.DataAccess {
         }
 
         //Method for Updating Employee record  
-        public int Update(EmployeeModel emp) {
+        public int Update(HaitiEmployeeModel emp) {
             int i;
             using (SqlConnection con = new SqlConnection(cs)) {
                 con.Open();
