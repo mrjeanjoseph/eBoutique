@@ -99,6 +99,17 @@ warning 6002: The table/view 'DEFAULTDB.dbo.tbl_Employee' does not have a primar
           <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
+        <EntityType Name="RoySecHR_Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Position" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OfficeLocation" Type="nvarchar" MaxLength="50" />
+          <Property Name="Salary" Type="int" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="500" />
+        </EntityType>
         <EntityContainer Name="DefaultDBAccessStoreContainer">
           <EntitySet Name="Acc_CityData" EntityType="Self.Acc_CityData" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Acc_EmpData" EntityType="Self.Acc_EmpData" Schema="dbo" store:Type="Tables" />
@@ -108,6 +119,7 @@ warning 6002: The table/view 'DEFAULTDB.dbo.tbl_Employee' does not have a primar
           <EntitySet Name="Item" EntityType="Self.Item" Schema="YTP" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="YTP" store:Type="Tables" />
           <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="YTP" store:Type="Tables" />
+          <EntitySet Name="RoySecHR_Employee" EntityType="Self.RoySecHR_Employee" Schema="YTP" store:Type="Tables" />
           <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [tbl_Employee].[Sr_no] AS [Sr_no], 
@@ -185,6 +197,7 @@ warning 6002: The table/view 'DEFAULTDB.dbo.tbl_Employee' does not have a primar
           <EntitySet Name="Items" EntityType="DefaultDBAccess.Item" />
           <EntitySet Name="Orders" EntityType="DefaultDBAccess.Order" />
           <EntitySet Name="OrderDetails" EntityType="DefaultDBAccess.OrderDetail" />
+          <EntitySet Name="RoySecHR_Employee" EntityType="DefaultDBAccess.RoySecHR_Employee" />
         </EntityContainer>
         <EntityType Name="Category">
           <Key>
@@ -225,6 +238,17 @@ warning 6002: The table/view 'DEFAULTDB.dbo.tbl_Employee' does not have a primar
           <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <Property Name="Total" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="RoySecHR_Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Position" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OfficeLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Salary" Type="Int32" Nullable="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -330,6 +354,18 @@ warning 6002: The table/view 'DEFAULTDB.dbo.tbl_Employee' does not have a primar
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="OrderDetailId" ColumnName="OrderDetailId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoySecHR_Employee">
+            <EntityTypeMapping TypeName="DefaultDBAccess.RoySecHR_Employee">
+              <MappingFragment StoreEntitySet="RoySecHR_Employee">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="OfficeLocation" ColumnName="OfficeLocation" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

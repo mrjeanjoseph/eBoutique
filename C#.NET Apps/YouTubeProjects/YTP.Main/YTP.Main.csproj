@@ -130,6 +130,7 @@
     <Compile Include="Areas\HaitiEmployee\DataAccess\EmployeeDB.cs" />
     <Compile Include="Areas\HaitiEmployee\HaitiEmployeeAreaRegistration.cs" />
     <Compile Include="Areas\HaitiEmployee\Models\EmployeeModel.cs" />
+    <Compile Include="Areas\RoySecHR\Controllers\RSHR_EmaployeeController.cs" />
     <Compile Include="Areas\RoySecHR\RoySecHRAreaRegistration.cs" />
     <Compile Include="Areas\ShoppingCart\Controllers\ShoppingController.cs" />
     <Compile Include="Areas\ShoppingCart\Controllers\ItemController.cs" />
@@ -171,6 +172,9 @@
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\OrderDetail.cs">
+      <DependentUpon>DefaultDBAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\RoySecHR_Employee.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -340,8 +344,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\RoySecHR\Controllers\" />
     <Folder Include="Areas\RoySecHR\Data\" />
+    <Folder Include="Areas\RoySecHR\Views\RSHR_Emaployee\" />
     <Folder Include="Areas\RoySecHR\Views\Shared\" />
     <Folder Include="Areas\ShoppingCart\LocalAssets\images\" />
     <Folder Include="Areas\ShoppingCart\LocalAssets\ScriptFiles\" />
