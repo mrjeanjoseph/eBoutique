@@ -207,6 +207,7 @@
   <ItemGroup>
     <Content Include="Areas\HaitiEmployee\LocalAssets\site.home.js" />
     <Content Include="Areas\RoySecHR\Documentation.txt" />
+    <Content Include="Content\Site.css" />
     <Content Include="GlobalAssets\favicon_io\about.txt" />
     <Content Include="GlobalAssets\favicon_io\icon001.png" />
     <Content Include="GlobalAssets\favicon_io\icon002.png" />
@@ -301,6 +302,9 @@
     <Content Include="Areas\HaitiEmployee\Views\HaitiEmployee\Index.cshtml" />
     <Content Include="Areas\HaitiEmployee\Views\HaitiEmployee\_createform.cshtml" />
     <Content Include="Areas\RoySecHR\Views\web.config" />
+    <Content Include="Areas\RoySecHR\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\RoySecHR\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\RoySecHR\Views\RSHR_Emaployee\Index.cshtml" />
     <None Include="GlobalAssets\ScriptFiles\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAssets\ScriptFiles\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HaitiEmployee\LocalAssets\haitiemployee.js" />
@@ -345,8 +349,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\RoySecHR\Data\" />
-    <Folder Include="Areas\RoySecHR\Views\RSHR_Emaployee\" />
-    <Folder Include="Areas\RoySecHR\Views\Shared\" />
     <Folder Include="Areas\ShoppingCart\LocalAssets\images\" />
     <Folder Include="Areas\ShoppingCart\LocalAssets\ScriptFiles\" />
     <Folder Include="Areas\ShoppingCart\LocalAssets\Stylings\" />

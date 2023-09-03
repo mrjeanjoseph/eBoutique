@@ -21,6 +21,13 @@ namespace YTP.Main {
                 defaults: new { controller = "HaitiEmployee", action = "Index", id = UrlParameter.Optional }
 
             );
+
+            routes.MapRoute(
+                name: "RoySecHR",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "RoySecHR_Employee", action = "Index", id = UrlParameter.Optional }
+
+            );
         }
     }
 }
