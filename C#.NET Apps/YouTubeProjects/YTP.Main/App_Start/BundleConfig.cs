@@ -37,7 +37,8 @@ namespace YTP.Main {
             
             //All Local Styles and Scripts
             bundles.Add(new Bundle("~/bundles/localscripts").Include(
-                      "~/Areas/HaitiEmployee/LocalAssets/haitiemployee.js"));
+                      "~/Areas/HaitiEmployee/LocalAssets/haitiemployee.js",
+                      "~/Areas/HaitiEmployee/LocalAssets/site.home.js"));
         }
     }
 }

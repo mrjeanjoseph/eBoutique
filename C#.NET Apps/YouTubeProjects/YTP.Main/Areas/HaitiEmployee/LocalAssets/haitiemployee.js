@@ -31,8 +31,12 @@ function loadData() {
             });
             $('.tbody').html(empRecord);
         },
-        error: function (errormessage) {
-            alert(errormessage.responseText);
+        error: function (data) {
+            $.notify(data.error, {
+                globalPosition: "top right",
+                className: "danger"
+            }); 
+            console.log(data.responseText);
         }
     });
 }
