@@ -293,6 +293,7 @@
     <Content Include="Areas\HaitiEmployee\Views\_ViewStart.cshtml" />
     <Content Include="Areas\HaitiEmployee\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HaitiEmployee\Views\HaitiEmployee\Index.cshtml" />
+    <Content Include="Areas\HaitiEmployee\Views\HaitiEmployee\_createform.cshtml" />
     <None Include="GlobalAssets\ScriptFiles\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAssets\ScriptFiles\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HaitiEmployee\LocalAssets\haitiemployee.js" />

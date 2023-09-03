@@ -16,16 +16,17 @@ function loadData() {
         success: function (result) {
             var empRecord = '';
             $.each(result, function (key, item) {
-                empRecord = `
+                empRecord += `
                 <tr>
                     <td>${item.EmployeeID}</td>
                     <td>${item.EmployeeName}</td>
                     <td>${item.EmployeeAge}</td>
                     <td>${item.State}</td>
                     <td>${item.Country}</td>;
-                    <td>
-                        <a type="submit" class="btn btn-warning btn-small" onclick=return getbyID(${item.EmployeeID})>Edit</a> |
-                        <a type="submit" class="btn btn-danger btn-small" onclick= Delele(${item.EmployeeID})>Delete</a></td>
+                    <td class="text-center">
+                        <a type="submit" class="btn btn-warning btn-small" onclick=getbyID(${item.EmployeeID})>Edit</a>
+                        <a type="submit" class="btn btn-danger btn-small" onclick=Delele(${item.EmployeeID})>Delete</a>
+                    </td>
                 </tr>`;
             });
             $('.tbody').html(empRecord);
@@ -38,27 +39,26 @@ function loadData() {
 
 //Add Data Function   
 function Add() {
-    alert("Hello in the add btn")
     var res = validate();
-    if (res == false) {
-        return false;
-    }
+    if (res == false)
+        return false;    
 
     var empObj = {
         EmployeeID: $('#EmployeeID').val(),
-        Name: $('#EmployeeName').val(),
-        Age: $('#EmployeeAge').val(),
+        EmployeeName: $('#EmployeeName').val(),
+        EmployeeAge: $('#EmployeeAge').val(),
         State: $('#State').val(),
         Country: $('#Country').val()
     };
 
     $.ajax({
         url: `${mainUrl}/Add`,
-        data: JSON.stringify(empObj),
         type: "POST",
+        dataType: "JSON",
         contentType: "application/json;charset=utf-8",
-        dataType: "json",
+        data: JSON.stringify(empObj),
         success: function (result) {
+            console.log("in the success")
             loadData();
             $('#myModal').modal('hide');
         },
@@ -66,23 +66,23 @@ function Add() {
             alert(errormessage.responseText);
         }
     });
+
 }
 
 //Function for getting the Data Based upon Employee ID  
 function getbyID(EmpID) {
-    $('#EmployeeName').css('border-color', 'lightgrey');
-    $('#EmployeeAge').css('border-color', 'lightgrey');
-    $('#State').css('border-color', 'lightgrey');
-    $('#Country').css('border-color', 'lightgrey');
+
+    $('#EmployeeName, #EmployeeAge, #State, #Country').css('border-color', 'lightgrey');
+
     $.ajax({
-        url: "/HaitiEmployee/getbyID/" + EmpID,
+        url: `${mainUrl}/GetbyID/${EmpID}`,
         typr: "GET",
         contentType: "application/json;charset=UTF-8",
-        dataType: "json",
+        dataType: "JSON",
         success: function (result) {
             $('#EmployeeID').val(result.EmployeeID);
-            $('#EmployeeName').val(result.Name);
-            $('#EmployeeAge').val(result.Age);
+            $('#EmployeeName').val(result.EmployeeName);
+            $('#EmployeeAge').val(result.EmployeeAge);
             $('#State').val(result.State);
             $('#Country').val(result.Country);
 
@@ -94,28 +94,32 @@ function getbyID(EmpID) {
             alert(errormessage.responseText);
         }
     });
+
     return false;
 }
 
 //function for updating employee's record  
 function Update() {
+
     var res = validate();
-    if (res == false) {
+
+    if (res == false)
         return false;
-    }
+    
     var empObj = {
         EmployeeID: $('#EmployeeID').val(),
-        Name: $('#EmployeeName').val(),
-        Age: $('#EmployeeAge').val(),
+        EmployeeName: $('#EmployeeName').val(),
+        EmployeeAge: $('#EmployeeAge').val(),
         State: $('#State').val(),
         Country: $('#Country').val(),
     };
+
     $.ajax({
-        url: "/HaitiEmployee/Update",
+        url: `${mainUrl}/Update`,
         data: JSON.stringify(empObj),
         type: "POST",
         contentType: "application/json;charset=utf-8",
-        dataType: "json",
+        dataType: "JSON",
         success: function (result) {
             loadData();
             $('#myModal').modal('hide');
@@ -132,11 +136,13 @@ function Update() {
 }
 
 //function for deleting employee's record  
-function Delete(ID) {
+function Delete(Id) {
     var ans = confirm("Are you sure you want to delete this Record?");
+
     if (ans) {
         $.ajax({
-            url: "/HaitiEmployee/Delete/" + ID,
+            //url: "/HaitiEmployee/Delete/" + ID,
+            url: `${mainUrl}/Delete/${Id}`,
             type: "POST",
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
@@ -148,24 +154,26 @@ function Delete(ID) {
             }
         });
     }
+
 }
 
 //Function for clearing the textboxes  
 function clearTextBox() {
+
     $('#EmployeeID').val("");
     $('#EmployeeName').val("");
     $('#EmployeeAge').val("");
     $('#State').val("");
     $('#Country').val("");
+
     $('#btnUpdate').hide();
     $('#btnAdd').show();
-    $('#EmployeeName').css('border-color', 'lightgrey');
-    $('#EmployeeAge').css('border-color', 'lightgrey');
-    $('#State').css('border-color', 'lightgrey');
-    $('#Country').css('border-color', 'lightgrey');
+
+    $('#EmployeeName,#EmployeeAge,#State,#Country').css('border-color', 'lightgrey');
 }
 //Valdidation using jquery  
 function validate() {
+
     var isValid = true;
     if ($('#EmployeeName').val().trim() == "") {
         $('#EmployeeName').css('border-color', 'Red');
@@ -174,6 +182,7 @@ function validate() {
     else {
         $('#EmployeeName').css('border-color', 'lightgrey');
     }
+
     if ($('#EmployeeAge').val().trim() == "") {
         $('#EmployeeAge').css('border-color', 'Red');
         isValid = false;
@@ -181,6 +190,7 @@ function validate() {
     else {
         $('#EmployeeAge').css('border-color', 'lightgrey');
     }
+
     if ($('#State').val().trim() == "") {
         $('#State').css('border-color', 'Red');
         isValid = false;
@@ -188,6 +198,7 @@ function validate() {
     else {
         $('#State').css('border-color', 'lightgrey');
     }
+
     if ($('#Country').val().trim() == "") {
         $('#Country').css('border-color', 'Red');
         isValid = false;
@@ -195,5 +206,6 @@ function validate() {
     else {
         $('#Country').css('border-color', 'lightgrey');
     }
+
     return isValid;
-}  
+}
