@@ -17,7 +17,7 @@ namespace YTP.Main.Controllers {
 
         public ActionResult GetData() {
 
-            List<TBS_Employee> empList = dbAccess.tbs_Employee.ToList<TBS_Employee>();
+            List<TBS_Employee> empList = dbAccess.TBS_Employee.ToList<TBS_Employee>();
             return Json(new { data = empList }, JsonRequestBehavior.AllowGet);
 
         }
@@ -29,7 +29,7 @@ namespace YTP.Main.Controllers {
                 return View(new TBS_Employee());
             else {
 
-                var result = dbAccess.tbs_Employee.Where(e => e.EmployeeId == id).FirstOrDefault<TBS_Employee>();
+                var result = dbAccess.TBS_Employee.Where(e => e.EmployeeId == id).FirstOrDefault<TBS_Employee>();
                 return View(result);
 
             }
@@ -40,7 +40,7 @@ namespace YTP.Main.Controllers {
 
             if (empObj.EmployeeId == 0) { // If it is 0, it must be adding new obj
 
-                dbAccess.tbs_Employee.Add(empObj);
+                dbAccess.TBS_Employee.Add(empObj);
                 dbAccess.SaveChanges();
                 return Json(new { success = true, message = "Data entry saved successfully." }, JsonRequestBehavior.AllowGet);
 
@@ -57,9 +57,9 @@ namespace YTP.Main.Controllers {
         [HttpPost]
         public ActionResult Delete(int id) {
 
-            TBS_Employee empOjb = dbAccess.tbs_Employee.Where(e => e.EmployeeId == id).FirstOrDefault<TBS_Employee>();
+            TBS_Employee empOjb = dbAccess.TBS_Employee.Where(e => e.EmployeeId == id).FirstOrDefault<TBS_Employee>();
             var result = empOjb.FullName.Length;
-            dbAccess.tbs_Employee.Remove(empOjb);
+            dbAccess.TBS_Employee.Remove(empOjb);
             dbAccess.SaveChanges();
             
 

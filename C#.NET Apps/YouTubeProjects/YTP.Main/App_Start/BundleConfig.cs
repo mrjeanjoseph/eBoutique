@@ -1,39 +1,44 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace YTP.Main {
     public class BundleConfig {
 
         public static void RegisterBundles(BundleCollection bundles) {
 
+            //All Global Styles and Scripts
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/dataTables.bootstrap5.css",
-                      "~/Content/themes/base/jquery-ui.min.css",
-                      "~/Content/site.css"));
+                      "~/GlobalAssets/Stylings/bootstrap.css",
+                      "~/GlobalAssets/Stylings/dataTables.bootstrap5.css",
+                      "~/GlobalAssets/Stylings/themes/base/jquery-ui.min.css",
+                      "~/GlobalAssets/Stylings/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                      "~/GlobalAssets/ScriptFiles/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+                      "~/GlobalAssets/ScriptFiles/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryUI").Include(
-                        "~/Scripts/jquery-ui-1.13.2.min.js"));
+                      "~/GlobalAssets/ScriptFiles/jquery-ui-1.13.2.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/DataTables").Include(
-                        "~/Scripts/jquery.dataTables.min.js",
-                        "~/Scripts/dataTables.bootstrap5.min.js"));
+                      "~/GlobalAssets/ScriptFiles/jquery.dataTables.min.js",
+                      "~/GlobalAssets/ScriptFiles/dataTables.bootstrap5.min.js"));
 
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.bundle.js"));
+                      "~/GlobalAssets/ScriptFiles/bootstrap.bundle.js"));
 
-            bundles.Add(new Bundle("~/bundles/scripts").Include(
-                      "~/Scripts/notify.min.js",
-                      "~/Scripts/productdetail.js",
-                      "~/Scripts/tbs_emp.js",
-                      "~/Scripts/accemp.js",
-                      "~/Scripts/script.js"));
+            bundles.Add(new Bundle("~/bundles/globalscripts").Include(
+                      "~/GlobalAssets/ScriptFiles/notify.min.js",
+                      "~/GlobalAssets/ScriptFiles/productdetail.js",
+                      "~/GlobalAssets/ScriptFiles/tbs_emp.js",
+                      "~/GlobalAssets/ScriptFiles/accemp.js",
+                      "~/GlobalAssets/ScriptFiles/script.js"));
+            
+            //All Local Styles and Scripts
+            bundles.Add(new Bundle("~/bundles/localscripts").Include(
+                      "~/Areas/HaitiEmployee/LocalAssets/haitiemployee.js",
+                      "~/Areas/HaitiEmployee/LocalAssets/site.home.js"));
         }
     }
 }

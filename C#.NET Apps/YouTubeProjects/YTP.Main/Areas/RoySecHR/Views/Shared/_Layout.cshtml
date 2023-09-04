@@ -10,7 +10,7 @@
 
     <nav class="navbar bg-dark navbar-expand-lg border-bottom border-bottom-dark bg-body-tertiary" data-bs-theme="dark">
         <div class="container">
-            @Html.ActionLink("CRUD ALLDAY", null, null, new { area = "" }, new { @class = "navbar-brand" }) 
+            @Html.ActionLink("CRUD ALLDAY", null, null, new { area = "" }, new { @class = "navbar-brand" })
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -20,13 +20,13 @@
                         @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Services", "Index", "Services", new { area = "ShoppingCart" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Services1", "Index", "Services", new { area = "ShoppingCart" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("About", "Aboutus", "Home", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Services2", "Index", "Services", new { area = "ShoppingCart" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Contact", "Contactus", "Home", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Services3", "Index", "Services", new { area = "ShoppingCart" }, new { @class = "nav-link" })
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -41,17 +41,9 @@
                         <ul class="dropdown-menu">
                             <li class="nav-item"><a class="nav-link disabled">All Projects</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li>@Html.ActionLink("Haiti Employee", "Index", "HaitiEmployee", new { area = "HumanResources" }, new { @class = "nav-link dropdown-item" })</li>
-                            <li>@Html.ActionLink("Shopping Cart", "Index", "Shopping", new { area = "ShoppingCart" }, new { @class = "nav-link dropdown-item" })</li>
-                            <li>@Html.ActionLink("Employee Management", "Index", "Employee", new { area = "" }, new { @class = "nav-link dropdown-item" })</li>
-                            <li>@Html.ActionLink("Northwind Employees", "Index", "NorthwindEmployee", new { area = "" }, new { @class = "nav-link dropdown-item" })</li>
-                            <li>@Html.ActionLink("Product Management", "Index", "Product", new { area = "" }, new { @class = "nav-link dropdown-item" })</li>
-                            <li>@Html.ActionLink("TBS Employee", "Index", "TBS_Employee", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Acc Employee", "Index", "AccEmp", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Haiti Employee", "Index", "HaitiEmployee", new { area = "HaitiEmployee" }, new { @class = "nav-link dropdown-item" })</li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link disabled">Admin</a></li>
-                    @Html.Partial("~/Areas/ShoppingCart/Views/Shared/_CartIndex.cshtml")
                 </ul>
             </div>
         </div>
@@ -71,10 +63,8 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/DataTables")
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/jqueryUI")
     @Scripts.Render("~/bundles/globalscripts")
+    @Scripts.Render("~/bundles/localscripts")
 
     @RenderSection("scripts", required: false)
 </body>

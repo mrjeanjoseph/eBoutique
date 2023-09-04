@@ -126,6 +126,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\HumanResources\Controllers\HaitiEmployeeController.cs" />
+    <Compile Include="Areas\HumanResources\DataAccess\HaitiEmployeeDB.cs" />
+    <Compile Include="Areas\HumanResources\HumanResourcesAreaRegistration.cs" />
+    <Compile Include="Areas\HumanResources\Models\HaitiEmployeeModel.cs" />
+    <Compile Include="Areas\RoySecHR\Controllers\RSHR_EmaployeeController.cs" />
+    <Compile Include="Areas\RoySecHR\RoySecHRAreaRegistration.cs" />
     <Compile Include="Areas\ShoppingCart\Controllers\ShoppingController.cs" />
     <Compile Include="Areas\ShoppingCart\Controllers\ItemController.cs" />
     <Compile Include="Areas\ShoppingCart\Controllers\MainController.cs" />
@@ -168,6 +174,9 @@
     <Compile Include="DataAccess\OrderDetail.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\RoySecHR_Employee.cs">
+      <DependentUpon>DefaultDBAccess.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -196,60 +205,63 @@
     <Compile Include="Models\AccEmpData.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\assets\favicon_io\about.txt" />
-    <Content Include="Content\assets\favicon_io\icon001.png" />
-    <Content Include="Content\assets\favicon_io\icon002.png" />
-    <Content Include="Content\assets\favicon_io\apple-touch-icon.png" />
-    <Content Include="Content\assets\favicon_io\favicon-16x16.png" />
-    <Content Include="Content\assets\favicon_io\favicon-32x32.png" />
-    <Content Include="Content\assets\favicon_io\main.ico" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\dataTables.bootstrap5.css" />
-    <Content Include="Content\datatables.min.css" />
-    <Content Include="Content\fontawesome.min.css" />
-    <Content Include="Content\jquery.dataTables.min.css" />
-    <Content Include="Content\themes\base\accordion.css" />
-    <Content Include="Content\themes\base\all.css" />
-    <Content Include="Content\themes\base\autocomplete.css" />
-    <Content Include="Content\themes\base\base.css" />
-    <Content Include="Content\themes\base\button.css" />
-    <Content Include="Content\themes\base\core.css" />
-    <Content Include="Content\themes\base\datepicker.css" />
-    <Content Include="Content\themes\base\dialog.css" />
-    <Content Include="Content\themes\base\draggable.css" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="Content\themes\base\jquery-ui.css" />
-    <Content Include="Content\themes\base\jquery-ui.min.css" />
-    <Content Include="Content\themes\base\menu.css" />
-    <Content Include="Content\themes\base\progressbar.css" />
-    <Content Include="Content\themes\base\resizable.css" />
-    <Content Include="Content\themes\base\selectable.css" />
-    <Content Include="Content\themes\base\selectmenu.css" />
-    <Content Include="Content\themes\base\slider.css" />
-    <Content Include="Content\themes\base\sortable.css" />
-    <Content Include="Content\themes\base\spinner.css" />
-    <Content Include="Content\themes\base\tabs.css" />
-    <Content Include="Content\themes\base\theme.css" />
-    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Areas\HumanResources\LocalAssets\site.home.js" />
+    <Content Include="Areas\RoySecHR\Documentation.txt" />
+    <Content Include="Content\Site.css" />
+    <Content Include="GlobalAssets\favicon_io\about.txt" />
+    <Content Include="GlobalAssets\favicon_io\icon001.png" />
+    <Content Include="GlobalAssets\favicon_io\icon002.png" />
+    <Content Include="GlobalAssets\favicon_io\apple-touch-icon.png" />
+    <Content Include="GlobalAssets\favicon_io\favicon-16x16.png" />
+    <Content Include="GlobalAssets\favicon_io\favicon-32x32.png" />
+    <Content Include="GlobalAssets\favicon_io\main.ico" />
+    <Content Include="GlobalAssets\Stylings\bootstrap.css" />
+    <Content Include="GlobalAssets\Stylings\bootstrap.min.css" />
+    <Content Include="GlobalAssets\Stylings\dataTables.bootstrap5.css" />
+    <Content Include="GlobalAssets\Stylings\datatables.min.css" />
+    <Content Include="GlobalAssets\Stylings\fontawesome.min.css" />
+    <Content Include="GlobalAssets\Stylings\jquery.dataTables.min.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\accordion.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\all.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\autocomplete.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\base.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\button.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\core.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\datepicker.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\dialog.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\draggable.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="GlobalAssets\Stylings\themes\base\jquery-ui.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\jquery-ui.min.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\menu.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\progressbar.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\resizable.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\selectable.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\selectmenu.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\slider.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\sortable.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\spinner.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\tabs.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\theme.css" />
+    <Content Include="GlobalAssets\Stylings\themes\base\tooltip.css" />
     <Content Include="DataAccess\DefaultDBAccess.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DefaultDBAccess.edmx</DependentUpon>
@@ -262,15 +274,15 @@
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\site.css" />
-    <Content Include="Scripts\accemp.js" />
-    <Content Include="Scripts\bootstrap.bundle.js" />
-    <Content Include="Scripts\bootstrap.bundle.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\bootstrap.bundle.js.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\assets\favicon_io\site.webmanifest" />
+    <Content Include="GlobalAssets\Stylings\site.css" />
+    <Content Include="GlobalAssets\ScriptFiles\accemp.js" />
+    <Content Include="GlobalAssets\ScriptFiles\bootstrap.bundle.js" />
+    <Content Include="GlobalAssets\ScriptFiles\bootstrap.bundle.min.js" />
+    <Content Include="GlobalAssets\ScriptFiles\bootstrap.js" />
+    <Content Include="GlobalAssets\ScriptFiles\bootstrap.min.js" />
+    <Content Include="GlobalAssets\ScriptFiles\bootstrap.bundle.js.map" />
+    <Content Include="GlobalAssets\Stylings\bootstrap.css.map" />
+    <Content Include="GlobalAssets\favicon_io\site.webmanifest" />
     <EntityDeploy Include="DataAccess\DefaultDBAccess.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DefaultDBAccess.Designer.cs</LastGenOutput>
@@ -284,24 +296,34 @@
     <Content Include="Areas\ShoppingCart\Views\Shopping\Index.cshtml" />
     <Content Include="Areas\ShoppingCart\Views\Shared\_CartIndex.cshtml" />
     <Content Include="Areas\ShoppingCart\Views\Shopping\ShoppingCart.cshtml" />
-    <None Include="Scripts\jquery-3.7.0.intellisense.js" />
-    <Content Include="Scripts\dataTables.bootstrap5.min.js" />
-    <Content Include="Scripts\jquery-3.7.0.js" />
-    <Content Include="Scripts\jquery-3.7.0.min.js" />
-    <Content Include="Scripts\jquery-3.7.0.slim.js" />
-    <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-ui-1.13.2.js" />
-    <Content Include="Scripts\jquery-ui-1.13.2.min.js" />
-    <Content Include="Scripts\jquery.dataTables.min.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\notify.min.js" />
-    <Content Include="Scripts\productdetail.js" />
-    <Content Include="Scripts\script.js" />
-    <Content Include="Scripts\tbs_emp.js" />
+    <Content Include="Areas\HumanResources\Views\web.config" />
+    <Content Include="Areas\HumanResources\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\HumanResources\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HumanResources\Views\HaitiEmployee\Index.cshtml" />
+    <Content Include="Areas\HumanResources\Views\HaitiEmployee\_createform.cshtml" />
+    <Content Include="Areas\RoySecHR\Views\web.config" />
+    <Content Include="Areas\RoySecHR\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\RoySecHR\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\RoySecHR\Views\RSHR_Emaployee\Index.cshtml" />
+    <None Include="GlobalAssets\ScriptFiles\jquery-3.7.0.intellisense.js" />
+    <Content Include="GlobalAssets\ScriptFiles\dataTables.bootstrap5.min.js" />
+    <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
+    <Content Include="GlobalAssets\ScriptFiles\jquery-3.7.0.js" />
+    <Content Include="GlobalAssets\ScriptFiles\jquery-3.7.0.min.js" />
+    <Content Include="GlobalAssets\ScriptFiles\jquery-3.7.0.slim.js" />
+    <Content Include="GlobalAssets\ScriptFiles\jquery-3.7.0.slim.min.js" />
+    <None Include="GlobalAssets\ScriptFiles\jquery.validate-vsdoc.js" />
+    <Content Include="GlobalAssets\ScriptFiles\jquery-ui-1.13.2.js" />
+    <Content Include="GlobalAssets\ScriptFiles\jquery-ui-1.13.2.min.js" />
+    <Content Include="GlobalAssets\ScriptFiles\jquery.dataTables.min.js" />
+    <Content Include="GlobalAssets\ScriptFiles\jquery.validate.js" />
+    <Content Include="GlobalAssets\ScriptFiles\jquery.validate.min.js" />
+    <Content Include="GlobalAssets\ScriptFiles\jquery.validate.unobtrusive.js" />
+    <Content Include="GlobalAssets\ScriptFiles\jquery.validate.unobtrusive.min.js" />
+    <Content Include="GlobalAssets\ScriptFiles\notify.min.js" />
+    <Content Include="GlobalAssets\ScriptFiles\productdetail.js" />
+    <Content Include="GlobalAssets\ScriptFiles\script.js" />
+    <Content Include="GlobalAssets\ScriptFiles\tbs_emp.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -326,9 +348,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\ShoppingCart\Content\images\" />
-    <Folder Include="Content\assets\images\" />
-    <Folder Include="Content\images\" />
+    <Folder Include="Areas\RoySecHR\Data\" />
+    <Folder Include="Areas\ShoppingCart\LocalAssets\images\" />
+    <Folder Include="Areas\ShoppingCart\LocalAssets\ScriptFiles\" />
+    <Folder Include="Areas\ShoppingCart\LocalAssets\Stylings\" />
+    <Folder Include="GlobalAssets\Images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
