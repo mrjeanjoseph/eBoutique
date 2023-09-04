@@ -127,8 +127,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\HumanResources\Controllers\HaitiEmployeeController.cs" />
-    <Compile Include="Areas\HumanResources\DataAccess\EmployeeDB.cs" />
-    <Compile Include="Areas\HumanResources\HaitiEmployeeAreaRegistration.cs" />
+    <Compile Include="Areas\HumanResources\DataAccess\HaitiEmployeeDB.cs" />
+    <Compile Include="Areas\HumanResources\HumanResourcesAreaRegistration.cs" />
     <Compile Include="Areas\HumanResources\Models\HaitiEmployeeModel.cs" />
     <Compile Include="Areas\RoySecHR\Controllers\RSHR_EmaployeeController.cs" />
     <Compile Include="Areas\RoySecHR\RoySecHRAreaRegistration.cs" />

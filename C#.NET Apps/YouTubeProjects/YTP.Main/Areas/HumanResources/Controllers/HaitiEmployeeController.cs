@@ -5,7 +5,7 @@ using YTP.Main.Areas.HaitiEmployee.Models;
 namespace YTP.Main.Areas.HaitiEmployee.Controllers {
     public class HaitiEmployeeController : Controller
     {
-        readonly EmployeeDB empDB = new EmployeeDB();
+        readonly HaitiEmployeeDB empDB = new HaitiEmployeeDB();
         // GET: Home  
         public ActionResult Index() {
             return View();

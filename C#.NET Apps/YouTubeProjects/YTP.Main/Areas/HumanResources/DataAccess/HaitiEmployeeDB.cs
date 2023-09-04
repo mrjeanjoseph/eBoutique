@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using YTP.Main.Areas.HaitiEmployee.Models;
 
 namespace YTP.Main.Areas.HaitiEmployee.DataAccess {
-    public class EmployeeDB {
+    public class HaitiEmployeeDB {
         //declare connection string  
         readonly string cs = ConfigurationManager.ConnectionStrings["DefaultConn"].ConnectionString;
 
