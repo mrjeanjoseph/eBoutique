@@ -5,9 +5,7 @@ namespace YTP.Main.Areas.ShoppingCart {
 
         public override string AreaName {
 
-            get {
-                return "ShoppingCart";
-            }
+            get { return "ShoppingCart"; }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) {

@@ -12,7 +12,7 @@ namespace YTP.Main.Areas.HumanResources
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "HumanResources",
+                "HumanResources_default",
                 "HumanResources/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
