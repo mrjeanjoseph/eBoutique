@@ -20,7 +20,7 @@
                         @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Services", "Index", "Services", new { area = "ShoppingCart" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Services", "Index", "Services", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
                         @Html.ActionLink("About", "Aboutus", "Home", new { area = "" }, new { @class = "nav-link" })
@@ -42,7 +42,6 @@
                             <li class="nav-item"><a class="nav-link disabled">All Projects</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>@Html.ActionLink("Haiti Employee", "Index", "HaitiEmployee", new { area = "HumanResources" }, new { @class = "nav-link dropdown-item" })</li>
-                            <li>@Html.ActionLink("Shopping Cart", "Index", "Shopping", new { area = "ShoppingCart" }, new { @class = "nav-link dropdown-item" })</li>
                             <li>@Html.ActionLink("Employee Management", "Index", "Employee", new { area = "" }, new { @class = "nav-link dropdown-item" })</li>
                             <li>@Html.ActionLink("Northwind Employees", "Index", "NorthwindEmployee", new { area = "" }, new { @class = "nav-link dropdown-item" })</li>
                             <li>@Html.ActionLink("Product Management", "Index", "Product", new { area = "" }, new { @class = "nav-link dropdown-item" })</li>
