@@ -11,9 +11,10 @@ namespace YTP.Main.Areas.ShoppingCart {
         public override void RegisterArea(AreaRegistrationContext context) {
 
             context.MapRoute(
-                "ShoppingCart_default",
+                "ShoppingCart",
                 "ShoppingCart/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new {controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new string[] { "YTP.Main.Areas.ShoppingCart.Controllers" }
             );
         }
     }

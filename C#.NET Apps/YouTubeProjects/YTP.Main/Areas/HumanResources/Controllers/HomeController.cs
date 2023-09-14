@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace YTP.Main.Areas.ShoppingCart.Controllers
+namespace YTP.Main.Areas.HumanResources.Controllers
 {
-    public class MainController : Controller
+    public class HomeController : Controller
     {
-        // GET: ShoppingCart/Default
+        // GET: HumanResources/Home
         public ActionResult Index()
         {
             return View();
