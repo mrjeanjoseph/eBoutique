@@ -10,23 +10,23 @@
 
     <nav class="navbar bg-dark navbar-expand-lg border-bottom border-bottom-dark bg-body-tertiary" data-bs-theme="dark">
         <div class="container">
-            @Html.ActionLink("CRUD ALLDAY", null, null, new { area = "HumanResources" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("CRUD ALLDAY", "Index", "Home", new {area = ""}, new { @class = "navbar-brand" })
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        @Html.ActionLink("Home", "Index", "Home", new { area = "HumanResources" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Services1", "Index", "Services", new { area = "HumanResources" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Employee", "Index", "HaitiEmployee", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Services2", "Index", "Services", new { area = "HumanResources" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Services2", "Index", "Services", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Services3", "Index", "Services", new { area = "HumanResources" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Services3", "Index", "Services", null, new { @class = "nav-link" })
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -41,7 +41,7 @@
                         <ul class="dropdown-menu">
                             <li class="nav-item"><a class="nav-link disabled">All Projects</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li>@Html.ActionLink("Haiti Employee", "Index", "HaitiEmployee", new { area = "HumanResources" }, new { @class = "nav-link dropdown-item" })</li>
+                            <li>@Html.ActionLink("Extras", "Index", "Extras", null, new { @class = "nav-link dropdown-item" })</li>
                         </ul>
                     </li>
                 </ul>
