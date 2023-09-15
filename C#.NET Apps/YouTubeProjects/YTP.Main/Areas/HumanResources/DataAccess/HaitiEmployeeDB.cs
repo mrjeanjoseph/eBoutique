@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using YTP.Main.Areas.HaitiEmployee.Models;
+using YTP.Main.Areas.HumanResources.Models;
 
-namespace YTP.Main.Areas.HaitiEmployee.DataAccess {
+namespace YTP.Main.Areas.HumanResources.DataAccess {
     public class HaitiEmployeeDB {
         //declare connection string  
         readonly string cs = ConfigurationManager.ConnectionStrings["DefaultConn"].ConnectionString;

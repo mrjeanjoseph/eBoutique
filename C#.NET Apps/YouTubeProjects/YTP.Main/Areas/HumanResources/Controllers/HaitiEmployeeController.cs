@@ -1,8 +1,8 @@
 ﻿using System.Web.Mvc;
-using YTP.Main.Areas.HaitiEmployee.DataAccess;
-using YTP.Main.Areas.HaitiEmployee.Models;
+using YTP.Main.Areas.HumanResources.DataAccess;
+using YTP.Main.Areas.HumanResources.Models;
 
-namespace YTP.Main.Areas.HaitiEmployee.Controllers {
+namespace YTP.Main.Areas.HumanResources.Controllers {
     public class HaitiEmployeeController : Controller
     {
         readonly HaitiEmployeeDB empDB = new HaitiEmployeeDB();
