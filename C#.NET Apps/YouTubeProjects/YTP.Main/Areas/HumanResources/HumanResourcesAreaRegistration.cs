@@ -14,7 +14,8 @@ namespace YTP.Main.Areas.HumanResources
             context.MapRoute(
                 "HumanResources_default",
                 "HumanResources/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                new string[] { "YTP.Main.Areas.HumanResources.Controllers" }
             );
         }
     }
