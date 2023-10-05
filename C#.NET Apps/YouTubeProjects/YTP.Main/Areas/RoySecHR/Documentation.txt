@@ -1,2 +1,0 @@
-﻿This is a project from Youtube
-	jQuery Ajax In Asp.Net MVC - CRUD Operations Using JSON
