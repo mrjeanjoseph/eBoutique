@@ -4,13 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace YTP.Main.Controllers
-{
-    public class HomeController : Controller
-    {
+namespace YTP.Main.Controllers {
+    public class HomeController : Controller {
         // GET: Home
-        public ActionResult Index()
-        {
+        public ActionResult Index() {
+            return View();
+        }
+
+        public ActionResult UnderConstruction() {
             return View();
         }
 

@@ -1,4 +1,5 @@
-﻿namespace YTP.Main.Areas.HumanResources.Models {
+﻿
+namespace YTP.Main.Areas.HumanResources.Models {
     public class HaitiEmployeeModel {
         public int EmployeeID { get; set; }
 

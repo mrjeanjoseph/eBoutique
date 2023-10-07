@@ -131,8 +131,6 @@
     <Compile Include="Areas\HumanResources\DataAccess\HaitiEmployeeDB.cs" />
     <Compile Include="Areas\HumanResources\HumanResourcesAreaRegistration.cs" />
     <Compile Include="Areas\HumanResources\Models\HaitiEmployeeModel.cs" />
-    <Compile Include="Areas\RoySecHR\Controllers\RSHR_EmaployeeController.cs" />
-    <Compile Include="Areas\RoySecHR\RoySecHRAreaRegistration.cs" />
     <Compile Include="Areas\ShoppingCart\Controllers\ShoppingController.cs" />
     <Compile Include="Areas\ShoppingCart\Controllers\ItemController.cs" />
     <Compile Include="Areas\ShoppingCart\Controllers\HomeController.cs" />
@@ -141,13 +139,13 @@
     <Compile Include="Areas\ShoppingCart\Models\VM_OrderDetail.cs" />
     <Compile Include="Areas\ShoppingCart\Models\VM_ShoppingCart.cs" />
     <Compile Include="Areas\ShoppingCart\ShoppingCartAreaRegistration.cs" />
-    <Compile Include="Controllers\AccEmpController.cs" />
-    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Areas\HumanResources\Controllers\AccEmpController.cs" />
+    <Compile Include="Areas\HumanResources\Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\NorthwindEmployeeController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\TBS_EmployeeController.cs" />
+    <Compile Include="Areas\HumanResources\Controllers\NorthwindEmployeeController.cs" />
+    <Compile Include="Areas\HumanResources\Controllers\ProductController.cs" />
+    <Compile Include="Areas\HumanResources\Controllers\TBS_EmployeeController.cs" />
     <Compile Include="DataAccess\Category.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
@@ -187,13 +185,13 @@
     <Compile Include="DataAccess\Acc_EmpData.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataAccess\Sp_EmpDBAccess.cs" />
-    <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\NorthwindEmployees.cs" />
+    <Compile Include="Areas\HumanResources\DataAccess\Sp_EmpDBAccess.cs" />
+    <Compile Include="Areas\HumanResources\Models\Employee.cs" />
+    <Compile Include="Areas\HumanResources\Models\NorthwindEmployees.cs" />
     <Compile Include="DataAccess\Product.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Areas\HumanResources\Models\ProductModel.cs" />
     <Compile Include="DataAccess\tbl_Employee.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
@@ -203,11 +201,10 @@
     <Compile Include="Areas\ShoppingCart\Models\VM_Category.cs" />
     <Compile Include="Areas\ShoppingCart\Models\VM_Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\AccEmpData.cs" />
+    <Compile Include="Areas\HumanResources\Models\AccEmpData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HumanResources\LocalAssets\site.home.js" />
-    <Content Include="Areas\RoySecHR\Documentation.txt" />
     <Content Include="GlobalAssets\favicon_io\about.txt" />
     <Content Include="GlobalAssets\favicon_io\icon001.png" />
     <Content Include="GlobalAssets\favicon_io\icon002.png" />
@@ -301,10 +298,6 @@
     <Content Include="Areas\HumanResources\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HumanResources\Views\HaitiEmployee\Index.cshtml" />
     <Content Include="Areas\HumanResources\Views\HaitiEmployee\_createform.cshtml" />
-    <Content Include="Areas\RoySecHR\Views\web.config" />
-    <Content Include="Areas\RoySecHR\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\RoySecHR\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\RoySecHR\Views\RSHR_Emaployee\Index.cshtml" />
     <Content Include="Areas\HumanResources\Views\Home\Index.cshtml" />
     <None Include="GlobalAssets\ScriptFiles\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAssets\ScriptFiles\dataTables.bootstrap5.min.js" />
@@ -336,25 +329,26 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Employee\Create.cshtml" />
-    <Content Include="Views\Employee\Index.cshtml" />
-    <Content Include="Views\Employee\Edit.cshtml" />
-    <Content Include="Views\NorthwindEmployee\Index.cshtml" />
+    <Content Include="Areas\HumanResources\Views\Employee\Create.cshtml" />
+    <Content Include="Areas\HumanResources\Views\Employee\Index.cshtml" />
+    <Content Include="Areas\HumanResources\Views\Employee\Edit.cshtml" />
+    <Content Include="Areas\HumanResources\Views\NorthwindEmployee\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\TBS_Employee\Index.cshtml" />
-    <Content Include="Views\TBS_Employee\AddOrEdit.cshtml" />
+    <Content Include="Areas\HumanResources\Views\Product\Index.cshtml" />
+    <Content Include="Areas\HumanResources\Views\TBS_Employee\Index.cshtml" />
+    <Content Include="Areas\HumanResources\Views\TBS_Employee\AddOrEdit.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
-    <Content Include="Views\AccEmp\Index.cshtml" />
+    <Content Include="Areas\HumanResources\Views\AccEmp\Index.cshtml" />
+    <Content Include="Views\Home\UnderConstruction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\RoySecHR\Data\" />
     <Folder Include="Areas\ShoppingCart\LocalAssets\images\" />
     <Folder Include="Areas\ShoppingCart\LocalAssets\ScriptFiles\" />
     <Folder Include="Areas\ShoppingCart\LocalAssets\Stylings\" />
     <Folder Include="GlobalAssets\DB Scripts\" />
     <Folder Include="GlobalAssets\Images\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

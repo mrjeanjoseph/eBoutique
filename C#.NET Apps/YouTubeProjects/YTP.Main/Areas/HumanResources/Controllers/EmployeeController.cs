@@ -1,10 +1,10 @@
-﻿using System;
+﻿using YTP.Main.Areas.HumanResources.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Web.Mvc;
-using YTP.Main.Models;
 
-namespace YTP.Main.Controllers {
+namespace YTP.Main.Areas.HumanResources.Controllers {
     public class EmployeeController : Controller
     {
         readonly Sp_EmpDBAccess dbaccessoperation = new Sp_EmpDBAccess();

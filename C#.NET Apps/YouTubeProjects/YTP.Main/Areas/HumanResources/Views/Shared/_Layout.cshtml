@@ -20,13 +20,13 @@
                         @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Employee", "Index", "HaitiEmployee", null, new { @class = "nav-link" })
+                        @Html.ActionLink("Service #1", "Index", "HaitiEmployee", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Services2", "Index", "Services", null, new { @class = "nav-link" })
+                        @Html.ActionLink("Service #2", "Index", "AccEmp", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Services3", "Index", "Services", null, new { @class = "nav-link" })
+                        @Html.ActionLink("Service #3", "Index", "Services", null, new { @class = "nav-link" })
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -39,10 +39,16 @@
                             Projects
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="nav-item"><a class="nav-link disabled">All Projects</a></li>
+                            <li class="nav-item"><a class="nav-link disabled">Employee Records</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li>@Html.ActionLink("Extras", "Index", "Extras", null, new { @class = "nav-link dropdown-item" })</li>
+                            <li>@Html.ActionLink("Haiti Employee", "Index", "HaitiEmployee", new { area = "HumanResources" }, new { @class = "nav-link dropdown-item" })</li>
+                            <li>@Html.ActionLink("Northwind Employees", "Index", "NorthwindEmployee", new { area = "HumanResources" }, new { @class = "nav-link dropdown-item" })</li>
+                            <li>@Html.ActionLink("TBS Employee", "Index", "TBS_Employee", new { area = "HumanResources" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Acc Employee", "Index", "AccEmp", new { area = "HumanResources" }, new { @class = "nav-link" })</li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
                 </ul>
             </div>

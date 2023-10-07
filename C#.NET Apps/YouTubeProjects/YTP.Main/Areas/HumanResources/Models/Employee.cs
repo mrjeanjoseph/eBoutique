@@ -1,8 +1,7 @@
 ﻿
-
 using System.ComponentModel.DataAnnotations;
 
-namespace YTP.Main.Models {
+namespace YTP.Main.Areas.HumanResources.Models {
     public class Employee {
 
         [Display(Name = "Id"), Required(ErrorMessage = "First name is required.")]

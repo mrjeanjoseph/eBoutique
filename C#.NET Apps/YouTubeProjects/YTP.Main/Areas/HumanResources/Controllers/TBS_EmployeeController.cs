@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using YTP.Main.DataAccess;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
-using YTP.Main.DataAccess;
 
-namespace YTP.Main.Controllers {
+namespace YTP.Main.Areas.HumanResources.Controllers {
     public class TBS_EmployeeController : Controller {
         // GET: TBS_Employee
 

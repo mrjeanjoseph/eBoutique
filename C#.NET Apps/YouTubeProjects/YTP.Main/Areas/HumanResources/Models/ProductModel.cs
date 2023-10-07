@@ -1,4 +1,5 @@
-﻿namespace YTP.Main.Models {
+﻿
+namespace YTP.Main.Areas.HumanResources.Models {
     public class ProductModel {
 
         public int ProductId { get; set; }
