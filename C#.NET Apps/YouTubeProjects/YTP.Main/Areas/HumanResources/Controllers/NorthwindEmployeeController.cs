@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using YTP.Main.Models;
 
 namespace YTP.Main.Areas.HumanResources.Controllers {
     public class NorthwindEmployeeController : Controller

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using YTP.Main.Models;
+using YTP.Main.Areas.HumanResources.Models;
 using System.Web.Mvc;
 using System.Linq;
 using YTP.Main.DataAccess;

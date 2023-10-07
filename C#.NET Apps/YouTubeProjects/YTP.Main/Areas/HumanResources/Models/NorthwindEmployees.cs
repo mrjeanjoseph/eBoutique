@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace YTP.Main.Areas.HumanResources.Models {
+namespace YTD.Main.Areas.HumanResources.Models {
     public class NorthwindEmployees {
 
         public int EmployeeID { get; set; }

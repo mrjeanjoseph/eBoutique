@@ -140,12 +140,12 @@
     <Compile Include="Areas\ShoppingCart\Models\VM_ShoppingCart.cs" />
     <Compile Include="Areas\ShoppingCart\ShoppingCartAreaRegistration.cs" />
     <Compile Include="Areas\HumanResources\Controllers\AccEmpController.cs" />
-    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Areas\HumanResources\Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\NorthwindEmployeeController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\TBS_EmployeeController.cs" />
+    <Compile Include="Areas\HumanResources\Controllers\ProductController.cs" />
+    <Compile Include="Areas\HumanResources\Controllers\TBS_EmployeeController.cs" />
     <Compile Include="DataAccess\Category.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
@@ -185,13 +185,13 @@
     <Compile Include="DataAccess\Acc_EmpData.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataAccess\Sp_EmpDBAccess.cs" />
-    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Areas\HumanResources\DataAccess\Sp_EmpDBAccess.cs" />
+    <Compile Include="Areas\HumanResources\Models\Employee.cs" />
     <Compile Include="Areas\HumanResources\Models\NorthwindEmployees.cs" />
     <Compile Include="DataAccess\Product.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Areas\HumanResources\Models\ProductModel.cs" />
     <Compile Include="DataAccess\tbl_Employee.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
@@ -329,14 +329,14 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Employee\Create.cshtml" />
-    <Content Include="Views\Employee\Index.cshtml" />
-    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Areas\HumanResources\Views\Employee\Create.cshtml" />
+    <Content Include="Areas\HumanResources\Views\Employee\Index.cshtml" />
+    <Content Include="Areas\HumanResources\Views\Employee\Edit.cshtml" />
     <Content Include="Areas\HumanResources\Views\NorthwindEmployee\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\TBS_Employee\Index.cshtml" />
-    <Content Include="Views\TBS_Employee\AddOrEdit.cshtml" />
+    <Content Include="Areas\HumanResources\Views\Product\Index.cshtml" />
+    <Content Include="Areas\HumanResources\Views\TBS_Employee\Index.cshtml" />
+    <Content Include="Areas\HumanResources\Views\TBS_Employee\AddOrEdit.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Areas\HumanResources\Views\AccEmp\Index.cshtml" />
     <Content Include="Views\Home\UnderConstruction.cshtml" />
@@ -348,6 +348,7 @@
     <Folder Include="Areas\ShoppingCart\LocalAssets\Stylings\" />
     <Folder Include="GlobalAssets\DB Scripts\" />
     <Folder Include="GlobalAssets\Images\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
