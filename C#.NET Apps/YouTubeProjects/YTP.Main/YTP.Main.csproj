@@ -139,7 +139,7 @@
     <Compile Include="Areas\ShoppingCart\Models\VM_OrderDetail.cs" />
     <Compile Include="Areas\ShoppingCart\Models\VM_ShoppingCart.cs" />
     <Compile Include="Areas\ShoppingCart\ShoppingCartAreaRegistration.cs" />
-    <Compile Include="Controllers\AccEmpController.cs" />
+    <Compile Include="Areas\HumanResources\Controllers\AccEmpController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -201,7 +201,7 @@
     <Compile Include="Areas\ShoppingCart\Models\VM_Category.cs" />
     <Compile Include="Areas\ShoppingCart\Models\VM_Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\AccEmpData.cs" />
+    <Compile Include="Areas\HumanResources\Models\AccEmpData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HumanResources\LocalAssets\site.home.js" />
@@ -338,7 +338,8 @@
     <Content Include="Views\TBS_Employee\Index.cshtml" />
     <Content Include="Views\TBS_Employee\AddOrEdit.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
-    <Content Include="Views\AccEmp\Index.cshtml" />
+    <Content Include="Areas\HumanResources\Views\AccEmp\Index.cshtml" />
+    <Content Include="Views\Home\UnderConstruction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

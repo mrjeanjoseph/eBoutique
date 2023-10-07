@@ -12,7 +12,6 @@ namespace YTP.Main.Areas.HumanResources {
                 "HumanResources",
                 "HumanResources/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional },
-                //new string[] { "YTP.Main.Areas.HumanResources.Controllers" }
                 new[] { GetType().Namespace + ".Controllers" }
             );
         }
