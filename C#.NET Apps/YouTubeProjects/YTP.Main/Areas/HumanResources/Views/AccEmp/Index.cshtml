@@ -34,7 +34,7 @@
             $.ajax({
                 async: true,
                 type: 'GET',
-                url: '/AccEmp/EditEmployee',
+                url: '/HumanResources/AccEmp/EditEmployee',
                 data: {employeeId: employeeId },
                 dataType: 'JSON',
                 contentType: 'application/json; charset=utf-8',
@@ -71,7 +71,7 @@
             $.ajax({
                 async: true,
                 type: 'POST',
-                url: '/AccEmp/DeleteEmployee',
+                url: '/HumanResources/AccEmp/DeleteEmployee',
                 data: JSON.stringify(employeeId),
                 contentType: 'application/json; charset=utf-8',
                 success: function (result) {
@@ -126,7 +126,7 @@
             $.ajax({
                 async: true,
                 type: 'POST',
-                url: '/AccEmp/AddUpdateEmployee',
+                url: '/HumanResources/AccEmp/AddUpdateEmployee',
                 data: JSON.stringify(EmployeeObject),
                 dataType: 'JSON',
                 contentType: 'application/json; charset=utf-8',
@@ -167,7 +167,7 @@
             $.ajax({
                 async: true,
                 type: 'GET',
-                url: '/AccEmp/GetAllEmployee',
+                url: '/HumanResources/AccEmp/GetAllEmployee',
                 dataType: 'JSON',
                 contentType: 'application/json; charset=utf-8',
                 success: function (result) {

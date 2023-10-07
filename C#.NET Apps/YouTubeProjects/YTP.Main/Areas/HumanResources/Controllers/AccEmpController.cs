@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using YTP.Main.DataAccess;
-//using YTP.Main.Areas.HumanResources.Models;
-using YTP.Main.ViewModel;
+using YTP.Main.Areas.HumanResources.Models;
+//using YTP.Main.Models;
 
-namespace YTP.Main.Controllers {
+namespace YTP.Main.Areas.HumanResources.Controllers {
     public class AccEmpController : Controller {
 
         private readonly DBContext _dbContext;
@@ -12,6 +12,7 @@ namespace YTP.Main.Controllers {
         public AccEmpController() {
             _dbContext = new DBContext();
         }
+
         // GET: AccEmp
         public ActionResult Index() {
 
@@ -84,9 +85,9 @@ namespace YTP.Main.Controllers {
 
             message = $"{accEmp.FirstName} has been deleted successfully";
 
-
             _dbContext.Acc_EmpData.Remove(accEmp);
             _dbContext.SaveChanges();
+
             return Json(new {
                 Success = true,
                 message

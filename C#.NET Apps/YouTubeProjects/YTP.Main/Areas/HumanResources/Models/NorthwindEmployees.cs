@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace YTP.Main.Models {
+namespace YTP.Main.Areas.HumanResources.Models {
     public class NorthwindEmployees {
 
         public int EmployeeID { get; set; }

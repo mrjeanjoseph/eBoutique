@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using YTP.Main.Models;
 
-namespace YTP.Main.Controllers {
+namespace YTP.Main.Areas.HumanResources.Controllers {
     public class NorthwindEmployeeController : Controller
     {
         // GET: NorthwindEmployee
