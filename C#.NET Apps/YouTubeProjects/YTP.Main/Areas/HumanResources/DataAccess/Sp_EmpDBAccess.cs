@@ -1,4 +1,5 @@
-﻿using System;
+﻿using YTP.Main.Areas.HumanResources.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;

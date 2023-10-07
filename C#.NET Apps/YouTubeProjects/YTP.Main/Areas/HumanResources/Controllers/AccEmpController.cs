@@ -1,7 +1,7 @@
-﻿using System.Linq;
+﻿using YTP.Main.Areas.HumanResources.Models;
+using System.Linq;
 using System.Web.Mvc;
 using YTP.Main.DataAccess;
-using YTP.Main.Areas.HumanResources.Models;
 
 namespace YTP.Main.Areas.HumanResources.Controllers {
     public class AccEmpController : Controller {

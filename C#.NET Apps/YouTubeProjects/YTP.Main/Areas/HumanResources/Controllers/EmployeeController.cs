@@ -1,8 +1,8 @@
-﻿using System;
+﻿using YTP.Main.Areas.HumanResources.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Web.Mvc;
-using YTP.Main.Areas.HumanResources.Models;
 
 namespace YTP.Main.Areas.HumanResources.Controllers {
     public class EmployeeController : Controller

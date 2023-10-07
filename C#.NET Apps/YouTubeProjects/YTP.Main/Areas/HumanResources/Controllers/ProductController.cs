@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using YTP.Main.Areas.HumanResources.Models;
+﻿using YTP.Main.Areas.HumanResources.Models;
+using YTP.Main.DataAccess;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Linq;
-using YTP.Main.DataAccess;
 
-namespace YTP.Main.Controllers {
+namespace YTP.Main.Areas.HumanResources.Controllers {
     public class ProductController : Controller {
 
         private DBContext _dbContext;
