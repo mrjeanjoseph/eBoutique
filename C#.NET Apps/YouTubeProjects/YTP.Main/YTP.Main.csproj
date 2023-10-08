@@ -210,6 +210,7 @@
     </Compile>
     <Compile Include="Areas\ShoppingCart\Models\VM_Category.cs" />
     <Compile Include="Areas\ShoppingCart\Models\VM_Item.cs" />
+    <Compile Include="GlobalVariables.cs" />
     <Compile Include="Models\VendorRecordModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Areas\HumanResources\Models\AccEmpData.cs" />

@@ -4,13 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace YTP.Main.Controllers
-{
-    public class VendorRecordController : Controller
-    {
+namespace YTP.Main.Controllers {
+    public class VendorRecordController : Controller {
         // GET: VendorRecord
-        public ActionResult Index()
-        {
+        public ActionResult Index() {
             return View();
         }
     }
