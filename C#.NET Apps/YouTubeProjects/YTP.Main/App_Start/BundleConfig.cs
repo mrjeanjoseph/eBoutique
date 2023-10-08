@@ -10,6 +10,8 @@ namespace YTP.Main {
                       "~/GlobalAssets/Stylings/bootstrap.css",
                       "~/GlobalAssets/Stylings/dataTables.bootstrap5.css",
                       "~/GlobalAssets/Stylings/themes/base/jquery-ui.min.css",
+                      "~/GlobalAssets/Stylings/alertifyjs/themes/default.min.css",
+                      "~/GlobalAssets/Stylings/alertifyjs/alertify.min.css",
                       "~/GlobalAssets/Stylings/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
@@ -30,9 +32,7 @@ namespace YTP.Main {
 
             bundles.Add(new Bundle("~/bundles/globalscripts").Include(
                       "~/GlobalAssets/ScriptFiles/notify.min.js",
-                      "~/GlobalAssets/ScriptFiles/productdetail.js",
-                      "~/GlobalAssets/ScriptFiles/tbs_emp.js",
-                      "~/GlobalAssets/ScriptFiles/accemp.js",
+                      "~/GlobalAssets/ScriptFiles/alertifyjs/alertify.min.js",
                       "~/GlobalAssets/ScriptFiles/script.js"));
             
             //All Local Styles and Scripts
