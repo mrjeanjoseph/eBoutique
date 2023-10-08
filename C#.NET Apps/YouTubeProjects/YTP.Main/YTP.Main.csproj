@@ -135,7 +135,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\HumanResources\Controllers\HaitiEmployeeController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\HomeController.cs" />
     <Compile Include="Areas\HumanResources\DataAccess\HaitiEmployeeDB.cs" />
@@ -152,7 +151,6 @@
     <Compile Include="Areas\HumanResources\Controllers\AccEmpController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
-    <Compile Include="Controllers\HaitiEmpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\NorthwindEmployeeController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\ProductController.cs" />
