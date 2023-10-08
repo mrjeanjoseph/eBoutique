@@ -368,8 +368,8 @@
     <Folder Include="Areas\ShoppingCart\LocalAssets\images\" />
     <Folder Include="Areas\ShoppingCart\LocalAssets\ScriptFiles\" />
     <Folder Include="Areas\ShoppingCart\LocalAssets\Stylings\" />
-    <Folder Include="GlobalAssets\DB Scripts\" />
-    <Folder Include="GlobalAssets\Images\" />
+    <Folder Include="GlobalAssets\db scripts\" />
+    <Folder Include="GlobalAssets\images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
