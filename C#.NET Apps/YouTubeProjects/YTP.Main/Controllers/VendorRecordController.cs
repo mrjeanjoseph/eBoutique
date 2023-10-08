@@ -18,5 +18,14 @@ namespace YTP.Main.Controllers {
 
             return View(vendorRec);
         }
+
+        public ActionResult AddOrEdit(int id = 0) {
+            return View(new VendorRecordModel());
+        }
+
+        [HttpPost] 
+        public ActionResult AddOrEdit() {
+            return View();
+        }
     }
 }
