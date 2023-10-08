@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net.Http;
-using System.Web;
 using System.Web.Mvc;
-using YTP.Main.Models;
+using YTP.Main.Models; 
 
 namespace YTP.Main.Controllers {
     public class VendorRecordController : Controller {
@@ -23,9 +20,12 @@ namespace YTP.Main.Controllers {
             return View(new VendorRecordModel());
         }
 
-        [HttpPost] 
-        public ActionResult AddOrEdit() {
-            return View();
+        [HttpPost]
+        public ActionResult AddOrEdit(VendorRecordModel emp) {
+
+            HttpResponseMessage responseData = GlobalVariables.webApiClient.PostAsJsonAsync("VendorRecord", emp).Result;
+            TempData["SuccessMessage"] = "Saved Successfully";
+            return RedirectToAction("Index");
         }
     }
 }

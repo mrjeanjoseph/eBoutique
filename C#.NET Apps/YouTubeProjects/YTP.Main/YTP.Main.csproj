@@ -217,6 +217,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HumanResources\LocalAssets\site.home.js" />
+    <Content Include="Content\alertifyjs\alertify.css" />
+    <Content Include="Content\alertifyjs\alertify.min.css" />
+    <Content Include="Content\alertifyjs\alertify.rtl.css" />
+    <Content Include="Content\alertifyjs\alertify.rtl.min.css" />
+    <Content Include="Content\alertifyjs\themes\bootstrap.css" />
+    <Content Include="Content\alertifyjs\themes\bootstrap.min.css" />
+    <Content Include="Content\alertifyjs\themes\bootstrap.rtl.css" />
+    <Content Include="Content\alertifyjs\themes\bootstrap.rtl.min.css" />
+    <Content Include="Content\alertifyjs\themes\default.css" />
+    <Content Include="Content\alertifyjs\themes\default.min.css" />
+    <Content Include="Content\alertifyjs\themes\default.rtl.css" />
+    <Content Include="Content\alertifyjs\themes\default.rtl.min.css" />
+    <Content Include="Content\alertifyjs\themes\semantic.css" />
+    <Content Include="Content\alertifyjs\themes\semantic.min.css" />
+    <Content Include="Content\alertifyjs\themes\semantic.rtl.css" />
+    <Content Include="Content\alertifyjs\themes\semantic.rtl.min.css" />
     <Content Include="GlobalAssets\favicon_io\about.txt" />
     <Content Include="GlobalAssets\favicon_io\icon001.png" />
     <Content Include="GlobalAssets\favicon_io\icon002.png" />
@@ -330,6 +346,8 @@
     <Content Include="GlobalAssets\ScriptFiles\productdetail.js" />
     <Content Include="GlobalAssets\ScriptFiles\script.js" />
     <Content Include="GlobalAssets\ScriptFiles\tbs_emp.js" />
+    <Content Include="Scripts\alertify.js" />
+    <Content Include="Scripts\alertify.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

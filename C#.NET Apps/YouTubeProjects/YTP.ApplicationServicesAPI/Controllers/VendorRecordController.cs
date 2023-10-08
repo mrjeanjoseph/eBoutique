@@ -14,7 +14,7 @@ namespace YTP.ApplicationServicesAPI.Controllers
 {
     public class VendorRecordController : ApiController
     {
-        private AppServiceModel db = new AppServiceModel();
+        private readonly AppServiceModel db = new AppServiceModel();
 
         // GET: api/VendorRecord
         public IQueryable<VendorRecord> GetVendorRecords()
