@@ -10,7 +10,7 @@
 
     <nav class="navbar bg-dark navbar-expand-lg border-bottom border-bottom-dark bg-body-tertiary" data-bs-theme="dark">
         <div class="container">
-            @Html.ActionLink("CRUD ALLDAY", null, null, null, new { @class = "navbar-brand" }) 
+            @Html.ActionLink("CRUD ALLDAY", null, null, null, new { @class = "navbar-brand" })
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -43,6 +43,7 @@
                             <li><hr class="dropdown-divider"></li>
                             <li>@Html.ActionLink("Employee Management", "Index", "Home", new { area = "HumanResources" }, new { @class = "nav-link dropdown-item" })</li>
                             <li>@Html.ActionLink("Product Management", "Index", "Product", new { area = "HumanResources" }, new { @class = "nav-link dropdown-item" })</li>
+                            <li>@Html.ActionLink("Vendor Record", "Index", "VendorRecord", null, new { @class = "nav-link dropdown-item" })</li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link disabled">Admin</a></li>
