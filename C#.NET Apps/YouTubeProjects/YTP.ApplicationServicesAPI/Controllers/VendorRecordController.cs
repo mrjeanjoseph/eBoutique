@@ -39,11 +39,6 @@ namespace YTP.ApplicationServicesAPI.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult PutVendorRecord(int id, VendorRecord vendorRecord)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             if (id != vendorRecord.VendorId)
             {
                 return BadRequest();
@@ -74,11 +69,6 @@ namespace YTP.ApplicationServicesAPI.Controllers
         [ResponseType(typeof(VendorRecord))]
         public IHttpActionResult PostVendorRecord(VendorRecord vendorRecord)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             db.VendorRecords.Add(vendorRecord);
             db.SaveChanges();
 
