@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Web.Mvc;
-using YTP.Main.Models; 
+using YTP.Main.Models;
 
 namespace YTP.Main.Controllers {
     public class VendorRecordController : Controller {
@@ -17,14 +17,36 @@ namespace YTP.Main.Controllers {
         }
 
         public ActionResult AddOrEdit(int id = 0) {
-            return View(new VendorRecordModel());
+
+            if (id == 0)
+                return View(new VendorRecordModel());
+            else {
+                HttpResponseMessage response = GlobalVariables.webApiClient.GetAsync("VendorRecord/" + id.ToString()).Result;
+
+                return View(response.Content.ReadAsAsync<VendorRecordModel>().Result);
+            }
         }
 
         [HttpPost]
         public ActionResult AddOrEdit(VendorRecordModel emp) {
 
-            HttpResponseMessage responseData = GlobalVariables.webApiClient.PostAsJsonAsync("VendorRecord", emp).Result;
-            TempData["SuccessMessage"] = "Saved Successfully";
+            if (emp.VendorId == 0) {
+                HttpResponseMessage responseData = GlobalVariables.webApiClient.PostAsJsonAsync("VendorRecord", emp).Result;
+                TempData["SuccessMessage"] = "Record Added Successfully";
+
+            } else {
+                HttpResponseMessage responseData = GlobalVariables.webApiClient.PutAsJsonAsync("VendorRecord/" + emp.VendorId, emp).Result;
+                TempData["SuccessMessage"] = "Record Updated Successfully";
+
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(int id) {
+
+            HttpResponseMessage responseData = GlobalVariables.webApiClient.DeleteAsync("VendorRecord/"+id.ToString()).Result;
+            TempData["SuccessMessage"] = "Record Deleted Successfully";
             return RedirectToAction("Index");
         }
     }

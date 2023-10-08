@@ -27,8 +27,8 @@
             <td>@Html.DisplayFor(modelItem => item.WebsiteAddress)</td>
             <td>@Html.DisplayFor(modelItem => item.MainContact)</td>
             <td>
-                @Html.ActionLink("Edit", "AddOrEdit", "VendorRecord", new { id = item.VendorId, @class="btn btn-warning" }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <a href="@Url.Action("AddOrEdit", "VendorRecord", new { id = item.VendorId})" class="btn btn-warning">&#9998; Edit</a>
+                <a onclick="Delete(@item.VendorId)" class="btn btn-danger">&#9986; Delete</a>
             </td>
         </tr>
     }
@@ -43,5 +43,11 @@
             if (successMessage != '')
                 alertify.success(successMessage);
         })
+
+        function Delete(id) {
+            alertify.confirm("Deleting Record", "Are you sure you want to delete?" + id, function () {
+                window.location.href = '@Url.Action("Delete", "VendorRecord")/' + id;
+            }, null);
+        }
     </script>
     }

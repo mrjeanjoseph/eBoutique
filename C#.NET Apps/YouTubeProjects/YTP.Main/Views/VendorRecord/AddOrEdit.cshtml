@@ -5,9 +5,11 @@
 }
 
 
- 
+
 <div class="form-body">
+
     @using (Html.BeginForm()) {
+
         @Html.HiddenFor(model => model.VendorId)
         @Html.AntiForgeryToken()
 
@@ -60,19 +62,10 @@
                 <input type="submit" value="Submit Record" class="btn btn-success w-25" />
                 <input type="reset" value="Reset Fields" class="btn btn-warning w-25" />
                 @Html.ActionLink("Back to Home", "Index", null, new { @class = "btn btn-outline-info w-25" })
-                @*<input type="url" value="Back To Home" class="btn btn-outline-info w-25" />
-                <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
-        </div>*@
             </div>
         </div>
     }
 
-
-</div>
-
-<div>
-    
 </div>
 
 @section Scripts {
