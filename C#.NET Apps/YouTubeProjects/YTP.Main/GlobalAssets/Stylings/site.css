@@ -4,7 +4,7 @@
     font-size: 18px;
 }
 
-.field-validation-valid {
+.field-validation-valid{
     display: none;
 }
 
@@ -20,6 +20,14 @@ input[type="checkbox"].input-validation-error {
     color: #b94a48;
 }
 
-.validation-summary-valid {
+.validation-summary-valid{
     display: none;
+}
+
+.form-body{
+    padding: 20px 40px;
+    max-width: 70%;
+    margin: 30px auto;
+    box-shadow: 0 4px 10px rgba(19, 35, 47, 0.3);
+    background-color: whitesmoke;
 }

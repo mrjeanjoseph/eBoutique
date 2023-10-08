@@ -353,6 +353,7 @@
     <Content Include="Areas\HumanResources\Views\AccEmp\Index.cshtml" />
     <Content Include="Views\Home\UnderConstruction.cshtml" />
     <Content Include="Views\VendorRecord\Index.cshtml" />
+    <Content Include="Views\VendorRecord\AddOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
