@@ -7,12 +7,12 @@ namespace YTP.Main {
 
             //All Global Styles and Scripts
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/GlobalAssets/Stylings/bootstrap.css",
-                      "~/GlobalAssets/Stylings/dataTables.bootstrap5.css",
-                      "~/GlobalAssets/Stylings/themes/base/jquery-ui.min.css",
-                      "~/GlobalAssets/Stylings/alertifyjs/themes/default.min.css",
-                      "~/GlobalAssets/Stylings/alertifyjs/alertify.min.css",
-                      "~/GlobalAssets/Stylings/site.css"));
+                      "~/GlobalAssets/styles/bootstrap.css",
+                      "~/GlobalAssets/styles/dataTables.bootstrap5.css",
+                      "~/GlobalAssets/styles/themes/base/jquery-ui.min.css",
+                      "~/GlobalAssets/styles/alertifyjs/themes/default.min.css",
+                      "~/GlobalAssets/styles/alertifyjs/alertify.min.css",
+                      "~/GlobalAssets/styles/main.site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                       "~/GlobalAssets/ScriptFiles/jquery-{version}.js"));
@@ -32,8 +32,8 @@ namespace YTP.Main {
 
             bundles.Add(new Bundle("~/bundles/globalscripts").Include(
                       "~/GlobalAssets/ScriptFiles/notify.min.js",
-                      "~/GlobalAssets/ScriptFiles/alertifyjs/alertify.min.js",
-                      "~/GlobalAssets/ScriptFiles/script.js"));
+                      "~/GlobalAssets/ScriptFiles/alertify.min.js",
+                      "~/GlobalAssets/ScriptFiles/main.site.js"));
             
             //All Local Styles and Scripts
             bundles.Add(new Bundle("~/bundles/localscripts").Include(
