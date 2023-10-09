@@ -12,7 +12,7 @@ namespace YTP.Main.Areas.OperatingManagement
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "OperatingManagement_default",
+                "OperatingManagement",
                 "OperatingManagement/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional },
                 new[] { GetType().Namespace + ".Controllers" }

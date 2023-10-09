@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace YTP.Main.Models {
+namespace YTP.Main.Areas.OperatingManagement.Models {
     public class VendorRecordModel {
         public int VendorId { get; set; }
 

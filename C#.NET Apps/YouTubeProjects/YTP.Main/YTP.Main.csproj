@@ -304,6 +304,7 @@
     <Content Include="Areas\HumanResources\Views\HaitiEmployee\_createform.cshtml" />
     <Content Include="Areas\HumanResources\Views\Home\Index.cshtml" />
     <Content Include="Areas\OperatingManagement\Views\web.config" />
+    <Content Include="Areas\OperatingManagement\Views\_ViewStart.cshtml" />
     <None Include="GlobalAssets\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAssets\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
