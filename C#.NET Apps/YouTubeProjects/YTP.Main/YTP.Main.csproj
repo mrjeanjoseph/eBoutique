@@ -142,6 +142,7 @@
     <Compile Include="Areas\HumanResources\Models\HaitiEmployeeModel.cs" />
     <Compile Include="Areas\HumanResources\Controllers\AccEmpController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\EmployeeController.cs" />
+    <Compile Include="Areas\OperatingManagement\OperatingManagementAreaRegistration.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\NorthwindEmployeeController.cs" />
@@ -302,6 +303,7 @@
     <Content Include="Areas\HumanResources\Views\HaitiEmployee\Index.cshtml" />
     <Content Include="Areas\HumanResources\Views\HaitiEmployee\_createform.cshtml" />
     <Content Include="Areas\HumanResources\Views\Home\Index.cshtml" />
+    <Content Include="Areas\OperatingManagement\Views\web.config" />
     <None Include="GlobalAssets\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAssets\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
@@ -349,6 +351,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\OperatingManagement\Controllers\" />
+    <Folder Include="Areas\OperatingManagement\Data\" />
+    <Folder Include="Areas\OperatingManagement\Views\Shared\" />
     <Folder Include="GlobalAssets\db scripts\" />
     <Folder Include="GlobalAssets\images\" />
   </ItemGroup>
