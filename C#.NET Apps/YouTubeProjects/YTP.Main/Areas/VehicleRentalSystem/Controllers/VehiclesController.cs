@@ -1,44 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using YTP.Main.DataAccess;
-using YTP.Main.Areas.VehicleRentalSystem.Models;
 
-namespace YTP.Main.Areas.VehicleRentalSystem.Controllers
-{
-    public class VehiclesController : Controller
-    {
-        private DBContext db = new DBContext();
+namespace YTP.Main.Areas.VehicleRentalSystem.Controllers {
+    public class VehiclesController : Controller {
+        private readonly DBContext db = new DBContext();
 
         // GET: VehicleRentalSystem/Vehicles
-        public ActionResult Index()
-        {
+        public ActionResult Index() {
             return View(db.Vehicles.ToList());
         }
 
         // GET: VehicleRentalSystem/Vehicles/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
+        public ActionResult Details(int? id) {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Vehicle vehicle = db.Vehicles.Find(id);
-            if (vehicle == null)
-            {
+            if (vehicle == null) {
                 return HttpNotFound();
             }
             return View(vehicle);
         }
 
         // GET: VehicleRentalSystem/Vehicles/Create
-        public ActionResult Create()
-        {
+        public ActionResult Create() {
             return View();
         }
 
@@ -47,10 +35,8 @@ namespace YTP.Main.Areas.VehicleRentalSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "VehicleId,RegNo,Make,Model,Trim,Status")] Vehicle vehicle)
-        {
-            if (ModelState.IsValid)
-            {
+        public ActionResult Create([Bind(Include = "VehicleId,RegNo,Make,Model,Trim,Status")] Vehicle vehicle) {
+            if (ModelState.IsValid) {
                 db.Vehicles.Add(vehicle);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -60,15 +46,12 @@ namespace YTP.Main.Areas.VehicleRentalSystem.Controllers
         }
 
         // GET: VehicleRentalSystem/Vehicles/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
+        public ActionResult Edit(int? id) {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Vehicle vehicle = db.Vehicles.Find(id);
-            if (vehicle == null)
-            {
+            if (vehicle == null) {
                 return HttpNotFound();
             }
             return View(vehicle);
@@ -79,10 +62,8 @@ namespace YTP.Main.Areas.VehicleRentalSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "VehicleId,RegNo,Make,Model,Trim,Status")] Vehicle vehicle)
-        {
-            if (ModelState.IsValid)
-            {
+        public ActionResult Edit([Bind(Include = "VehicleId,RegNo,Make,Model,Trim,Status")] Vehicle vehicle) {
+            if (ModelState.IsValid) {
                 db.Entry(vehicle).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -91,15 +72,12 @@ namespace YTP.Main.Areas.VehicleRentalSystem.Controllers
         }
 
         // GET: VehicleRentalSystem/Vehicles/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
+        public ActionResult Delete(int? id) {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Vehicle vehicle = db.Vehicles.Find(id);
-            if (vehicle == null)
-            {
+            if (vehicle == null) {
                 return HttpNotFound();
             }
             return View(vehicle);
@@ -108,18 +86,15 @@ namespace YTP.Main.Areas.VehicleRentalSystem.Controllers
         // POST: VehicleRentalSystem/Vehicles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
+        public ActionResult DeleteConfirmed(int id) {
             Vehicle vehicle = db.Vehicles.Find(id);
             db.Vehicles.Remove(vehicle);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
+        protected override void Dispose(bool disposing) {
+            if (disposing) {
                 db.Dispose();
             }
             base.Dispose(disposing);
