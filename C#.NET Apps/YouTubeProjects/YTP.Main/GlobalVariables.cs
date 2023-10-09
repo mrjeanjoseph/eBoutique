@@ -11,7 +11,9 @@ namespace YTP.Main {
 
         static GlobalVariables() {
             webApiClient.BaseAddress = new Uri("https://localhost:44395/api/");
+
             webApiClient.DefaultRequestHeaders.Clear();
+
             webApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
     }
