@@ -15,7 +15,7 @@ namespace YTP.Main.Areas.VehicleRentalSystem
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "VehicleRentalSystem_default",
+                "VehicleRentalSystem",
                 "VehicleRentalSystem/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
