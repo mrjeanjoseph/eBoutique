@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - CRUD ALLDAY!</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+
+    <nav class="navbar bg-dark navbar-expand-lg border-bottom border-bottom-dark bg-body-tertiary" data-bs-theme="dark">
+        <div class="container">
+            @Html.ActionLink("Operating Management", null, null, new { @class = "navbar-brand disabled" })
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Service #1", "UnderConstruction", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Service #2", "UnderConstruction", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Service #3", "UnderConstruction", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Projects
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link disabled">Operating Mgmt</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>@Html.ActionLink("Haiti Employee", "Index", "HaitiEmployee", new { area = "HumanResources" }, new { @class = "nav-link dropdown-item" })</li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+
+    @{ string myInfo = "Jean Built this!";}
+    <nav class="navbar fixed-bottom bg-body-tertiary">
+        <div class="container-fluid">
+            <p>&copy; @DateTime.Now.Year - @myInfo</p>
+        </div>
+    </nav>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/globalscripts")
+    @Scripts.Render("~/bundles/localscripts")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
