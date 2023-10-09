@@ -144,6 +144,7 @@
     <Compile Include="Areas\HumanResources\Controllers\EmployeeController.cs" />
     <Compile Include="Areas\OperatingManagement\OperatingManagementAreaRegistration.cs" />
     <Compile Include="Areas\VehicleRentalSystem\Controllers\CustomersController.cs" />
+    <Compile Include="Areas\VehicleRentalSystem\Controllers\RentalController.cs" />
     <Compile Include="Areas\VehicleRentalSystem\Controllers\VehiclesController.cs" />
     <Compile Include="Areas\VehicleRentalSystem\Models\CustomerModel.cs" />
     <Compile Include="Areas\VehicleRentalSystem\Models\VehicleModel.cs" />
@@ -181,6 +182,9 @@
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\OrderDetail.cs">
+      <DependentUpon>DefaultDBAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\Rental.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\RoySecHR_Employee.cs">
@@ -330,6 +334,7 @@
     <Content Include="Areas\VehicleRentalSystem\Views\Customers\Edit.cshtml" />
     <Content Include="Areas\VehicleRentalSystem\Views\Customers\Index.cshtml" />
     <Content Include="Areas\VehicleRentalSystem\Views\Shared\_Errorpage.cshtml" />
+    <Content Include="Areas\VehicleRentalSystem\Views\Rental\Index.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />

@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="row" style="width: 50%;">
+    @using (Html.BeginForm("SaveRecord", "Rental", FormMethod.Post, new { id = "popupForm" })) {
+
+        <div>
+            <h1>Vehicle Rental</h1>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Vehicle Number: </label>
+            <select class="form-control" id="vehicleNo" required>
+                <option>Select below</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Customer Name: </label>
+            <input type="text" id="customerid" name="customername" class="form-control" placeholder="Customer Name" required />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Rental Fee: </label>
+            <input type="text" id="rentalfee" name="rentalfee" class="form-control" placeholder="Rental Fee" required />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Rental Fee: </label>
+            <input type="text" id="rentalfee" name="rentalfee" class="form-control" placeholder="Rental Fee" required />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Start Date: </label>
+            <input type="date" id="startdate" name="startdate" class="form-control" placeholder="Start Date" required />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">End Date</label>
+            <input type="date" id="enddate" name="enddate" class="form-control" placeholder="End Date" required />
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Save Record" class="btn btn-success" />
+        </div>
+
+    }
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        function LoadVehicles() {
+            $.ajax({
+                type: 'GET',
+                url: '/Rental/GetVehicles',
+                dataType: 'JSON',
+                success: function (response) {
+
+                }
+            })
+        }
+    </script>
+    }
