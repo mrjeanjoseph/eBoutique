@@ -73,35 +73,6 @@ namespace YTP.Main.Areas.HumanResources.Controllers {
             string constring = ConfigurationManager.ConnectionStrings["NorthwindDbConn"].ToString();
             _nwDbConn = new SqlConnection(constring);
         }
-
-        // ********** GET NORTHWIND EMPLOYEE DETAILS ********************
-        public List<NorthwindEmployees> GetNorthwindEmployees() {
-            Connection();
-            List<NorthwindEmployees> nwEmployeeList = new List<NorthwindEmployees>();
-
-            SqlCommand cmd = new SqlCommand("DBO.GetNorthwindEmployees", _nwDbConn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter sd = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-
-            _nwDbConn.Open();
-            sd.Fill(dt);
-            _nwDbConn.Close();
-
-            foreach (DataRow dr in dt.Rows) {
-                nwEmployeeList.Add(
-                    new NorthwindEmployees {
-                        EmployeeID = Convert.ToInt32(dr["EmployeeID"]),
-                        Title = Convert.ToString(dr["Title"]),
-                        FullName = Convert.ToString(dr["FullName"]),
-                        HireDate = Convert.ToString(dr["HireDate"]),
-                        Location = Convert.ToString(dr["Location"]),
-                        PhoneNumber = Convert.ToString(dr["PhoneNumber"])
-                    });
-            }
-
-            return nwEmployeeList;
-        }
         #endregion
     }
 }

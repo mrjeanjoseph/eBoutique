@@ -145,7 +145,6 @@
     <Compile Include="Areas\OperatingManagement\OperatingManagementAreaRegistration.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Areas\HumanResources\Controllers\NorthwindEmployeeController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\ProductController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\TBS_EmployeeController.cs" />
     <Compile Include="Areas\OperatingManagement\Controllers\VendorRecordController.cs" />
@@ -190,7 +189,6 @@
     </Compile>
     <Compile Include="Areas\HumanResources\DataAccess\Sp_EmpDBAccess.cs" />
     <Compile Include="Areas\HumanResources\Models\Employee.cs" />
-    <Compile Include="Areas\HumanResources\Models\NorthwindEmployees.cs" />
     <Compile Include="DataAccess\Product.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
@@ -340,7 +338,6 @@
     <Content Include="Areas\HumanResources\Views\Employee\Create.cshtml" />
     <Content Include="Areas\HumanResources\Views\Employee\Index.cshtml" />
     <Content Include="Areas\HumanResources\Views\Employee\Edit.cshtml" />
-    <Content Include="Areas\HumanResources\Views\NorthwindEmployee\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Areas\HumanResources\Views\Product\Index.cshtml" />
     <Content Include="Areas\HumanResources\Views\TBS_Employee\Index.cshtml" />
