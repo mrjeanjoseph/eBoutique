@@ -145,6 +145,7 @@
     <Compile Include="Areas\OperatingManagement\OperatingManagementAreaRegistration.cs" />
     <Compile Include="Areas\VehicleRentalSystem\Controllers\CustomersController.cs" />
     <Compile Include="Areas\VehicleRentalSystem\Controllers\VehiclesController.cs" />
+    <Compile Include="Areas\VehicleRentalSystem\Models\CustomerModel.cs" />
     <Compile Include="Areas\VehicleRentalSystem\Models\VehicleModel.cs" />
     <Compile Include="Areas\VehicleRentalSystem\VehicleRentalSystemAreaRegistration.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
