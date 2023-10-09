@@ -6,10 +6,7 @@ namespace YTP.Main.Areas.OperatingManagement
     {
         public override string AreaName 
         {
-            get 
-            {
-                return "OperatingManagement";
-            }
+            get { return "OperatingManagement"; }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
@@ -17,7 +14,8 @@ namespace YTP.Main.Areas.OperatingManagement
             context.MapRoute(
                 "OperatingManagement_default",
                 "OperatingManagement/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                new[] { GetType().Namespace + ".Controllers" }
             );
         }
     }

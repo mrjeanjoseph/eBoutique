@@ -148,7 +148,7 @@
     <Compile Include="Areas\HumanResources\Controllers\NorthwindEmployeeController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\ProductController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\TBS_EmployeeController.cs" />
-    <Compile Include="Controllers\VendorRecordController.cs" />
+    <Compile Include="Areas\OperatingManagement\Controllers\VendorRecordController.cs" />
     <Compile Include="DataAccess\Category.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
@@ -202,7 +202,7 @@
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="GlobalVariables.cs" />
-    <Compile Include="Models\VendorRecordModel.cs" />
+    <Compile Include="Areas\OperatingManagement\Models\VendorRecordModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Areas\HumanResources\Models\AccEmpData.cs" />
   </ItemGroup>
@@ -346,16 +346,15 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Areas\HumanResources\Views\AccEmp\Index.cshtml" />
     <Content Include="Views\Home\UnderConstruction.cshtml" />
-    <Content Include="Views\VendorRecord\Index.cshtml" />
-    <Content Include="Views\VendorRecord\AddOrEdit.cshtml" />
+    <Content Include="Areas\OperatingManagement\Views\VendorRecord\Index.cshtml" />
+    <Content Include="Areas\OperatingManagement\Views\VendorRecord\AddOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\OperatingManagement\Controllers\" />
-    <Folder Include="Areas\OperatingManagement\Data\" />
     <Folder Include="Areas\OperatingManagement\Views\Shared\" />
     <Folder Include="GlobalAssets\db scripts\" />
     <Folder Include="GlobalAssets\images\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
