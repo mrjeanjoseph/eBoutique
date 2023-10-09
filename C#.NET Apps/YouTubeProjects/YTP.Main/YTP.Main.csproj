@@ -140,14 +140,6 @@
     <Compile Include="Areas\HumanResources\DataAccess\HaitiEmployeeDB.cs" />
     <Compile Include="Areas\HumanResources\HumanResourcesAreaRegistration.cs" />
     <Compile Include="Areas\HumanResources\Models\HaitiEmployeeModel.cs" />
-    <Compile Include="Areas\ShoppingCart\Controllers\ShoppingController.cs" />
-    <Compile Include="Areas\ShoppingCart\Controllers\ItemController.cs" />
-    <Compile Include="Areas\ShoppingCart\Controllers\HomeController.cs" />
-    <Compile Include="Areas\ShoppingCart\Models\VM_Cart.cs" />
-    <Compile Include="Areas\ShoppingCart\Models\VM_Order.cs" />
-    <Compile Include="Areas\ShoppingCart\Models\VM_OrderDetail.cs" />
-    <Compile Include="Areas\ShoppingCart\Models\VM_ShoppingCart.cs" />
-    <Compile Include="Areas\ShoppingCart\ShoppingCartAreaRegistration.cs" />
     <Compile Include="Areas\HumanResources\Controllers\AccEmpController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -208,8 +200,6 @@
     <Compile Include="DataAccess\TBS_Employee.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="Areas\ShoppingCart\Models\VM_Category.cs" />
-    <Compile Include="Areas\ShoppingCart\Models\VM_Item.cs" />
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="Models\VendorRecordModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -306,12 +296,6 @@
     <Content Include="DataAccess\DefaultDBAccess.edmx.diagram">
       <DependentUpon>DefaultDBAccess.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\ShoppingCart\Views\web.config" />
-    <Content Include="Areas\ShoppingCart\Views\Item\Index.cshtml" />
-    <Content Include="Areas\ShoppingCart\Views\Home\Index.cshtml" />
-    <Content Include="Areas\ShoppingCart\Views\Shopping\Index.cshtml" />
-    <Content Include="Areas\ShoppingCart\Views\Shared\_CartIndex.cshtml" />
-    <Content Include="Areas\ShoppingCart\Views\Shopping\ShoppingCart.cshtml" />
     <Content Include="Areas\HumanResources\Views\web.config" />
     <Content Include="Areas\HumanResources\Views\_ViewStart.cshtml" />
     <Content Include="Areas\HumanResources\Views\Shared\_Layout.cshtml" />
@@ -365,9 +349,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\ShoppingCart\LocalAssets\images\" />
-    <Folder Include="Areas\ShoppingCart\LocalAssets\ScriptFiles\" />
-    <Folder Include="Areas\ShoppingCart\LocalAssets\Stylings\" />
     <Folder Include="GlobalAssets\db scripts\" />
     <Folder Include="GlobalAssets\images\" />
   </ItemGroup>
