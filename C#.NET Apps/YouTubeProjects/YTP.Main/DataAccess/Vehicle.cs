@@ -7,9 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YTP.Main.DataAccess {
-
-    public partial class Vehicle {
+namespace YTP.Main.DataAccess
+{
+    using System;
+    using System.Collections.Generic;
+    
+    public partial class Vehicle
+    {
         public int VehicleId { get; set; }
         public string RegNo { get; set; }
         public string Make { get; set; }

@@ -10,6 +10,7 @@
 namespace YTP.Main.DataAccess
 {
     using System;
+    using System.Collections.Generic;
     
     public partial class Customer
     {

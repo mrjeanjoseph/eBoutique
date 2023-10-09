@@ -67,8 +67,6 @@ warning 6002: The table/view 'DEFAULTDB.dbo.tbl_Employee' does not have a primar
           <Property Name="CategoryCode" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DEFAULTDB.YTP.Customer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerId" />
@@ -138,6 +136,7 @@ warning 6002: The table/view 'DEFAULTDB.YTP.Customer' does not have a primary ke
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBS_Employee" EntityType="Self.TBS_Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="YTP" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="YTP" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="YTP" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="YTP" store:Type="Tables" />
           <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="YTP" store:Type="Tables" />
@@ -152,14 +151,6 @@ warning 6002: The table/view 'DEFAULTDB.YTP.Customer' does not have a primary ke
     [tbl_Employee].[Country] AS [Country], 
     [tbl_Employee].[Department] AS [Department]
     FROM [dbo].[tbl_Employee] AS [tbl_Employee]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Customer" EntityType="Self.Customer" store:Type="Tables" store:Schema="YTP">
-            <DefiningQuery>SELECT 
-    [Customer].[CustomerId] AS [CustomerId], 
-    [Customer].[CustomerName] AS [CustomerName], 
-    [Customer].[CompleteAddress] AS [CompleteAddress], 
-    [Customer].[PhoneNumber] AS [PhoneNumber]
-    FROM [YTP].[Customer] AS [Customer]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>

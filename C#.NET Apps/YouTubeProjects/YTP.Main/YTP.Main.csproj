@@ -329,6 +329,7 @@
     <Content Include="Areas\VehicleRentalSystem\Views\Customers\Details.cshtml" />
     <Content Include="Areas\VehicleRentalSystem\Views\Customers\Edit.cshtml" />
     <Content Include="Areas\VehicleRentalSystem\Views\Customers\Index.cshtml" />
+    <Content Include="Areas\VehicleRentalSystem\Views\Shared\_Errorpage.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />

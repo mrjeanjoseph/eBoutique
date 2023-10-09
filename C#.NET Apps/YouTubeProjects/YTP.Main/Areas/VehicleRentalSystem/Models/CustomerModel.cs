@@ -12,7 +12,7 @@ namespace YTP.Main.Areas.VehicleRentalSystem.Models {
 
             [DisplayName("Customer Name")] public string CustomerName { get; set; }
             [DisplayName("Address")] public string CompleteAddress { get; set; }
-            [DisplayName("Phone Number")] public Nullable<int> PhoneNumber { get; set; }
+            [DisplayName("Phone Number")] public int? PhoneNumber { get; set; }
         }
 
     }
