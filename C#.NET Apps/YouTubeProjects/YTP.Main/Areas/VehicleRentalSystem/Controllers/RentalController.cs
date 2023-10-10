@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using YTP.Main.DataAccess;
 
@@ -24,12 +22,22 @@ namespace YTP.Main.Areas.VehicleRentalSystem.Controllers {
         [HttpPost]
         public ActionResult CustomerById(int id) {
 
-            var customer = (from c in _db.Customers 
-                            where c.CustomerId == id 
+            var customer = (from c in _db.Customers
+                            where c.CustomerId == id
                             select c.CustomerName)
                             .ToList();
 
             return Json(customer, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public ActionResult VehicleByNo(string regNum) {
+
+            var status = (from c in _db.Vehicles
+                            where c.RegNo == regNum
+                             select c.Status).FirstOrDefault();
+
+            return Json(status, JsonRequestBehavior.AllowGet);
         }
 
 
