@@ -53,15 +53,51 @@
 
 @section scripts{
     <script type="text/javascript">
+        $(document).ready(function () {
+            LoadVehicles();
+        });
+        
         function LoadVehicles() {
             $.ajax({
                 type: 'GET',
-                url: '/Rental/GetVehicles',
+                url: 'Rental/GetVehicles',
                 dataType: 'JSON',
-                success: function (response) {
+                success: function(response) {
+                    console.log(response);
 
+                    for (var i = 0; i < response.length; i++) {
+                        console.log(response[i].Make)
+                        $("#vehicleNo").append($("<option/>", { text: response[i].Make }));
+                        
+                    }
+                },
+                error: function (xhr, status, error) {
+                    // This function is called when there's an error in the request
+                    console.error('AJAX request failed with status ' + status);
                 }
             })
-        }
+        };
+        
+        function LoadVehicles() {
+            $.ajax({
+                type: 'GET',
+                url: 'Rental/GetVehicles',
+                dataType: 'JSON',
+                success: function(response) {
+                    console.log(response);
+
+                    for (var i = 0; i < response.length; i++) {
+                        console.log(response[i].Make)
+                        $("#vehicleNo").append($("<option/>", { text: response[i].Make }));
+                        
+                    }
+                },
+                error: function (xhr, status, error) {
+                    // This function is called when there's an error in the request
+                    console.error('AJAX request failed with status ' + status);
+                }
+            })
+        };
+
     </script>
     }
