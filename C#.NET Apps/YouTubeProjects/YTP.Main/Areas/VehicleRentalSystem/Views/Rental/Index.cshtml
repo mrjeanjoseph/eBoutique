@@ -20,8 +20,13 @@
         </div>
 
         <div class="form-group">
+            <label class="form-label">Customer Id: </label>
+            <input type="text" id="customerid" name="customerid" class="form-control" placeholder="Customer Id" required />
+        </div>
+
+        <div class="form-group">
             <label class="form-label">Customer Name: </label>
-            <input type="text" id="customerid" name="customername" class="form-control" placeholder="Customer Name" required />
+            <input type="text" id="customername" name="customername" class="form-control" placeholder="Customer Name" required />
         </div>
 
         <div class="form-group">
@@ -52,21 +57,26 @@
 </div>
 
 @section scripts{
+
     <script type="text/javascript">
+
         $(document).ready(function () {
+
             LoadVehicles();
+
+            FetchCustomerData();
         });
         
         function LoadVehicles() {
+
             $.ajax({
                 type: 'GET',
-                url: 'Rental/GetVehicles',
+                url: '/Rental/GetVehicles',
                 dataType: 'JSON',
                 success: function(response) {
-                    console.log(response);
 
                     for (var i = 0; i < response.length; i++) {
-                        console.log(response[i].Make)
+
                         $("#vehicleNo").append($("<option/>", { text: response[i].Make }));
                         
                     }
@@ -78,25 +88,30 @@
             })
         };
         
-        function LoadVehicles() {
-            $.ajax({
-                type: 'GET',
-                url: 'Rental/GetVehicles',
-                dataType: 'JSON',
-                success: function(response) {
-                    console.log(response);
+        function FetchCustomerData() {
 
-                    for (var i = 0; i < response.length; i++) {
-                        console.log(response[i].Make)
-                        $("#vehicleNo").append($("<option/>", { text: response[i].Make }));
-                        
+            $("#customerid").keyup(function (e) {
+
+                console.log("keyup - firing");
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Rental/CustomerById?id=' + $("#customerid").val(),
+                    dataType: 'JSON',
+                    success: function (response) {
+                        console.log(response);
+
+                        $("#customername").val(response);
+
+                    },
+                    error: function (xhr, status, error) {
+                        // This function is called when there's an error in the request
+                        console.error('AJAX request failed with status ' + status);
                     }
-                },
-                error: function (xhr, status, error) {
-                    // This function is called when there's an error in the request
-                    console.error('AJAX request failed with status ' + status);
-                }
-            })
+                });
+            });
+
+
         };
 
     </script>

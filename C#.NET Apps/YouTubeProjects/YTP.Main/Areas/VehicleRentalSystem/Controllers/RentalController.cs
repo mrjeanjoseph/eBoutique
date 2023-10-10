@@ -16,9 +16,20 @@ namespace YTP.Main.Areas.VehicleRentalSystem.Controllers {
 
         [HttpGet]
         public ActionResult GetVehicles() {
-            var getVehicles = _db.Vehicles.ToList();
+            var vehichle = _db.Vehicles.ToList();
 
-            return Json(getVehicles, JsonRequestBehavior.AllowGet);
+            return Json(vehichle, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult CustomerById(int id) {
+
+            var customer = (from c in _db.Customers 
+                            where c.CustomerId == id 
+                            select c.CustomerName)
+                            .ToList();
+
+            return Json(customer, JsonRequestBehavior.AllowGet);
         }
 
 
