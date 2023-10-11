@@ -10,23 +10,23 @@
 
     <nav class="navbar bg-dark navbar-expand-lg border-bottom border-bottom-dark bg-body-tertiary" data-bs-theme="dark">
         <div class="container">
-            @Html.ActionLink("CRUD ALLDAY", null, null, null, new { @class = "navbar-brand" })
+            @Html.ActionLink("Operating Management", null, null, new { @class = "navbar-brand disabled" })
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Services", "UnderConstruction", "Home", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Service #1", "UnderConstruction", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("About", "UnderConstruction", "Home", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Service #2", "UnderConstruction", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Contact", "UnderConstruction", "Home", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Service #3", "UnderConstruction", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -39,15 +39,14 @@
                             Projects
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="nav-item"><a class="nav-link disabled">All Projects</a></li>
+                            <li class="nav-item"><a class="nav-link disabled">Operating Mgmt</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li>@Html.ActionLink("Employee Management", "Index", "Home", new { area = "HumanResources" }, new { @class = "nav-link dropdown-item" })</li>
-                            <li>@Html.ActionLink("Product Management", "Index", "Product", new { area = "HumanResources" }, new { @class = "nav-link dropdown-item" })</li>
-                            <li>@Html.ActionLink("Vendor Record", "Index", "VendorRecord", new { area = "OperatingManagement" }, new { @class = "nav-link dropdown-item" })</li>
-                            <li>@Html.ActionLink("Vehicle Rental System", "Index", "Vehicles", new { area = "VehicleRentalSystem" }, new { @class = "nav-link dropdown-item" })</li>
+                            <li>@Html.ActionLink("Haiti Employee", "Index", "HaitiEmployee", new { area = "HumanResources" }, new { @class = "nav-link dropdown-item" })</li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link disabled">Admin</a></li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
                 </ul>
             </div>
         </div>
@@ -67,10 +66,8 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/DataTables")
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/jqueryUI")
     @Scripts.Render("~/bundles/globalscripts")
+    @Scripts.Render("~/bundles/localscripts")
 
     @RenderSection("scripts", required: false)
 </body>

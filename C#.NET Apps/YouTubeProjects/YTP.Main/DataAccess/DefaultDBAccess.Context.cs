@@ -35,5 +35,8 @@ namespace YTP.Main.DataAccess
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<RoySecHR_Employee> RoySecHR_Employee { get; set; }
+        public virtual DbSet<Vehicle> Vehicles { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Rental> Rentals { get; set; }
     }
 }

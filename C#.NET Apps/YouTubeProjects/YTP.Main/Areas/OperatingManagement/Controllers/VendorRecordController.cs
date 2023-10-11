@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Web.Mvc;
-using YTP.Main.Models;
+using YTP.Main.Areas.OperatingManagement.Models;
 
-namespace YTP.Main.Controllers {
+namespace YTP.Main.Areas.OperatingManagement.Controllers {
     public class VendorRecordController : Controller {
         // GET: VendorRecord
         public ActionResult Index() {

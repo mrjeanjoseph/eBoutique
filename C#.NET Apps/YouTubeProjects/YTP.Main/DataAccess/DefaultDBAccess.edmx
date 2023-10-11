@@ -67,6 +67,15 @@ warning 6002: The table/view 'DEFAULTDB.dbo.tbl_Employee' does not have a primar
           <Property Name="CategoryCode" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="64" />
+          <Property Name="CompleteAddress" Type="nvarchar" MaxLength="64" />
+          <Property Name="PhoneNumber" Type="int" />
+        </EntityType>
         <EntityType Name="Item">
           <Key>
             <PropertyRef Name="ItemId" />
@@ -99,6 +108,17 @@ warning 6002: The table/view 'DEFAULTDB.dbo.tbl_Employee' does not have a primar
           <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
+        <EntityType Name="Rental">
+          <Key>
+            <PropertyRef Name="RentalId" />
+          </Key>
+          <Property Name="RentalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RegNo" Type="nvarchar" MaxLength="64" />
+          <Property Name="CustomerId" Type="nvarchar" MaxLength="64" />
+          <Property Name="RentalFee" Type="int" />
+          <Property Name="RentalDate" Type="date" />
+          <Property Name="ReturnedDate" Type="date" />
+        </EntityType>
         <EntityType Name="RoySecHR_Employee">
           <Key>
             <PropertyRef Name="EmployeeID" />
@@ -110,16 +130,30 @@ warning 6002: The table/view 'DEFAULTDB.dbo.tbl_Employee' does not have a primar
           <Property Name="Salary" Type="int" Nullable="false" />
           <Property Name="ImagePath" Type="nvarchar" MaxLength="500" />
         </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="VehicleId" />
+          </Key>
+          <Property Name="VehicleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RegNo" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Make" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Trim" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="64" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="DefaultDBAccessStoreContainer">
           <EntitySet Name="Acc_CityData" EntityType="Self.Acc_CityData" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Acc_EmpData" EntityType="Self.Acc_EmpData" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBS_Employee" EntityType="Self.TBS_Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="YTP" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="YTP" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="YTP" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="YTP" store:Type="Tables" />
           <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="YTP" store:Type="Tables" />
+          <EntitySet Name="Rental" EntityType="Self.Rental" Schema="YTP" store:Type="Tables" />
           <EntitySet Name="RoySecHR_Employee" EntityType="Self.RoySecHR_Employee" Schema="YTP" store:Type="Tables" />
+          <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="YTP" store:Type="Tables" />
           <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [tbl_Employee].[Sr_no] AS [Sr_no], 
@@ -198,6 +232,9 @@ warning 6002: The table/view 'DEFAULTDB.dbo.tbl_Employee' does not have a primar
           <EntitySet Name="Orders" EntityType="DefaultDBAccess.Order" />
           <EntitySet Name="OrderDetails" EntityType="DefaultDBAccess.OrderDetail" />
           <EntitySet Name="RoySecHR_Employee" EntityType="DefaultDBAccess.RoySecHR_Employee" />
+          <EntitySet Name="Vehicles" EntityType="DefaultDBAccess.Vehicle" />
+          <EntitySet Name="Customers" EntityType="DefaultDBAccess.Customer" />
+          <EntitySet Name="Rentals" EntityType="DefaultDBAccess.Rental" />
         </EntityContainer>
         <EntityType Name="Category">
           <Key>
@@ -249,6 +286,37 @@ warning 6002: The table/view 'DEFAULTDB.dbo.tbl_Employee' does not have a primar
           <Property Name="OfficeLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Salary" Type="Int32" Nullable="false" />
           <Property Name="ImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="VehicleId" />
+          </Key>
+          <Property Name="VehicleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegNo" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Make" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Trim" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="CompleteAddress" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Rental">
+          <Key>
+            <PropertyRef Name="RentalId" />
+          </Key>
+          <Property Name="RentalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegNo" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerId" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="RentalFee" Type="Int32" />
+          <Property Name="RentalDate" Type="DateTime" Precision="0" />
+          <Property Name="ReturnedDate" Type="DateTime" Precision="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -366,6 +434,40 @@ warning 6002: The table/view 'DEFAULTDB.dbo.tbl_Employee' does not have a primar
                 <ScalarProperty Name="Position" ColumnName="Position" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles">
+            <EntityTypeMapping TypeName="DefaultDBAccess.Vehicle">
+              <MappingFragment StoreEntitySet="Vehicle">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Trim" ColumnName="Trim" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+                <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="DefaultDBAccess.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="CompleteAddress" ColumnName="CompleteAddress" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rentals">
+            <EntityTypeMapping TypeName="DefaultDBAccess.Rental">
+              <MappingFragment StoreEntitySet="Rental">
+                <ScalarProperty Name="ReturnedDate" ColumnName="ReturnedDate" />
+                <ScalarProperty Name="RentalDate" ColumnName="RentalDate" />
+                <ScalarProperty Name="RentalFee" ColumnName="RentalFee" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+                <ScalarProperty Name="RentalId" ColumnName="RentalId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="row" style="width: 50%;">
+    @using (Html.BeginForm("SaveRecord", "Rental", FormMethod.Post, new { id = "popupForm" })) {
+
+        <div>
+            <h1>Vehicle Rental</h1>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Vehicle Number: </label>
+            <select class="form-control" id="RegNo" name="regno" required>
+                <option>Select below</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Customer Id: </label>
+            <input type="text" id="CustomerId" name="customerid" class="form-control" placeholder="Customer Id" required />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Customer Name: </label>
+            <input type="text" id="CustomerName" name="customername" class="form-control" placeholder="Customer Name" required />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Rental Fee: </label>
+            <input type="number" id="RentalFee" name="rentalfee" class="form-control" placeholder="Rental Fee" required />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Start Date: </label>
+            <input type="date" id="RentalDate" name="startdate" class="form-control" placeholder="Start Date" required />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">End Date</label>
+            <input type="date" id="ReturnedDate" name="enddate" class="form-control" placeholder="End Date" required />
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Save Record" class="btn btn-success" />
+        </div>
+
+    }
+</div>
+
+@section scripts{
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            initPageLoad();
+
+            LoadVehicles();
+
+            FetchCustomerData();
+        });
+
+        function initPageLoad() {
+            var disableFields = "#CustomerId, #CustomerName, #RentalFee, #RentalDate, #ReturnedDate";
+            $(disableFields).attr("disabled", "disabled");
+        }
+        
+        function LoadVehicles() {
+
+            $.ajax({
+                type: 'GET',
+                url: '/Rental/GetVehicles',
+                dataType: 'JSON',
+                success: function(response) {
+
+                    for (var i = 0; i < response.length; i++) {
+                        if (response[i].Status == "Yes")
+                            $("#RegNo").append($("<option/>", { text: response[i].RegNo }));                        
+                    }
+
+                },
+                error: function (xhr, status, error) {
+                    // This function is called when there's an error in the request
+                    console.error('AJAX request failed with status ' + status);
+                }
+            })
+        };
+        
+        function FetchCustomerData() {
+
+            $("#CustomerId").keyup(function (e) {
+
+                console.log("keyup - firing");
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Rental/CustomerById?id=' + $("#CustomerId").val(),
+                    dataType: 'JSON',
+                    success: function (response) {
+
+                        $("#CustomerName").val(response);
+
+                    },
+                    error: function (xhr, status, error) {
+                        // This function is called when there's an error in the request
+                        console.error('AJAX request failed with status ' + status);
+                    }
+                });
+            });
+
+
+        };
+
+        $("#RegNo").change(function () { VehicleStatus(); });
+
+        function VehicleStatus() {
+
+            $.ajax({
+                type: 'POST',
+                url: '/Rental/VehicleByNo?regNum=' + $("#RegNo").val(),
+                contentType: "application/json;charset=UTF-8",
+                dataType: 'JSON',
+                success: function (response) {
+
+                    var vehStatus = response;
+
+                    if (vehStatus == "Yes") {
+
+                        $("#CustomerId, #CustomerName, #RentalFee, #RentalDate, #ReturnedDate").removeAttr("disabled");
+                    } else {
+                        initPageLoad();
+                    }
+                },
+                error: function (xhr, status, error) {
+                    // This function is called when there's an error in the request
+                    console.error('AJAX request failed with status ' + status);
+                }
+            });
+        }        
+
+    </script>
+    }
+
