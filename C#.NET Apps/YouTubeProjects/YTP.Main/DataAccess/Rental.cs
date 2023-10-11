@@ -15,7 +15,7 @@ namespace YTP.Main.DataAccess
     public partial class Rental
     {
         public int RentalId { get; set; }
-        public string VehicleId { get; set; }
+        public string RegNo { get; set; }
         public string CustomerId { get; set; }
         public Nullable<int> RentalFee { get; set; }
         public Nullable<System.DateTime> RentalDate { get; set; }

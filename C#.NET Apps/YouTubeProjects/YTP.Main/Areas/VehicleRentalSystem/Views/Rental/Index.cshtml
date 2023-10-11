@@ -14,34 +14,34 @@
 
         <div class="form-group">
             <label class="form-label">Vehicle Number: </label>
-            <select class="form-control" id="vehicleNo" required>
+            <select class="form-control" id="RegNo" name="regno" required>
                 <option>Select below</option>
             </select>
         </div>
 
         <div class="form-group">
             <label class="form-label">Customer Id: </label>
-            <input type="text" id="customerid" name="customerid" class="form-control" placeholder="Customer Id" required />
+            <input type="text" id="CustomerId" name="customerid" class="form-control" placeholder="Customer Id" required />
         </div>
 
         <div class="form-group">
             <label class="form-label">Customer Name: </label>
-            <input type="text" id="customername" name="customername" class="form-control" placeholder="Customer Name" required />
+            <input type="text" id="CustomerName" name="customername" class="form-control" placeholder="Customer Name" required />
         </div>
 
         <div class="form-group">
             <label class="form-label">Rental Fee: </label>
-            <input type="text" id="rentalfee" name="rentalfee" class="form-control" placeholder="Rental Fee" required />
+            <input type="number" id="RentalFee" name="rentalfee" class="form-control" placeholder="Rental Fee" required />
         </div>
 
         <div class="form-group">
             <label class="form-label">Start Date: </label>
-            <input type="date" id="startdate" name="startdate" class="form-control" placeholder="Start Date" required />
+            <input type="date" id="RentalDate" name="startdate" class="form-control" placeholder="Start Date" required />
         </div>
 
         <div class="form-group">
             <label class="form-label">End Date</label>
-            <input type="date" id="enddate" name="enddate" class="form-control" placeholder="End Date" required />
+            <input type="date" id="ReturnedDate" name="enddate" class="form-control" placeholder="End Date" required />
         </div>
 
         <div class="form-group">
@@ -64,7 +64,7 @@
         });
 
         function initPageLoad() {
-            var disableFields = "#customerid, #customername, #rentalfee, #startdate, #enddate";
+            var disableFields = "#CustomerId, #CustomerName, #RentalFee, #RentalDate, #ReturnedDate";
             $(disableFields).attr("disabled", "disabled");
         }
         
@@ -77,10 +77,10 @@
                 success: function(response) {
 
                     for (var i = 0; i < response.length; i++) {
-
-                        $("#vehicleNo").append($("<option/>", { text: response[i].RegNo }));
-                        
+                        if (response[i].Status == "Yes")
+                            $("#RegNo").append($("<option/>", { text: response[i].RegNo }));                        
                     }
+
                 },
                 error: function (xhr, status, error) {
                     // This function is called when there's an error in the request
@@ -91,17 +91,17 @@
         
         function FetchCustomerData() {
 
-            $("#customerid").keyup(function (e) {
+            $("#CustomerId").keyup(function (e) {
 
                 console.log("keyup - firing");
 
                 $.ajax({
                     type: 'POST',
-                    url: '/Rental/CustomerById?id=' + $("#customerid").val(),
+                    url: '/Rental/CustomerById?id=' + $("#CustomerId").val(),
                     dataType: 'JSON',
                     success: function (response) {
 
-                        $("#customername").val(response);
+                        $("#CustomerName").val(response);
 
                     },
                     error: function (xhr, status, error) {
@@ -114,33 +114,32 @@
 
         };
 
-        $("#vehicleNo").change(function () { VehicleStatus(); });
+        $("#RegNo").change(function () { VehicleStatus(); });
 
         function VehicleStatus() {
 
             $.ajax({
-                type: 'GET',
-                url: '/Rental/VehicleByNo?RegNo=' + $("#vehicleNo").val(), // Possibly an error here - something about an ajax request.
+                type: 'POST',
+                url: '/Rental/VehicleByNo?regNum=' + $("#RegNo").val(),
                 contentType: "application/json;charset=UTF-8",
                 dataType: 'JSON',
                 success: function (response) {
-                    console.log(response);
 
                     var vehStatus = response;
-                    if (vehStatus == "Yes") {
-                        console.log("in the if statement");
-                        $("#customerid, #customername, #rentalfee, #startdate, #enddate").removeAttr("disabled");
-                    } else {
-                        LoadVehicles();
-                    }
 
+                    if (vehStatus == "Yes") {
+
+                        $("#CustomerId, #CustomerName, #RentalFee, #RentalDate, #ReturnedDate").removeAttr("disabled");
+                    } else {
+                        initPageLoad();
+                    }
                 },
                 error: function (xhr, status, error) {
                     // This function is called when there's an error in the request
                     console.error('AJAX request failed with status ' + status);
                 }
             });
-        }
+        }        
 
     </script>
     }

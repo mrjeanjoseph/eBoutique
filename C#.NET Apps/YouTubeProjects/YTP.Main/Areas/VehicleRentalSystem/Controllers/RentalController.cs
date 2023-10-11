@@ -30,7 +30,7 @@ namespace YTP.Main.Areas.VehicleRentalSystem.Controllers {
             return Json(customer, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult VehicleByNo(string regNum) {
 
             var status = (from c in _db.Vehicles
@@ -40,6 +40,26 @@ namespace YTP.Main.Areas.VehicleRentalSystem.Controllers {
             return Json(status, JsonRequestBehavior.AllowGet);
         }
 
+        
+        [HttpPost]
+        public ActionResult SaveRecord(Rental rental) {
 
+            if(ModelState.IsValid) {
+
+                _db.Rentals.Add(rental);
+
+                var vehicle = _db.Vehicles.SingleOrDefault(v => v.RegNo == rental.RegNo);
+                if(vehicle == null) 
+                    return HttpNotFound("Vehicle Number not found");
+
+                vehicle.Status = "No";
+                _db.Entry(rental).State = System.Data.Entity.EntityState.Modified;
+                _db.SaveChanges();
+
+                return  RedirectToAction("Index");
+                
+            }
+            return View(rental);
+        }
     }
 }

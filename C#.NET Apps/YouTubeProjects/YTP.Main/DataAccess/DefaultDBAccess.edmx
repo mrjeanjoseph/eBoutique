@@ -108,14 +108,12 @@ warning 6002: The table/view 'DEFAULTDB.dbo.tbl_Employee' does not have a primar
           <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DEFAULTDB.YTP.Rental' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Rental">
           <Key>
             <PropertyRef Name="RentalId" />
           </Key>
-          <Property Name="RentalId" Type="int" Nullable="false" />
-          <Property Name="VehicleId" Type="nvarchar" MaxLength="64" />
+          <Property Name="RentalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RegNo" Type="nvarchar" MaxLength="64" />
           <Property Name="CustomerId" Type="nvarchar" MaxLength="64" />
           <Property Name="RentalFee" Type="int" />
           <Property Name="RentalDate" Type="date" />
@@ -153,6 +151,7 @@ warning 6002: The table/view 'DEFAULTDB.YTP.Rental' does not have a primary key 
           <EntitySet Name="Item" EntityType="Self.Item" Schema="YTP" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="YTP" store:Type="Tables" />
           <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="YTP" store:Type="Tables" />
+          <EntitySet Name="Rental" EntityType="Self.Rental" Schema="YTP" store:Type="Tables" />
           <EntitySet Name="RoySecHR_Employee" EntityType="Self.RoySecHR_Employee" Schema="YTP" store:Type="Tables" />
           <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="YTP" store:Type="Tables" />
           <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" store:Type="Tables" store:Schema="dbo">
@@ -164,16 +163,6 @@ warning 6002: The table/view 'DEFAULTDB.YTP.Rental' does not have a primary key 
     [tbl_Employee].[Country] AS [Country], 
     [tbl_Employee].[Department] AS [Department]
     FROM [dbo].[tbl_Employee] AS [tbl_Employee]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Rental" EntityType="Self.Rental" store:Type="Tables" store:Schema="YTP">
-            <DefiningQuery>SELECT 
-    [Rental].[RentalId] AS [RentalId], 
-    [Rental].[VehicleId] AS [VehicleId], 
-    [Rental].[CustomerId] AS [CustomerId], 
-    [Rental].[RentalFee] AS [RentalFee], 
-    [Rental].[RentalDate] AS [RentalDate], 
-    [Rental].[ReturnedDate] AS [ReturnedDate]
-    FROM [YTP].[Rental] AS [Rental]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -322,8 +311,8 @@ warning 6002: The table/view 'DEFAULTDB.YTP.Rental' does not have a primary key 
           <Key>
             <PropertyRef Name="RentalId" />
           </Key>
-          <Property Name="RentalId" Type="Int32" Nullable="false" />
-          <Property Name="VehicleId" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="RentalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegNo" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="CustomerId" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="RentalFee" Type="Int32" />
           <Property Name="RentalDate" Type="DateTime" Precision="0" />
@@ -477,7 +466,7 @@ warning 6002: The table/view 'DEFAULTDB.YTP.Rental' does not have a primary key 
                 <ScalarProperty Name="RentalDate" ColumnName="RentalDate" />
                 <ScalarProperty Name="RentalFee" ColumnName="RentalFee" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+                <ScalarProperty Name="RegNo" ColumnName="RegNo" />
                 <ScalarProperty Name="RentalId" ColumnName="RentalId" />
               </MappingFragment>
             </EntityTypeMapping>
