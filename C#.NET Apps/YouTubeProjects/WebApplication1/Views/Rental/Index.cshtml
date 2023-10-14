@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="row">
+    @using (Html.BeginForm("Save", "Rental", FormMethod.Post, new { id = "popupForm" })) {
+
+        <div>
+            <h1>Car Rental</h1>
+        </div>
+
+
+            <div class="form-group">
+                <div class="form-label">Car No</div>
+                <select class="form-control" id="carno" name="carno" placeholder="Carno" required>
+                    <option>Please Select</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <div class="form-label">Customer ID</div>
+                <input class="form-control" type="text" id="custid" name="custid" placeholder="Customer ID" required />
+            </div>
+            <div class="form-group">
+                <div class="form-label">Customer Name</div>
+                <input class="form-control" type="text" id="custname" name="custname" placeholder="Customer Name" required />
+            </div>
+            <div class="form-group">
+                <div class="form-label">Rental Fee</div>
+                <input class="form-control" type="text" id="fee" name="fee" placeholder="Rental Fee" required />
+            </div>
+            <div class="form-group">
+                <div class="form-label">Start Date</div>
+                <input class="form-control" type="text" id="sdate" name="sdate" placeholder="Start Date" required />
+            </div>
+            <div class="form-group">
+                <div class="form-label">End Date</div>
+                <input class="form-control" type="text" id="edate" name="edate" placeholder="End Date" required />
+            </div>
+
+            <div class="form-group">
+                <input class="btn btn-success" type="submit"/>
+            </div>
+
+
+    }
+</div>
