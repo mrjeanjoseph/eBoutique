@@ -27,5 +27,7 @@ namespace WebApplication1.Models
     
         public virtual DbSet<carreg> carregs { get; set; }
         public virtual DbSet<customer> customers { get; set; }
+        public virtual DbSet<rental> rentals { get; set; }
+        public virtual DbSet<returncar> returncars { get; set; }
     }
 }
