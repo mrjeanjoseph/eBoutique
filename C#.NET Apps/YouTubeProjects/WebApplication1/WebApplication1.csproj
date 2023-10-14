@@ -130,6 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\carController.cs" />
+    <Compile Include="Controllers\customerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -141,6 +142,7 @@
     <Compile Include="Models\customer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\customervalidation.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -231,6 +233,11 @@
     <Content Include="Views\car\Details.cshtml" />
     <Content Include="Views\car\Edit.cshtml" />
     <Content Include="Views\car\Index.cshtml" />
+    <Content Include="Views\customer\Create.cshtml" />
+    <Content Include="Views\customer\Delete.cshtml" />
+    <Content Include="Views\customer\Details.cshtml" />
+    <Content Include="Views\customer\Edit.cshtml" />
+    <Content Include="Views\customer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
