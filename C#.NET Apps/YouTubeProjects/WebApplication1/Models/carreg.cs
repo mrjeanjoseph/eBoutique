@@ -7,13 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication1.Models
-{
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class carreg
-    {
+namespace WebApplication1.Models {
+
+    public partial class carreg {
         public int id { get; set; }
         public string carno { get; set; }
         public string make { get; set; }
