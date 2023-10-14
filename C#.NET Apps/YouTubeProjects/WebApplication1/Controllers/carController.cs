@@ -7,15 +7,15 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers {
 
-    public class carController : Controller {
+    public class CarController : Controller {
 
         private readonly supercarEntities db = new supercarEntities();
 
         // GET: car
         public ActionResult Index() {
 
-            //return View(db.carregs.ToList());
-            return Json(db.carregs.ToList(), JsonRequestBehavior.AllowGet);
+            return View(db.carregs.ToList());
+            //return Json(db.carregs.ToList(), JsonRequestBehavior.AllowGet);
         }
 
         // GET: car/Details/5

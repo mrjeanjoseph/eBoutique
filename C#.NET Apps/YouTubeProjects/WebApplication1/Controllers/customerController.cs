@@ -5,7 +5,8 @@ using System.Web.Mvc;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers {
-    public class customerController : Controller {
+    public class CustomerController : Controller {
+
         private readonly supercarEntities db = new supercarEntities();
 
         // GET: customer

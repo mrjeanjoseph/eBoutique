@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication1.Models {
 
-    [MetadataType(typeof(customerMetaData))]
+    [MetadataType(typeof(CustomerMetaData))]
     public partial class customer {
-        public class customerMetaData {
+        public class CustomerMetaData {
 
 
             [DisplayName("Customer Name")]
