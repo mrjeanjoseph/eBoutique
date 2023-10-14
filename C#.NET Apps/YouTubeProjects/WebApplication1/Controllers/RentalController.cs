@@ -25,7 +25,7 @@ namespace WebApplication1.Controllers {
                               available = c.available
                           }).ToList();
 
-            return View();
+            return View(result);
         }
 
         [HttpGet]
