@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
 using System.Web.Mvc;
 using WebApplication1.Models;
 
@@ -35,6 +36,23 @@ namespace WebApplication1.Controllers {
             var availability = (from c in _db.carregs where c.carno == carno select c.available).FirstOrDefault();
             return Json(availability, JsonRequestBehavior.AllowGet);
 
+        }
+
+        [HttpPost]
+        public ActionResult Save(rental rental) {
+            if(ModelState.IsValid) {
+                _db.rentals.Add(rental);
+
+                var car = _db.carregs.FirstOrDefault(c => c.carno == rental.carid);
+                if(car == null)  return HttpNotFound("Car No NOT FOUND");
+
+                car.available = "no";
+                _db.Entry(car).State = EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(rental);
         }
     }
 }
