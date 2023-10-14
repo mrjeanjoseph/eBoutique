@@ -12,12 +12,13 @@ namespace WebApplication1.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class carreg
+    public partial class rental
     {
         public int id { get; set; }
-        public string carno { get; set; }
-        public string make { get; set; }
-        public string model { get; set; }
-        public string available { get; set; }
+        public string carid { get; set; }
+        public Nullable<int> custid { get; set; }
+        public Nullable<int> fee { get; set; }
+        public Nullable<System.DateTime> sdate { get; set; }
+        public Nullable<System.DateTime> edate { get; set; }
     }
 }
