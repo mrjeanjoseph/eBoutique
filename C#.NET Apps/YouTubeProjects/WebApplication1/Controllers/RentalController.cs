@@ -12,6 +12,19 @@ namespace WebApplication1.Controllers {
         // GET: Rental
         public ActionResult Index() {
 
+            var result = (from r in _db.rentals
+                          join c in _db.carregs
+                          on r.carid equals c.carno
+                          select new RentalViewModel {
+                              id = r.id,
+                              carid = r.carid,
+                              custid = r.custid,
+                              fee =  r.fee ?? 100,
+                              sdate = r.sdate,
+                              edate = r.edate,
+                              available = c.available
+                          }).ToList();
+
             return View();
         }
 

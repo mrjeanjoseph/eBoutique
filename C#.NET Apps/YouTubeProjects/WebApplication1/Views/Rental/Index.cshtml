@@ -1,8 +1,4 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
-
+﻿@model IEnumerable<WebApplication1.Models.RentalViewModel>
 
 
 <div class="row">
@@ -65,6 +61,17 @@
                     <th>Availability</th>
                 </tr>
             </thead>
+            @foreach (var item in Model) {
+                <tr>
+                    <td>@item.carid</td>
+                    <td>@item.custid</td>
+                    <td>@item.fee</td>
+                    <td>@item.sdate</td>
+                    <td>@item.edate</td>
+                    <td>@item.available</td>
+                </tr>
+            }
+
 
         </table>
 
