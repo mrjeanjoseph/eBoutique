@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication1.Models {
+namespace YTP.Main.DataAccess {
 
     [MetadataType(typeof(CustomerMetaData))]
 

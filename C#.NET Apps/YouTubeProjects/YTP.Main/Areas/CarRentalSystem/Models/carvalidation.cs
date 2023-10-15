@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication1.Models {
+namespace YTP.Main.DataAccess {
 
     [MetadataType(typeof(CarregMetaData))]
 
@@ -9,7 +9,7 @@ namespace WebApplication1.Models {
 
         public class CarregMetaData {
 
-            [DisplayName("Car No")]
+            [DisplayName("Car No2")]
             public string carno { get; set; }
 
             [DisplayName("Make")]

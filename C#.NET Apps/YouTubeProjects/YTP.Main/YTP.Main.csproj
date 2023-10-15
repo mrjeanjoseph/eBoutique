@@ -154,14 +154,14 @@
     <Compile Include="DataAccess\carreg.cs">
       <DependentUpon>YPTDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataAccess\carvalidation.cs" />
+    <Compile Include="Areas\CarRentalSystem\Models\carvalidation.cs" />
     <Compile Include="DataAccess\Category.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\customer.cs">
       <DependentUpon>YPTDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataAccess\customervalidation.cs" />
+    <Compile Include="Areas\CarRentalSystem\Models\customervalidation.cs" />
     <Compile Include="DataAccess\DefaultDBAccess.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -410,7 +410,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\CarRentalSystem\Data\" />
     <Folder Include="GlobalAsset\db scripts\" />
     <Folder Include="GlobalAsset\images\" />
   </ItemGroup>

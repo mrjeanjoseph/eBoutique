@@ -18,6 +18,7 @@ namespace YTP.Main.Areas.CarRentalSystem.Controllers
         public ActionResult Index()
         {
             return View(db.customers.ToList());
+            //return Json(db.customers.ToList(), JsonRequestBehavior.AllowGet);
         }
 
         // GET: CarRentalSystem/Customer/Details/5
