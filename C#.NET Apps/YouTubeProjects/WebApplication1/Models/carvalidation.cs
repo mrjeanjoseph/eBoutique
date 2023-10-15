@@ -4,7 +4,9 @@ using System.ComponentModel.DataAnnotations;
 namespace WebApplication1.Models {
 
     [MetadataType(typeof(CarregMetaData))]
+
     public partial class carreg {
+
         public class CarregMetaData {
 
             [DisplayName("Car No")]
