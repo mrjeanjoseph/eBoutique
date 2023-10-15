@@ -234,21 +234,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\car\Create.cshtml" />
-    <Content Include="Views\car\Delete.cshtml" />
-    <Content Include="Views\car\Details.cshtml" />
-    <Content Include="Views\car\Edit.cshtml" />
-    <Content Include="Views\car\Index.cshtml" />
-    <Content Include="Views\customer\Create.cshtml" />
-    <Content Include="Views\customer\Delete.cshtml" />
-    <Content Include="Views\customer\Details.cshtml" />
-    <Content Include="Views\customer\Edit.cshtml" />
-    <Content Include="Views\customer\Index.cshtml" />
-    <Content Include="Views\Rental\Index.cshtml" />
-    <Content Include="Views\returncar\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
