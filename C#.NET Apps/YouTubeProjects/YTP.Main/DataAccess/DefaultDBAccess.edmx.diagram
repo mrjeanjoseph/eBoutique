@@ -5,19 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="0ccbd52a3606426f9e5a6668553cb817" Name="Diagram1">
-        <EntityTypeShape EntityType="DefaultDBAccess.Acc_CityData" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DefaultDBAccess.Acc_CityData" Width="1.5" PointX="0.5" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DefaultDBAccess.Acc_EmpData" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DefaultDBAccess.Product" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DefaultDBAccess.TBS_Employee" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DefaultDBAccess.tbl_Employee" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DefaultDBAccess.TBS_Employee" Width="1.5" PointX="0.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DefaultDBAccess.tbl_Employee" Width="1.5" PointX="2.75" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DefaultDBAccess.Category" Width="1.5" PointX="7.125" PointY="0.75" />
         <EntityTypeShape EntityType="DefaultDBAccess.Item" Width="1.5" PointX="7.125" PointY="2.5" />
         <EntityTypeShape EntityType="DefaultDBAccess.Order" Width="1.5" PointX="9.625" PointY="0.75" />
-        <EntityTypeShape EntityType="DefaultDBAccess.OrderDetail" Width="1.5" PointX="5.375" PointY="5.75" />
-        <EntityTypeShape EntityType="DefaultDBAccess.RoySecHR_Employee" Width="1.5" PointX="0.75" PointY="7.75" />
-        <EntityTypeShape EntityType="DefaultDBAccess.Vehicle" Width="1.5" PointX="7.375" PointY="5.75" />
-        <EntityTypeShape EntityType="DefaultDBAccess.Customer" Width="1.5" PointX="9.75" PointY="3.375" />
-        <EntityTypeShape EntityType="DefaultDBAccess.Rental" Width="1.5" PointX="3.375" PointY="8.75" />
+        <EntityTypeShape EntityType="DefaultDBAccess.OrderDetail" Width="1.5" PointX="4.875" PointY="3.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

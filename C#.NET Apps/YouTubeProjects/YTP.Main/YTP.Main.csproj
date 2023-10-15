@@ -143,21 +143,12 @@
     <Compile Include="Areas\HumanResources\Controllers\AccEmpController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\EmployeeController.cs" />
     <Compile Include="Areas\OperatingManagement\OperatingManagementAreaRegistration.cs" />
-    <Compile Include="Areas\VehicleRentalSystem\Controllers\CustomersController.cs" />
-    <Compile Include="Areas\VehicleRentalSystem\Controllers\RentalController.cs" />
-    <Compile Include="Areas\VehicleRentalSystem\Controllers\VehiclesController.cs" />
-    <Compile Include="Areas\VehicleRentalSystem\Models\CustomerModel.cs" />
-    <Compile Include="Areas\VehicleRentalSystem\Models\VehicleModel.cs" />
-    <Compile Include="Areas\VehicleRentalSystem\VehicleRentalSystemAreaRegistration.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\ProductController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\TBS_EmployeeController.cs" />
     <Compile Include="Areas\OperatingManagement\Controllers\VendorRecordController.cs" />
     <Compile Include="DataAccess\Category.cs">
-      <DependentUpon>DefaultDBAccess.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataAccess\Customer.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\DefaultDBAccess.Context.cs">
@@ -182,15 +173,6 @@
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\OrderDetail.cs">
-      <DependentUpon>DefaultDBAccess.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataAccess\Rental.cs">
-      <DependentUpon>DefaultDBAccess.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataAccess\RoySecHR_Employee.cs">
-      <DependentUpon>DefaultDBAccess.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataAccess\Vehicle.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -319,21 +301,6 @@
     <Content Include="Areas\OperatingManagement\Views\web.config" />
     <Content Include="Areas\OperatingManagement\Views\_ViewStart.cshtml" />
     <Content Include="Areas\OperatingManagement\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\VehicleRentalSystem\Views\web.config" />
-    <Content Include="Areas\VehicleRentalSystem\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\VehicleRentalSystem\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\VehicleRentalSystem\Views\Vehicles\Create.cshtml" />
-    <Content Include="Areas\VehicleRentalSystem\Views\Vehicles\Delete.cshtml" />
-    <Content Include="Areas\VehicleRentalSystem\Views\Vehicles\Details.cshtml" />
-    <Content Include="Areas\VehicleRentalSystem\Views\Vehicles\Edit.cshtml" />
-    <Content Include="Areas\VehicleRentalSystem\Views\Vehicles\Index.cshtml" />
-    <Content Include="Areas\VehicleRentalSystem\Views\Customers\Create.cshtml" />
-    <Content Include="Areas\VehicleRentalSystem\Views\Customers\Delete.cshtml" />
-    <Content Include="Areas\VehicleRentalSystem\Views\Customers\Details.cshtml" />
-    <Content Include="Areas\VehicleRentalSystem\Views\Customers\Edit.cshtml" />
-    <Content Include="Areas\VehicleRentalSystem\Views\Customers\Index.cshtml" />
-    <Content Include="Areas\VehicleRentalSystem\Views\Shared\_Errorpage.cshtml" />
-    <Content Include="Areas\VehicleRentalSystem\Views\Rental\Index.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
