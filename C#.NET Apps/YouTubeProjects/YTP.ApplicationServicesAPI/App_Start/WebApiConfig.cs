@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace YTP.ApplicationServicesAPI {
+namespace YTP.CommonAPI {
     public static class WebApiConfig {
 
         public static void Register(HttpConfiguration config) {

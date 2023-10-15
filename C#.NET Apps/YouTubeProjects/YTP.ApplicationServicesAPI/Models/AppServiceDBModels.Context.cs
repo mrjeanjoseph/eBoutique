@@ -9,7 +9,7 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
-namespace YTP.ApplicationServicesAPI.Models {
+namespace YTP.CommonAPI.Models {
 
     public partial class AppServiceModel : DbContext {
         public AppServiceModel() : base("name=AppServiceModel") { }

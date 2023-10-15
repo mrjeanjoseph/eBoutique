@@ -1,7 +1,7 @@
 using System.Web;
 using System.Web.Http;
 
-namespace YTP.ApplicationServicesAPI {
+namespace YTP.CommonAPI {
 
     public class WebApiApplication : HttpApplication {
 

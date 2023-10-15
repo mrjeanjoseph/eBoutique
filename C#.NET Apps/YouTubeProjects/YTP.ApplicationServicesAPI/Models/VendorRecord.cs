@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YTP.ApplicationServicesAPI.Models
+namespace YTP.CommonAPI.Models
 {
     using System;
     using System.Collections.Generic;
