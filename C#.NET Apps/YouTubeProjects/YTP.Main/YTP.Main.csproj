@@ -221,7 +221,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HumanResources\LocalAssets\site.home.js" />
-    <Content Include="Content\Site.css" />
     <Content Include="GlobalAsset\styles\alertifyjs\alertify.css" />
     <Content Include="GlobalAsset\styles\alertifyjs\alertify.min.css" />
     <Content Include="GlobalAsset\styles\alertifyjs\themes\bootstrap.css" />
