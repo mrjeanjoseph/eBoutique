@@ -139,6 +139,7 @@
     <Compile Include="Areas\CarRentalSystem\Controllers\CarController.cs" />
     <Compile Include="Areas\CarRentalSystem\Controllers\CustomerController.cs" />
     <Compile Include="Areas\CarRentalSystem\Controllers\RentalController.cs" />
+    <Compile Include="Areas\CarRentalSystem\Controllers\ReturncarController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\HaitiEmployeeController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\HomeController.cs" />
     <Compile Include="Areas\HumanResources\DataAccess\HaitiEmployeeDB.cs" />
@@ -366,6 +367,7 @@
     <Content Include="Areas\CarRentalSystem\Views\Customer\Edit.cshtml" />
     <Content Include="Areas\CarRentalSystem\Views\Customer\Index.cshtml" />
     <Content Include="Areas\CarRentalSystem\Views\Rental\Index.cshtml" />
+    <Content Include="Areas\CarRentalSystem\Views\Returncar\Index.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
