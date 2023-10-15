@@ -8,16 +8,19 @@ using YTP.ApplicationServicesAPI.Models;
 
 namespace YTP.ApplicationServicesAPI.Controllers {
     public class VendorRecordController : ApiController {
+
         private readonly AppServiceModel db = new AppServiceModel();
 
         // GET: api/VendorRecord
         public IQueryable<VendorRecord> GetVendorRecords() {
+
             return db.VendorRecords;
         }
 
         // GET: api/VendorRecord/5
         [ResponseType(typeof(VendorRecord))]
         public IHttpActionResult GetVendorRecord(int id) {
+
             VendorRecord vendorRecord = db.VendorRecords.Find(id);
             if (vendorRecord == null) {
                 return NotFound();
@@ -29,6 +32,7 @@ namespace YTP.ApplicationServicesAPI.Controllers {
         // PUT: api/VendorRecord/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutVendorRecord(int id, VendorRecord vendorRecord) {
+
             if (id != vendorRecord.VendorId) {
                 return BadRequest();
             }
@@ -51,6 +55,7 @@ namespace YTP.ApplicationServicesAPI.Controllers {
         // POST: api/VendorRecord
         [ResponseType(typeof(VendorRecord))]
         public IHttpActionResult PostVendorRecord(VendorRecord vendorRecord) {
+
             db.VendorRecords.Add(vendorRecord);
             db.SaveChanges();
 
@@ -60,8 +65,10 @@ namespace YTP.ApplicationServicesAPI.Controllers {
         // DELETE: api/VendorRecord/5
         [ResponseType(typeof(VendorRecord))]
         public IHttpActionResult DeleteVendorRecord(int id) {
+
             VendorRecord vendorRecord = db.VendorRecords.Find(id);
             if (vendorRecord == null) {
+
                 return NotFound();
             }
 
@@ -72,13 +79,16 @@ namespace YTP.ApplicationServicesAPI.Controllers {
         }
 
         protected override void Dispose(bool disposing) {
+
             if (disposing) {
+
                 db.Dispose();
             }
             base.Dispose(disposing);
         }
 
         private bool VendorRecordExists(int id) {
+
             return db.VendorRecords.Count(e => e.VendorId == id) > 0;
         }
     }
