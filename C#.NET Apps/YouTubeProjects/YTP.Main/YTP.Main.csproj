@@ -135,6 +135,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\CarRentalSystem\CarRentalSystemAreaRegistration.cs" />
     <Compile Include="Areas\HumanResources\Controllers\HaitiEmployeeController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\HomeController.cs" />
     <Compile Include="Areas\HumanResources\DataAccess\HaitiEmployeeDB.cs" />
@@ -345,6 +346,7 @@
     <Content Include="DataAccess\YPTDB.edmx.diagram">
       <DependentUpon>YPTDB.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\CarRentalSystem\Views\web.config" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
@@ -391,6 +393,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\CarRentalSystem\Controllers\" />
+    <Folder Include="Areas\CarRentalSystem\Data\" />
+    <Folder Include="Areas\CarRentalSystem\Views\Shared\" />
     <Folder Include="GlobalAsset\db scripts\" />
     <Folder Include="GlobalAsset\images\" />
   </ItemGroup>
