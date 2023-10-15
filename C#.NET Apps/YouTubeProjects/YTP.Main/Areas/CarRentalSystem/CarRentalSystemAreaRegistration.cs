@@ -17,7 +17,8 @@ namespace YTP.Main.Areas.CarRentalSystem
             context.MapRoute(
                 "CarRentalSystem",
                 "CarRentalSystem/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                new[] { GetType().Namespace + ".Controllers" }
             );
         }
     }

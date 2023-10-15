@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WebApplication1.Models {
+namespace YTP.Main.Areas.CarRentalSystem {
     public class RentalViewModel {
         public int id { get; set; }
         public string carid { get; set; }
