@@ -24,6 +24,10 @@ namespace YTP.Main.Areas.CarRentalSystem.Controllers {
                               available = c.available
                           }).ToList();
 
+            if(result.Count == 0)
+                ViewBag.DisplayRentals = false; // There is an error here to be solved.
+            
+
             return View(result);
         }
 

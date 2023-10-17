@@ -1,8 +1,7 @@
-﻿@model IEnumerable<YTP.Main.Areas.CarRentalSystem.RentalViewModel>
-
+﻿
 
 <div class="row mt-3">
-
+    <div></div>
     <div class="col-sm-4">
         @using (Html.BeginForm("Save", "Rental", FormMethod.Post, new { id = "popupForm" })) {
 
@@ -46,36 +45,18 @@
 
         }
 
-
     </div>
 
     <div class="col-sm-8" style="background-color:whitesmoke;">
-        <table class="table small">
-            <thead class="table-dark">
-                <tr>
-                    <th>Car No</th>
-                    <th>Customer ID</th>
-                    <th>Rental Fee</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Availability</th>
-                </tr>
-            </thead>
-            @foreach (var item in Model) {
-                <tr>
-                    <td>@item.carid</td>
-                    <td>@item.custid</td>
-                    <td>@item.fee</td>
-                    <td>@item.sdate</td>
-                    <td>@item.edate</td>
-                    <td>@item.available</td>
-                </tr>
-            }
+        @if (ViewBag.DisplayRentals) {
+            string messageToDisplay = "There's no data to display.";
+            Html.RenderPartial("_NoData", messageToDisplay);
+        } else {
 
-
-        </table>
-
+            Html.RenderPartial("_ListAllRentals");
+        }
     </div>
+
 </div>
 
 @section scripts {
