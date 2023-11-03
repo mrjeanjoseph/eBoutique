@@ -33,7 +33,9 @@ input[type="checkbox"].input-validation-error {
 }
 
 
-
+.ytp-bigger {
+    font-size: 1em; /* Adjust the size as needed */
+}
 
 .dropdown-menu-center {
     width: 30rem;

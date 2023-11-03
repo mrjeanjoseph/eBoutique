@@ -17,8 +17,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        @*@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })*@
-                        <a href="/" class="nav-link"><i class="bi bi-house"></i></a>
+                        @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })                        
                     </li>
                     <li class="nav-item dropdown ">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -42,13 +41,13 @@
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-success me-3" type="submit">Search</button>
                 </form>
                 <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item">
+                    <li class="nav-item me-3">
                         @Html.ActionLink("Pricings", "UnderConstruction", "Home", new { area = "" }, new { @class = "nav-link" })
                     </li>
-                    <li class="nav-item"><a class="nav-link disabled">Admin</a></li>
+                    <li class="nav-item"><a class="nav-link disabled"><i class="bi bi-house-lock-fill ytp-bigger"></i></a></li>
                 </ul>
             </div>
         </div>
