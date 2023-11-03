@@ -8,7 +8,6 @@ namespace YTP.Main {
             //All Global Styles and Scripts
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/GlobalAsset/styles/bootstrap.css",
-                      "~/GlobalAsset/fontawesome/css/all.min.css",
                       "~/GlobalAsset/styles/dataTables.bootstrap5.css",
                       "~/GlobalAsset/styles/themes/base/jquery-ui.min.css",
                       "~/GlobalAsset/styles/alertifyjs/themes/default.min.css",
@@ -33,7 +32,6 @@ namespace YTP.Main {
 
             bundles.Add(new Bundle("~/bundles/globalscripts").Include(
                       "~/GlobalAsset/scripts/notify.min.js",
-                      "~/GlobalAsset/fontawesome/js/all.min.js", //Added fontawesome
                       "~/GlobalAsset/scripts/alertify.min.js",
                       "~/GlobalAsset/scripts/main.site.js"));
             
