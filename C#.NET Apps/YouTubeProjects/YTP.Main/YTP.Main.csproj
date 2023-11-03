@@ -248,6 +248,41 @@
       <DependentUpon>YPTDB.edmx</DependentUpon>
       <LastGenOutput>YPTDB.cs</LastGenOutput>
     </Content>
+    <Content Include="GlobalAsset\fontawesome\css\all.css" />
+    <Content Include="GlobalAsset\fontawesome\css\all.min.css" />
+    <Content Include="GlobalAsset\fontawesome\css\brands.css" />
+    <Content Include="GlobalAsset\fontawesome\css\brands.min.css" />
+    <Content Include="GlobalAsset\fontawesome\css\fontawesome.css" />
+    <Content Include="GlobalAsset\fontawesome\css\fontawesome.min.css" />
+    <Content Include="GlobalAsset\fontawesome\css\regular.css" />
+    <Content Include="GlobalAsset\fontawesome\css\regular.min.css" />
+    <Content Include="GlobalAsset\fontawesome\css\solid.css" />
+    <Content Include="GlobalAsset\fontawesome\css\solid.min.css" />
+    <Content Include="GlobalAsset\fontawesome\css\svg-with-js.css" />
+    <Content Include="GlobalAsset\fontawesome\css\svg-with-js.min.css" />
+    <Content Include="GlobalAsset\fontawesome\css\v4-font-face.css" />
+    <Content Include="GlobalAsset\fontawesome\css\v4-font-face.min.css" />
+    <Content Include="GlobalAsset\fontawesome\css\v4-shims.css" />
+    <Content Include="GlobalAsset\fontawesome\css\v4-shims.min.css" />
+    <Content Include="GlobalAsset\fontawesome\css\v5-font-face.css" />
+    <Content Include="GlobalAsset\fontawesome\css\v5-font-face.min.css" />
+    <Content Include="GlobalAsset\fontawesome\js\all.js" />
+    <Content Include="GlobalAsset\fontawesome\js\all.min.js" />
+    <Content Include="GlobalAsset\fontawesome\js\brands.js" />
+    <Content Include="GlobalAsset\fontawesome\js\brands.min.js" />
+    <Content Include="GlobalAsset\fontawesome\js\conflict-detection.js" />
+    <Content Include="GlobalAsset\fontawesome\js\conflict-detection.min.js" />
+    <Content Include="GlobalAsset\fontawesome\js\fontawesome.js" />
+    <Content Include="GlobalAsset\fontawesome\js\fontawesome.min.js" />
+    <Content Include="GlobalAsset\fontawesome\js\regular.js" />
+    <Content Include="GlobalAsset\fontawesome\js\regular.min.js" />
+    <Content Include="GlobalAsset\fontawesome\js\solid.js" />
+    <Content Include="GlobalAsset\fontawesome\js\solid.min.js" />
+    <Content Include="GlobalAsset\fontawesome\js\v4-shims.js" />
+    <Content Include="GlobalAsset\fontawesome\js\v4-shims.min.js" />
+    <Content Include="GlobalAsset\fontawesome\sprites\brands.svg" />
+    <Content Include="GlobalAsset\fontawesome\sprites\regular.svg" />
+    <Content Include="GlobalAsset\fontawesome\sprites\solid.svg" />
     <Content Include="GlobalAsset\styles\alertifyjs\alertify.css" />
     <Content Include="GlobalAsset\styles\alertifyjs\alertify.min.css" />
     <Content Include="GlobalAsset\styles\alertifyjs\themes\bootstrap.css" />
@@ -370,6 +405,14 @@
     <Content Include="Areas\CarRentalSystem\Views\Returncar\Index.cshtml" />
     <Content Include="Areas\CarRentalSystem\Views\Rental\_ListAllRentals.cshtml" />
     <Content Include="Areas\CarRentalSystem\Views\Rental\_NoData.cshtml" />
+    <Content Include="GlobalAsset\fontawesome\webfonts\fa-brands-400.ttf" />
+    <Content Include="GlobalAsset\fontawesome\webfonts\fa-brands-400.woff2" />
+    <Content Include="GlobalAsset\fontawesome\webfonts\fa-regular-400.ttf" />
+    <Content Include="GlobalAsset\fontawesome\webfonts\fa-regular-400.woff2" />
+    <Content Include="GlobalAsset\fontawesome\webfonts\fa-solid-900.ttf" />
+    <Content Include="GlobalAsset\fontawesome\webfonts\fa-solid-900.woff2" />
+    <Content Include="GlobalAsset\fontawesome\webfonts\fa-v4compatibility.ttf" />
+    <Content Include="GlobalAsset\fontawesome\webfonts\fa-v4compatibility.woff2" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
@@ -420,6 +463,7 @@
     <Folder Include="GlobalAsset\images\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="libman.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
