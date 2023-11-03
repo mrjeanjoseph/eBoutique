@@ -8,7 +8,15 @@
     },
     {
       "library": "bootstrap-icons@1.11.1",
-      "destination": "GlobalAsset/bootstrap/icons/"
+      "destination": "GlobalAsset/bootstrap/icons/",
+      "files": [
+        "font/fonts/bootstrap-icons.woff",
+        "font/fonts/bootstrap-icons.woff2",
+        "font/bootstrap-icons.css",
+        "font/bootstrap-icons.json",
+        "font/bootstrap-icons.min.css",
+        "bootstrap-icons.svg"
+      ]
     }
   ]
 }
