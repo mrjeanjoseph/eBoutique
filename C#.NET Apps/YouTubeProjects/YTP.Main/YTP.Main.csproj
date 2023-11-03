@@ -248,41 +248,6 @@
       <DependentUpon>YPTDB.edmx</DependentUpon>
       <LastGenOutput>YPTDB.cs</LastGenOutput>
     </Content>
-    <Content Include="GlobalAsset\FontAwesome\css\all.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\all.min.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\brands.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\brands.min.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\fontawesome.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\fontawesome.min.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\regular.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\regular.min.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\solid.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\solid.min.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\svg-with-js.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\svg-with-js.min.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\v4-font-face.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\v4-font-face.min.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\v4-shims.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\v4-shims.min.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\v5-font-face.css" />
-    <Content Include="GlobalAsset\FontAwesome\css\v5-font-face.min.css" />
-    <Content Include="GlobalAsset\FontAwesome\js\all.js" />
-    <Content Include="GlobalAsset\FontAwesome\js\all.min.js" />
-    <Content Include="GlobalAsset\FontAwesome\js\brands.js" />
-    <Content Include="GlobalAsset\FontAwesome\js\brands.min.js" />
-    <Content Include="GlobalAsset\FontAwesome\js\conflict-detection.js" />
-    <Content Include="GlobalAsset\FontAwesome\js\conflict-detection.min.js" />
-    <Content Include="GlobalAsset\FontAwesome\js\fontawesome.js" />
-    <Content Include="GlobalAsset\FontAwesome\js\fontawesome.min.js" />
-    <Content Include="GlobalAsset\FontAwesome\js\regular.js" />
-    <Content Include="GlobalAsset\FontAwesome\js\regular.min.js" />
-    <Content Include="GlobalAsset\FontAwesome\js\solid.js" />
-    <Content Include="GlobalAsset\FontAwesome\js\solid.min.js" />
-    <Content Include="GlobalAsset\FontAwesome\js\v4-shims.js" />
-    <Content Include="GlobalAsset\FontAwesome\js\v4-shims.min.js" />
-    <Content Include="GlobalAsset\FontAwesome\sprites\brands.svg" />
-    <Content Include="GlobalAsset\FontAwesome\sprites\regular.svg" />
-    <Content Include="GlobalAsset\FontAwesome\sprites\solid.svg" />
     <Content Include="GlobalAsset\styles\alertifyjs\alertify.css" />
     <Content Include="GlobalAsset\styles\alertifyjs\alertify.min.css" />
     <Content Include="GlobalAsset\styles\alertifyjs\themes\bootstrap.css" />
@@ -405,14 +370,6 @@
     <Content Include="Areas\CarRentalSystem\Views\Returncar\Index.cshtml" />
     <Content Include="Areas\CarRentalSystem\Views\Rental\_ListAllRentals.cshtml" />
     <Content Include="Areas\CarRentalSystem\Views\Rental\_NoData.cshtml" />
-    <Content Include="GlobalAsset\FontAwesome\webfonts\fa-brands-400.ttf" />
-    <Content Include="GlobalAsset\FontAwesome\webfonts\fa-brands-400.woff2" />
-    <Content Include="GlobalAsset\FontAwesome\webfonts\fa-regular-400.ttf" />
-    <Content Include="GlobalAsset\FontAwesome\webfonts\fa-regular-400.woff2" />
-    <Content Include="GlobalAsset\FontAwesome\webfonts\fa-solid-900.ttf" />
-    <Content Include="GlobalAsset\FontAwesome\webfonts\fa-solid-900.woff2" />
-    <Content Include="GlobalAsset\FontAwesome\webfonts\fa-v4compatibility.ttf" />
-    <Content Include="GlobalAsset\FontAwesome\webfonts\fa-v4compatibility.woff2" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
