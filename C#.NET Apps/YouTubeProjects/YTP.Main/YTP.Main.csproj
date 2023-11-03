@@ -2476,7 +2476,6 @@
     <Folder Include="GlobalAsset\images\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="libman.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
