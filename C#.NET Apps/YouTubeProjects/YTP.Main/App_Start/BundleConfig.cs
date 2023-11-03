@@ -8,7 +8,7 @@ namespace YTP.Main {
             //All Global Styles and Scripts
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/GlobalAsset/styles/bootstrap.css",
-                      "~/GlobalAsset/bootstrap/icons.css",
+                      "~/GlobalAsset/bootstrap/icons/bootstrap-icons.css",
                       "~/GlobalAsset/styles/dataTables.bootstrap5.css",
                       "~/GlobalAsset/styles/themes/base/jquery-ui.min.css",
                       "~/GlobalAsset/styles/alertifyjs/themes/default.min.css",
