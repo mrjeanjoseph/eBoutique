@@ -31,3 +31,12 @@ input[type="checkbox"].input-validation-error {
     box-shadow: 0 4px 10px rgba(19, 35, 47, 0.3);
     background-color: whitesmoke;
 }
+
+
+
+
+.dropdown-menu-center {
+    width: 30rem;
+    left: 50% !important; /* Override Bootstrap's default position */
+    transform: translateX(-50%); /* Center horizontally */
+}

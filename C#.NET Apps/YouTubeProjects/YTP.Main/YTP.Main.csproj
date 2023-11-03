@@ -416,10 +416,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="GlobalAsset\db scripts\" />
     <Folder Include="GlobalAsset\images\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="libman.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
