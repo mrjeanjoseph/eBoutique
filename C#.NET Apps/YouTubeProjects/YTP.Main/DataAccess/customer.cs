@@ -7,18 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YTP.CommonAPI.Models
+namespace YTP.Main.DataAccess
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class VendorRecord
+    public partial class customer
     {
-        public int VendorId { get; set; }
-        public string VendorName { get; set; }
-        public string Location { get; set; }
-        public Nullable<int> Priority { get; set; }
-        public string WebsiteAddress { get; set; }
-        public string MainContact { get; set; }
+        public int id { get; set; }
+        public string custname { get; set; }
+        public string address { get; set; }
+        public Nullable<int> mobile { get; set; }
     }
 }

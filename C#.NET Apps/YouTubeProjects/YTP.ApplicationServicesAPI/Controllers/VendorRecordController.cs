@@ -4,9 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
-using YTP.ApplicationServicesAPI.Models;
+using YTP.CommonAPI.Models;
 
-namespace YTP.ApplicationServicesAPI.Controllers {
+namespace YTP.CommonAPI.Controllers {
+
     public class VendorRecordController : ApiController {
 
         private readonly AppServiceModel db = new AppServiceModel();
@@ -23,6 +24,7 @@ namespace YTP.ApplicationServicesAPI.Controllers {
 
             VendorRecord vendorRecord = db.VendorRecords.Find(id);
             if (vendorRecord == null) {
+
                 return NotFound();
             }
 
@@ -34,18 +36,25 @@ namespace YTP.ApplicationServicesAPI.Controllers {
         public IHttpActionResult PutVendorRecord(int id, VendorRecord vendorRecord) {
 
             if (id != vendorRecord.VendorId) {
+
                 return BadRequest();
             }
 
             db.Entry(vendorRecord).State = EntityState.Modified;
 
             try {
+
                 db.SaveChanges();
             } catch (DbUpdateConcurrencyException) {
+
                 if (!VendorRecordExists(id)) {
+
                     return NotFound();
+
                 } else {
+
                     throw;
+
                 }
             }
 

@@ -1,0 +1,8 @@
+14.0
+7
+1       SQLCHAR             0       12      "$"      1     Id                                 ""
+2       SQLCHAR             0       12      "$"      7     UserId                             ""
+3       SQLCHAR             0       0       "$"      4     Text                               SQL_Latin1_General_CP1_CI_AS
+4       SQLCHAR             0       24      "$"      5     CreationDate                       ""
+5       SQLCHAR             0       255     "$"      6     UserDisplayName                    SQL_Latin1_General_CP1_CI_AS
+6       SQLCHAR             0       12      "\r\n"   2     PostId                             ""

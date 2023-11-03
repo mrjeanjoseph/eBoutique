@@ -1,0 +1,144 @@
+﻿
+
+<div class="row mt-3">
+    <div></div>
+    <div class="col-sm-4">
+        @using (Html.BeginForm("Save", "Rental", FormMethod.Post, new { id = "popupForm" })) {
+
+            <div><h1>Car Rental</h1></div>
+
+            <div class="form-group">
+                <div class="form-label">Car No</div>
+                <select class="form-control" id="carid" name="carid" required>
+                    <option>Please Select</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <div class="form-label">Customer ID</div>
+                <input class="form-control" type="text" id="custid" name="custid" placeholder="Customer ID" required />
+            </div>
+
+            <div class="form-group">
+                <div class="form-label">Customer Name</div>
+                <input class="form-control" type="text" id="custname" name="custname" placeholder="Customer Name" required />
+            </div>
+
+            <div class="form-group">
+                <div class="form-label">Rental Fee</div>
+                <input class="form-control" type="text" id="rentalfee" name="rentalfee" placeholder="Rental Fee" required />
+            </div>
+
+            <div class="form-group">
+                <div class="form-label">Start Date</div>
+                <input class="form-control" type="date" id="sdate" name="sdate" placeholder="Start Date" required />
+            </div>
+
+            <div class="form-group">
+                <div class="form-label">End Date</div>
+                <input class="form-control" type="date" id="edate" name="edate" placeholder="End Date" required />
+            </div>
+
+            <div class="form-group">
+                <input class="btn btn-success" value="Save Record" type="submit" />
+            </div>
+
+        }
+
+    </div>
+
+    <div class="col-sm-8" style="background-color:whitesmoke;">
+        @if (ViewBag.DisplayRentals) {
+            string messageToDisplay = "There's no data to display.";
+            Html.RenderPartial("_NoData", messageToDisplay);
+        } else {
+
+            Html.RenderPartial("_ListAllRentals");
+        }
+    </div>
+
+</div>
+
+@section scripts {
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+
+    <script>
+
+        $(document).ready(function () {
+            GetCar();
+            GetCustomer();
+            Load();
+        });
+
+        function Load() {
+            $("#custid, #custname, #rentalfee, #sdate, #edate").attr("disabled", "disabled").val("");
+        }
+
+
+        function GetCar() {
+            $.ajax({
+                type: 'GET',
+                url: '/Rental/GetCar',
+                dataType: 'JSON',
+                success: function (response) {
+
+                    for (var i = 0; i < response.length; i++) {
+
+                        $("#carid").append($("<option/>", { text: response[i].carno }));
+
+                    }
+                }
+            });
+        }
+
+        $("#carid").change(function () {
+            Load();
+            checkCarAvailability();
+        });
+
+        function checkCarAvailability() {
+            $.ajax({
+                type: 'POST',
+                url: '/Rental/CheckAvailability?carno=' + $("#carid").val(),
+                dataType: 'JSON',
+                success: function (response) {
+
+
+                    if (response == "yes") {
+                        $("#custid, #custname, #rentalfee, #sdate, #edate").removeAttr("disabled");
+
+                    } else {
+                        Load();
+                    }
+
+                }
+            })
+        }
+
+        function GetCustomer() {
+            $("#custid").keyup(function (e) {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Rental/Getid?id=' + $("#custid").val(),
+                    dataType: 'JSON',
+                    success: function (response) {
+
+                        if (response == "" || response == null) {
+                            $("#custname").val("Customer ID NOT FOUND!");
+                        }
+                        else
+                            $("#custname").val(response);
+
+
+                    }
+                })
+
+            })
+        }
+
+
+    </script>
+}

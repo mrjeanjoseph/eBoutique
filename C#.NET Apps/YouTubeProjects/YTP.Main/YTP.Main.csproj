@@ -135,6 +135,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\CarRentalSystem\CarRentalSystemAreaRegistration.cs" />
+    <Compile Include="Areas\CarRentalSystem\Controllers\CarController.cs" />
+    <Compile Include="Areas\CarRentalSystem\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\CarRentalSystem\Controllers\RentalController.cs" />
+    <Compile Include="Areas\CarRentalSystem\Controllers\ReturncarController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\HaitiEmployeeController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\HomeController.cs" />
     <Compile Include="Areas\HumanResources\DataAccess\HaitiEmployeeDB.cs" />
@@ -148,9 +153,17 @@
     <Compile Include="Areas\HumanResources\Controllers\ProductController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\TBS_EmployeeController.cs" />
     <Compile Include="Areas\OperatingManagement\Controllers\VendorRecordController.cs" />
+    <Compile Include="DataAccess\carreg.cs">
+      <DependentUpon>YPTDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CarRentalSystem\Models\carvalidation.cs" />
     <Compile Include="DataAccess\Category.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\customer.cs">
+      <DependentUpon>YPTDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CarRentalSystem\Models\customervalidation.cs" />
     <Compile Include="DataAccess\DefaultDBAccess.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -174,6 +187,28 @@
     </Compile>
     <Compile Include="DataAccess\OrderDetail.cs">
       <DependentUpon>DefaultDBAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\rental.cs">
+      <DependentUpon>YPTDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CarRentalSystem\Models\RentalViewModel.cs" />
+    <Compile Include="DataAccess\returncar.cs">
+      <DependentUpon>YPTDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\YPTDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YPTDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\YPTDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YPTDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\YPTDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YPTDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -203,6 +238,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HumanResources\LocalAssets\site.home.js" />
+    <Content Include="DataAccess\YPTDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>YPTDB.edmx</DependentUpon>
+      <LastGenOutput>YPTDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataAccess\YPTDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>YPTDB.edmx</DependentUpon>
+      <LastGenOutput>YPTDB.cs</LastGenOutput>
+    </Content>
     <Content Include="GlobalAsset\styles\alertifyjs\alertify.css" />
     <Content Include="GlobalAsset\styles\alertifyjs\alertify.min.css" />
     <Content Include="GlobalAsset\styles\alertifyjs\themes\bootstrap.css" />
@@ -301,6 +346,30 @@
     <Content Include="Areas\OperatingManagement\Views\web.config" />
     <Content Include="Areas\OperatingManagement\Views\_ViewStart.cshtml" />
     <Content Include="Areas\OperatingManagement\Views\Shared\_Layout.cshtml" />
+    <EntityDeploy Include="DataAccess\YPTDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>YPTDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DataAccess\YPTDB.edmx.diagram">
+      <DependentUpon>YPTDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\CarRentalSystem\Views\web.config" />
+    <Content Include="Areas\CarRentalSystem\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\CarRentalSystem\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\CarRentalSystem\Views\Car\Create.cshtml" />
+    <Content Include="Areas\CarRentalSystem\Views\Car\Delete.cshtml" />
+    <Content Include="Areas\CarRentalSystem\Views\Car\Details.cshtml" />
+    <Content Include="Areas\CarRentalSystem\Views\Car\Edit.cshtml" />
+    <Content Include="Areas\CarRentalSystem\Views\Car\Index.cshtml" />
+    <Content Include="Areas\CarRentalSystem\Views\Customer\Create.cshtml" />
+    <Content Include="Areas\CarRentalSystem\Views\Customer\Delete.cshtml" />
+    <Content Include="Areas\CarRentalSystem\Views\Customer\Details.cshtml" />
+    <Content Include="Areas\CarRentalSystem\Views\Customer\Edit.cshtml" />
+    <Content Include="Areas\CarRentalSystem\Views\Customer\Index.cshtml" />
+    <Content Include="Areas\CarRentalSystem\Views\Rental\Index.cshtml" />
+    <Content Include="Areas\CarRentalSystem\Views\Returncar\Index.cshtml" />
+    <Content Include="Areas\CarRentalSystem\Views\Rental\_ListAllRentals.cshtml" />
+    <Content Include="Areas\CarRentalSystem\Views\Rental\_NoData.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
@@ -349,7 +418,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="GlobalAsset\db scripts\" />
     <Folder Include="GlobalAsset\images\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

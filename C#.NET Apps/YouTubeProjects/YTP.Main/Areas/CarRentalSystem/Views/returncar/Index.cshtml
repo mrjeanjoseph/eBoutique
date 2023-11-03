@@ -1,0 +1,97 @@
+﻿
+
+
+<div class="row">
+
+    <div class="col-sm-4">
+
+        @using (Html.BeginForm("Save", "returncar", FormMethod.Post, new { id = "popupForm" })) {
+
+            <div><h1>Return Car</h1></div>
+
+            <div class="form-group">
+                <div class="form-label">Car No</div>
+                <input class="form-control" type="text" id="carno" name="carno" placeholder="Car ID" required />
+            </div>
+
+            <div class="form-group">
+                <div class="form-label">Customer ID</div>
+                <input class="form-control" type="text" id="custid" name="custid" placeholder="Customer ID" required />
+            </div>
+
+            <div class="form-group">
+                <div class="form-label">Returned Date</div>
+                <input class="form-control" type="text" id="date" name="date" placeholder="Returned Date" required />
+            </div>
+
+            <div class="form-group">
+                <div class="form-label">Days Elaspe</div>
+                <input class="form-control" type="text" id="elsp" name="elsp" placeholder="Days Elaspe" required />
+            </div>
+
+            <div class="form-group">
+                <div class="form-label">Fine</div>
+                <input class="form-control" type="text" id="fine" name="fine" placeholder="Fine" required />
+            </div>
+
+            <div class="form-group mt-3">
+                <input class="btn btn-success" value="Save Record" type="submit" />
+            </div>
+        }
+
+
+    </div>
+
+</div>
+
+
+@section scripts {
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+
+    <script>
+
+        $(document).ready(function () {
+            $("#carno, #custid, #date, #elsp, #fine").val("");
+            GetCarId();
+        });
+
+        function GetCarId() {
+
+            $("#carno").keyup(function (e) {
+                if (e == null)
+                    console.log("log is null");
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/returncar/Getid?carno=' + $("#carno").val(),
+                    dataType: 'JSON',
+                    success: function (response) {
+
+                        //if (response[0] != undefined) {
+
+                        //} else {
+                        //    console.log("an error occurred")
+                        //}
+
+                        $("#custid").val(response[0].Custid);
+                        $("#date").val(new Date(parseInt(response[0].EndDate.substr(6))).toLocaleDateString());
+                        $("#elsp").val(response[0].ElapseDays);
+
+                        var elap = response[0].ElapseDays;
+
+                        if (elap > 0) {
+                            var fine = elap * 100;
+                            $("#fine").val(fine.toString());
+                        } else
+                            $("#fine").val("0");
+                    }
+                });
+
+            })
+
+        }
+
+    </script>
+}
