@@ -248,6 +248,9 @@
       <DependentUpon>YPTDB.edmx</DependentUpon>
       <LastGenOutput>YPTDB.cs</LastGenOutput>
     </Content>
+    <Content Include="GlobalAsset\styles\icons\bootstrap-icons.css" />
+    <Content Include="GlobalAsset\styles\icons\bootstrap-icons.min.css" />
+    <Content Include="GlobalAsset\styles\icons\house.svg" />
     <Content Include="GlobalAsset\styles\alertifyjs\alertify.css" />
     <Content Include="GlobalAsset\styles\alertifyjs\alertify.min.css" />
     <Content Include="GlobalAsset\styles\alertifyjs\themes\bootstrap.css" />
@@ -370,6 +373,9 @@
     <Content Include="Areas\CarRentalSystem\Views\Returncar\Index.cshtml" />
     <Content Include="Areas\CarRentalSystem\Views\Rental\_ListAllRentals.cshtml" />
     <Content Include="Areas\CarRentalSystem\Views\Rental\_NoData.cshtml" />
+    <Content Include="GlobalAsset\styles\icons\bootstrap-icons.json" />
+    <Content Include="GlobalAsset\styles\icons\fonts\bootstrap-icons.woff" />
+    <Content Include="GlobalAsset\styles\icons\fonts\bootstrap-icons.woff2" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
@@ -419,7 +425,6 @@
     <Folder Include="GlobalAsset\images\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="libman.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
