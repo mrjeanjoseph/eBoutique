@@ -6,6 +6,7 @@ using YTP.Main.Models;
 
 namespace YTP.Main.ViewModels {
     public class VM_MiniDisplay {
+
         public List<MiniDisplay> MiniDisplay { get; set; }
         public List<Module> Module { get; set; }
 
@@ -14,7 +15,7 @@ namespace YTP.Main.ViewModels {
         }
 
 
-        public VM_MiniDisplay Something() {
+        public VM_MiniDisplay GenerateMiniDisplay() {
 
             var miniDisplay = new List<MiniDisplay>() {
                 new MiniDisplay {
@@ -52,6 +53,7 @@ namespace YTP.Main.ViewModels {
                 MiniDisplay = miniDisplay,
                 Module = module
             };
+
 
             return miniDisplayObj;
         }

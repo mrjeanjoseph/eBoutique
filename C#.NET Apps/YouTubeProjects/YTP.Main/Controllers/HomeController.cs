@@ -13,7 +13,7 @@ namespace YTP.Main.Controllers {
 
         public ActionResult Index(VM_MiniDisplay viewModel) {
 
-            var result = viewModel.Something();
+            var result = viewModel.GenerateMiniDisplay();
 
             return View(result);
 
