@@ -240,6 +240,7 @@
     <Compile Include="ViewModels\VM_MiniDisplay.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ProductsData.xml" />
     <Content Include="Areas\HumanResources\LocalAssets\site.home.js" />
     <Content Include="DataAccess\YPTDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -424,7 +425,7 @@
     <Content Include="Areas\OperatingManagement\Views\VendorRecord\AddOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="GlobalAsset\images\" />
   </ItemGroup>
   <ItemGroup>

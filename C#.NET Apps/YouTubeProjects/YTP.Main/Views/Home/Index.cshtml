@@ -3,9 +3,11 @@
 @{
     ViewBag.Title = "Homepage";
     string ListOfModule = Model.Module.FirstOrDefault().ModuleName;
+    string anotherModule = Model.ModuleOne.ModuleName != null || 1!=0 ? Model.ModuleOne.ModuleName : ListOfModule;
 }
 
-<h2>@ListOfModule</h2>
+<h2>@anotherModule</h2>
+
 <div class="row row-cols-1 row-cols-md-3 g-4">
 
     

@@ -10,6 +10,8 @@ namespace YTP.Main.ViewModels {
         public List<MiniDisplay> MiniDisplay { get; set; }
         public List<Module> Module { get; set; }
 
+        public Module ModuleOne { get; set; }
+
         public VM_MiniDisplay() {
             MiniDisplay = new List<MiniDisplay>();
         }
@@ -49,9 +51,14 @@ namespace YTP.Main.ViewModels {
                 new Module {ModuleName = "CRUD Main Page", ModuleDescription = "This is just another detail module description"}
             };
 
+            var module_one = new Module() {
+                ModuleName = "CRUD Main Page", ModuleDescription = "This is just another detail module description"
+            };
+
             var miniDisplayObj = new VM_MiniDisplay {
                 MiniDisplay = miniDisplay,
-                Module = module
+                Module = module,
+                ModuleOne = module_one
             };
 
 
