@@ -36,5 +36,7 @@ namespace YTP.Main.DataAccess
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
 
         public System.Data.Entity.DbSet<YTP.Main.DataAccess.carreg> carregs { get; set; }
+
+        public System.Data.Entity.DbSet<YTP.Main.DataAccess.customer> customers { get; set; }
     }
 }
