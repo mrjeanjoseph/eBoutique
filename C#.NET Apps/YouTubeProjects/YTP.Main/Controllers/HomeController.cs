@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using YTP.Main.Models;
+using YTP.Main.ViewModels;
 
 namespace YTP.Main.Controllers {
     public class HomeController : Controller {
         // GET: Home
-        public ActionResult Index() {
-            return View();
+        //private readonly VM_MiniDisplay _md = new VM_MiniDisplay();
+
+        public ActionResult Index(VM_MiniDisplay viewModel) {
+
+            var result = viewModel.GenerateMiniDisplay();
+
+            return View(result);
+
         }
 
         public ActionResult UnderConstruction() {

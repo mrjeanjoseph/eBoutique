@@ -233,10 +233,14 @@
     </Compile>
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="Areas\OperatingManagement\Models\VendorRecordModel.cs" />
+    <Compile Include="Models\MiniDisplay.cs" />
+    <Compile Include="Models\Module.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Areas\HumanResources\Models\AccEmpData.cs" />
+    <Compile Include="ViewModels\VM_MiniDisplay.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ProductsData.xml" />
     <Content Include="Areas\HumanResources\LocalAssets\site.home.js" />
     <Content Include="DataAccess\YPTDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -421,7 +425,7 @@
     <Content Include="Areas\OperatingManagement\Views\VendorRecord\AddOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="GlobalAsset\images\" />
   </ItemGroup>
   <ItemGroup>

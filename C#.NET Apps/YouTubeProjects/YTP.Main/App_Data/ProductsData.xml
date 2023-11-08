@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Products>
+  <Product>
+    <ProductId>1</ProductId>
+    <ProductName>BT Mouse</ProductName>
+    <ProductCost>30.00</ProductCost>
+  </Product>
+  <Product>
+    <ProductId>2</ProductId>
+    <ProductName>BT Padded Keyboard</ProductName>
+    <ProductCost>75.00</ProductCost>
+  </Product>
+  <Product>
+    <ProductId>3</ProductId>
+    <ProductName>SSD Eon Light HardDrive</ProductName>
+    <ProductCost>190.00</ProductCost>
+  </Product>
+  <Product>
+    <ProductId>4</ProductId>
+    <ProductName>Boss BT Speaker 4.5</ProductName>
+    <ProductCost>435.00</ProductCost>
+  </Product>
+</Products>
