@@ -1,4 +1,5 @@
-﻿
+﻿@model YTP.Main.ViewModels.ModuleViewModel
+
 @{
     ViewBag.Title = "Homepage";
 }
@@ -12,7 +13,7 @@
             <div class="card-body">
                 <h5 class="card-title">@Html.ActionLink("Employee Management", "Index", "Employee", new { area = "" }, new { @class = "nav-link" })</h5>
                 <p class="card-text" id="cardone">
-                    
+
                 </p>
             </div>
         </div>
@@ -41,6 +42,16 @@
         </div>
     </div>
 </div>
+
+<h2>Available Modules</h2>
+
+<ul>
+    @foreach (var module in Model.Modules) {
+        <li>
+            @module.ModuleName;
+        </li>
+    }
+</ul>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
