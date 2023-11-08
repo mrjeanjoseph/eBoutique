@@ -7,7 +7,7 @@ namespace YTP.Main.Models {
     public class MiniDisplay {
         public int DisplayId { get; set; }
         public string DisplayName { get; set; }
-        public string ModuleDescription { get; set; }
+        public string DisplayDescription { get; set; }
         public string DisplayImageLink { get; set; }
     }
 }

@@ -237,7 +237,7 @@
     <Compile Include="Models\Module.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Areas\HumanResources\Models\AccEmpData.cs" />
-    <Compile Include="ViewModels\ModuleViewModel.cs" />
+    <Compile Include="ViewModels\VM_MiniDisplay.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HumanResources\LocalAssets\site.home.js" />

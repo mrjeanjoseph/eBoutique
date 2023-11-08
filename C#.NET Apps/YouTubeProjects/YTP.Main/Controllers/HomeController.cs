@@ -11,23 +11,44 @@ namespace YTP.Main.Controllers {
         // GET: Home
         public ActionResult Index() {
 
-            var Module = new List<MiniDisplay>() {
-                new MiniDisplay {ModuleName = "Module one", ModuleDescription = "This is detailed description of module one."},
-                new MiniDisplay {ModuleName = "Module Two - Rep", ModuleDescription = "This is detailed description of module Rep."},
-                new MiniDisplay {ModuleName = "Module Three", ModuleDescription = "This is detailed description of module Three."},
-                new MiniDisplay {ModuleName = "Module ThreeB", ModuleDescription = "This is detailed description of module ThreeB."},
+            var miniDisplay = new List<MiniDisplay>() {
+                new MiniDisplay {
+                    DisplayName = "This Year Pickup Truck", 
+                    DisplayDescription = "This is detailed description of mini display one.",
+                    DisplayImageLink = "https://images8.alphacoders.com/616/thumb-1920-616810.jpg"
+                },
+                new MiniDisplay {
+                    DisplayName = "Just Another TTP", 
+                    DisplayDescription = "This is detailed description of mini display Rep.",
+                    DisplayImageLink = "https://images.alphacoders.com/644/644418.jpg"
+                },
+                new MiniDisplay {
+                    DisplayName = "Mini Display - Rep", 
+                    DisplayDescription = "This is detailed description of mini display Rep.",
+                    DisplayImageLink = ""
+                },
+                new MiniDisplay {
+                    DisplayName = "Mini Display Three", 
+                    DisplayDescription = "This is detailed description of mini display Three."
+                },
+                new MiniDisplay {
+                    DisplayName = "One of a kind trucks", 
+                    DisplayDescription = "This is detailed description of cool looking truck.",
+                    DisplayImageLink = "https://wallpapers.com/images/hd/ford-truck-tr8rsjeai7pbxeny.jpg"
+                },
+
             };
 
-            var Page = new List<Module>() {
-                new Module {PageName = "This is a page", PageDescription = "This is just another detail page description"}
+            var module = new List<Module>() {
+                new Module {ModuleName = "CRUD Main Page", ModuleDescription = "This is just another detail module description"}
             };
 
-            var ModuleViewModel = new ModuleViewModel {
-                Modules = Module,
-                Pages = Page,
+            var miniDisplayObj = new VM_MiniDisplay {
+                MiniDisplay = miniDisplay,
+                Module = module,
             };
 
-            return View(ModuleViewModel);
+            return View(miniDisplayObj);
         }
 
         public ActionResult UnderConstruction() {

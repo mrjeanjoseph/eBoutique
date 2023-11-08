@@ -5,8 +5,8 @@ using System.Web;
 
 namespace YTP.Main.Models {
     public class Module {
-        public int PageId { get; set; }
-        public string PageName { get; set; }
-        public string PageDescription { get; set; }
+        public int ModuleId { get; set; }
+        public string ModuleName { get; set; }
+        public string ModuleDescription { get; set; }
     }
 }
