@@ -6,7 +6,7 @@ using YTP.Main.Models;
 
 namespace YTP.Main.ViewModels {
     public class ModuleViewModel {
-        public List<Module> Modules { get; set; }
-        public List<Page> Pages { get; set; }
+        public List<MiniDisplay> Modules { get; set; }
+        public List<Module> Pages { get; set; }
     }
 }
