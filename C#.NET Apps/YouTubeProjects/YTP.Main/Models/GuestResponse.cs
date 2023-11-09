@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 
 namespace YTP.Main.Models {
-    public class RSVPForm {
+    public class GuestResponse {
         public string RSVP_Name { get; set; }
         public string EmailAddress { get; set; }
         public string PhoneNumber { get; set; }

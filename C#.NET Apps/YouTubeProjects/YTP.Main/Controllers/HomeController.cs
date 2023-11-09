@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using YTP.Main.Models;
 using YTP.Main.ViewModels;
@@ -27,12 +24,23 @@ namespace YTP.Main.Controllers {
 
         }
 
+        [HttpGet]
+        public ViewResult RSVPForm() {
+            return View();
+        }
+
+        [HttpPost]
+        public ViewResult RSVPForm(GuestResponse response) {
+            // TODO: Email response to the pary organizer
+            return View("Thanks",response);
+        }
+
         public ActionResult SomeStylings() {
 
             string cssStyling = "background-color: yellow;";
             ViewBag.cssStyling = cssStyling;
 
-            return View("index");
+            return View("Index");
         }
 
         public ActionResult UnderConstruction() {
