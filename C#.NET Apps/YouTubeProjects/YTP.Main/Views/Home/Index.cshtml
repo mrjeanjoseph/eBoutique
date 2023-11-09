@@ -12,10 +12,10 @@
 
 <div class="row row-cols-1 row-cols-md-3 g-4" style="@ViewBag.cssStyling">
 
-
     @foreach (var module in Model.MiniDisplay) {
         <div class="col">
             <div class="card h-100">
+
                 @if (module.DisplayImageLink == null || module.DisplayImageLink == "") {
                     module.DisplayImageLink = "https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png";
                 }
@@ -27,6 +27,7 @@
                         @module.DisplayDescription
                     </p>
                 </div>
+
             </div>
         </div>
     }

@@ -31,8 +31,14 @@ namespace YTP.Main.Controllers {
 
         [HttpPost]
         public ViewResult RSVPForm(GuestResponse response) {
-            // TODO: Email response to the pary organizer
-            return View("Thanks",response);
+
+            if (ModelState.IsValid) {
+                // TODO: Email response to the pary organizer
+                return View("Thanks", response);
+            }else {
+                //There are validation error
+                return View();
+            }
         }
 
         public ActionResult SomeStylings() {

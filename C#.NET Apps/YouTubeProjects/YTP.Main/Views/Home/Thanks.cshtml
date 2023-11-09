@@ -2,6 +2,8 @@
 
 @{
     Layout = null;
+
+
 }
 
 <!DOCTYPE html>
@@ -12,7 +14,29 @@
     <title>Thanks</title>
 </head>
 <body>
-    <div> 
+
+    @{try {
+            WebMail.SmtpServer = "smtp.office365.com";
+            WebMail.SmtpPort = 587;
+            WebMail.EnableSsl = true;
+            WebMail.UserName = "deepvuecrud@outlook.com";
+            WebMail.Password = "T0tal-C0nnect!on";
+            WebMail.From = "deepvuecrud@outlook.com";
+
+            WebMail.Send(Model.EmailAddress, "RSVP Notification", Model.RSVP_Name + " is " + ((Model.WillAttend ?? false) ? "" : "not") + "attending");
+        } catch (Exception) {
+            @: <b>Sorry - We couldn't send the email to confirm your RSVP.</b>
+        }
+    }
+    <div>
+        <h1>Thank you, @Model.RSVP_Name!</h1>
+        @if (Model.WillAttend == true) {
+            @: It's great that you're coming. The booze are already in the fridge!
+        } else {
+            @: It sucks you're unable to make it. Well, more beer for me!
+        }
     </div>
+
+    @Html.ActionLink("Back to Main", "Index", "Home")
 </body>
 </html>

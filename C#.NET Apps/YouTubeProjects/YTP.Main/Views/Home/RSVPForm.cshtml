@@ -9,15 +9,18 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/GlobalAsset/styles/main.site.css" rel="stylesheet" />
     <title>RSVPForm</title>
 </head>
 <body>
 
     @using (Html.BeginForm()) {
 
+        @Html.ValidationSummary()
+
         <p>Your Name: @Html.TextBoxFor(x => x.RSVP_Name)</p>
-        <p>Your Name: @Html.TextBoxFor(x => x.EmailAddress)</p>
-        <p>Your Name: @Html.TextBoxFor(x => x.PhoneNumber)</p>
+        <p>Email Address: @Html.TextBoxFor(x => x.EmailAddress)</p>
+        <p>Phone Number: @Html.TextBoxFor(x => x.PhoneNumber)</p>
 
         <p>
             Will you attend?
