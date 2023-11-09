@@ -235,6 +235,7 @@
     <Compile Include="Areas\OperatingManagement\Models\VendorRecordModel.cs" />
     <Compile Include="Models\MiniDisplay.cs" />
     <Compile Include="Models\Module.cs" />
+    <Compile Include="Models\RSVPForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Areas\HumanResources\Models\AccEmpData.cs" />
     <Compile Include="ViewModels\VM_MiniDisplay.cs" />
