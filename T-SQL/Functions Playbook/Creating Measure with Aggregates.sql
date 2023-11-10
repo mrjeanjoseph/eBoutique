@@ -1,4 +1,4 @@
-
+-- Creating Measures with aggregate functions
 USE [TSFP]
 SELECT COUNT(*) FROM [dbo].[F_Sales]
 
