@@ -69,5 +69,22 @@ namespace YTP.Main.Controllers {
 
             return View("Result", (object)result);
         }
+
+        public ActionResult UseExtension() {
+            //Create and Populate Shopping Cart
+            ShoppingCart cart = new ShoppingCart() {
+                Products = new List<Product>() {
+                    new Product { Name = "Milet", ProductPrice = 950M},
+                    new Product { Name = "Cheval", ProductPrice = 1550M},
+                    new Product { Name = "Manman Bef", ProductPrice = 2350M},
+                    new Product { Name = "Bouret", ProductPrice = 210M},
+                    new Product { Name = "Chay Bannann", ProductPrice = 95M},
+                }
+            };
+
+            //Get the total value of the product in the cart
+            decimal cartTotal = cart.TotalPrices();
+            return View("Result", (object)String.Format("Total: {0:c}", cartTotal));
+        }
     }
 }

@@ -21,4 +21,14 @@ namespace YTP.Main.Models {
     public class ShoppingCart {
         public List<Product> Products { get; set; }
     }
+
+    public static class MyExtentionMethod {
+        public static decimal TotalPrices(this ShoppingCart cart) {
+            decimal total = 0;
+            foreach (var product in cart.Products) {
+                total += product.ProductPrice;
+            }
+            return total;
+        }
+    }
 }
