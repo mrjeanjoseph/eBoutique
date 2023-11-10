@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database Scripts", "Databas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTP.CommonAPI", "YTP.ApplicationServicesAPI\YTP.CommonAPI.csproj", "{D7C32431-6E2F-4112-9190-7AB8530A6D81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTP.MainTest", "YTP.MainTest\YTP.MainTest.csproj", "{2EA40B34-DEAD-48E8-A200-5701C2CCFA62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{D7C32431-6E2F-4112-9190-7AB8530A6D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7C32431-6E2F-4112-9190-7AB8530A6D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7C32431-6E2F-4112-9190-7AB8530A6D81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EA40B34-DEAD-48E8-A200-5701C2CCFA62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EA40B34-DEAD-48E8-A200-5701C2CCFA62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EA40B34-DEAD-48E8-A200-5701C2CCFA62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EA40B34-DEAD-48E8-A200-5701C2CCFA62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
