@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace YTP.Main.Models {
     public class Item {
@@ -9,10 +10,20 @@ namespace YTP.Main.Models {
         public DateTime AuctionEndDate { get; set; }
         public IList<Bid> Bids { get; set; }
 
+        public Item() {
+            Bids = new List<Bid>(); 
+        }
+
         public void AddBid(Member memberParam, decimal amtParam) {
-            throw new NotImplementedException();
+            if (Bids.Count() == 0 || amtParam > Bids.Max(e => e.BidAmount)) {
+                Bids.Add(new Bid() {
+                    BidAmount = amtParam,
+                    DatePlaced = DateTime.Now,
+                    Member = memberParam
+                });
+            } else {
+                throw new InvalidOperationException("Bid amount too low"); ;
+            }
         }
     }
-
-
 }
