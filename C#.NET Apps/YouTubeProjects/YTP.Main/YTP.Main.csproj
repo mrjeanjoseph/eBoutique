@@ -148,6 +148,7 @@
     <Compile Include="Areas\HumanResources\Controllers\AccEmpController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\EmployeeController.cs" />
     <Compile Include="Areas\OperatingManagement\OperatingManagementAreaRegistration.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\ProductController.cs" />
@@ -192,6 +193,9 @@
       <DependentUpon>YPTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\CarRentalSystem\Models\RentalViewModel.cs" />
+    <Compile Include="DataAccess\Repositories\IMembersRepository.cs" />
+    <Compile Include="DataAccess\Repositories\ItemsRepository.cs" />
+    <Compile Include="DataAccess\Repositories\MembersRepository.cs" />
     <Compile Include="DataAccess\returncar.cs">
       <DependentUpon>YPTDB.tt</DependentUpon>
     </Compile>
@@ -236,6 +240,9 @@
     <Compile Include="Models\MiniDisplay.cs" />
     <Compile Include="Models\Module.cs" />
     <Compile Include="Models\GuestResponse.cs" />
+    <Compile Include="Models\TestDriven\Bid.cs" />
+    <Compile Include="Models\TestDriven\Item.cs" />
+    <Compile Include="Models\TestDriven\Member.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Areas\HumanResources\Models\AccEmpData.cs" />
     <Compile Include="ViewModels\VM_MiniDisplay.cs" />
@@ -430,6 +437,7 @@
   <ItemGroup>
     <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="GlobalAsset\images\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,0 +1,35 @@
+-- Creating Measures with aggregate functions
+USE [TSFP]
+SELECT COUNT(*) FROM [dbo].[F_Sales]
+
+SELECT TOP (100) * FROM [dbo].[F_Sales]
+
+SELECT * FROM [dbo].[A_SALES_BY_YEAR]
+
+SELECT * FROM [dbo].[D_Brand]
+
+SELECT * FROM [dbo].[D_Customer]
+
+SELECT COUNT(DISTINCT CUSTOMER_CODE) FROM F_Sales
+
+SELECT MAX(SALES_QTY) FROM F_Sales
+
+SELECT MIN(SALES_QTY) FROM F_Sales
+
+SELECT SUM(SALES_QTY) FROM F_Sales
+
+SELECT AVG(SALES_QTY) FROM F_Sales
+
+
+SELECT DISTINCT SALES_YEAR FROM D_Sales_Calendar ORDER BY Sales_Year
+
+SELECT DISTINCT Sales_Channel FROM D_Sales_Channel
+
+
+SELECT SALES_YEAR, SUM(SALES_QTY) [Total_Sales_Qty]
+FROM F_SALES s
+JOIN D_SALES_CALENDAR c ON s.Sales_Date = c.Sales_Date
+WHERE Sales_Year > 2015
+GROUP BY SALES_YEAR 
+HAVING SUM(SALES_QTY) > 100000
+ORDER BY Sales_Year DESC;
