@@ -1,9 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using YTP.Main.Controllers;
-using YTP.Main.DataAccess;
 using YTP.Main.Models;
 
 namespace YTP.MainTest {
@@ -26,23 +23,19 @@ namespace YTP.MainTest {
             Assert.AreEqual(newLoginName, member.LoginName);
             Assert.IsTrue(repoParam.DidSubmitChanges);
         }
-    }
 
-    public class FakeMembersRepository : IMembersRepository {
+        [TestMethod]
+        public void CanAddBid() {
+            //Arrange - set up the scenario
+            Item target = new Item();
+            Member memberParam = new Member();
+            decimal amtParam = 150M;
 
-        public List<Member> Members = new List<Member>();
-        public bool DidSubmitChanges = false;
+            //Act - perform the test
+            target.AddBid(memberParam, amtParam);
 
-        public void AddMember(Member member) {
-            throw new NotImplementedException();
-        }
-
-        public Member FetchByLoginName(string loginName) {
-            return Members.First(m => m.LoginName == loginName);
-        }
-
-        public void SubmitChanges() {
-            DidSubmitChanges = true;
+            //Assert - Check the behavior
+            Assert.AreEqual(1, target.Bids.Count());
         }
     }
 }
