@@ -192,6 +192,8 @@
       <DependentUpon>YPTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\CarRentalSystem\Models\RentalViewModel.cs" />
+    <Compile Include="DataAccess\Repositories\ItemsRepository.cs" />
+    <Compile Include="DataAccess\Repositories\MembersRepository.cs" />
     <Compile Include="DataAccess\returncar.cs">
       <DependentUpon>YPTDB.tt</DependentUpon>
     </Compile>
@@ -236,6 +238,9 @@
     <Compile Include="Models\MiniDisplay.cs" />
     <Compile Include="Models\Module.cs" />
     <Compile Include="Models\GuestResponse.cs" />
+    <Compile Include="Models\TestDriven\Bid.cs" />
+    <Compile Include="Models\TestDriven\Item.cs" />
+    <Compile Include="Models\TestDriven\Member.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Areas\HumanResources\Models\AccEmpData.cs" />
     <Compile Include="ViewModels\VM_MiniDisplay.cs" />
