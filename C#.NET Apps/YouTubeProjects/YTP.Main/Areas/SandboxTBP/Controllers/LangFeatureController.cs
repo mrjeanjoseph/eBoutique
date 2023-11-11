@@ -138,5 +138,44 @@ namespace YTP.Main.Controllers {
             return View(viewPath, (object)String.Format("Veleenah Owes me: {0:c}", total));
         }
 
+
+        //Using a Delegate in an extension Method
+        public ViewResult UseFilterExtMethodWithFunc() {
+
+            //Create and Populate Shopping Cart
+            IEnumerable<Product> product = new ShoppingCart2 {
+                ProductEnum = new List<Product>() {
+                    new Product { Name = "Milet", Category = "Travay", ProductPrice = 950M},
+                    new Product { Name = "Bouret", Category = "Mason", ProductPrice = 210M},
+                    new Product { Name = "Cheval", Category = "Travay", ProductPrice = 1550M},
+                    new Product { Name = "Manman Bef", Category = "Travay", ProductPrice = 2350M},
+                    new Product { Name = "Chay Bannann", Category = "Rekot", ProductPrice = 95M},
+                    new Product { Name = "Pwason roz", Category = "peche", ProductPrice = 71M},
+                }
+            };
+
+            //Func<Product, bool> CategoryToBeFiltered = delegate (Product prod) {
+            //    return prod.Category == "Rekot";
+            //};
+
+            Func<Product, bool> CategoryToBeFiltered = prod => prod.Category == "Rekot"; //Using Lambda expression instead
+
+            decimal total = 0;
+            foreach (Product prod in product.FilterUsingFunc(CategoryToBeFiltered)) {
+                total += prod.ProductPrice;
+            }
+
+            //Even better syntax
+            decimal total2 = 0;
+            foreach (Product prod in product.FilterUsingFunc(prod => prod.Category == "Rekot")) { // Notice we ommit func and still pass in lambda
+                total2 += prod.ProductPrice + 5;
+            }
+
+
+            //return View(viewPath, (object)String.Format("This is the {0} value: {1:c}", "Rekot", total));
+            return View(viewPath, (object)String.Format("This is the {0} value: {1:c}", "Rekot", total2));
+        }
+
+
     }
 }

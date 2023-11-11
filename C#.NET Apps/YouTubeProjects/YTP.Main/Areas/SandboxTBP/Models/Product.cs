@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace YTP.Main.Models {
@@ -59,6 +60,16 @@ namespace YTP.Main.Models {
                 }
             }
         }
+
+        public static IEnumerable<Product> FilterUsingFunc(this IEnumerable<Product> productEnum, Func<Product, bool> selectorParam) {
+            foreach (Product product in productEnum) {
+                if(selectorParam(product)) {
+                    yield return product;
+                }
+            }
+        }
     }
+
+
 
 }
