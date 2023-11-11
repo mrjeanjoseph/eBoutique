@@ -1,0 +1,37 @@
+﻿@model String
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Result</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh; /* Ensure the body takes up at least the full height of the viewport */
+        }
+
+        .centered-div {
+            width: 300px; /* Adjust the width as needed */
+            height: 200px; /* Adjust the height as needed */
+            background-color: lightblue; /* Adjust the background color as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="centered-div"> 
+        <h2>@Model</h2>        
+    </div>
+</body>
+</html>

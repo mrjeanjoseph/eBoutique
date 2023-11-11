@@ -154,6 +154,7 @@
     <Compile Include="Areas\HumanResources\Controllers\ProductController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\TBS_EmployeeController.cs" />
     <Compile Include="Areas\OperatingManagement\Controllers\VendorRecordController.cs" />
+    <Compile Include="Controllers\LangFeatureController.cs" />
     <Compile Include="DataAccess\carreg.cs">
       <DependentUpon>YPTDB.tt</DependentUpon>
     </Compile>
@@ -237,6 +238,7 @@
     </Compile>
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="Areas\OperatingManagement\Models\VendorRecordModel.cs" />
+    <Compile Include="Models\LangFeature\Product.cs" />
     <Compile Include="Models\MiniDisplay.cs" />
     <Compile Include="Models\Module.cs" />
     <Compile Include="Models\GuestResponse.cs" />
@@ -433,6 +435,7 @@
     <Content Include="Areas\OperatingManagement\Views\VendorRecord\AddOrEdit.cshtml" />
     <Content Include="Views\Home\RSVPForm.cshtml" />
     <Content Include="Views\Home\Thanks.cshtml" />
+    <Content Include="Views\LangFeature\Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\NewFolder1\" />
