@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace YTP.Main.Models {
     public class Product {
@@ -71,6 +73,29 @@ namespace YTP.Main.Models {
         }
     }
 
+    public class MyAsyncMethods {
+        public static Task<long?> GetPageLength() {
+            HttpClient client = new HttpClient();
+            var httpTask = client.GetAsync("http://apress.com");
 
+            //Other logic to address while we're waiting for http request to complete.
+
+            return httpTask.ContinueWith((Task<HttpResponseMessage> antecedent) => {
+                return antecedent.Result.Content.Headers.ContentLength;
+            });
+        }
+    }
+
+    public class MyAsyncAwaitMethods {
+        public async static Task<long?> GetPageLength() {
+
+            HttpClient client = new HttpClient();
+
+            var httpMessage = await client.GetAsync("http://appress.com");
+
+            return httpMessage.Content.Headers.ContentLength;
+
+        }
+    }
 
 }

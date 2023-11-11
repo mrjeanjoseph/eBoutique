@@ -217,6 +217,8 @@ namespace YTP.Main.Controllers {
             return View(viewPath, (object)result.ToString());
         }
 
+        #region Using LINQ Queries
+
         public ViewResult FindProducts1() { //Without using LINQ, this is the long way
 
             //Initializing the product object
@@ -356,10 +358,20 @@ namespace YTP.Main.Controllers {
             };
 
             var sumResult = products.Sum(p => p.ProductPrice);
+
             products[2] = new Product { Name = "Mayi Moulen", Category = "Kizin", ProductPrice = 4550M };
 
 
-            return View(viewPath, (object)sumResult.ToString());
+            return View(viewPath, (object)String.Format("Sum: {0:c}", sumResult));
         }
+
+
+        #endregion
+
+        #region  Using Async Methods
+
+        //A Simple Asynchronous Method
+
+        #endregion
     }
 }
