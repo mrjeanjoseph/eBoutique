@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Web.Mvc;
 using YTP.Main.Models;
+using System.Linq;
+using System.Web.Http.Results;
 
 namespace YTP.Main.Controllers {
     public class LangFeatureController : Controller {
 
         //Storing the path in the config file
-         private readonly string viewPath = ConfigurationManager.AppSettings["tbp_viewpath"]; 
+        private readonly string viewPath = ConfigurationManager.AppSettings["tbp_viewpath"];
         // GET: LangFeature
         public ActionResult Index() {
 
@@ -171,11 +175,191 @@ namespace YTP.Main.Controllers {
                 total2 += prod.ProductPrice + 5;
             }
 
+            //Still no wiser?
+            decimal total3 = 0;
+            foreach (Product prod in product.FilterUsingFunc(prod => prod.Category == "Rekot" || prod.ProductPrice > 100)) { // Extending the result
+                total3 += prod.ProductPrice + 5;
+            }
+
 
             //return View(viewPath, (object)String.Format("This is the {0} value: {1:c}", "Rekot", total));
-            return View(viewPath, (object)String.Format("This is the {0} value: {1:c}", "Rekot", total2));
+            //return View(viewPath, (object)String.Format("This is the {0} value: {1:c}", "Rekot", total2));
+            return View(viewPath, (object)String.Format("This is the {0} value: {1:c}", "Rekot", total3));
         }
 
+        public void UsingAutoTypeInference() {
 
+            var newProduct = new Product { Name = "Pye Citron", ProductPrice = 32, Category = "Travay" };
+
+            string prodName = newProduct.Name; // We can use this
+            //int prodCount = newProduct.Count(); // uh uh - Not today!            
+        }
+
+        public void UsingAnonymousType() {
+            var newProd = new Product { Name = "MVC", Category = "NewCat" };
+        }
+
+        public ViewResult CreateAnonymousArray() {
+
+            var productArrays = new[] {
+                new {Name = "C-Sharp", Category = "IT"},
+                new {Name = "JavaScript", Category = "IT"},
+                new {Name = "Mathematics", Category = "Math"},
+                new {Name = "Economics", Category = "Science"},
+                new {Name = "T-SQL/SQL Server", Category = "IT"}
+            };
+
+            StringBuilder result = new StringBuilder();
+            foreach (var item in productArrays) {
+                result.Append(item.Name).Append(", ");
+            }
+
+            return View(viewPath, (object)result.ToString());
+        }
+
+        public ViewResult FindProducts1() { //Without using LINQ, this is the long way
+
+            //Initializing the product object
+            Product[] products = {
+                    new Product { Name = "Milet", Category = "Travay", ProductPrice = 950M},
+                    new Product { Name = "Bouret", Category = "Mason", ProductPrice = 210M},
+                    new Product { Name = "Cheval", Category = "Travay", ProductPrice = 1550M},
+                    new Product { Name = "Manman Bef", Category = "Travay", ProductPrice = 2350M},
+                    new Product { Name = "Chay Bannann", Category = "Rekot", ProductPrice = 95M},
+                    new Product { Name = "Pwason roz", Category = "peche", ProductPrice = 71M},
+            };
+
+            //Define the array to hold the results
+            Product[] foundProducts = new Product[3];
+
+            //Sort the contents of the array
+            Array.Sort(products, (item1, item2) => {
+                return Comparer<decimal>.Default.Compare(item1.ProductPrice, item2.ProductPrice);
+            });
+
+            //get the first three items in the array as the results
+            Array.Copy(products, foundProducts, 3);
+
+            //Create the result
+            StringBuilder result = new StringBuilder();
+            foreach (var item in foundProducts) {
+                result.AppendFormat("Price: {0}", item.ProductPrice).Append(", ");
+            }
+
+
+            return View(viewPath, (object)result.ToString());
+        }
+
+        public ViewResult FindProducts2() { // With LINQ, This is the consise option
+
+            //Initializing the product object
+            Product[] products = {
+                    new Product { Name = "Milet", Category = "Travay", ProductPrice = 950M},
+                    new Product { Name = "Bouret", Category = "Mason", ProductPrice = 210M},
+                    new Product { Name = "Cheval", Category = "Travay", ProductPrice = 1550M},
+                    new Product { Name = "Manman Bef", Category = "Travay", ProductPrice = 2350M},
+                    new Product { Name = "Chay Bannann", Category = "Rekot", ProductPrice = 95M},
+                    new Product { Name = "Pwason roz", Category = "peche", ProductPrice = 71M},
+            };
+
+            //Using LINQ
+            var foundProducts = from match in products
+                                orderby match.ProductPrice descending
+                                select new {
+                                    match.Name,
+                                    match.ProductPrice
+                                };
+
+            //Now create the result
+            int count = 0;
+            StringBuilder result = new StringBuilder();
+            foreach (var item in foundProducts) {
+                result.AppendFormat("Price: {0}", item.ProductPrice);
+                if (++count == 3)
+                    break;
+            }
+
+            return View(viewPath, (object)result.ToString());
+        }
+
+        public ViewResult FindProducts3() {  // With LINQ, pushing the limit
+
+            //Initializing the product object
+            Product[] products = {
+                    new Product { Name = "Milet", Category = "Travay", ProductPrice = 950M},
+                    new Product { Name = "Bouret", Category = "Mason", ProductPrice = 210M},
+                    new Product { Name = "Wowoli", Category = "Kwizin", ProductPrice = 19M},
+                    new Product { Name = "Cheval", Category = "Travay", ProductPrice = 1550M},
+                    new Product { Name = "Manman Bef", Category = "Travay", ProductPrice = 2350M},
+                    new Product { Name = "Chay Bannann", Category = "Rekot", ProductPrice = 95M},
+                    new Product { Name = "Pwason roz", Category = "peche", ProductPrice = 71M},
+            };
+
+            //Syntax is even simpler
+            var foundProducts = products
+                .OrderByDescending(p => p.ProductPrice)
+                .Take(3)
+                .Select(p => new { p.Name, p.ProductPrice });
+
+
+            //Finally create the result
+            StringBuilder result = new StringBuilder();
+            foreach (var item in foundProducts) {
+                result.AppendFormat("Price: {0}", item.ProductPrice).Append(", ");
+            }
+
+            return View(viewPath, (object)result.ToString());
+        }
+
+        public ViewResult FindProducts4() {  // Implementing Deffered LINQ queries
+
+            //Initializing the product object
+            Product[] products = {
+                    new Product { Name = "Milet", Category = "Travay", ProductPrice = 950M},
+                    new Product { Name = "Bouret", Category = "Mason", ProductPrice = 210M},
+                    new Product { Name = "Wowoli", Category = "Kizin", ProductPrice = 19M},
+                    new Product { Name = "Cheval", Category = "Travay", ProductPrice = 1550M},
+                    new Product { Name = "Manman Bef", Category = "Travay", ProductPrice = 2350M},
+                    new Product { Name = "Chay Bannann", Category = "Rekot", ProductPrice = 95M},
+                    new Product { Name = "Pwason roz", Category = "peche", ProductPrice = 71M},
+            };
+
+            //Syntax is even simpler
+            var foundProducts = products
+                .OrderByDescending(p => p.ProductPrice)
+                .Take(3)
+                .Select(p => new { p.Name, p.ProductPrice });
+
+            //Introducing a new array in the result
+            products[2] = new Product { Name = "Mayi Moulen", Category = "Kizin", ProductPrice = 4550M };
+
+            //Finally create the result
+            StringBuilder result = new StringBuilder();
+            foreach (var item in foundProducts) {
+                result.AppendFormat("Price: {0}", item.ProductPrice).Append(", ");
+            }
+
+            return View(viewPath, (object)result.ToString());
+        }
+
+        public ViewResult SumProductsEmmediately() {  // Implementing Non-deffered LINQ queries extension
+
+            //Initializing the product object
+            Product[] products = {
+                    new Product { Name = "Milet", Category = "Travay", ProductPrice = 950M},
+                    new Product { Name = "Bouret", Category = "Mason", ProductPrice = 210M},
+                    new Product { Name = "Wowoli", Category = "Kizin", ProductPrice = 19M},
+                    new Product { Name = "Cheval", Category = "Travay", ProductPrice = 1550M},
+                    new Product { Name = "Manman Bef", Category = "Travay", ProductPrice = 2350M},
+                    new Product { Name = "Chay Bannann", Category = "Rekot", ProductPrice = 95M},
+                    new Product { Name = "Pwason roz", Category = "peche", ProductPrice = 71M},
+            };
+
+            var sumResult = products.Sum(p => p.ProductPrice);
+            products[2] = new Product { Name = "Mayi Moulen", Category = "Kizin", ProductPrice = 4550M };
+
+
+            return View(viewPath, (object)sumResult.ToString());
+        }
     }
 }

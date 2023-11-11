@@ -53,6 +53,7 @@ namespace YTP.Main.Models {
             }
             return total;
         }
+
         public static IEnumerable<Product> FilterByCategory(this IEnumerable<Product> productEnum, string categoryParam) {
             foreach (Product product in productEnum) {
                 if(product.Category == categoryParam) {
