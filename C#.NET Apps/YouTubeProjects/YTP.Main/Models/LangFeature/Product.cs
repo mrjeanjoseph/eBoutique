@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace YTP.Main.Models {
     public class Product {
@@ -9,9 +10,7 @@ namespace YTP.Main.Models {
         public decimal ProductPrice { get; set; }
         public string Category { get; set; }
 
-
         //private string name { get; set; }   
-
         //public string Name {
         //    get { return name; }
         //    set {  name = value; }
@@ -31,4 +30,35 @@ namespace YTP.Main.Models {
             return total;
         }
     }
+
+    //Applying Extension Methods to an Interface
+    public class ShoppingCart2 : IEnumerable<Product> {
+        public List<Product> ProductEnum { get; set; }
+
+        public IEnumerator<Product> GetEnumerator() {
+            return ProductEnum.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() {
+            return GetEnumerator();
+        }
+    }
+
+    public static class MyExtentionMethods {
+        public static decimal TotalPrices(this IEnumerable<Product> productEnum) {
+            decimal total = 0;
+            foreach (Product product in productEnum) {
+                total += product.ProductPrice;
+            }
+            return total;
+        }
+        public static IEnumerable<Product> FilterByCategory(this IEnumerable<Product> productEnum, string categoryParam) {
+            foreach (Product product in productEnum) {
+                if(product.Category == categoryParam) {
+                    yield return product;
+                }
+            }
+        }
+    }
+
 }
