@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Web.Mvc;
 using YTP.Main.Models;
 using YTP.Main.ViewModels;
@@ -34,6 +35,9 @@ namespace YTP.Main.Controllers {
 
             if (ModelState.IsValid) {
                 // TODO: Email response to the pary organizer
+                ViewBag.username = ConfigurationManager.AppSettings["username"];
+                ViewBag.password = ConfigurationManager.AppSettings["password"];
+
                 return View("Thanks", response);
             }else {
                 //There are validation error

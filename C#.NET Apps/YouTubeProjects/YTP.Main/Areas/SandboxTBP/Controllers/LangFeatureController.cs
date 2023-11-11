@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Configuration;
 using System.Web.Mvc;
 using YTP.Main.Models;
 
 namespace YTP.Main.Controllers {
     public class LangFeatureController : Controller {
+
+        //Storing the path in the config file
+         private readonly string viewPath = ConfigurationManager.AppSettings["tbp_viewpath"]; 
         // GET: LangFeature
         public ActionResult Index() {
 
@@ -28,7 +30,7 @@ namespace YTP.Main.Controllers {
             string prodName = myprod.Name;
 
             //Generate the view
-            return View("Result", (object)String.Format("Product name: {0}", prodName));
+            return View(viewPath, (object)String.Format("Product name**: {0}", prodName));
         }
 
         public ViewResult CreateProduct() {
@@ -43,9 +45,9 @@ namespace YTP.Main.Controllers {
             };
 
             //Generate the view
-            return View("Result", 
-                (object)String.Format("Product name: {0}\n Product Description: {1}", 
-                newProduct.Name, 
+            return View("Result",
+                (object)String.Format("Product name: {0}\n Product Description: {1}",
+                newProduct.Name,
                 newProduct.Description));
         }
 
@@ -111,11 +113,11 @@ namespace YTP.Main.Controllers {
             decimal prodListTotal = productList.TotalPrices();
             decimal prodArrayTotal = productArray.TotalPrices();
 
-            return View("Result", (object)String.Format("List Total: {0:c} -  Array Total: {1:c}", 
-                prodListTotal, 
+            return View(viewPath, (object)String.Format("List Total--: {0:c} -  Array Total: {1:c}",
+                prodListTotal,
                 prodArrayTotal));
         }
-        
+
         public ViewResult UseFilterExtensionMethod() {
 
             IEnumerable<Product> product = new ShoppingCart2 {
@@ -129,11 +131,12 @@ namespace YTP.Main.Controllers {
             };
 
             decimal total = 0;
-            foreach(Product prod in product.FilterByCategory("Travay")) {
+            foreach (Product prod in product.FilterByCategory("Travay")) {
                 total += prod.ProductPrice;
             }
 
-            return View("Result", (object)String.Format("Total: {0:c}", total));
+            return View(viewPath, (object)String.Format("Veleenah Owes me: {0:c}", total));
         }
+
     }
 }

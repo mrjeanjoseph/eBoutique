@@ -19,9 +19,9 @@
             WebMail.SmtpServer = "smtp.office365.com";
             WebMail.SmtpPort = 587;
             WebMail.EnableSsl = true;
-            WebMail.UserName = "deepvuecrud@outlook.com";
-            WebMail.Password = "T0tal-C0nnect!on";
-            WebMail.From = "deepvuecrud@outlook.com";
+            WebMail.UserName = ViewBag.username;
+            WebMail.Password = ViewBag.password;
+            WebMail.From = ViewBag.username;
 
             WebMail.Send(Model.EmailAddress, "RSVP Notification", Model.RSVP_Name + " is " + ((Model.WillAttend ?? false) ? "" : "not") + "attending");
         } catch (Exception) {

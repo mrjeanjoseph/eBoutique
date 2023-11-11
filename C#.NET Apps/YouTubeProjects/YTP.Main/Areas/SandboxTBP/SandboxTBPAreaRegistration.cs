@@ -15,9 +15,10 @@ namespace YTP.Main.Areas.SandboxTBP
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "SandboxTBP_default",
+                "SandboxTBP",
                 "SandboxTBP/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                new[] { GetType().Namespace + ".Controllers" }
             );
         }
     }
