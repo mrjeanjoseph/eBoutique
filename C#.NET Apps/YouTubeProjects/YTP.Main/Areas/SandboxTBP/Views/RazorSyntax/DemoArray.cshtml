@@ -1,0 +1,28 @@
+﻿@using YTP.Main.Models
+@model Product[]
+
+@{
+    ViewBag.Title = "DemoArray";
+    Layout = "~/Areas/SandboxTBP/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DemoArray</h2>
+
+
+@if (Model.Length > 0) {
+    <table>
+        <thead>
+            <tr><th>Product</th><th>Price</th></tr>
+        </thead>
+        <tbody>
+            @foreach (YTP.Main.Models.Product item in Model) {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.ProductPrice</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+} else {
+    <em style="color:lightcoral;">No Data Available</em>
+}
