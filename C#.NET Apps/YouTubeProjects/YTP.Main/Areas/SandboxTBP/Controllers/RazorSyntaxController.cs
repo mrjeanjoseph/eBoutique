@@ -44,5 +44,18 @@ namespace YTP.Main.Controllers {
 
         }
 
+        public ActionResult DemoArray() {
+
+            Product[] products = {
+                new Product {Name = "Bouk Kabrit", ProductPrice = 1125.51M},
+                new Product {Name = "Kalbas", ProductPrice = 15.18M},
+                new Product {Name = "Bouret", ProductPrice = 22.10M},
+                new Product {Name = "Mouton", ProductPrice = 925.01M},
+                new Product {Name = "Cheval", ProductPrice = 2825.00M}
+            };
+
+            viewPath += (MethodBase.GetCurrentMethod().Name + ".cshtml");
+            return View(viewPath,products);
+        }
     }
 }
