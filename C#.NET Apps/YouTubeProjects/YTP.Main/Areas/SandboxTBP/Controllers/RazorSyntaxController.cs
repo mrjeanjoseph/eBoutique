@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
+﻿using System.Configuration;
 using System.Reflection;
-using System.Web;
 using System.Web.Mvc;
 using YTP.Main.Models;
 
 namespace YTP.Main.Controllers {
     public class RazorSyntaxController : Controller {
 
-        private  string viewPath = ConfigurationManager.AppSettings["rs_viewpath"];
+        private string viewPath = ConfigurationManager.AppSettings["rs_viewpath"];
 
         readonly Product razorProduct = new Product() {
             ProductID = 1,
@@ -27,7 +23,7 @@ namespace YTP.Main.Controllers {
         }
 
         public ActionResult DisplayNameAndPrice() {
-            
+
             viewPath += (MethodBase.GetCurrentMethod().Name + ".cshtml");
             return View(viewPath, razorProduct);
         }
@@ -55,7 +51,7 @@ namespace YTP.Main.Controllers {
             };
 
             viewPath += (MethodBase.GetCurrentMethod().Name + ".cshtml");
-            return View(viewPath,products);
+            return View(viewPath, products);
         }
     }
 }

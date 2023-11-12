@@ -148,8 +148,10 @@
     <Compile Include="Areas\HumanResources\Controllers\AccEmpController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\EmployeeController.cs" />
     <Compile Include="Areas\OperatingManagement\OperatingManagementAreaRegistration.cs" />
+    <Compile Include="Areas\SandboxTBP\Controllers\EssentialToolsController.cs" />
     <Compile Include="Areas\SandboxTBP\Controllers\LangFeatureController.cs" />
     <Compile Include="Areas\SandboxTBP\Controllers\RazorSyntaxController.cs" />
+    <Compile Include="Areas\SandboxTBP\Models\ET_Product.cs" />
     <Compile Include="Areas\SandboxTBP\SandboxTBPAreaRegistration.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -450,6 +452,7 @@
   <ItemGroup>
     <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="Areas\SandboxTBP\Data\" />
+    <Folder Include="Areas\SandboxTBP\Views\EssentialTools\" />
     <Folder Include="GlobalAsset\images\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>
