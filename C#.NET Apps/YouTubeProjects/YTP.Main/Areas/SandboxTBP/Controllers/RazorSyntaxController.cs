@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using YTP.Main.Models;
@@ -9,7 +10,7 @@ using YTP.Main.Models;
 namespace YTP.Main.Controllers {
     public class RazorSyntaxController : Controller {
 
-        private readonly string viewPath = ConfigurationManager.AppSettings["rs_viewpath"];
+        private  string viewPath = ConfigurationManager.AppSettings["rs_viewpath"];
 
         readonly Product razorProduct = new Product() {
             ProductID = 1,
@@ -21,11 +22,27 @@ namespace YTP.Main.Controllers {
 
         // GET: SandboxTBP/RazorSyntax
         public ActionResult Index() {
+            viewPath += "Index.cshtml";
             return View(viewPath, razorProduct);
         }
 
         public ActionResult DisplayNameAndPrice() {
-            return View(viewPath);
+            
+            viewPath += (MethodBase.GetCurrentMethod().Name + ".cshtml");
+            return View(viewPath, razorProduct);
         }
+
+        public ActionResult DemoExpresssion() {
+
+            ViewBag.ProductCount = 15;
+            ViewBag.ExpressShip = true;
+            ViewBag.ApplyDiscount = false;
+            ViewBag.Supplier = null;
+
+            viewPath += (MethodBase.GetCurrentMethod().Name + ".cshtml");
+            return View(viewPath, razorProduct);
+
+        }
+
     }
 }
