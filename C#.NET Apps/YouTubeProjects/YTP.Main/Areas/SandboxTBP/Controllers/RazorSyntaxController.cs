@@ -23,5 +23,9 @@ namespace YTP.Main.Controllers {
         public ActionResult Index() {
             return View(viewPath, razorProduct);
         }
+
+        public ActionResult DisplayNameAndPrice() {
+            return View(viewPath);
+        }
     }
 }

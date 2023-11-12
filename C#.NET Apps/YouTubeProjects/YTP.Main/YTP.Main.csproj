@@ -395,6 +395,9 @@
     <Content Include="GlobalAsset\styles\icons\fonts\bootstrap-icons.woff2" />
     <Content Include="Areas\SandboxTBP\Views\web.config" />
     <Content Include="Areas\SandboxTBP\Views\RazorSyntax\Index.cshtml" />
+    <Content Include="Areas\SandboxTBP\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\SandboxTBP\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\SandboxTBP\Views\RazorSyntax\DisplayNameAndPrice.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
@@ -445,7 +448,6 @@
   <ItemGroup>
     <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="Areas\SandboxTBP\Data\" />
-    <Folder Include="Areas\SandboxTBP\Views\Shared\" />
     <Folder Include="GlobalAsset\images\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>
