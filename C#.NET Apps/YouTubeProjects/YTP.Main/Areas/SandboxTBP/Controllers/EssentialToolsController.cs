@@ -17,8 +17,23 @@ namespace YTP.Main.Controllers {
             new ET_Product {ProductName = "Cheval", Category = "Rekot", UnitPrice = 2231.5M},
         };
 
-        // GET: SandboxTBP/EssentialTools
+        private readonly IValueCalculator _calc;
+        public EssentialToolsController(IValueCalculator calcParam) {
+            _calc = calcParam;
+        }
+
+        // Seperating the DI logic outside the controller
         public ActionResult Index() {
+            ET_ShoppingCart cart = new ET_ShoppingCart(_calc) { Products = products };
+
+            decimal totalValue = cart.CalculateProductTotal();
+
+            viewPath += (MethodBase.GetCurrentMethod().Name + ".cshtml");
+            return View(viewPath, totalValue);
+        }
+
+        // Setting the DI right inside the controller
+        public ActionResult Index_LocalDI() {
 
             IKernel ninjectKernel = new StandardKernel();
             ninjectKernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
