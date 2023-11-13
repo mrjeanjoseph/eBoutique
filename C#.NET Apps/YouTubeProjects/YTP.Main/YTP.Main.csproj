@@ -154,6 +154,7 @@
     <Compile Include="Areas\SandboxTBP\Controllers\EssentialToolsController.cs" />
     <Compile Include="Areas\SandboxTBP\Controllers\LangFeatureController.cs" />
     <Compile Include="Areas\SandboxTBP\Controllers\RazorSyntaxController.cs" />
+    <Compile Include="Areas\SandboxTBP\Models\Discount.cs" />
     <Compile Include="Areas\SandboxTBP\Models\ET_Product.cs" />
     <Compile Include="Areas\SandboxTBP\SandboxTBPAreaRegistration.cs" />
     <Compile Include="Controllers\AdminController.cs" />

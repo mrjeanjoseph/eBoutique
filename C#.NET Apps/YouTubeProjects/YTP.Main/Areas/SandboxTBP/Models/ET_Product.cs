@@ -15,8 +15,19 @@ namespace YTP.Main.Models {
     }
 
     public class LinqValueCalculator : IValueCalculator {
+
+        private readonly IDiscountHelper _discounter;
+
+        public LinqValueCalculator(IDiscountHelper discountParam) {
+            _discounter = discountParam;
+        }
+
         public decimal ValueProducts(IEnumerable<ET_Product> products) {
-            return products.Sum(p => p.UnitPrice);
+
+            //var sumResult = products.Sum(p => p.UnitPrice);
+            var discountResult = _discounter.ApplyDiscount(products.Sum(p => p.UnitPrice));
+
+            return discountResult;
         }
     }
 

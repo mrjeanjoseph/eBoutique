@@ -48,16 +48,16 @@ namespace YTP.Main.Controllers {
         }
 
         // GET: SandboxTBP/EssentialTools
-        public ActionResult Index_Old() { 
-            IValueCalculator calc = new LinqValueCalculator();
+        //public ActionResult Index_Old() { 
+        //    IValueCalculator calc = new LinqValueCalculator();
 
-            ET_ShoppingCart cart = new ET_ShoppingCart(calc) { Products = products };
+        //    ET_ShoppingCart cart = new ET_ShoppingCart(calc) { Products = products };
 
-            decimal totalValue = cart.CalculateProductTotal();
+        //    decimal totalValue = cart.CalculateProductTotal();
 
-            viewPath += (MethodBase.GetCurrentMethod().Name + ".cshtml");
-            return View(viewPath, totalValue);
-        }
+        //    viewPath += (MethodBase.GetCurrentMethod().Name + ".cshtml");
+        //    return View(viewPath, totalValue);
+        //}
 
 
     }
