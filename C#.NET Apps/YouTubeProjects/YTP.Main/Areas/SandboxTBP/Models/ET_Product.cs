@@ -22,8 +22,8 @@ namespace YTP.Main.Models {
 
     public class ET_ShoppingCart {
 
-        private LinqValueCalculator calc;
-        public ET_ShoppingCart(LinqValueCalculator calcParam) {
+        private readonly IValueCalculator calc;
+        public ET_ShoppingCart(IValueCalculator calcParam) {
             this.calc = calcParam;
         }
 
