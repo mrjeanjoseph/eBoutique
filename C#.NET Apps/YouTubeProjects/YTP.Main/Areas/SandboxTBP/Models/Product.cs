@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -20,6 +21,7 @@ namespace YTP.Main.Models {
         //}
     }
 
+    #region Ch1-5
     public class ShoppingCart {
         public List<Product> Products { get; set; }
     }
@@ -58,7 +60,7 @@ namespace YTP.Main.Models {
 
         public static IEnumerable<Product> FilterByCategory(this IEnumerable<Product> productEnum, string categoryParam) {
             foreach (Product product in productEnum) {
-                if(product.Category == categoryParam) {
+                if (product.Category == categoryParam) {
                     yield return product;
                 }
             }
@@ -66,7 +68,7 @@ namespace YTP.Main.Models {
 
         public static IEnumerable<Product> FilterUsingFunc(this IEnumerable<Product> productEnum, Func<Product, bool> selectorParam) {
             foreach (Product product in productEnum) {
-                if(selectorParam(product)) {
+                if (selectorParam(product)) {
                     yield return product;
                 }
             }
@@ -97,5 +99,7 @@ namespace YTP.Main.Models {
 
         }
     }
+
+    #endregion
 
 }

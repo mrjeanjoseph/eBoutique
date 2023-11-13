@@ -58,6 +58,9 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject, Version=3.3.6.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.6\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -148,8 +151,11 @@
     <Compile Include="Areas\HumanResources\Controllers\AccEmpController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\EmployeeController.cs" />
     <Compile Include="Areas\OperatingManagement\OperatingManagementAreaRegistration.cs" />
+    <Compile Include="Areas\SandboxTBP\Controllers\EssentialToolsController.cs" />
     <Compile Include="Areas\SandboxTBP\Controllers\LangFeatureController.cs" />
     <Compile Include="Areas\SandboxTBP\Controllers\RazorSyntaxController.cs" />
+    <Compile Include="Areas\SandboxTBP\Models\Discount.cs" />
+    <Compile Include="Areas\SandboxTBP\Models\ET_Product.cs" />
     <Compile Include="Areas\SandboxTBP\SandboxTBPAreaRegistration.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -241,6 +247,7 @@
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="Areas\OperatingManagement\Models\VendorRecordModel.cs" />
     <Compile Include="Areas\SandboxTBP\Models\Product.cs" />
+    <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\MiniDisplay.cs" />
     <Compile Include="Models\Module.cs" />
     <Compile Include="Models\GuestResponse.cs" />
@@ -400,6 +407,7 @@
     <Content Include="Areas\SandboxTBP\Views\RazorSyntax\DisplayNameAndPrice.cshtml" />
     <Content Include="Areas\SandboxTBP\Views\RazorSyntax\DemoExpresssion.cshtml" />
     <Content Include="Areas\SandboxTBP\Views\RazorSyntax\DemoArray.cshtml" />
+    <Content Include="Areas\SandboxTBP\Views\EssentialTools\Index.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
