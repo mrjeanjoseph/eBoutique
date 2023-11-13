@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using Ninject;
+using System.Configuration;
 using System.Reflection;
 using System.Web.Mvc;
 using YTP.Main.Models;
@@ -18,6 +19,21 @@ namespace YTP.Main.Controllers {
 
         // GET: SandboxTBP/EssentialTools
         public ActionResult Index() {
+
+            IKernel ninjectKernel = new StandardKernel();
+            ninjectKernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
+            IValueCalculator calc = ninjectKernel.Get<IValueCalculator>();
+
+            ET_ShoppingCart cart = new ET_ShoppingCart(calc) { Products = products };
+
+            decimal totalValue = cart.CalculateProductTotal();
+
+            viewPath += (MethodBase.GetCurrentMethod().Name + ".cshtml");
+            return View(viewPath, totalValue);
+        }
+
+        // GET: SandboxTBP/EssentialTools
+        public ActionResult Index_Old() { 
             IValueCalculator calc = new LinqValueCalculator();
 
             ET_ShoppingCart cart = new ET_ShoppingCart(calc) { Products = products };
@@ -27,5 +43,7 @@ namespace YTP.Main.Controllers {
             viewPath += (MethodBase.GetCurrentMethod().Name + ".cshtml");
             return View(viewPath, totalValue);
         }
+
+
     }
 }
