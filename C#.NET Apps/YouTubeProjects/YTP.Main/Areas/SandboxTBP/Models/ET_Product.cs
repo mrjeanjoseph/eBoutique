@@ -10,8 +10,11 @@ namespace YTP.Main.Models {
         public string Category { get; set; }
     }
 
+    public interface IValueCalculator {
+        decimal ValueProducts(IEnumerable<ET_Product> products);
+    }
 
-    public class LinqValueCalculator {
+    public class LinqValueCalculator : IValueCalculator {
         public decimal ValueProducts(IEnumerable<ET_Product> products) {
             return products.Sum(p => p.UnitPrice);
         }

@@ -1,11 +1,12 @@
 ﻿using System.Configuration;
+using System.Reflection;
 using System.Web.Mvc;
 using YTP.Main.Models;
 
 namespace YTP.Main.Controllers {
     public class EssentialToolsController : Controller {
 
-        private string viewPath = ConfigurationManager.AppSettings["rs_viewpath"];
+        private string viewPath = ConfigurationManager.AppSettings["et_viewpath"];
 
         private readonly ET_Product[] products = {
             new ET_Product {ProductName = "Ble ak Pwa Kongo", Category = "Manje Peyi", UnitPrice = 231.5M},
@@ -22,9 +23,8 @@ namespace YTP.Main.Controllers {
 
             decimal totalValue = cart.CalculateProductTotal();
 
-            return View(totalValue);
+            viewPath += (MethodBase.GetCurrentMethod().Name + ".cshtml");
+            return View(viewPath, totalValue);
         }
-
-
     }
 }

@@ -6,7 +6,7 @@ using YTP.Main.Models;
 namespace YTP.Main.Controllers {
     public class RazorSyntaxController : Controller {
 
-        private string viewPath = ConfigurationManager.AppSettings["rs_viewpath"];
+        private string viewPath = ConfigurationManager.AppSettings["et_viewpath"];
 
         readonly Product razorProduct = new Product() {
             ProductID = 1,
