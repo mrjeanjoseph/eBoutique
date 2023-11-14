@@ -151,11 +151,9 @@
     <Compile Include="Areas\HumanResources\Controllers\AccEmpController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\EmployeeController.cs" />
     <Compile Include="Areas\OperatingManagement\OperatingManagementAreaRegistration.cs" />
-    <Compile Include="Areas\SandboxTBP\Controllers\EssentialToolsController.cs" />
     <Compile Include="Areas\SandboxTBP\Controllers\LangFeatureController.cs" />
     <Compile Include="Areas\SandboxTBP\Controllers\RazorSyntaxController.cs" />
     <Compile Include="Areas\SandboxTBP\Models\Discount.cs" />
-    <Compile Include="Areas\SandboxTBP\Models\ET_Product.cs" />
     <Compile Include="Areas\SandboxTBP\SandboxTBPAreaRegistration.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -247,7 +245,6 @@
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="Areas\OperatingManagement\Models\VendorRecordModel.cs" />
     <Compile Include="Areas\SandboxTBP\Models\Product.cs" />
-    <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\MiniDisplay.cs" />
     <Compile Include="Models\Module.cs" />
     <Compile Include="Models\GuestResponse.cs" />
@@ -407,7 +404,6 @@
     <Content Include="Areas\SandboxTBP\Views\RazorSyntax\DisplayNameAndPrice.cshtml" />
     <Content Include="Areas\SandboxTBP\Views\RazorSyntax\DemoExpresssion.cshtml" />
     <Content Include="Areas\SandboxTBP\Views\RazorSyntax\DemoArray.cshtml" />
-    <Content Include="Areas\SandboxTBP\Views\EssentialTools\Index.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
