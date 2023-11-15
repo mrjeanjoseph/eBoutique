@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminControllerTest.cs" />
+    <Compile Include="EssentialToolsTest.cs" />
     <Compile Include="FakeMembersRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -164,6 +164,7 @@
     <Compile Include="Areas\SandboxTBP\Models\Discount.cs" />
     <Compile Include="Areas\SandboxTBP\Models\FlexibleDiscountHelper.cs" />
     <Compile Include="Areas\SandboxTBP\Models\IValueCalculator.cs" />
+    <Compile Include="Areas\SandboxTBP\Models\MinimumDiscountHelper.cs" />
     <Compile Include="Areas\SandboxTBP\SandboxTBPAreaRegistration.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
