@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ninject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,7 +22,11 @@ namespace YTP.Main.Areas.SandboxTBP.Controllers {
         // GET: SandboxTBP/EssentialTools
         public ActionResult Index() {
 
-            IValueCalculator calc = new LinqValueCalculator();
+            IKernel ninjectKernel = new StandardKernel();
+            ninjectKernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
+
+            IValueCalculator calc = ninjectKernel.Get<IValueCalculator>();
+
             ETShoppingCart cart = new ETShoppingCart(calc) { Products = products };
 
             decimal totalValue = cart.CalculatorProductTotal();
