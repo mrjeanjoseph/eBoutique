@@ -16,6 +16,9 @@ namespace YTP.Main.Infrastructure {
 
         private void AddBindings() {
             _kernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
+            //_kernel.Bind<IDiscountHelper>().To<DefaultDiscountHelper>();
+            //_kernel.Bind<IDiscountHelper>().To<DefaultDiscountHelper>().WithPropertyValue("DiscountSize", 50M);
+            _kernel.Bind<IDiscountHelper>().To<DefaultDiscountHelper>().WithConstructorArgument("DiscountSize", 50M);
         }
 
         public object GetService(Type serviceType) {

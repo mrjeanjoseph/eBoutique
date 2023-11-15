@@ -2,7 +2,7 @@
 using System.Linq;
 
 namespace YTP.Main.Areas.SandboxTBP.Models {
-    public class ETProduct {
+	public class ETProduct {
 		public int ProductID { get; set; }
 		public string ProductName { get; set; }
 		public string Description { get; set; }
@@ -28,8 +28,16 @@ namespace YTP.Main.Areas.SandboxTBP.Models {
 	}
 
 	public class LinqValueCalculator : IValueCalculator {
+
+		private readonly IDiscountHelper _discounter;
+
+		public LinqValueCalculator(IDiscountHelper discountParam) {
+			_discounter = discountParam;
+		}
 		public decimal ValueProducts(IEnumerable<ETProduct> products) {
-			return products.Sum(x => x.ProductPrice);
+			//return products.Sum(x => x.ProductPrice);
+
+			return _discounter.ApplyDiscount(products.Sum(x => x.ProductID));
 		}
 	}
 }
