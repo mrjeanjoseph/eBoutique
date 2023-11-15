@@ -1,15 +1,11 @@
-﻿using Ninject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using YTP.Main.Areas.SandboxTBP.Models;
-using YTP.Main.DataAccess;
 
 namespace YTP.Main.Areas.SandboxTBP.Controllers {
 
     public class EssentialToolsController : Controller {
+
+        private readonly IValueCalculator _calc;
 
         private readonly ETProduct[] products = {
             new ETProduct { ProductName = "Bef Gras", Category = "Elvaj", ProductPrice = 2100M},
@@ -19,15 +15,19 @@ namespace YTP.Main.Areas.SandboxTBP.Controllers {
             new ETProduct { ProductName = "Ke Palmis", Category = "Natif", ProductPrice = 472M}
         };
 
+        public EssentialToolsController(IValueCalculator calcParam) {
+            _calc = calcParam;
+        }
+
         // GET: SandboxTBP/EssentialTools
         public ActionResult Index() {
 
-            IKernel ninjectKernel = new StandardKernel();
-            ninjectKernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
+            //IKernel ninjectKernel = new StandardKernel();
+            //ninjectKernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
 
-            IValueCalculator calc = ninjectKernel.Get<IValueCalculator>();
+            //IValueCalculator calc = ninjectKernel.Get<IValueCalculator>();
 
-            ETShoppingCart cart = new ETShoppingCart(calc) { Products = products };
+            ETShoppingCart cart = new ETShoppingCart(_calc) { Products = products };
 
             decimal totalValue = cart.CalculatorProductTotal();
 
