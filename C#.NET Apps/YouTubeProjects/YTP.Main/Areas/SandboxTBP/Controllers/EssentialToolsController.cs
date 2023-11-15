@@ -21,7 +21,7 @@ namespace YTP.Main.Areas.SandboxTBP.Controllers {
         // GET: SandboxTBP/EssentialTools
         public ActionResult Index() {
 
-            LinqValueCalculator calc = new LinqValueCalculator();
+            IValueCalculator calc = new LinqValueCalculator();
             ETShoppingCart cart = new ETShoppingCart(calc) { Products = products };
 
             decimal totalValue = cart.CalculatorProductTotal();

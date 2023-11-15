@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 
 namespace YTP.Main.Areas.SandboxTBP.Models {
-	public class ETProduct {
+    public class ETProduct {
 		public int ProductID { get; set; }
 		public string ProductName { get; set; }
 		public string Description { get; set; }
@@ -15,9 +16,10 @@ namespace YTP.Main.Areas.SandboxTBP.Models {
 	}
 
 	public class ETShoppingCart {
-		private readonly LinqValueCalculator _calc;
+		//private readonly LinqValueCalculator _calc;
+		private readonly IValueCalculator _calc;
 
-		public ETShoppingCart(LinqValueCalculator lvcParam) {
+		public ETShoppingCart(IValueCalculator lvcParam) {
 			_calc = lvcParam;
 		}
 
@@ -28,7 +30,7 @@ namespace YTP.Main.Areas.SandboxTBP.Models {
 		}
 	}
 
-	public class LinqValueCalculator {
+	public class LinqValueCalculator : IValueCalculator {
 		public decimal ValueProducts(IEnumerable<ETProduct> products) {
 			return products.Sum(x => x.ProductPrice);
 		}
