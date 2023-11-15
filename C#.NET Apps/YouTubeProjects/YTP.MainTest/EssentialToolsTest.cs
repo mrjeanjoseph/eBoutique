@@ -35,13 +35,13 @@ namespace YTP.MainTest {
 
             //act
             decimal tenDollarDiscount = target.ApplyDiscount(10);
-            decimal FiftyDollarDiscount = target.ApplyDiscount(50);
             decimal HundredDollarDiscount = target.ApplyDiscount(100);
+            decimal FiftyDollarDiscount = target.ApplyDiscount(50);
 
             //assert
             Assert.AreEqual(5, tenDollarDiscount, "$10 discount is wrong");
-            Assert.AreEqual(95, FiftyDollarDiscount, "$100 discount is wrong");
-            Assert.AreEqual(45, HundredDollarDiscount, "$50 discount is wrong");
+            Assert.AreEqual(95, HundredDollarDiscount, "$100 discount is wrong");
+            Assert.AreEqual(45, FiftyDollarDiscount, "$50 discount is wrong");
         }
 
         [TestMethod]
