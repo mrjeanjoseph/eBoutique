@@ -15,7 +15,7 @@ namespace YTP.Main.Areas.SandboxTBP.Controllers {
             new ETProduct { ProductName = "Ke Palmis", Category = "Natif", ProductPrice = 472M}
         };
 
-        public EssentialToolsController(IValueCalculator calcParam) {
+        public EssentialToolsController(IValueCalculator calcParam, IValueCalculator calcParamTwo) {
             _calc = calcParam;
         }
 

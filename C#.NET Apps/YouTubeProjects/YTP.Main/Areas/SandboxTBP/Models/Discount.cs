@@ -1,6 +1,6 @@
 ﻿
 
-namespace YTP.Main.Areas.SandboxTBP.Models { 
+namespace YTP.Main.Areas.SandboxTBP.Models {
     public interface IDiscountHelper {
         decimal ApplyDiscount(decimal totalParam);
     }

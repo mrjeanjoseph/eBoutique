@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace YTP.Main.Areas.SandboxTBP.Models {
@@ -30,9 +31,11 @@ namespace YTP.Main.Areas.SandboxTBP.Models {
 	public class LinqValueCalculator : IValueCalculator {
 
 		private readonly IDiscountHelper _discounter;
+		private static int counter = 0;
 
 		public LinqValueCalculator(IDiscountHelper discountParam) {
 			_discounter = discountParam;
+			Debug.WriteLine(string.Format("Instance {0} Created", ++counter));
 		}
 		public decimal ValueProducts(IEnumerable<ETProduct> products) {
 			//return products.Sum(x => x.ProductPrice);
