@@ -151,6 +151,7 @@
     <Compile Include="Areas\HumanResources\Controllers\AccEmpController.cs" />
     <Compile Include="Areas\HumanResources\Controllers\EmployeeController.cs" />
     <Compile Include="Areas\OperatingManagement\OperatingManagementAreaRegistration.cs" />
+    <Compile Include="Areas\SandboxTBP\Controllers\EssentialToolsController.cs" />
     <Compile Include="Areas\SandboxTBP\Controllers\LangFeatureController.cs" />
     <Compile Include="Areas\SandboxTBP\Controllers\RazorSyntaxController.cs" />
     <Compile Include="Areas\SandboxTBP\Models\Discount.cs" />
@@ -404,6 +405,7 @@
     <Content Include="Areas\SandboxTBP\Views\RazorSyntax\DisplayNameAndPrice.cshtml" />
     <Content Include="Areas\SandboxTBP\Views\RazorSyntax\DemoExpresssion.cshtml" />
     <Content Include="Areas\SandboxTBP\Views\RazorSyntax\DemoArray.cshtml" />
+    <Compile Include="Areas\SandboxTBP\Models\ETProduct.cs" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
@@ -454,6 +456,7 @@
   <ItemGroup>
     <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="Areas\SandboxTBP\Data\" />
+    <Folder Include="Areas\SandboxTBP\Views\EssentialTools\" />
     <Folder Include="GlobalAsset\images\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>

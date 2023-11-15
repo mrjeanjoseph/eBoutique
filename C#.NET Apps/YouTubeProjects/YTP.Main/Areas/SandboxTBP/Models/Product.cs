@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -13,12 +12,6 @@ namespace YTP.Main.Models {
         public string Description { get; set; }
         public decimal ProductPrice { get; set; }
         public string Category { get; set; }
-
-        //private string name { get; set; }   
-        //public string Name {
-        //    get { return name; }
-        //    set {  name = value; }
-        //}
     }
 
     #region Ch1-5
@@ -101,5 +94,7 @@ namespace YTP.Main.Models {
     }
 
     #endregion
+
+
 
 }
