@@ -54,6 +54,7 @@
     <Compile Include="SportsStore\Abstract\IProductsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SportsStore\Concrete\EFDbContext.cs" />
+    <Compile Include="SportsStore\Concrete\EFProductRepository.cs" />
     <Compile Include="SportsStore\Entities\Product.cs" />
   </ItemGroup>
   <ItemGroup>

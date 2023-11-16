@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using YTP.Domain.SportsStore.Abstract;
+using YTP.Domain.SportsStore.Concrete;
 using YTP.Domain.SportsStore.Entities;
 using YTP.Main.Areas.SandboxTBP.Models;
 
@@ -37,7 +38,10 @@ namespace YTP.Main.Infrastructure {
                 new Product { ProductName = "testiball", ProductPrice = 29}
             });
 
-            _kernel.Bind<IProductsRepository>().ToConstant(mock.Object);
+            //_kernel.Bind<IProductsRepository>().ToConstant(mock.Object);
+
+            //Service request from for the IProductRepository Interface
+            _kernel.Bind<IProductsRepository>().To<EFProductRepository>().InRequestScope();
         }
 
         public object GetService(Type serviceType) {
