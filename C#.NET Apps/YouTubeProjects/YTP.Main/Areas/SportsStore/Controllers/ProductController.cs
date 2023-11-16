@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using YTP.Domain.Abstract;
+using YTP.Domain.SportsStore.Abstract;
 
 namespace YTP.Main.Areas.SportsStore.Controllers {
 

@@ -4,7 +4,7 @@ using Ninject.Web.Common;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using YTP.Domain.Abstract;
+using YTP.Domain.SportsStore.Abstract;
 using YTP.Domain.SportsStore.Entities;
 using YTP.Main.Areas.SandboxTBP.Models;
 
