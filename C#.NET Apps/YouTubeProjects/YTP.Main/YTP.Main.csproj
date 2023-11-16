@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.5.1.1\lib\net462\Castle.Core.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -55,6 +58,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Moq, Version=4.20.69.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.20.69\lib\net462\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -76,8 +82,14 @@
     <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -166,6 +178,7 @@
     <Compile Include="Areas\SandboxTBP\Models\IValueCalculator.cs" />
     <Compile Include="Areas\SandboxTBP\Models\MinimumDiscountHelper.cs" />
     <Compile Include="Areas\SandboxTBP\SandboxTBPAreaRegistration.cs" />
+    <Compile Include="Areas\SportsStore\Controllers\ProductController.cs" />
     <Compile Include="Areas\SportsStore\SportsStoreAreaRegistration.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -272,6 +285,7 @@
     <Content Include="App_Data\ProductsData.xml" />
     <Content Include="Areas\HumanResources\LocalAssets\site.home.js" />
     <Content Include="Areas\SandboxTBP\ReadMe.txt" />
+    <Content Include="Content\Site.css" />
     <Content Include="DataAccess\YPTDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>YPTDB.edmx</DependentUpon>
@@ -420,6 +434,9 @@
     <Compile Include="Areas\SandboxTBP\Models\ETProduct.cs" />
     <Content Include="Areas\SandboxTBP\Views\EssentialTools\Index.cshtml" />
     <Content Include="Areas\SportsStore\Views\web.config" />
+    <Content Include="Areas\SportsStore\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\SportsStore\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\SportsStore\Views\Product\ListProducts.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
@@ -470,9 +487,7 @@
   <ItemGroup>
     <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="Areas\SandboxTBP\Data\" />
-    <Folder Include="Areas\SportsStore\Controllers\" />
     <Folder Include="Areas\SportsStore\Data\" />
-    <Folder Include="Areas\SportsStore\Views\Shared\" />
     <Folder Include="GlobalAsset\images\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>
@@ -481,6 +496,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YTP.Domain\YTP.Domain.csproj">
+      <Project>{358db54b-d5af-4515-a17a-e192d6f90535}</Project>
+      <Name>YTP.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
