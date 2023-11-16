@@ -9,3 +9,7 @@ We're unable to find part 2 of these two videos
 
 08/13/2023
 	So far we have not kept documentation and we're not sure of what projects are working. We need to document up to the day.
+
+
+11/16/23
+	We're no longer calling this project YouTubeProjects. The name has been updated to SandboxWebProjectEnv. All references name change has been applied.
