@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace YTP.Main.Areas.SandboxTBP.Models {
-    public class ETProduct {
+	public class ETProduct {
 		public int ProductID { get; set; }
 		public string ProductName { get; set; }
 		public string Description { get; set; }
@@ -28,8 +29,18 @@ namespace YTP.Main.Areas.SandboxTBP.Models {
 	}
 
 	public class LinqValueCalculator : IValueCalculator {
+
+		private readonly IDiscountHelper _discounter;
+		private static int counter = 0;
+
+		public LinqValueCalculator(IDiscountHelper discountParam) {
+			_discounter = discountParam;
+			Debug.WriteLine(string.Format("Instance {0} Created", ++counter));
+		}
 		public decimal ValueProducts(IEnumerable<ETProduct> products) {
-			return products.Sum(x => x.ProductPrice);
+			//return products.Sum(x => x.ProductPrice);
+
+			return _discounter.ApplyDiscount(products.Sum(x => x.ProductID));
 		}
 	}
 }
