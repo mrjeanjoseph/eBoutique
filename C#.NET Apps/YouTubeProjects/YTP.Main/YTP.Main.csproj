@@ -166,6 +166,7 @@
     <Compile Include="Areas\SandboxTBP\Models\IValueCalculator.cs" />
     <Compile Include="Areas\SandboxTBP\Models\MinimumDiscountHelper.cs" />
     <Compile Include="Areas\SandboxTBP\SandboxTBPAreaRegistration.cs" />
+    <Compile Include="Areas\SportsStore\SportsStoreAreaRegistration.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -418,6 +419,7 @@
     <Content Include="Areas\SandboxTBP\Views\RazorSyntax\DemoArray.cshtml" />
     <Compile Include="Areas\SandboxTBP\Models\ETProduct.cs" />
     <Content Include="Areas\SandboxTBP\Views\EssentialTools\Index.cshtml" />
+    <Content Include="Areas\SportsStore\Views\web.config" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
@@ -468,6 +470,9 @@
   <ItemGroup>
     <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="Areas\SandboxTBP\Data\" />
+    <Folder Include="Areas\SportsStore\Controllers\" />
+    <Folder Include="Areas\SportsStore\Data\" />
+    <Folder Include="Areas\SportsStore\Views\Shared\" />
     <Folder Include="GlobalAsset\images\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>
