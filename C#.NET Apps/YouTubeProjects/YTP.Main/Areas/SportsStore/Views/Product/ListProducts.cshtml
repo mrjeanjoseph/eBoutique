@@ -1,0 +1,17 @@
+﻿@using YTP.Domain.SportsStore.Entities
+@model IEnumerable<Product>
+
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2>ListProducts</h2>
+
+@foreach (var item in Model) {
+    <div>
+        <h3>@item.ProductName</h3>
+        <p>@item.Description</p>
+        <h4>@item.ProductPrice.ToString("c")</h4>
+    </div>
+}
