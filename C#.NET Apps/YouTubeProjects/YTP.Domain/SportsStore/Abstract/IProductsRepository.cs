@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using YTP.Domain.SportsStore.Entities;
 
-namespace YTP.Domain.Abstract {
+namespace YTP.Domain.SportsStore.Abstract {
     public interface IProductsRepository {
         IEnumerable <Product> Products { get; }
     }
