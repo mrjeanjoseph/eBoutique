@@ -95,6 +95,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\YTP.Domain\YTP.Domain.csproj">
+      <Project>{358DB54B-D5AF-4515-A17A-E192D6F90535}</Project>
+      <Name>YTP.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YTP.Main\YTP.Main.csproj">
       <Project>{781106f4-d96d-4400-81d1-bbb82f172d5a}</Project>
       <Name>YTP.Main</Name>
