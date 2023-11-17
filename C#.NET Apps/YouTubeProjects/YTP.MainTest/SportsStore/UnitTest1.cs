@@ -32,10 +32,11 @@ namespace YTP.MainTest.SportsStore {
             controller.PageSize = 3;
 
             //Act
-            IEnumerable<Product> result = (IEnumerable<Product>)controller.ListProducts(2); //
+            //IEnumerable<Product> result = (IEnumerable<Product>)controller.ListProducts(2); //
+            ProductsList_VM result = (ProductsList_VM)controller.ListProducts(2).;
 
             //Assert
-            Product[] prodArray = result.ToArray();
+            Product[] prodArray = result.Products.ToArray();
             Assert.IsTrue(prodArray.Length == 2);
             Assert.AreEqual(prodArray[0].ProductName, "P4");
             Assert.AreEqual(prodArray[1].ProductName, "P5");
@@ -74,7 +75,7 @@ namespace YTP.MainTest.SportsStore {
                 new Product {ProductID = 2, ProductName = "P2"},
                 new Product {ProductID = 3, ProductName = "P3"},
                 new Product {ProductID = 4, ProductName = "P4"},
-                new Product {ProductID = 5, ProductName = "P5"},
+                new Product {ProductID = 5, ProductName = "P5"}
             });
 
             //Arrange
@@ -82,7 +83,7 @@ namespace YTP.MainTest.SportsStore {
             controller.PageSize = 3;
 
             //Act
-            ProductsList_VM result = (ProductsList_VM)controller.ListProducts(2);
+            ProductsList_VM result = (ProductsList_VM)controller.ListProducts(2).Model;
 
             //Assert
             PagingInfo pageInfo = result.PagingInfo;

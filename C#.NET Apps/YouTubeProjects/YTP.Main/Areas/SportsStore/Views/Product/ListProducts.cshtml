@@ -1,5 +1,7 @@
-﻿@using YTP.Domain.SportsStore.Entities
-@model IEnumerable<Product>
+﻿@model YTP.Main.Areas.SportsStore.Models.ProductsList_VM
+@*@using YTP.Domain.SportsStore.Entities
+@model IEnumerable<Product>*@
+
 
 
 @{
@@ -8,10 +10,16 @@
 
 <h2>ListProducts</h2>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Products) {
+
     <div>
         <h3>@item.ProductName</h3>
         <p>@item.Description</p>
         <h4>@item.ProductPrice.ToString("c")</h4>
     </div>
+
 }
+
+<div>
+    @Html.PageLinks()
+</div>
