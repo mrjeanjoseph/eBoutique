@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
 using YTP.Domain.SportsStore.Abstract;
+using YTP.Main.Areas.SportsStore.Models;
 
 namespace YTP.Main.Areas.SportsStore.Controllers {
 
@@ -16,10 +16,26 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
         // GET: SportsStore/Product
         public ActionResult ListProducts(int page = 1) {
 
-            return View(_productRepo.Products
-                    .OrderBy(p => p.ProductID)
-                    .Skip((page - 1) * PageSize)
-                    .Take(PageSize));
+            ProductsList_VM viewModel = new ProductsList_VM {
+                Products = _productRepo.Products
+                .OrderBy(p => p.ProductID)
+                .Skip((page - 1) * PageSize)
+                .Take(PageSize),
+
+                PagingInfo = new PagingInfo {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = _productRepo.Products.Count()
+                }
+            };
+
+            return View(viewModel);
+
+            //return View(_productRepo.Products
+            //        .OrderBy(p => p.ProductID)
+            //        .Skip((page - 1) * PageSize)
+            //        .Take(PageSize));
+
             //return View(_productRepo.Products);
         }
     }

@@ -181,6 +181,7 @@
     <Compile Include="Areas\SportsStore\Controllers\ProductController.cs" />
     <Compile Include="Areas\SportsStore\Models\HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Areas\SportsStore\Models\PagingInfo.cs" />
+    <Compile Include="Areas\SportsStore\Models\ProductsList_VM.cs" />
     <Compile Include="Areas\SportsStore\SportsStoreAreaRegistration.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -489,7 +490,6 @@
   <ItemGroup>
     <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="Areas\SandboxTBP\Data\" />
-    <Folder Include="Areas\SportsStore\Data\" />
     <Folder Include="GlobalAsset\images\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>
