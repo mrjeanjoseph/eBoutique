@@ -12,7 +12,10 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
             _repository = repository;
         }
         
-        public PartialViewResult Menu() {
+        public PartialViewResult Menu(string category = null) {
+
+            ViewBag.SelectedCategory = category;
+
             IEnumerable<string> categories = _repository.Products
                     .Select(p => p.Category)
                     .Distinct()

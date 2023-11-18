@@ -26,7 +26,10 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
                 PagingInfo = new PagingInfo {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalItems = _productRepo.Products.Count()
+                    //TotalItems = _productRepo.Products.Count()
+                    TotalItems = category == null ?
+                    _productRepo.Products.Count() :
+                    _productRepo.Products.Where(c => c.Category == category).Count() //
                 },
 
                 CurrentCategory = category,

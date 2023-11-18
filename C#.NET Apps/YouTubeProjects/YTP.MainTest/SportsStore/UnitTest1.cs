@@ -144,5 +144,29 @@ namespace YTP.MainTest.SportsStore {
             Assert.AreEqual(results[1], "bcat");
             Assert.AreEqual(results[2], "ccat");
         }
+
+        [TestMethod]
+        public void IndicatedSelectedCategory() {
+            //Arrange
+            // --Create the mock repository
+            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[] {
+                new Product {ProductID = 1, ProductName = "Product One", Category = "CategoryOne"},
+                new Product {ProductID = 12, ProductName = "Product Two", Category = "CategoryTwo"}
+            });
+
+            //Arrange - Create the controller
+            NavController target = new NavController(mock.Object);
+
+            //Arrange - define the category to be selected
+            string categoryToSelect = "CategoryOne";
+
+            //Action
+            string result = target.Menu(categoryToSelect).ViewBag.SelectedCategory;
+
+            //Assert
+            Assert.AreEqual(categoryToSelect, result);
+
+        }
     }
 }
