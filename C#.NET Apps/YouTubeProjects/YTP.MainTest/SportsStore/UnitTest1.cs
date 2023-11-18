@@ -4,6 +4,7 @@ using YTP.Main.Areas.SportsStore.Controllers;
 using YTP.Main.Areas.SportsStore.Models;
 using YTP.Domain.SportsStore.Abstract;
 using YTP.Domain.SportsStore.Entities;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Linq;
 using System;
@@ -113,9 +114,35 @@ namespace YTP.MainTest.SportsStore {
             Product[] result = ((ProductsList_VM)controller.ListProducts(null, 2).Model).Products.ToArray();
 
             //Assert
-            Assert.AreEqual(result.Length, 2);
+            Assert.AreEqual(result.Length,4);
             Assert.IsTrue(result[0].ProductName == "P2" && result[0].Category == "Cat2");
             Assert.IsTrue(result[1].ProductName == "P4" && result[1].Category == "Cat2");
+        }
+
+        [TestMethod]
+        public void CanCreateCategories() {
+            //Arrage
+            //- Create the mock repository
+            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[] {
+                new Product {ProductID = 1, ProductName = "P1", Category = "acat"},
+                new Product {ProductID = 2, ProductName = "P2", Category = "acat"},
+                new Product {ProductID = 3, ProductName = "P3", Category = "bcat"},
+                new Product {ProductID = 4, ProductName = "P4", Category = "ccat"},
+                new Product {ProductID = 5, ProductName = "P5", Category = "dcat"}
+            });
+
+            //Arrange
+            NavController target = new NavController(mock.Object);
+
+            //Act - get a set of categories
+            string[] results = ((IEnumerable<string>)target.Menu().Model).ToArray();
+
+            //Assert - get a set of categories
+            Assert.AreEqual(results.Length, 4);
+            Assert.AreEqual(results[0], "acat");
+            Assert.AreEqual(results[1], "bcat");
+            Assert.AreEqual(results[2], "ccat");
         }
     }
 }

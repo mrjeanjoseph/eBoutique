@@ -1,0 +1,17 @@
+﻿@model IEnumerable<string>
+
+
+
+@Html.ActionLink("Home", "ListProducts", "Product", new {Area = "SportsStore" },
+    new { @class = "btn btn-outline-secondary btn-lg mb-4" })
+
+@foreach (var link in Model) {
+    @Html.RouteLink(link, new {
+    controller = "Product",
+    action = "ListProducts",
+    category = link,
+    page = 1
+    }, new {
+        @class="btn btn-outline-secondary btn-lg mb-3"
+    })
+}
