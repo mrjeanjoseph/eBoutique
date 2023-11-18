@@ -91,5 +91,31 @@ namespace YTP.MainTest.SportsStore {
             Assert.AreEqual(pageInfo.TotalItems, 5);
             Assert.AreEqual(pageInfo.TotalPages, 2);
         }
+
+        [TestMethod]
+        public void CanFilterProducts() {
+            //Arrage
+            //- Create the repository
+            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[] {
+                new Product {ProductID = 1, ProductName = "P1"},
+                new Product {ProductID = 2, ProductName = "P2"},
+                new Product {ProductID = 3, ProductName = "P3"},
+                new Product {ProductID = 4, ProductName = "P4"},
+                new Product {ProductID = 5, ProductName = "P5"}
+            });
+
+            //Arrange
+            ProductController controller = new ProductController(mock.Object);
+            controller.PageSize = 3;
+
+            //Act
+            Product[] result = ((ProductsList_VM)controller.ListProducts(null, 2).Model).Products.ToArray();
+
+            //Assert
+            Assert.AreEqual(result.Length, 2);
+            Assert.IsTrue(result[0].ProductName == "P2" && result[0].Category == "Cat2");
+            Assert.IsTrue(result[1].ProductName == "P4" && result[1].Category == "Cat2");
+        }
     }
 }

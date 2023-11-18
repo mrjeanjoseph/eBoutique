@@ -14,7 +14,7 @@
 }
 
 <div class="btn-group float-end bg-dark-subtle">
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("ListProducts", new { page = x }))
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("ListProducts", new { page = x, category = Model.CurrentCategory }))
 </div>
 
 
