@@ -7,7 +7,7 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
 
     public class ProductController : Controller {
         private readonly IProductsRepository _productRepo;
-        public int PageSize = 4;
+        public int PageSize = 5;
 
         public ProductController(IProductsRepository productRepo) {
             _productRepo = productRepo;

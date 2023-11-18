@@ -10,10 +10,10 @@ using System.Linq;
 using System;
 using Moq;
 
-namespace YTP.MainTest.SportsStore {
+namespace YTP.MainTest.SportsStore.UnitTest {
 
     [TestClass]
-    public class UnitTest1 {
+    public class ProductTests {
 
         [TestMethod]
         public void CanPaginate() {
@@ -167,6 +167,38 @@ namespace YTP.MainTest.SportsStore {
             //Assert
             Assert.AreEqual(categoryToSelect, result);
 
+        }
+
+        [TestMethod]
+        public void GenerateCategorySpecificProductCount() {
+
+            //Arrange
+            // --Create the mock repository
+            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[] {
+                new Product {ProductID = 1, ProductName = "Pwodui un", Category = "categori un"},
+                new Product {ProductID = 2, ProductName = "Pwodui de", Category = "categori de"},
+                new Product {ProductID = 3, ProductName = "Pwodui twa", Category = "categori un"},
+                new Product {ProductID = 4, ProductName = "Pwodui kat", Category = "categori de"},
+                new Product {ProductID = 5, ProductName = "Pwodui senk", Category = "categori un"},
+                new Product {ProductID = 5, ProductName = "Pwodui senk", Category = "categori twa"}
+            });
+
+            //Arrange - create a controller and make the page size 3 items
+            ProductController target = new ProductController(mock.Object);
+            target.PageSize = 3;
+
+            //Action - test the product counts for different categories
+            int res1 = ((ProductsList_VM)target.ListProducts("categori un").Model).PagingInfo.TotalItems;
+            int res2 = ((ProductsList_VM)target.ListProducts("categori de").Model).PagingInfo.TotalItems;
+            int res3 = ((ProductsList_VM)target.ListProducts("categori twa").Model).PagingInfo.TotalItems;
+            int resAll = ((ProductsList_VM)target.ListProducts(null).Model).PagingInfo.TotalItems;
+
+            //Assert
+            Assert.AreEqual(res1, 3);
+            Assert.AreEqual(res2, 2);
+            Assert.AreEqual(res3, 1);
+            Assert.AreEqual(resAll, 6);
         }
     }
 }
