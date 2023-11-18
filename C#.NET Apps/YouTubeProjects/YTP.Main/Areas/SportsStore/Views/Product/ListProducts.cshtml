@@ -1,6 +1,6 @@
 ﻿@model YTP.Main.Areas.SportsStore.Models.ProductsList_VM
 @*@using YTP.Domain.SportsStore.Entities
-@model IEnumerable<Product>*@
+    @model IEnumerable<Product>*@
 
 
 
@@ -10,9 +10,16 @@
 
 
 @foreach (var item in Model.Products) {
-    @Html.Partial("_productsummary",item)
+    @Html.Partial("_productsummary", item)
 }
 
 <div class="btn-group float-end bg-dark-subtle">
     @Html.PageLinks(Model.PagingInfo, x => Url.Action("ListProducts", new { page = x }))
 </div>
+
+
+@*<div class="btn-group btn-dark">
+    <a class='btn btn-lg btn-default' href='Page1'>1</a>
+    <a class='btn btn-lg btn-default btn-primary selected' href='Page2'>2</a>
+    <a class='btn btn-lg btn-default' href='Page3'>3</a>
+</div>*@

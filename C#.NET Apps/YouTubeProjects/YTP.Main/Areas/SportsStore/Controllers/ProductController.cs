@@ -14,10 +14,11 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
         }
 
         // GET: SportsStore/Product
-        public ActionResult ListProducts(int page = 1) {
+        public ViewResult ListProducts(string category, int page = 1) {
 
             ProductsList_VM viewModel = new ProductsList_VM {
                 Products = _productRepo.Products
+                .Where(p => category == null || p.Category == category)
                 .OrderBy(p => p.ProductID)
                 .Skip((page - 1) * PageSize)
                 .Take(PageSize),
@@ -26,7 +27,9 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
                     TotalItems = _productRepo.Products.Count()
-                }
+                },
+
+                CurrentCategory = category,
             };
 
             return View(viewModel);

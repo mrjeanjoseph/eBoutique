@@ -1,14 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using YTP.Main.Areas.SportsStore.Models.HtmlHelpers;
 using YTP.Main.Areas.SportsStore.Controllers;
+using YTP.Main.Areas.SportsStore.Models;
 using YTP.Domain.SportsStore.Abstract;
 using YTP.Domain.SportsStore.Entities;
-using System.Collections.Generic;
-using System.Linq;
-using Moq;
 using System.Web.Mvc;
-using YTP.Main.Areas.SportsStore.Models.HtmlHelpers;
-using YTP.Main.Areas.SportsStore.Models;
+using System.Linq;
 using System;
+using Moq;
 
 namespace YTP.MainTest.SportsStore {
 
@@ -33,7 +32,7 @@ namespace YTP.MainTest.SportsStore {
 
             //Act
             //IEnumerable<Product> result = (IEnumerable<Product>)controller.ListProducts(2); //
-            ProductsList_VM result = (ProductsList_VM)controller.ListProducts(2).;
+            ProductsList_VM result = (ProductsList_VM)controller.ListProducts(null, 2).Model;
 
             //Assert
             Product[] prodArray = result.Products.ToArray();
@@ -62,7 +61,7 @@ namespace YTP.MainTest.SportsStore {
             MvcHtmlString result = myHelper.PageLinks(pagingInfo, pageUrlDelegate);
 
             //Assert
-            Assert.AreEqual(@"<a class=""btn btn-default"" href=""Page1"">1</a><a class=""btn btn-default btn-primary selected"" href=""Page2"">2</a><a class=""btn btn-default"" href=""Page3"">3</a>", result.ToString());
+            Assert.AreEqual(@"<a class='btn btn-default' href='Page1'>1</a><a class='btn btn-default btn-primary selected' href='Page2'>2</a><a class='btn btn-default' href='Page3'>3</a>", result.ToString());
         }
 
         [TestMethod]
@@ -83,7 +82,7 @@ namespace YTP.MainTest.SportsStore {
             controller.PageSize = 3;
 
             //Act
-            ProductsList_VM result = (ProductsList_VM)controller.ListProducts(2).Model;
+            ProductsList_VM result = (ProductsList_VM)controller.ListProducts(null, 2).Model;
 
             //Assert
             PagingInfo pageInfo = result.PagingInfo;
