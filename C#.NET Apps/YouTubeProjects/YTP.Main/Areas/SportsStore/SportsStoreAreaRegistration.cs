@@ -15,6 +15,11 @@ namespace YTP.Main.Areas.SportsStore
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
+                null,
+                url : "Page{page}",
+                defaults: new { controller = "Product", action = "ListProducts" }
+            );
+            context.MapRoute(
                 "SportsStore",
                 "SportsStore/{controller}/{action}/{id}",
                 new { action = "ListProducts", id = UrlParameter.Optional },
