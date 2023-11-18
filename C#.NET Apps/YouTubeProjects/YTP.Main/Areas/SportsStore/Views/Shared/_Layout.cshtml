@@ -5,10 +5,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+
 </head>
 <body>
-    <div>
-        @RenderBody()
+    <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <a class="navbar-brand" href="#">Sports Store - DVC</a>
+    </nav>
+    <div class="row mt-4">
+        <div id="categories" class="col-sm-3">
+            <div class="card">
+                <p>Will add something soon - not sure!</p>
+            </div>
+        </div>
+        <div class="col-sm-7">
+                @RenderBody()
+        </div>
     </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
 </body>
 </html>
