@@ -3,7 +3,7 @@ using System;
 
 namespace YTP.MainTest.SportsStore.UnitTest {
     [TestClass]
-    public class UnitTest2 {
+    public class CartTests {
         [TestMethod]
         public void TestMethod1() {
         }
