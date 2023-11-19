@@ -13,7 +13,7 @@ namespace YTP.Main.Infrastructure.Binders {
             if(controllerContext.HttpContext.Session != null) 
                 cart = (Cart)controllerContext.HttpContext.Session[sessionKey];
             
-            if(cart != null ) {
+            if(cart == null ) {
                 cart = new Cart();
                 if (controllerContext.HttpContext.Session != null)
                     controllerContext.HttpContext.Session[sessionKey] = cart;
