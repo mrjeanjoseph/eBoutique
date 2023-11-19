@@ -6,6 +6,19 @@ using YTP.Domain.SportsStore.Entities;
 
 namespace YTP.Domain.SportsStore.Concrete {
 
+    public class EmailSettings {
+        public string MailToAddress = "mr.jeanjoseph@gmail.com";
+        public string MailFromAddress = "deepvuecrud@outlook.com";
+        public bool UseSSL = true;
+        public string Username = "deepvuecrud@outlook.com";
+        public string Password = "T0tal-C0nnect!on";
+        public string ServerName = "smtp.office365.com";
+        public int ServerPort = 587;
+        public bool WriteAsFile = false;
+        public string FileLocation = @"C:\Users\admin\emaillogs";
+
+
+    }
     public class EmailOrderProcessor : IOrderProcessor {
         private readonly EmailSettings _emailSettings;
 
