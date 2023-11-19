@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using YTP.Domain.SportsStore.Abstract;
 using YTP.Domain.SportsStore.Entities;
@@ -14,34 +13,61 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
             _repository = repository;
         }
 
-        public ActionResult Index(string returnUrl) {
+        public ViewResult Index(Cart cart, string returnUrl) {
             return View(new CartIndex_VM {
-                Cart = GetCart(),
-                ReturnUrl = returnUrl
+                ReturnUrl = returnUrl,
+                Cart = cart,
             });
         }
 
-        public RedirectToRouteResult AddToCart(int productId, string returnUrl) {
+        //public ActionResult Index(string returnUrl) {
+        //    return View(new CartIndex_VM {
+        //        Cart = GetCart(),
+        //        ReturnUrl = returnUrl
+        //    });
+        //}
+
+        public RedirectToRouteResult AddToCart(Cart cart, int productId, string returnUrl) {
             Product product = _repository.Products
                     .FirstOrDefault(p => p.ProductID == productId);
 
             if (product != null) {
-                GetCart().AddItem(product, 1);
+                cart.AddItem(product, 1);
             }
 
             return RedirectToAction("Index", new { returnUrl });
         }
+        //public RedirectToRouteResult AddToCart(int productId, string returnUrl) {
+        //    Product product = _repository.Products
+        //            .FirstOrDefault(p => p.ProductID == productId);
 
-        public RedirectToRouteResult RemoveFromCart(int productId, string returnUrl) {
+        //    if (product != null) {
+        //        GetCart().AddItem(product, 1);
+        //    }
+
+        //    return RedirectToAction("Index", new { returnUrl });
+        //}
+
+        public RedirectToRouteResult RemoveFromCart(Cart cart, int productId, string returnUrl) {
             Product product = _repository.Products
         .FirstOrDefault(p => p.ProductID == productId);
 
             if (product != null) {
-                GetCart().RemoveLine(product);
+                cart.RemoveLine(product);
             }
 
             return RedirectToAction("Index", new { returnUrl });
         }
+        //public RedirectToRouteResult RemoveFromCart(int productId, string returnUrl) {
+        //    Product product = _repository.Products
+        //.FirstOrDefault(p => p.ProductID == productId);
+
+        //    if (product != null) {
+        //        GetCart().RemoveLine(product);
+        //    }
+
+        //    return RedirectToAction("Index", new { returnUrl });
+        //}
 
         private Cart GetCart() {
 
