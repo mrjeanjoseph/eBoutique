@@ -51,10 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SportsStore\Abstract\IOrderProcessor.cs" />
     <Compile Include="SportsStore\Abstract\IProductsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SportsStore\Concrete\EFDbContext.cs" />
     <Compile Include="SportsStore\Concrete\EFProductRepository.cs" />
+    <Compile Include="SportsStore\Concrete\EmailOrderProcessor.cs" />
     <Compile Include="SportsStore\Entities\Cart.cs" />
     <Compile Include="SportsStore\Entities\Product.cs" />
     <Compile Include="SportsStore\Entities\ShippingDetails.cs" />

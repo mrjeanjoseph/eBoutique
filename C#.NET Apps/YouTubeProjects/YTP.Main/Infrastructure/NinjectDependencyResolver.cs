@@ -3,6 +3,7 @@ using Ninject;
 using Ninject.Web.Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Web.Mvc;
 using YTP.Domain.SportsStore.Abstract;
 using YTP.Domain.SportsStore.Concrete;
@@ -42,6 +43,13 @@ namespace YTP.Main.Infrastructure {
 
             //Service request from for the IProductRepository Interface
             _kernel.Bind<IProductsRepository>().To<EFProductRepository>().InRequestScope();
+            EmailSettings emailSettings = new EmailSettings {
+                WriteAsFile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAsFile"] ?? "false"),
+                //Username = ConfigurationManager.AppSettings["Email.UserName"] ?? string.Empty, //Maybe we can pass in those values here too
+            };
+
+            _kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
+                .WithConstructorArgument("settings", emailSettings);
         }
 
         public object GetService(Type serviceType) {
