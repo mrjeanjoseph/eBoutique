@@ -57,6 +57,7 @@
     <Compile Include="SportsStore\Concrete\EFProductRepository.cs" />
     <Compile Include="SportsStore\Entities\Cart.cs" />
     <Compile Include="SportsStore\Entities\Product.cs" />
+    <Compile Include="SportsStore\Entities\ShippingDetails.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

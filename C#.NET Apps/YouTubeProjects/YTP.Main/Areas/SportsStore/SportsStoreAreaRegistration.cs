@@ -12,7 +12,8 @@ namespace YTP.Main.Areas.SportsStore {
 
         public override void RegisterArea(AreaRegistrationContext context) {
 
-            context.MapRoute(null, "SportsStore",
+            context.MapRoute(null, 
+                "SportsStore",
                 new { controller = "Product", action = "ListProducts", category = (string)null, page = 1 });
 
             context.MapRoute(null,
@@ -28,6 +29,10 @@ namespace YTP.Main.Areas.SportsStore {
                 "SportsStore/{category}/Page{page}",
                 new { controller = "Product", action = "ListProducts" },
                 new { page = @"\d+" });
+
+            context.MapRoute(null,
+                "SportsStore/{controller}/{action}",
+                new { controller = "Cart", action = "Checkout", id = UrlParameter.Optional });
 
             context.MapRoute("SportsStore", "{controller}/{action}"); //Not entirely sure what this does.
         }

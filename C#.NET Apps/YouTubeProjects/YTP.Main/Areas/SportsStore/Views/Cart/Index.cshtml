@@ -47,12 +47,21 @@
                 @Model.Cart.ComputeTotalValue().ToString("c")
             </td>
             <td class="text-center">
-            ---
+                ---
             </td>
         </tr>
+        <tr>
+            <td class="text-center border-bottom-0" colspan="5">
+                <a href="@Model.ReturnUrl" class="btn btn-primary">Continue Shopping</a>
+                @Html.ActionLink("Checkout Now", "Checkout", null, null, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
+
     </tfoot>
 </table>
 
-<div class="float-end">
+@*<div class="mx-auto d-block">
     <a href="@Model.ReturnUrl" class="btn btn-primary">Continue Shopping</a>
-</div>
+    @Html.ActionLink("Checkout Now", "Checkout", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Checkout Now2", "Checkout", "Cart", new { area = "SportsStore" }, new { @class = "btn btn-primary" })
+</div>*@
