@@ -289,6 +289,7 @@
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="Areas\OperatingManagement\Models\VendorRecordModel.cs" />
     <Compile Include="Areas\SandboxTBP\Models\Product.cs" />
+    <Compile Include="Infrastructure\Binders\CartModelBinder.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\MiniDisplay.cs" />
     <Compile Include="Models\Module.cs" />
