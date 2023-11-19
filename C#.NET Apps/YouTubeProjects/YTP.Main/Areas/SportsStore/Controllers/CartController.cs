@@ -83,5 +83,9 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
         public PartialViewResult Summary(Cart cart) {
             return PartialView("_Summary", cart);
         }
+
+        public ViewResult Checkout() {
+            return View(new ShippingDetails());
+        }
     }
 }
