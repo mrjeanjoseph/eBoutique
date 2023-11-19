@@ -8,9 +8,11 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
     public class CartController : Controller {
 
         private readonly IProductsRepository _repository;
+        private readonly IOrderProcessor _orderProcessor;
 
-        public CartController(IProductsRepository repository) {
+        public CartController(IProductsRepository repository, IOrderProcessor orderProcessor) {
             _repository = repository;
+            _orderProcessor = orderProcessor;
         }
 
         public ViewResult Index(Cart cart, string returnUrl) {
@@ -86,6 +88,21 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
 
         public ViewResult Checkout() {
             return View(new ShippingDetails());
+        }
+
+        [HttpPost]
+        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails) {
+
+            if (cart.Lines.Count() == 0)
+                ModelState.AddModelError("", "Sorry your cart is empty");
+
+            if(ModelState.IsValid) {
+                _orderProcessor.ProcessOrder(cart, shippingDetails);
+                cart.Clear();
+                return View("Completed");
+            } else {
+                return View(new ShippingDetails());
+            }
         }
     }
 }
