@@ -1,0 +1,21 @@
+﻿@model YTP.Domain.SportsStore.Entities.Product
+
+<div class="card bg-light-subtle mb-2 p-3">
+
+    <h3>
+        <strong>@Model.ProductName</strong>
+        <span class="border-primary float-end">@Model.ProductPrice.ToString("c")</span>
+    </h3>
+
+    @using(Html.BeginForm("AddToCart", "Cart")) {
+        <div class="float-end">
+            @Html.HiddenFor(x => x.ProductID)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" class="btn btn-success" value="Add To Cart" />
+        </div>
+
+            }
+
+    <span class="lead">@Model.Description</span>
+
+</div>
