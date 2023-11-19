@@ -69,7 +69,7 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
         //    return RedirectToAction("Index", new { returnUrl });
         //}
 
-        private Cart GetCart() {
+        private Cart GetCart() { //We're using the cart model binders instead
 
             Cart cart = (Cart)Session["Cart"];
             if (cart == null) {
@@ -78,6 +78,10 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
             }
 
             return cart;
+        }
+
+        public PartialViewResult Summary(Cart cart) {
+            return PartialView("_Summary", cart);
         }
     }
 }
