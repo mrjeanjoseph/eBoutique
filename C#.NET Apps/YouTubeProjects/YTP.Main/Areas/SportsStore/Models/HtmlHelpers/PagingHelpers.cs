@@ -18,9 +18,12 @@ namespace YTP.Main.Areas.SportsStore.Models.HtmlHelpers {
                     tag.AddCssClass("selected");
 
                     tag.AddCssClass("btn-primary");
-                }
+                } else
+                    tag.AddCssClass("btn-light");
+                
 
-                tag.AddCssClass("btn btn-lg btn-default");
+                tag.AddCssClass("btn btn-lg");
+
                 result.Append(tag.ToString());
             }
             return MvcHtmlString.Create(result.ToString());
