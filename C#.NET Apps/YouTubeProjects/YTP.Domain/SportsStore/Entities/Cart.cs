@@ -21,7 +21,7 @@ namespace YTP.Domain.SportsStore.Entities {
             }
         }
 
-        public void RemoveItem(Product product) {
+        public void RemoveLine(Product product) {
             lineCollection.RemoveAll(l => l.Product.ProductID == product.ProductID);
         }
 
