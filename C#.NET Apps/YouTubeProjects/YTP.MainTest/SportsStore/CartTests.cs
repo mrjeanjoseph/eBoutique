@@ -212,7 +212,7 @@ namespace YTP.MainTest.SportsStore.UnitTest {
             CartController target = new CartController(null, mock.Object);
 
             //Act 
-            ViewResult result = target.Checkout(cart, shippingDetails);
+            ViewResult result = target.CheckoutCart(cart, shippingDetails);
 
             //Assert - check that the order hasn't been passed on to the processor
             mock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()), Times.Never());
@@ -238,7 +238,7 @@ namespace YTP.MainTest.SportsStore.UnitTest {
             target.ModelState.AddModelError("error", "error");
 
             //Act - try to checkout
-            ViewResult result = target.Checkout(cart, new ShippingDetails());
+            ViewResult result = target.CheckoutCart(cart, new ShippingDetails());
 
             //Assert - check that the order hasn't been passed on the processor
             mock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()), Times.Never());
@@ -264,7 +264,7 @@ namespace YTP.MainTest.SportsStore.UnitTest {
             target.ModelState.AddModelError("error", "error");
 
             //Act - try to checkout
-            ViewResult result = target.Checkout(cart, new ShippingDetails());
+            ViewResult result = target.CheckoutCart(cart, new ShippingDetails());
 
             //Assert - check that the order hasn't been passed on the processor
             mock.Verify(m => m.ProcessOrder( //Failed here - not sure why but we're moving on.
