@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<string>
 
 <div class="btn-group d-flex justify-content-center pb-3" role="group">
+
     @Html.ActionLink("Principal", "ListProducts", "Product", 
         new { Area = "SportsStore" },
         new { @class = "btn btn-outline-secondary btn-lg" })
@@ -16,4 +17,5 @@
             + (link == ViewBag.SelectedCategory ? " btn-secondary text-white" : "")
         })
     }
+
 </div>

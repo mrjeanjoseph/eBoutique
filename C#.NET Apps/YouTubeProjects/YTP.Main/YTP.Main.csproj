@@ -467,6 +467,9 @@
     <Content Include="Areas\SportsStore\Views\Cart\CheckoutCompleted.cshtml" />
     <Content Include="Areas\SportsStore\Views\Nav\_MenuHorizontal.cshtml" />
     <Content Include="Areas\SportsStore\Views\Nav\_MenuLeft.cshtml" />
+    <Content Include="Areas\SportsStore\Views\Shared\_Layout.Mobile.cshtml" />
+    <Content Include="Areas\SportsStore\Views\Nav\_Menu.Mobile.cshtml" />
+    <Content Include="Areas\SportsStore\Views\Shared\_productsummary.mobile.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
