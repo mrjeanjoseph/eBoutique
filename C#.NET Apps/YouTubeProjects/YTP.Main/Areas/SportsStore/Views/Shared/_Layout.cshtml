@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/localstyles")
 
 </head>
 <body>
     <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container">
-            <a class="navbar-brand me-auto" href="~/SportsStore/">Pwodwi Lakay - DVC</a>
+            <a class="navbar-brand me-auto" href="~/SportsStore/">
+                <span class="d-none d-md-block">Pwodwi Lakay - DVC</span>
+                <div class="d-block d-md-none">PL - DVC</div>
+            </a>
             @Html.Action("Summary", "Cart")
         </div>
 

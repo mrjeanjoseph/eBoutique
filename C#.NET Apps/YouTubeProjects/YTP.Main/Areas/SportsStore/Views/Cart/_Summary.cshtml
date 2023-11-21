@@ -3,15 +3,25 @@
 
 
 <div class="navbar-nav">
-    <div class="text-white mx-3">
-        <b>Your Cart: </b>
+
+    <div class="text-white mx-2">
         @Model.Lines.Sum(x => x.Quantity) item(s),
         @Model.ComputeTotalValue().ToString("c")
     </div>
 
+</div>
+<div class="navbar-nav">
 
+    <div class="d-block d-lg-none">
+        <a href="@Url.Action("Index", "Cart", new {returnUrl = Request.Url.PathAndQuery })">
+            <div class="btn btn-light btn-sm"><i class="bi bi-cart-plus"></i></div>
+        </a>
+    </div>
+
+    <div class="d-none d-lg-block">
         @Html.ActionLink("Checkout", "Index", "Cart",
         new { returnUrl = Request.Url.PathAndQuery },
         new { @class = "btn btn-light btn-sm" })
+    </div>
 
 </div>

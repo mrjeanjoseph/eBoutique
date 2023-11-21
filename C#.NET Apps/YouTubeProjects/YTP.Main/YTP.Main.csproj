@@ -305,6 +305,7 @@
     <Content Include="App_Data\ProductsData.xml" />
     <Content Include="Areas\HumanResources\LocalAssets\site.home.js" />
     <Content Include="Areas\SandboxTBP\ReadMe.txt" />
+    <Content Include="Areas\SportsStore\LocalAsset\site.css" />
     <Content Include="Content\Site.css" />
     <Content Include="DataAccess\YPTDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -318,6 +319,7 @@
     </Content>
     <Content Include="GlobalAsset\styles\icons\bootstrap-icons.css" />
     <Content Include="GlobalAsset\styles\icons\bootstrap-icons.min.css" />
+    <Content Include="GlobalAsset\styles\icons\cart-plus.svg" />
     <Content Include="GlobalAsset\styles\icons\house.svg" />
     <Content Include="GlobalAsset\styles\alertifyjs\alertify.css" />
     <Content Include="GlobalAsset\styles\alertifyjs\alertify.min.css" />
