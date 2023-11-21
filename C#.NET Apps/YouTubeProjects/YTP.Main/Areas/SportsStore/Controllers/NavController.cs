@@ -12,7 +12,7 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
             _repository = repository;
         }
         
-        public PartialViewResult Menu(string category = null) {
+        public PartialViewResult Menu(string category = null, bool horizontalMenu=false) {
 
             ViewBag.SelectedCategory = category;
 
@@ -22,7 +22,8 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
                     .OrderBy(p => p);
 
             //return PartialView(categories);
-            return PartialView("_Menu",categories);
+            string menuLayout = horizontalMenu ? "_MenuHorizontal" : "_Menu";
+            return PartialView(menuLayout, categories);
         }
     }
 }

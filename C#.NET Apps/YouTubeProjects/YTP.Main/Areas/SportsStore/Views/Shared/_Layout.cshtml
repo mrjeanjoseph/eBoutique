@@ -20,14 +20,20 @@
         </div>
 
     </nav>
+
     <div class="container">
         <div class="row mt-4">
-            <div id="categories" class="col-lg-4 col-md-4">
+            <div class="d-block d-md-none">
+                <div class="card border-0">
+                    @Html.Action("Menu", "Nav", new { horizontalMenu = true })
+                </div>
+            </div>
+            <div id="categories" class="col-lx-2 col-lg-3 col-md-4 d-none d-md-block">
                 <div class="card border-0">
                     @Html.Action("Menu", "Nav")
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-sm-12 col-md-8">
                 @RenderBody()
             </div>
         </div>

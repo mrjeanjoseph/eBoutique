@@ -8,8 +8,8 @@
         @Model.Lines.Sum(x => x.Quantity) item(s),
         @Model.ComputeTotalValue().ToString("c")
     </div>
-
 </div>
+
 <div class="navbar-nav">
 
     <div class="d-block d-lg-none">
@@ -23,5 +23,4 @@
         new { returnUrl = Request.Url.PathAndQuery },
         new { @class = "btn btn-light btn-sm" })
     </div>
-
 </div>

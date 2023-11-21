@@ -465,6 +465,8 @@
     <Content Include="Areas\SportsStore\Views\Cart\_Summary.cshtml" />
     <Content Include="Areas\SportsStore\Views\Cart\CheckoutCart.cshtml" />
     <Content Include="Areas\SportsStore\Views\Cart\CheckoutCompleted.cshtml" />
+    <Content Include="Areas\SportsStore\Views\Nav\_MenuHorizontal.cshtml" />
+    <Content Include="Areas\SportsStore\Views\Nav\_MenuRight.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
@@ -485,6 +487,7 @@
     <Content Include="GlobalAsset\scripts\main.site.js" />
     <Content Include="GlobalAsset\scripts\alertify.js" />
     <Content Include="GlobalAsset\scripts\alertify.min.js" />
+    <Content Include="bs-testingpage.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
