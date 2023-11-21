@@ -466,7 +466,7 @@
     <Content Include="Areas\SportsStore\Views\Cart\CheckoutCart.cshtml" />
     <Content Include="Areas\SportsStore\Views\Cart\CheckoutCompleted.cshtml" />
     <Content Include="Areas\SportsStore\Views\Nav\_MenuHorizontal.cshtml" />
-    <Content Include="Areas\SportsStore\Views\Nav\_MenuRight.cshtml" />
+    <Content Include="Areas\SportsStore\Views\Nav\_MenuLeft.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
