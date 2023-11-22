@@ -1,11 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using YTP.Main.Areas.SportsStore.Controllers;
+using Moq;
+using System.Collections.Generic;
+using System.Linq;
 using YTP.Domain.SportsStore.Abstract;
 using YTP.Domain.SportsStore.Entities;
-using System.Collections.Generic;
-using Moq;
-using System.Web.Mvc;
-using System.Linq;
+using YTP.Main.Areas.SportsStore.Controllers;
 
 namespace YTP.MainTest.SportsStore {
     [TestClass]
