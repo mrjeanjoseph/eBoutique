@@ -2,6 +2,7 @@
 using Moq;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
 using YTP.Domain.SportsStore.Abstract;
 using YTP.Domain.SportsStore.Entities;
 using YTP.Main.Areas.SportsStore.Controllers;
@@ -81,6 +82,49 @@ namespace YTP.MainTest.SportsStore {
 
             //Assert
             Assert.IsNull(result);
+        }
+
+        [TestMethod]
+        public void CanSaveValidChanges() {
+            //Arrage - Create mock repository
+            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
+            
+            //Arrage - Create the controller
+            AdminController target = new AdminController(mock.Object);
+
+            //Arrange - Create a product
+            Product product = new Product { ProductName = "Product One" };
+
+            //Act - Try to save the product
+            ActionResult result = target.Edit(product);
+
+            //Assert - Check that the repository was called
+            mock.Verify(m => m.SaveProduct(product));
+            //Assert - Check the method result type
+            Assert.IsNotInstanceOfType(result, typeof(ViewResult));
+        }
+
+        [TestMethod]
+        public void CannotSaveInvalidChanges() {
+            //Arrange - Create mock repository
+            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
+
+            //Arrange - Create the controller
+            AdminController target = new AdminController(mock.Object);
+
+            //Arrange - Create a product
+            Product product = new Product { ProductName = "Product One" };
+
+            //Arrange - Add an error to the model state
+            target.ModelState.AddModelError("error", "error");
+
+            //Act - Try to save the product
+            ActionResult result = target.Edit(product);
+
+            //Assert - Check that the repository was not called
+            mock.Verify(m => m.SaveProduct(It.IsAny<Product>()), Times.Never());
+            //Assert - Check the method result type
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
         }
     }
 }

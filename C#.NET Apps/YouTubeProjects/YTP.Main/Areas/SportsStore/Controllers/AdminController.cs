@@ -26,7 +26,7 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
         }
 
         [HttpPost]
-        public ActionResult Delete(Product product) {
+        public ActionResult Edit(Product product) {
             if(ModelState.IsValid) {
                 _productRepo.SaveProduct(product);
                 TempData["message"] = string.Format("{0} has been saved", product.ProductName);
