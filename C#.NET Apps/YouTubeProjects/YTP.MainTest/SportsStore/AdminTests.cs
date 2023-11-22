@@ -34,5 +34,53 @@ namespace YTP.MainTest.SportsStore {
             Assert.AreEqual("Product name Two", result[1].ProductName);
             Assert.AreEqual("Product name Three", result[2].ProductName);
         }
+
+        [TestMethod]
+        public void CanEditProduct() {
+
+            //Arrange - create the mock repository
+            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[] {
+                new Product {ProductID = 1, ProductName = "Product 1"},
+                new Product {ProductID = 2, ProductName = "Product 2"},
+                new Product {ProductID = 3, ProductName = "Product 3"},
+                new Product {ProductID = 4, ProductName = "Product 4"},
+                new Product {ProductID = 5, ProductName = "Product 5"},
+            });
+
+            //Arrange - Create the controller
+            AdminController target = new AdminController(mock.Object);
+
+            //Act
+            Product p1 = target.Edit(1).ViewData.Model as Product;
+            Product p2 = target.Edit(2).ViewData.Model as Product;
+            Product p3 = target.Edit(3).ViewData.Model as Product;
+
+            //Assert
+            Assert.AreEqual(1, p1.ProductID);
+            Assert.AreEqual(2, p2.ProductID);
+            Assert.AreEqual(3, p3.ProductID);
+        }
+
+        [TestMethod]
+        public void CannotEditNonExixtentProduct() {
+
+            //Arrange - create the mock repository
+            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[] {
+                new Product {ProductID = 1, ProductName = "Product 1"},
+                new Product {ProductID = 2, ProductName = "Product 2"},
+                new Product {ProductID = 3, ProductName = "Product 3"}
+            });
+
+            //Arrange - Create the controller
+            AdminController target = new AdminController(mock.Object);
+
+            //Act
+            Product result = (Product)target.Edit(4).ViewData.Model;
+
+            //Assert
+            Assert.IsNull(result);
+        }
     }
 }
