@@ -40,6 +40,9 @@ namespace YTP.Main {
             bundles.Add(new Bundle("~/bundles/localscripts").Include(
                       "~/Areas/HumanResources/LocalAssets/haitiemployee.js",
                       "~/Areas/HumanResources/LocalAssets/site.home.js"));
+
+            bundles.Add(new Bundle("~/Content/localstyles").Include(
+                      "~/Areas/SportsStore/LocalAsset/site.css"));
         }
     }
 }
