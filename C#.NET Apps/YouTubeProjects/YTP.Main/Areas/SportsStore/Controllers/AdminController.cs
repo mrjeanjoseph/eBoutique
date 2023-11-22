@@ -36,5 +36,20 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
                 return View(product);
             }
         }
+
+        public ViewResult Create() {
+            return View("Edit", new Product());
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int productId) {
+            Product deletedProduct = _productRepo.DeleteProduct(productId);
+
+            if(deletedProduct != null) 
+                TempData["message"] = string.Format("{0} was deleted", deletedProduct.ProductName);
+
+            return RedirectToAction("Index");
+            
+        }
     }
 }

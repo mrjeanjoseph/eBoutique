@@ -30,7 +30,7 @@
                 @Html.ActionLink("Cancel and Return to List", "Index")
             }*@
 
-        @using (Html.BeginForm()) {
+        @using (Html.BeginForm("Edit", "Admin")) {
 
             <div class="card-body">
                 @Html.HiddenFor(m => m.ProductID)
@@ -44,15 +44,16 @@
                                 @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
                             }
                         </div>
+                        @Html.ValidationMessage(property.PropertyName)
                     }
                 }
             </div>
-        }
 
-        <div class="card-footer text-center">
-            <input type="submit" value="Save Changes" class="btn btn-primary" />
-            @Html.ActionLink("Cancel and Go Back", "Index", null, new {@class="btn btn-danger"})
-        </div>
+            <div class="card-footer text-center">
+                <input type="submit" value="Save Changes" class="btn btn-primary" />
+                @Html.ActionLink("Cancel and Go Back", "Index", null, new { @class = "btn btn-danger" })
+            </div>
+        }
     </div>
 
 </div>

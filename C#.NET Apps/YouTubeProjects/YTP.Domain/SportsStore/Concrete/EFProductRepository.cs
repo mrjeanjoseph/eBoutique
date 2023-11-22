@@ -24,5 +24,14 @@ namespace YTP.Domain.SportsStore.Concrete {
             }
             _dbContext.SaveChanges();
         }
+
+        public Product DeleteProduct(int productId) {
+            Product dbproductentry = _dbContext.Products.Find(productId);
+            if(dbproductentry != null) {
+                _dbContext.Products.Remove(dbproductentry);
+                _dbContext.SaveChanges();
+            }
+            return dbproductentry;
+        }
     }
 }
