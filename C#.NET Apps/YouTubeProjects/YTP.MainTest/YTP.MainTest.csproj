@@ -92,6 +92,7 @@
     <Compile Include="EssentialTools\ShoppingCartTest.cs" />
     <Compile Include="SportsStore\ProductTests.cs" />
     <Compile Include="SportsStore\CartTests.cs" />
+    <Compile Include="SportsStore\AdminTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
