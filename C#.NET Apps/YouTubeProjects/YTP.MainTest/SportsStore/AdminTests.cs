@@ -126,5 +126,28 @@ namespace YTP.MainTest.SportsStore {
             //Assert - Check the method result type
             Assert.IsInstanceOfType(result, typeof(ViewResult));
         }
+
+        [TestMethod]
+        public void CanDeleteValidProduct() {
+            //Arrange - Create a product
+            Product product = new Product { ProductID = 2, ProductName = "Product Name One" };
+
+            //Arrange - Create the mock repository
+            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[] {
+                new Product { ProductID = 1, ProductName = "Product Name One"},
+                product,
+                new Product { ProductID = 3, ProductName = "Product Name Three"}
+            });
+
+            //Arrange - Create the controller
+            AdminController target = new AdminController(mock.Object);
+
+            //Act - Delete the product
+            target.Delete(product.ProductID);
+
+            //Assert - ensure that the repository delete mothod was called with the correct product
+            mock.Verify(m => m.DeleteProduct(product.ProductID));
+        }
     }
 }

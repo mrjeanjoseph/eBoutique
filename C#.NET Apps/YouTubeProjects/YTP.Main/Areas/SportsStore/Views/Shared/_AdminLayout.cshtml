@@ -10,10 +10,21 @@
 </head>
 <body>
     <div class="container">
-        @if (TempData["message"] != null) {
-            <div class="alert alert-success w-25">@TempData["message"]</div>
-        }
-    @RenderBody()
+
+        <div class="centerCard">
+
+            @{ var message = TempData["Message"] as string; }
+
+            @if (!string.IsNullOrEmpty(message)) {
+                <div id="tempMessage" class="alert alert-danger">@message</div>
+                <script>
+                    setTimeout(function () {
+                        $('#tempMessage').fadeOut('slow');
+                    }, 5000);
+                </script>
+            }
+        </div>
+        @RenderBody()
     </div>
 
 
