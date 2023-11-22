@@ -86,12 +86,16 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
             return PartialView("_Summary", cart);
         }
 
+
         public ViewResult CheckoutCart() {
+
             return View(new ShippingDetails());
         }
 
         [HttpPost]
+
         public ViewResult CheckoutCart(Cart cart, ShippingDetails shippingDetails) {
+
 
             if (cart.Lines.Count() == 0)
                 ModelState.AddModelError("", "Sorry your cart is empty");
@@ -99,7 +103,9 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
             if(ModelState.IsValid) {
                 _orderProcessor.ProcessOrder(cart, shippingDetails);
                 cart.Clear();
+
                 return View("CheckoutCompleted");
+
             } else {
                 return View(new ShippingDetails());
             }
