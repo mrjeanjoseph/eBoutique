@@ -24,5 +24,17 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
 
             return View(product);
         }
+
+        [HttpPost]
+        public ActionResult Delete(Product product) {
+            if(ModelState.IsValid) {
+                _productRepo.SaveProduct(product);
+                TempData["message"] = string.Format("{0} has been saved", product.ProductName);
+                return RedirectToAction("Index");
+            } else {
+                // There is something wrong with the data values
+                return View(product);
+            }
+        }
     }
 }

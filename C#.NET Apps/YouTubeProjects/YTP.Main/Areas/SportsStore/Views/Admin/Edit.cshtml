@@ -6,11 +6,53 @@
     Layout = "~/Areas/SportsStore/Views/Shared/_AdminLayout.cshtml";
 
 }
+<style>
+    /* Custom CSS for centering the card */
+    .centerCard {
+        display: flex;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+    }
+</style>
 
-<h1>Edit @Model.ProductName</h1>
+<div class="centerCard">
+    <div class="card " style="width: 70%;">
+        <div class="card-header">
+            <h1>Edit @Model.ProductName</h1>
+        </div>
 
-@using (Html.BeginForm()) {
-    @Html.EditorForModel()
-    <input type="submit" value="Save"/>
-    @Html.ActionLink("Cancel and Return to List", "Index")
- }
+
+        @*@using (Html.BeginForm()) {
+                @Html.EditorForModel()
+                <input type="submit" value="Save" />
+                @Html.ActionLink("Cancel and Return to List", "Index")
+            }*@
+
+        @using (Html.BeginForm()) {
+
+            <div class="card-body">
+                @Html.HiddenFor(m => m.ProductID)
+                @foreach (var property in ViewData.ModelMetadata.Properties) {
+                    if (property.PropertyName != "ProductID") {
+                        <div class="mb-3">
+                            <label>@(property.DisplayName ?? property.PropertyName)</label>
+                            @if (property.PropertyName == "Description") {
+                                @Html.TextArea(property.PropertyName, null, new { @class = "form-control", row = 10 })
+                            } else {
+                                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                            }
+                        </div>
+                    }
+                }
+            </div>
+        }
+
+        <div class="card-footer text-center">
+            <input type="submit" value="Save Changes" class="btn btn-primary" />
+            @Html.ActionLink("Cancel and Go Back", "Index", null, new {@class="btn btn-danger"})
+        </div>
+    </div>
+
+</div>
