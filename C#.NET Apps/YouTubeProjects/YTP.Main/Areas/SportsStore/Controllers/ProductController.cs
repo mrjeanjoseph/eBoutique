@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using YTP.Domain.SportsStore.Abstract;
+using YTP.Domain.SportsStore.Entities;
 using YTP.Main.Areas.SportsStore.Models;
 
 namespace YTP.Main.Areas.SportsStore.Controllers {
@@ -43,6 +44,17 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
             //        .Take(PageSize));
 
             //return View(_productRepo.Products);
+        }
+
+        public FileContentResult GetImage(int productId) {
+            Product prodImage = _productRepo.Products.FirstOrDefault(p => p.ProductID == productId);
+
+            //if (prodImage != null)
+            //    return File(prodImage.ImageData, prodImage.ImageMimeType);
+            //else return null;
+
+            //One liner
+            return (prodImage != null) ? File(prodImage.ImageData, prodImage.ImageMimeType) : null;
         }
     }
 }

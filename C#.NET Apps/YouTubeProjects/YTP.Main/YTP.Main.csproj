@@ -191,12 +191,14 @@
     <Compile Include="Areas\SandboxTBP\Models\IValueCalculator.cs" />
     <Compile Include="Areas\SandboxTBP\Models\MinimumDiscountHelper.cs" />
     <Compile Include="Areas\SandboxTBP\SandboxTBPAreaRegistration.cs" />
+    <Compile Include="Areas\SportsStore\Controllers\AccountController.cs" />
     <Compile Include="Areas\SportsStore\Controllers\AdminController.cs" />
     <Compile Include="Areas\SportsStore\Controllers\CartController.cs" />
     <Compile Include="Areas\SportsStore\Controllers\NavController.cs" />
     <Compile Include="Areas\SportsStore\Controllers\ProductController.cs" />
     <Compile Include="Areas\SportsStore\Models\CartIndex_VM.cs" />
     <Compile Include="Areas\SportsStore\Models\HtmlHelpers\PagingHelpers.cs" />
+    <Compile Include="Areas\SportsStore\Models\Login_VM.cs" />
     <Compile Include="Areas\SportsStore\Models\PagingInfo.cs" />
     <Compile Include="Areas\SportsStore\Models\ProductsList_VM.cs" />
     <Compile Include="Areas\SportsStore\SportsStoreAreaRegistration.cs" />
@@ -290,7 +292,9 @@
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="Areas\OperatingManagement\Models\VendorRecordModel.cs" />
     <Compile Include="Areas\SandboxTBP\Models\Product.cs" />
+    <Compile Include="Infrastructure\Abstract\IAuthProvider.cs" />
     <Compile Include="Infrastructure\Binders\CartModelBinder.cs" />
+    <Compile Include="Infrastructure\Concrete\FormsAuthProvider.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\MiniDisplay.cs" />
     <Compile Include="Models\Module.cs" />
@@ -476,6 +480,7 @@
     <Content Include="Areas\SportsStore\Views\Admin\Index.cshtml" />
     <Content Include="Areas\SportsStore\Views\Admin\Edit.cshtml" />
     <Content Include="Areas\SportsStore\Views\Shared\_Notification.cshtml" />
+    <Content Include="Areas\SportsStore\Views\Account\Login.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />

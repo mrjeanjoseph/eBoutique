@@ -9,6 +9,8 @@ using YTP.Domain.SportsStore.Abstract;
 using YTP.Domain.SportsStore.Concrete;
 using YTP.Domain.SportsStore.Entities;
 using YTP.Main.Areas.SandboxTBP.Models;
+using YTP.Main.Infrastructure.Abstract;
+using YTP.Main.Infrastructure.Concrete;
 
 namespace YTP.Main.Infrastructure {
     public class NinjectDependencyResolver : IDependencyResolver {
@@ -50,6 +52,8 @@ namespace YTP.Main.Infrastructure {
 
             _kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
                 .WithConstructorArgument("settings", emailSettings);
+
+            _kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
         }
 
         public object GetService(Type serviceType) {
