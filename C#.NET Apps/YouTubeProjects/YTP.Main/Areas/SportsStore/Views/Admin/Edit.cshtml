@@ -2,7 +2,7 @@
 
 @{
 
-    ViewBag.Title = "Admin: Edit " + Model.ProductName;
+    ViewBag.Title = "Admin: Edit* " + Model.ProductName;
     Layout = "~/Areas/SportsStore/Views/Shared/_AdminLayout.cshtml";
 
 }
@@ -10,10 +10,21 @@
     /* Custom CSS for centering the card */
     .centerCard {
         display: flex;
-        min-height: 100vh;
+        min-height: 10vh;
         align-items: center;
         justify-content: center;
         margin: 0;
+    }
+
+    #positioning{
+        position:absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        /*filter: alpha(opacity=0);*/
+        opacity: 0;
+        background-color:transparent;
+        color:transparent;
     }
 </style>
 
@@ -30,12 +41,18 @@
                 @Html.ActionLink("Cancel and Return to List", "Index")
             }*@
 
-        @using (Html.BeginForm("Edit", "Admin")) {
+        @using (Html.BeginForm("Edit", "Admin", 
+            FormMethod.Post, new { enctype = "multipart/form-data"})) {
 
             <div class="card-body">
                 @Html.HiddenFor(m => m.ProductID)
                 @foreach (var property in ViewData.ModelMetadata.Properties) {
-                    if (property.PropertyName != "ProductID") {
+                    switch (property.PropertyName) {
+                        case "ProductID":
+                        case "ImageData":
+                        case "ImageMimeType":
+                            break; //Do nothing
+                        default:
                         <div class="mb-3">
                             <label>@(property.DisplayName ?? property.PropertyName)</label>
                             @if (property.PropertyName == "Description") {
@@ -45,8 +62,28 @@
                             }
                         </div>
                         @Html.ValidationMessage(property.PropertyName)
+                        break;
                     }
                 }
+
+                <div class="mb-3">
+                    <div style="position:relative;">
+                        <label>Image</label>
+                        <a class="btn" href="javascript:;">
+                            Choose File...
+                            <input type="file" name="image" size="40" id="positioning"
+                                   onchange="$('#upload-file-info').html($(this).val());"/>
+                        </a>
+                        <span class="badge text-bg-info" id="upload-file-info"></span>
+                    </div>
+                    @if (Model.ImageData == null) {
+                        <div class="form-control">No Image</div>
+                    } else {
+                        <img class="img-thumbnail" width="150" height="150"
+                             src="@Url.Action("GetImage", "Product", new {Model.ProductID})" 
+                             alt="@Model.ProductName" />
+                    }
+                </div>
             </div>
 
             <div class="card-footer text-center">

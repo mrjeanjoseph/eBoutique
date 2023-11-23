@@ -20,6 +20,8 @@ namespace YTP.Domain.SportsStore.Concrete {
                     dbproductentry.Description = product.Description;
                     dbproductentry.ProductPrice = product.ProductPrice;
                     dbproductentry.Category = product.Category;
+                    dbproductentry.ImageData = product.ImageData;
+                    dbproductentry.ImageMimeType = product.ImageMimeType;
                 }
             }
             _dbContext.SaveChanges();

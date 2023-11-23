@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using YTP.Domain.SportsStore.Abstract;
 using YTP.Domain.SportsStore.Entities;
@@ -27,7 +28,16 @@ namespace YTP.Main.Areas.SportsStore.Controllers {
         }
 
         [HttpPost]
-        public ActionResult Edit(Product product) {
+        public ActionResult Edit(Product product, HttpPostedFileBase image = null) {
+
+            if(ModelState.IsValid) {
+                if(image != null) {
+                    product.ImageMimeType = image.ContentType;
+                    product.ImageData = new byte[image.ContentLength];
+                    image.InputStream.Read(product.ImageData, 0 , image.ContentLength);
+                }
+            }
+
             if(ModelState.IsValid) {
                 _productRepo.SaveProduct(product);
                 TempData["message"] = string.Format("{0} has been saved", product.ProductName);
