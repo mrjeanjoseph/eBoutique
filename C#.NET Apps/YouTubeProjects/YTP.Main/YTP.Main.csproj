@@ -191,12 +191,14 @@
     <Compile Include="Areas\SandboxTBP\Models\IValueCalculator.cs" />
     <Compile Include="Areas\SandboxTBP\Models\MinimumDiscountHelper.cs" />
     <Compile Include="Areas\SandboxTBP\SandboxTBPAreaRegistration.cs" />
+    <Compile Include="Areas\SportsStore\Controllers\AccountController.cs" />
     <Compile Include="Areas\SportsStore\Controllers\AdminController.cs" />
     <Compile Include="Areas\SportsStore\Controllers\CartController.cs" />
     <Compile Include="Areas\SportsStore\Controllers\NavController.cs" />
     <Compile Include="Areas\SportsStore\Controllers\ProductController.cs" />
     <Compile Include="Areas\SportsStore\Models\CartIndex_VM.cs" />
     <Compile Include="Areas\SportsStore\Models\HtmlHelpers\PagingHelpers.cs" />
+    <Compile Include="Areas\SportsStore\Models\Login_VM.cs" />
     <Compile Include="Areas\SportsStore\Models\PagingInfo.cs" />
     <Compile Include="Areas\SportsStore\Models\ProductsList_VM.cs" />
     <Compile Include="Areas\SportsStore\SportsStoreAreaRegistration.cs" />
@@ -528,6 +530,7 @@
   <ItemGroup>
     <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="Areas\SandboxTBP\Data\" />
+    <Folder Include="Areas\SportsStore\Views\Account\" />
     <Folder Include="GlobalAsset\images\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>

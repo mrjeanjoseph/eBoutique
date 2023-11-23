@@ -1,7 +1,7 @@
 ﻿
 
 namespace YTP.Main.Infrastructure.Abstract {
-    internal interface IAuthProvider {
+    public interface IAuthProvider {
         bool Authenticate(string username, string password);
     }
 }
