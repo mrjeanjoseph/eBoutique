@@ -5,6 +5,7 @@ using YTP.Domain.SportsStore.Entities;
 
 namespace YTP.Main.Areas.SportsStore.Controllers {
 
+    [Authorize]
     public class AdminController : Controller {
 
         private readonly IProductsRepository _productRepo;
