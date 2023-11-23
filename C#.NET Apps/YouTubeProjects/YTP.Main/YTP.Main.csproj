@@ -305,6 +305,7 @@
   <ItemGroup>
     <Content Include="App_Data\ProductsData.xml" />
     <Content Include="Areas\HumanResources\LocalAssets\site.home.js" />
+    <Content Include="Areas\testingarea.html" />
     <Content Include="Areas\SandboxTBP\ReadMe.txt" />
     <Content Include="Areas\SportsStore\LocalAsset\site.css" />
     <Content Include="Content\Site.css" />
@@ -464,7 +465,6 @@
     <Content Include="Areas\SportsStore\Views\Nav\_Menu.cshtml" />
     <Content Include="Areas\SportsStore\Views\Cart\Index.cshtml" />
     <Content Include="Areas\SportsStore\Views\Cart\_Summary.cshtml" />
-
     <Content Include="Areas\SportsStore\Views\Cart\CheckoutCart.cshtml" />
     <Content Include="Areas\SportsStore\Views\Cart\CheckoutCompleted.cshtml" />
     <Content Include="Areas\SportsStore\Views\Nav\_MenuHorizontal.cshtml" />
@@ -472,7 +472,10 @@
     <Content Include="Areas\SportsStore\Views\Shared\_Layout.Mobile.cshtml" />
     <Content Include="Areas\SportsStore\Views\Nav\_Menu.Mobile.cshtml" />
     <Content Include="Areas\SportsStore\Views\Shared\_productsummary.mobile.cshtml" />
-
+    <Content Include="Areas\SportsStore\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\SportsStore\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\SportsStore\Views\Admin\Edit.cshtml" />
+    <Content Include="Areas\SportsStore\Views\Shared\_Notification.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
@@ -493,7 +496,6 @@
     <Content Include="GlobalAsset\scripts\main.site.js" />
     <Content Include="GlobalAsset\scripts\alertify.js" />
     <Content Include="GlobalAsset\scripts\alertify.min.js" />
-    <Content Include="bs-testingpage.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -524,7 +526,6 @@
   <ItemGroup>
     <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="Areas\SandboxTBP\Data\" />
-    <Folder Include="Areas\SportsStore\Views\Admin\" />
     <Folder Include="GlobalAsset\images\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>

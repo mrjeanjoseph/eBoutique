@@ -104,7 +104,7 @@
       <Name>YTP.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\YTP.Main\YTP.Main.csproj">
-      <Project>{781106f4-d96d-4400-81d1-bbb82f172d5a}</Project>
+      <Project>{781106F4-D96D-4400-81D1-BBB82F172D5A}</Project>
       <Name>YTP.Main</Name>
     </ProjectReference>
   </ItemGroup>

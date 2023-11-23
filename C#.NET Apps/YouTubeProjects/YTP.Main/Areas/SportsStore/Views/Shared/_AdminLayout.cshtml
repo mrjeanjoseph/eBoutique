@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/localstyles")
+
+</head>
+<body>
+    <div class="container">
+
+        <div class="centerCard">
+
+            @{ var message = TempData["Message"] as string; }
+
+            @if (!string.IsNullOrEmpty(message)) {
+                <div id="tempMessage" class="alert alert-danger">@message</div>
+                <script>
+                    setTimeout(function () {
+                        $('#tempMessage').fadeOut('slow');
+                    }, 5000);
+                </script>
+            }
+        </div>
+        @RenderBody()
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
