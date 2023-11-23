@@ -17,7 +17,7 @@ namespace YTP.Main.Areas.SportsStore.Models.HtmlHelpers {
                 if (i == pagingInfo.CurrentPage) {
                     tag.AddCssClass("selected");
 
-                    tag.AddCssClass("btn-primary");
+                    tag.AddCssClass("btn-light");
                 } else
                     tag.AddCssClass("btn-light");
                 

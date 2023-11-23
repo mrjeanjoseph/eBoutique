@@ -305,7 +305,7 @@
   <ItemGroup>
     <Content Include="App_Data\ProductsData.xml" />
     <Content Include="Areas\HumanResources\LocalAssets\site.home.js" />
-    <Content Include="Areas\isolatedpage.html" />
+    <Content Include="Areas\testingarea.html" />
     <Content Include="Areas\SandboxTBP\ReadMe.txt" />
     <Content Include="Areas\SportsStore\LocalAsset\site.css" />
     <Content Include="Content\Site.css" />
