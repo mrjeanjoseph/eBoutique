@@ -13,11 +13,13 @@ namespace YTP.Main.Areas.UrlsAndRoutes.Controllers {
             return View("_ActionName");
         }
 
-        public ActionResult CustomVariables() {
+        public ActionResult CustomVariables(string id) { // We can also make it optional (string id = "DefaultId")
             ViewBag.Controller = "Admin page";
-            ViewBag.Action = "Custom Variables";
-            ViewBag.CustomVariables = RouteData.Values["id"];
-            return View("_ActionName");
+            ViewBag.Action = "CustomVariables Action Method";
+            //ViewBag.CustomVariables = RouteData.Values["id"];
+            //ViewBag.CustomVariables = id;
+            ViewBag.CustomVariables = id ?? "<no value>";
+            return View("CustomVariables");
         }
     }
 }

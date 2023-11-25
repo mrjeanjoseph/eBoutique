@@ -13,15 +13,34 @@ namespace YTP.MainTest.UrlsAndRoutes {
     public class UnitTest1 {
 
         [TestMethod]
-        public void TestIncomingRoutes3() {
-            TestRouteMatch("~/", "Admin", "Index");
-            TestRouteMatch("~/Admin", "Admin", "Index");
-            TestRouteMatch("~/Admin/List", "Admin", "Index");
-            TestRouteMatch("~/Admin/List/All", "Admin", "Index");
+        public void TestingOptionalUrlSegments() {
+            TestRouteMatch("~/UrlsAndRoutes/", "Admin", "Index");
+            TestRouteMatch("~/UrlsAndRoutes/Admin", "Admin", "Index");
+            TestRouteMatch("~/UrlsAndRoutes/Admin/List", "Admin", "Index");
+            TestRouteMatch("~/UrlsAndRoutes/Admin/List/All", "Admin", "List", new {id = "All"});
+            TestRouteFail("~/UrlsAndRoutes/Admin/List/All/Delete");
+        }
+
+        [TestMethod]
+        public void TestingCustomSegmentVariables() {
+            TestRouteMatch("~/UrlsAndRoutes/", "Admin", "Index", new {id = "DefaultId"});
+            TestRouteMatch("~/UrlsAndRoutes/Admin", "Admin", "Index", new {id = "DefaultId"});
+            TestRouteMatch("~/UrlsAndRoutes/Admin/List", "Admin", "List", new {id = "DefaultId"});
+            TestRouteMatch("~/UrlsAndRoutes/Admin/List/All", "Admin", "List", new {id = "DefaultId"});
+            TestRouteFail("~/UrlsAndRoutes/Admin/List/All/Delete");
+        }
+        
+
+        [TestMethod]
+        public void TestingStaticSegments() {
+            TestRouteMatch("~/UrlsAndRoutes/", "Admin", "Index");
+            TestRouteMatch("~/UrlsAndRoutes/Admin", "Admin", "Index");
+            TestRouteMatch("~/UrlsAndRoutes/Admin/List", "Admin", "Index");
+            TestRouteMatch("~/UrlsAndRoutes/Admin/List/All", "Admin", "Index");
         }
         
         [TestMethod]
-        public void TestIncomingRoutes2() {
+        public void TestingDefaultValues() {
             TestRouteMatch("~/", "Home", "Index");
             TestRouteMatch("~/Customer", "Customer", "Index");
             TestRouteMatch("~/Customer/List", "Customer", "Index");
@@ -30,7 +49,7 @@ namespace YTP.MainTest.UrlsAndRoutes {
 
 
         [TestMethod]
-        public void TestIncomingRoutes() {
+        public void TestingIncomingUrls() {
             //Check for the url that is hoped for
             TestRouteMatch("~/Admin/Index", "Admin", "Index");
 
