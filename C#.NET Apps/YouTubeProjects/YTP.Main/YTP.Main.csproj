@@ -316,7 +316,6 @@
     <Content Include="Areas\testingarea.html" />
     <Content Include="Areas\SandboxTBP\ReadMe.txt" />
     <Content Include="Areas\SportsStore\LocalAsset\site.css" />
-    <Content Include="Content\Site.css" />
     <Content Include="DataAccess\YPTDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>YPTDB.edmx</DependentUpon>

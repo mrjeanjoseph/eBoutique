@@ -1,74 +1,18 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Reflection;
-using System.Web.Routing;
 using Moq;
 using System;
-using System.Web;
-using YTP.Main.Areas.UrlsAndRoutes;
-using YTP.Main;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.Routing;
+using System.Web;
+using YTP.Main;
 
 namespace YTP.MainTest.UrlsAndRoutes {
-    [TestClass]
-    public class UnitTest1 {
-
-        [TestMethod]
-        public void TestingCatchAllSegmentVariables() {
-            TestRouteMatch("~", "UrlsAndRoutes/Admin", "Index");
-            TestRouteMatch("~/Admin", "UrlsAndRoutes/Admin", "Index");
-            TestRouteMatch("~/Admin/List", "UrlsAndRoutes/Admin", "Index");
-            TestRouteMatch("~/Admin/List/All", "UrlsAndRoutes/Admin", "List", new {id = "All"});
-            TestRouteFail("~/UrlsAndRoutes/Admin/List/All/Delete");
-        }
-
-        [TestMethod]
-        public void TestingOptionalUrlSegments() {
-            TestRouteMatch("~/UrlsAndRoutes/", "Admin", "Index");
-            TestRouteMatch("~/UrlsAndRoutes/Admin", "Admin", "Index");
-            TestRouteMatch("~/UrlsAndRoutes/Admin/List", "Admin", "Index");
-            TestRouteMatch("~/UrlsAndRoutes/Admin/List/All", "Admin", "List", new {id = "All"});
-            TestRouteFail("~/UrlsAndRoutes/Admin/List/All/Delete");
-        }
-
-        [TestMethod]
-        public void TestingCustomSegmentVariables() {
-            TestRouteMatch("~/UrlsAndRoutes/", "Admin", "Index", new {id = "DefaultId"});
-            TestRouteMatch("~/UrlsAndRoutes/Admin", "Admin", "Index", new {id = "DefaultId"});
-            TestRouteMatch("~/UrlsAndRoutes/Admin/List", "Admin", "List", new {id = "DefaultId"});
-            TestRouteMatch("~/UrlsAndRoutes/Admin/List/All", "Admin", "List", new {id = "DefaultId"});
-            TestRouteFail("~/UrlsAndRoutes/Admin/List/All/Delete");
-        }
-        
-
-        [TestMethod]
-        public void TestingStaticSegments() {
-            TestRouteMatch("~/UrlsAndRoutes/", "Admin", "Index");
-            TestRouteMatch("~/UrlsAndRoutes/Admin", "Admin", "Index");
-            TestRouteMatch("~/UrlsAndRoutes/Admin/List", "Admin", "Index");
-            TestRouteMatch("~/UrlsAndRoutes/Admin/List/All", "Admin", "Index");
-        }
-        
-        [TestMethod]
-        public void TestingDefaultValues() {
-            TestRouteMatch("~/", "Home", "Index");
-            TestRouteMatch("~/Customer", "Customer", "Index");
-            TestRouteMatch("~/Customer/List", "Customer", "Index");
-            TestRouteMatch("~/Customer/List/All", "Customer", "Index");
-        }
-
-
-        [TestMethod]
-        public void TestingIncomingUrls() {
-            //Check for the url that is hoped for
-            TestRouteMatch("~/Admin/Index", "Admin", "Index");
-
-            //Check that the values are being obtained from the segments
-            TestRouteMatch("~/One/Two/", "One", "Two");
-
-            //Ensure that too many or twoo few segments fails to match
-            TestRouteFail("~/Admin/Index/Segment");
-            TestRouteFail("~/Admin");
-        }
+    public class CommonServices {
 
 
         private HttpContextBase CreateHttpContext(string targetUrl = null, string httpMethod = "GET") {

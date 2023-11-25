@@ -13,6 +13,13 @@ namespace YTP.Main.Areas.UrlsAndRoutes {
 
             context.MapRoute(
                 "",
+                "UrlsAndRoutes/{controller}/{action}/{id}/{*catchall}",
+                new { controller = "Admin", action = "CustomVariables", id = UrlParameter.Optional },
+                new[] { GetType().Namespace + ".Controllers" }
+            );
+
+            context.MapRoute(
+                "",
                 "UrlsAndRoutes/{controller}/{action}/{id}",
                 new { controller = "Admin", action = "CustomVariables", id = "DefaultId" },
                 new[] { GetType().Namespace + ".Controllers" }
