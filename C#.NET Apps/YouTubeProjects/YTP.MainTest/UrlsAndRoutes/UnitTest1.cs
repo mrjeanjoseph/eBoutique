@@ -4,7 +4,7 @@ using System.Web.Routing;
 using Moq;
 using System;
 using System.Web;
-using YTP.Main;
+using YTP.Main.Areas.UrlsAndRoutes;
 
 namespace YTP.MainTest.UrlsAndRoutes {
     [TestClass]

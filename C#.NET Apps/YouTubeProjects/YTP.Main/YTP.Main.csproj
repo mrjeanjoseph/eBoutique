@@ -202,6 +202,7 @@
     <Compile Include="Areas\SportsStore\Models\PagingInfo.cs" />
     <Compile Include="Areas\SportsStore\Models\ProductsList_VM.cs" />
     <Compile Include="Areas\SportsStore\SportsStoreAreaRegistration.cs" />
+    <Compile Include="Areas\UrlsAndRoutes\UrlsAndRoutesAreaRegistration.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -480,6 +481,7 @@
     <Content Include="Areas\SportsStore\Views\Admin\Edit.cshtml" />
     <Content Include="Areas\SportsStore\Views\Shared\_Notification.cshtml" />
     <Content Include="Areas\SportsStore\Views\Account\Login.cshtml" />
+    <Content Include="Areas\UrlsAndRoutes\Views\web.config" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
@@ -531,6 +533,9 @@
   <ItemGroup>
     <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="Areas\SandboxTBP\Data\" />
+    <Folder Include="Areas\UrlsAndRoutes\Controllers\" />
+    <Folder Include="Areas\UrlsAndRoutes\Data\" />
+    <Folder Include="Areas\UrlsAndRoutes\Views\Shared\" />
     <Folder Include="GlobalAsset\images\" />
   </ItemGroup>
   <ItemGroup>
