@@ -5,11 +5,21 @@ using Moq;
 using System;
 using System.Web;
 using YTP.Main.Areas.UrlsAndRoutes;
+using YTP.Main;
+using System.Web.Mvc;
 
 namespace YTP.MainTest.UrlsAndRoutes {
     [TestClass]
     public class UnitTest1 {
 
+        [TestMethod]
+        public void TestIncomingRoutes3() {
+            TestRouteMatch("~/", "Admin", "Index");
+            TestRouteMatch("~/Admin", "Admin", "Index");
+            TestRouteMatch("~/Admin/List", "Admin", "Index");
+            TestRouteMatch("~/Admin/List/All", "Admin", "Index");
+        }
+        
         [TestMethod]
         public void TestIncomingRoutes2() {
             TestRouteMatch("~/", "Home", "Index");
@@ -56,6 +66,7 @@ namespace YTP.MainTest.UrlsAndRoutes {
             //Arrange
             RouteCollection routes = new RouteCollection();
             RouteConfig.RegisterRoutes(routes);
+            AreaRegistration.RegisterAllAreas(routes);
 
             //Act - Process the route
             RouteData result = routes.GetRouteData(CreateHttpContext(url, httpMethod));

@@ -487,6 +487,7 @@
     <Content Include="Areas\UrlsAndRoutes\Views\web.config" />
     <Content Include="Areas\UrlsAndRoutes\Views\Shared\_ActionName.cshtml" />
     <Content Include="Areas\UrlsAndRoutes\Views\Admin\_ActionName.cshtml" />
+    <Content Include="Areas\UrlsAndRoutes\Views\Admin\CustomVariables.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
