@@ -17,7 +17,8 @@ namespace YTP.Main.Areas.UrlsAndRoutes
             context.MapRoute(
                 "UrlsAndRoutes",
                 "UrlsAndRoutes/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                new[] { GetType().Namespace + ".Controllers" }
             );
         }
     }
