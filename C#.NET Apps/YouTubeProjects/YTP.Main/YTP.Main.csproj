@@ -204,6 +204,7 @@
     <Compile Include="Areas\SportsStore\SportsStoreAreaRegistration.cs" />
     <Compile Include="Areas\UrlsAndRoutes\Controllers\AdminController.cs" />
     <Compile Include="Areas\UrlsAndRoutes\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\UrlsAndRoutes\ControllersAlt\HomeController.cs" />
     <Compile Include="Areas\UrlsAndRoutes\Controllers\HomeController.cs" />
     <Compile Include="Areas\UrlsAndRoutes\UrlsAndRoutesAreaRegistration.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -540,6 +541,8 @@
     <Folder Include="Areas\SandboxTBP\Data\" />
     <Folder Include="Areas\UrlsAndRoutes\Data\" />
     <Folder Include="Areas\UrlsAndRoutes\Views\Customer\" />
+    <Folder Include="Areas\UrlsAndRoutes\Views\Home2\" />
+    <Folder Include="Areas\UrlsAndRoutes\Views\HomeAlt\" />
     <Folder Include="Areas\UrlsAndRoutes\Views\Home\" />
     <Folder Include="GlobalAsset\images\" />
   </ItemGroup>

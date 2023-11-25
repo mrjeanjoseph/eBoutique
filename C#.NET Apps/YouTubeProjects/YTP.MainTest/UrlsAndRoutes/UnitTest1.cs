@@ -18,7 +18,9 @@ namespace YTP.MainTest.UrlsAndRoutes {
             TestRouteMatch("~/Admin", "UrlsAndRoutes/Admin", "Index");
             TestRouteMatch("~/Admin/List", "UrlsAndRoutes/Admin", "Index");
             TestRouteMatch("~/Admin/List/All", "UrlsAndRoutes/Admin", "List", new {id = "All"});
-            TestRouteFail("~/UrlsAndRoutes/Admin/List/All/Delete");
+            TestRouteMatch("~/Admin/List/All/Delete", "UrlsAndRoutes/Admin", "List", new {id = "All", catchall = "Delete"});
+            TestRouteMatch("~/Admin/List/All/Delete/Perm", "UrlsAndRoutes/Admin", "List", new {id = "All", catchall = "Delete/Perm"});
+
         }
 
         [TestMethod]

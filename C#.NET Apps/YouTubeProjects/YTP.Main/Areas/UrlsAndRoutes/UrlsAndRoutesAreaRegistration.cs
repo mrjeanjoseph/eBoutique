@@ -10,6 +10,13 @@ namespace YTP.Main.Areas.UrlsAndRoutes {
 
         public override void RegisterArea(AreaRegistrationContext context) {
 
+            context.MapRoute(
+                "",
+                "UrlsAndRoutes/{controller}/{action}/{id}/{*catchall}",
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                new[] { GetType().Namespace + ".Controllers" },
+                new[] { "UrlsAndRoutes.ControllerAlt" }
+            );
 
             context.MapRoute(
                 "",
