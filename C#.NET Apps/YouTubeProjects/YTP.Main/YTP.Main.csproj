@@ -406,7 +406,6 @@
     <Content Include="GlobalAsset\scripts\bootstrap.bundle.min.js" />
     <Content Include="GlobalAsset\scripts\bootstrap.js" />
     <Content Include="GlobalAsset\scripts\bootstrap.min.js" />
-    <Content Include="GlobalAsset\scripts\bootstrap.bundle.js.map" />
     <Content Include="GlobalAsset\styles\bootstrap.css.map" />
     <Content Include="GlobalAsset\favicon_io\site.webmanifest" />
     <EntityDeploy Include="DataAccess\DefaultDBAccess.edmx">
@@ -527,12 +526,12 @@
     <Content Include="Views\Home\RSVPForm.cshtml" />
     <Content Include="Views\Home\Thanks.cshtml" />
     <Content Include="Areas\SandboxTBP\Views\LangFeature\Result.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="Areas\SandboxTBP\Data\" />
     <Folder Include="GlobalAsset\images\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
