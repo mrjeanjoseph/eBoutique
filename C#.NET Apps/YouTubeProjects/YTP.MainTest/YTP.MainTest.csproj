@@ -95,6 +95,8 @@
     <Compile Include="SportsStore\AdminTests.cs" />
     <Compile Include="SportsStore\AuthTests.cs" />
     <Compile Include="SportsStore\ImageTests.cs" />
+    <Compile Include="UrlsAndRoutes\CommonServices.cs" />
+    <Compile Include="UrlsAndRoutes\UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

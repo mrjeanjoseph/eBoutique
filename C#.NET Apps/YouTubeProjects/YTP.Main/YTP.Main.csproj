@@ -170,6 +170,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UserAgentConstraint.cs" />
     <Compile Include="Areas\CarRentalSystem\CarRentalSystemAreaRegistration.cs" />
     <Compile Include="Areas\CarRentalSystem\Controllers\CarController.cs" />
     <Compile Include="Areas\CarRentalSystem\Controllers\CustomerController.cs" />
@@ -202,6 +203,11 @@
     <Compile Include="Areas\SportsStore\Models\PagingInfo.cs" />
     <Compile Include="Areas\SportsStore\Models\ProductsList_VM.cs" />
     <Compile Include="Areas\SportsStore\SportsStoreAreaRegistration.cs" />
+    <Compile Include="Areas\UrlsAndRoutes\Controllers\AdminController.cs" />
+    <Compile Include="Areas\UrlsAndRoutes\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\UrlsAndRoutes\ControllersAlt\HomeController.cs" />
+    <Compile Include="Areas\UrlsAndRoutes\Controllers\HomeController.cs" />
+    <Compile Include="Areas\UrlsAndRoutes\UrlsAndRoutesAreaRegistration.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -312,7 +318,6 @@
     <Content Include="Areas\testingarea.html" />
     <Content Include="Areas\SandboxTBP\ReadMe.txt" />
     <Content Include="Areas\SportsStore\LocalAsset\site.css" />
-    <Content Include="Content\Site.css" />
     <Content Include="DataAccess\YPTDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>YPTDB.edmx</DependentUpon>
@@ -406,7 +411,6 @@
     <Content Include="GlobalAsset\scripts\bootstrap.bundle.min.js" />
     <Content Include="GlobalAsset\scripts\bootstrap.js" />
     <Content Include="GlobalAsset\scripts\bootstrap.min.js" />
-    <Content Include="GlobalAsset\scripts\bootstrap.bundle.js.map" />
     <Content Include="GlobalAsset\styles\bootstrap.css.map" />
     <Content Include="GlobalAsset\favicon_io\site.webmanifest" />
     <EntityDeploy Include="DataAccess\DefaultDBAccess.edmx">
@@ -481,6 +485,10 @@
     <Content Include="Areas\SportsStore\Views\Admin\Edit.cshtml" />
     <Content Include="Areas\SportsStore\Views\Shared\_Notification.cshtml" />
     <Content Include="Areas\SportsStore\Views\Account\Login.cshtml" />
+    <Content Include="Areas\UrlsAndRoutes\Views\web.config" />
+    <Content Include="Areas\UrlsAndRoutes\Views\Shared\_ActionName.cshtml" />
+    <Content Include="Areas\UrlsAndRoutes\Views\Admin\_ActionName.cshtml" />
+    <Content Include="Areas\UrlsAndRoutes\Views\Admin\CustomVariables.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
@@ -527,12 +535,17 @@
     <Content Include="Views\Home\RSVPForm.cshtml" />
     <Content Include="Views\Home\Thanks.cshtml" />
     <Content Include="Areas\SandboxTBP\Views\LangFeature\Result.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="Areas\SandboxTBP\Data\" />
+    <Folder Include="Areas\UrlsAndRoutes\Data\" />
+    <Folder Include="Areas\UrlsAndRoutes\Views\Customer\" />
+    <Folder Include="Areas\UrlsAndRoutes\Views\Home2\" />
+    <Folder Include="Areas\UrlsAndRoutes\Views\HomeAlt\" />
+    <Folder Include="Areas\UrlsAndRoutes\Views\Home\" />
     <Folder Include="GlobalAsset\images\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
