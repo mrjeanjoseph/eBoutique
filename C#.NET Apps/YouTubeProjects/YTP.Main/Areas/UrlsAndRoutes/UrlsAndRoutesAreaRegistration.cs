@@ -11,11 +11,17 @@ namespace YTP.Main.Areas.UrlsAndRoutes {
 
         public override void RegisterArea(AreaRegistrationContext context) {
 
-            // Constraining Routes
+            //// context.MapMvcAttributeRoutes(); // Does not work!
 
+            context.MapRoute("",
+                "UrlsAndRoutes/{controller}/{action}/{id}",
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                new[] { "UrlsAndRoutes.ControllersAlt" });
+
+            // Constraining Routes
             context.MapRoute("ChromeRoute", "{*catchall}",
                 new { controller = "Home", action = "Index" },
-                new { customConstraint = new UserAgentConstraint("chrome")},
+                new { customConstraint = new UserAgentConstraint("chrome") },
                 new[] { "UrlsAndRoutes.ControllersAlt" }
             );
 
