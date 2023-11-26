@@ -13,6 +13,22 @@ namespace YTP.MainTest.UrlsAndRoutes {
     public class UnitTest1 {
 
         [TestMethod]
+        public void TestingRouteConstraints() {
+            TestRouteMatch("~", "UrlsAndRoutes/Admin", "Index");
+            TestRouteMatch("~/Admin", "UrlsAndRoutes/Admin", "Index");
+            TestRouteMatch("~/Admin/Index", "UrlsAndRoutes/Admin", "Index");
+
+            TestRouteMatch("~/Admin/About", "UrlsAndRoutes/Admin", "About");
+            TestRouteMatch("~/Admin/About/MyId", "UrlsAndRoutes/Admin", "About", new {id = "MyId"});
+            TestRouteMatch("~/Admin/About/MyId/More/Segments", "UrlsAndRoutes/Admin", "About",
+                new {id = "MyId", catchall = "More/Segments"});
+
+            TestRouteFail("~/Admin/OtherAction");
+            TestRouteFail("~/Account/Index");
+            TestRouteFail("~/Account/About");
+        }
+
+        [TestMethod]
         public void TestingCatchAllSegmentVariables() {
             TestRouteMatch("~", "UrlsAndRoutes/Admin", "Index");
             TestRouteMatch("~/Admin", "UrlsAndRoutes/Admin", "Index");

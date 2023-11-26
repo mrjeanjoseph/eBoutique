@@ -170,6 +170,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UserAgentConstraint.cs" />
     <Compile Include="Areas\CarRentalSystem\CarRentalSystemAreaRegistration.cs" />
     <Compile Include="Areas\CarRentalSystem\Controllers\CarController.cs" />
     <Compile Include="Areas\CarRentalSystem\Controllers\CustomerController.cs" />
