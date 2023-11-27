@@ -1,0 +1,22 @@
+﻿
+@{  Layout = null; }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Action Name</title>
+</head>
+<body>
+    <div>The Controller is: @ViewBag.Controller</div>
+    <div>The Controller is: @ViewBag.Action</div>
+    <div>
+        <div>
+            @Html.ActionLink("This is an Outgoing URL", "CustomVariables")
+        </div>
+        <div>
+            @Html.ActionLink("This is an Outgoing URL", "Index", "Admin")
+        </div>
+    </div>
+</body>
+</html>
