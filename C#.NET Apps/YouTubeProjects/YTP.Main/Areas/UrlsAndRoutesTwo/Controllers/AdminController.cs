@@ -21,5 +21,23 @@ namespace YTP.Main.Areas.UrlsAndRoutesTwo.Controllers {
             ViewBag.CustomVariables = id ?? "<no value>";
             return View("CustomVariables");
         }
+
+        public ViewResult MyActionMethod() {
+            string myActionUrl = Url.Action("Index", new { id = "MyID" });
+            string myRouteUrl = Url.RouteUrl("Index", new { controller = "Home", action = "Index" });
+            //... Do something with URLS...
+            return View();
+        }
+
+        public RedirectToRouteResult MyActionMethod2() {
+            var routeOne = RedirectToAction("Index");
+            var routeTwo = RedirectToRoute( new { controller = "Home", action = "Index", id = "MyID"});
+
+            return routeOne ?? routeTwo;
+        }
+
+        public ActionResult GetLegacyURL(string legacyURL) {
+            return View((object)legacyURL);
+        }
     }
 }

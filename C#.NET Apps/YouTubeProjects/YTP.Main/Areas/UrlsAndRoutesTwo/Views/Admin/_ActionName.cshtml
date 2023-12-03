@@ -17,6 +17,15 @@
         <div>
             @Html.ActionLink("This is an Outgoing URL", "Index", "Admin")
         </div>
+        <div>
+            @Html.ActionLink("Passing Extra Values", "CustomVariables", new {id = "Hello"})
+        </div>
+        <div>
+            @Html.ActionLink("This is an Outgoing URL 16-9", "Index", "Admin", null, new {id = "MyAnchorID", @class="myCSSClass"})
+        </div>
+        <div>
+            This is my URL: @Html.Action("Index", "Admin", new { id = "MyId"})
+        </div>
     </div>
 </body>
 </html>
