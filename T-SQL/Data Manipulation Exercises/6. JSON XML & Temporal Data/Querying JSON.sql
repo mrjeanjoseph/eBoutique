@@ -1,7 +1,7 @@
 USE[JSON-XML-TDB]
 
 BEGIN
-	--Querying JSON Documents with TSQL
+	-- Querying JSON Documents with TSQL
 	SELECT
 		JSON_VALUE(Post_json, '$.Post.Id') AS JsonID,
 		JSON_VALUE(Post_json, '$.Post.Title'), /*AS JsonTitle*/
@@ -12,7 +12,7 @@ BEGIN
 END
 
 BEGIN
-	--Converting Data into JSON with FOR JSON PATH and AUTO
+	-- Converting Data into JSON with FOR JSON PATH and AUTO
 	SELECT
 		c.Text [Content],
 		u.DisplayName [AuthorName],
@@ -22,7 +22,7 @@ BEGIN
 	JOIN Users u ON u.Id = c.UserId
 	JOIN Posts p ON JSON_VALUE(Post_json, '$.Post.Id') = c.PostId
 	WHERE c.Score > 15 AND JSON_VALUE(Post_json, '$.Post.Title') IS NOT NULL
-	FOR JSON PATH, ROOT('Comments')
+	FOR JSON PATH, ROOT('Comments');
 
 	---
 	SELECT 
@@ -74,7 +74,7 @@ BEGIN
 END
 
 BEGIN
-	--Handling Missing Properties with Lax and Strict mode
+	-- Handling Missing Properties with Lax and Strict mode
 	SELECT TOP 1 Post_Json FROM Posts
 
 	SELECT TOP(10)
@@ -82,8 +82,8 @@ BEGIN
 		JSON_VALUE(Post_Json, '$.Post.Title') [Post Title],
 		JSON_VALUE(Post_json, '$.Post.Author.Reputation') [Reputation],
 		JSON_VALUE(Post_Json, 'lax$.Post.Badges') [Post Badges] --Lax is default format
-		--JSON_VALUE(Post_Json, 'strict$.Post.Badges') [Post Badges]
-		--JSON_VALUE(Post_Json, '$.Post.Badges') [Post Badges]
+		-- JSON_VALUE(Post_Json, 'strict$.Post.Badges') [Post Badges]
+		-- JSON_VALUE(Post_Json, '$.Post.Badges') [Post Badges]
 	FROM Posts
 	WHERE JSON_VALUE(Post_json, '$.Post.Title') LIKE '%Python%';
 
