@@ -1,6 +1,8 @@
-﻿using System;
+﻿
+using System;
 using System.Configuration;
 using System.Web.Mvc;
+using System.Web.Routing;
 using YTP.Main.Models;
 using YTP.Main.ViewModels;
 
@@ -15,11 +17,14 @@ namespace YTP.Main.Controllers {
             int hour = DateTime.Now.Hour;
             string message;
 
+
             if (hour < 12) message = "Good morning";
             else if (hour > 12 && hour < 16) message = "Good Afternoon";
             else message = "Good Evening";
 
             ViewBag.Greeting = message;
+
+            ViewBag.MessageTwo = MyActionMethod();
 
             return View(result);
 
@@ -55,6 +60,13 @@ namespace YTP.Main.Controllers {
 
         public ActionResult UnderConstruction() {
             return View();
+        }
+
+        public string MyActionMethod() {
+            string MyActionUrl = Url.Action("Index", new { id = "myID"});
+            string MyRouteUrl = Url.RouteUrl( new { controller = "Home", action = "Index"});
+            //...Do something with URLs...
+            return ($" {MyActionUrl}, - {MyRouteUrl}");
         }
 
     }

@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace YTP.Main.Areas.UrlsAndRoutes.Controllers {
+namespace YTP.Main.Areas.UrlsAndRoutesTwo.Controllers {
     public class HomeController : Controller {
         // GET: UrlsAndRoutes/Home
 

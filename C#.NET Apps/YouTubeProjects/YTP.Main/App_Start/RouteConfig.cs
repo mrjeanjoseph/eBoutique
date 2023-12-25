@@ -9,6 +9,8 @@ namespace YTP.Main {
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
+
             routes.MapRoute("StaticMixing", "Mixing/{action}", 
                 new { controller = "Home", action = "Index", },
                 new string[] { "YTP.Main.Controllers" });
@@ -28,12 +30,12 @@ namespace YTP.Main {
                 new { controller = "Home", action = "Index", },
                 new string[] { "YTP.Main.Controllers" });
 
-            //routes.MapRoute(
-            //    name: "Default",
-            //    url: "{controller}/{action}/{id}",
-            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-            //    new string[] { "YTP.Main.Controllers" }
-            //);
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                new string[] { "YTP.Main.Controllers" }
+            );
         }
     }
 }

@@ -203,9 +203,14 @@
     <Compile Include="Areas\SportsStore\Models\PagingInfo.cs" />
     <Compile Include="Areas\SportsStore\Models\ProductsList_VM.cs" />
     <Compile Include="Areas\SportsStore\SportsStoreAreaRegistration.cs" />
+    <Compile Include="Areas\UrlsAndRoutesTwo\Controllers\AdminController.cs" />
+    <Compile Include="Areas\UrlsAndRoutesTwo\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\UrlsAndRoutesTwo\Controllers\HomeController.cs" />
+    <Compile Include="Areas\UrlsAndRoutesTwo\UrlsAndRoutesTwoAreaRegistration.cs" />
     <Compile Include="Areas\UrlsAndRoutes\Controllers\AdminController.cs" />
     <Compile Include="Areas\UrlsAndRoutes\Controllers\CustomerController.cs" />
     <Compile Include="Areas\UrlsAndRoutes\ControllersAlt\HomeController.cs" />
+    <Compile Include="Areas\UrlsAndRoutes\Controllers\CustomerTwoController.cs" />
     <Compile Include="Areas\UrlsAndRoutes\Controllers\HomeController.cs" />
     <Compile Include="Areas\UrlsAndRoutes\UrlsAndRoutesAreaRegistration.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -301,6 +306,7 @@
     <Compile Include="Infrastructure\Abstract\IAuthProvider.cs" />
     <Compile Include="Infrastructure\Binders\CartModelBinder.cs" />
     <Compile Include="Infrastructure\Concrete\FormsAuthProvider.cs" />
+    <Compile Include="Infrastructure\LegacyRoute.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\MiniDisplay.cs" />
     <Compile Include="Models\Module.cs" />
@@ -489,6 +495,10 @@
     <Content Include="Areas\UrlsAndRoutes\Views\Shared\_ActionName.cshtml" />
     <Content Include="Areas\UrlsAndRoutes\Views\Admin\_ActionName.cshtml" />
     <Content Include="Areas\UrlsAndRoutes\Views\Admin\CustomVariables.cshtml" />
+    <Content Include="Areas\UrlsAndRoutesTwo\Views\web.config" />
+    <Content Include="Areas\UrlsAndRoutesTwo\Views\Shared\_ActionName.cshtml" />
+    <Content Include="Areas\UrlsAndRoutesTwo\Views\Admin\_ActionName.cshtml" />
+    <Content Include="Areas\UrlsAndRoutesTwo\Views\Admin\CustomVariables.cshtml" />
     <None Include="GlobalAsset\scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="GlobalAsset\scripts\dataTables.bootstrap5.min.js" />
     <Content Include="Areas\HumanResources\LocalAssets\haitiemployee.js" />
@@ -538,13 +548,10 @@
     <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\NewFolder1\" />
     <Folder Include="Areas\SandboxTBP\Data\" />
+    <Folder Include="Areas\UrlsAndRoutesTwo\Data\" />
     <Folder Include="Areas\UrlsAndRoutes\Data\" />
-    <Folder Include="Areas\UrlsAndRoutes\Views\Customer\" />
-    <Folder Include="Areas\UrlsAndRoutes\Views\Home2\" />
-    <Folder Include="Areas\UrlsAndRoutes\Views\HomeAlt\" />
-    <Folder Include="Areas\UrlsAndRoutes\Views\Home\" />
+    <Folder Include="Areas\UrlsAndRoutes\Views\CustomerTwo\" />
     <Folder Include="GlobalAsset\images\" />
   </ItemGroup>
   <ItemGroup>

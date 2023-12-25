@@ -1,8 +1,7 @@
-
 // PMC-300 - Practice/Recreate 10 DSA projects
 // These projects are located at: https://www.w3resource.com/csharp-exercises/basic-algo/index.php
 // Run these on SoloLearn at: https://www.sololearn.com/compiler-playground/cK3vWCFTSxo7
-
+ //==========================================================================================================
 
 // DSAP-10 - Exercise-46 Basic Algorithm
 // Write a C# Sharp program to check whether a given string begins with "F" or ends with "B".
@@ -18,7 +17,7 @@
 			return "Buzz";            
 		else            
 			return str;            
-	}
+	} //=====================================================================================================
 
 // DSAP-9 - Exercise-45 Basic Algorithm
 // Compute the sum of the two given integers. Return 18 if one of the given integer values is in the range of 10..20 inclusive.
@@ -108,7 +107,7 @@
 		}
 
 		return true;
-	}
+	} //=====================================================================================================
 
 	static void DisplayPrimeInAsc() {
 
@@ -133,7 +132,7 @@
 		}
 
 		Console.WriteLine();
-	}
+	} //=====================================================================================================
 	
 	static void DisplayPrimeInDesc() {
 

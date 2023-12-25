@@ -1,0 +1,31 @@
+﻿
+@{  Layout = null; }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Action Name</title>
+</head>
+<body>
+    <div>The Controller is: @ViewBag.Controller</div>
+    <div>The Controller is: @ViewBag.Action</div>
+    <div>
+        <div>
+            @Html.ActionLink("This is an Outgoing URL", "CustomVariables")
+        </div>
+        <div>
+            @Html.ActionLink("This is an Outgoing URL", "Index", "Admin")
+        </div>
+        <div>
+            @Html.ActionLink("Passing Extra Values", "CustomVariables", new {id = "Hello"})
+        </div>
+        <div>
+            @Html.ActionLink("This is an Outgoing URL 16-9", "Index", "Admin", null, new {id = "MyAnchorID", @class="myCSSClass"})
+        </div>
+        <div>
+            This is my URL: @Html.Action("Index", "Admin", new { id = "MyId"})
+        </div>
+    </div>
+</body>
+</html>
