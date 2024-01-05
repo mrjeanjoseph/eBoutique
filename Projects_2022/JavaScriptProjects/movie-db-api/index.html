@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="10">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie DB API</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <section id="search-page">
+        <h2 id="logo">Movie App</h2>
+        <div>
+            <p id="search-box">Search Your Movies</p>
+            <form action="/" id="form">
+                <input type="text" id="search" placeholder="i.e. Coming to America">
+                <button type="button" id="btn" onclick="{handleEvents()}" >Search</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="search-result">
+        <div id="movie-name">
+            <button type="button" id="back-icon"><i class="fa fa-arrow-left"></i></button>
+            <h2 id="search-title">Movie Title</h2>
+        </div>
+        <div id="results">
+            <div>
+                <img src="https://wallpapercave.com/uwp/uwp310475.jpeg" alt="">
+                <p>Movie Name</p>
+            </div>
+            <div>
+                <img src="https://wallpapercave.com/uwp/uwp310475.jpeg" alt="">
+                <p>Movie Name</p>
+            </div>
+            <div>
+                <img src="https://wallpapercave.com/uwp/uwp310475.jpeg" alt="">
+                <p>Movie Name</p>
+            </div>
+            <div>
+                <img src="https://wallpapercave.com/uwp/uwp310475.jpeg" alt="">
+                <p>Movie Name</p>
+            </div>
+            <div>
+                <img src="https://wallpapercave.com/uwp/uwp310475.jpeg" alt="">
+                <p>Movie Name</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="offline-page">
+        <div id="message-box">
+            <p id="message">You're not lorem to the ipsum</p>
+            <button type="button" id="back">back</button>
+        </div>
+    </section>
+
+    <section id="details-page">
+        <div id="card">
+            <button id="close"><i class="fa fa-times"></i></button>
+            <div id="card-body">
+                <p id="card-name"> Movie Name</p>
+                <img id="card-img" src="https://wallpapercave.com/uwp/uwp310475.jpeg" alt="">
+                <p id="card-title"><strong>title:</strong><span id="title">coming to america</span></p>
+                <p id="card-rating"><strong>rating:</strong><span id="rating">9.5</span></p>
+                <p id="card-language"><strong>language:</strong><span id="language">english</span></p>
+                <p id="card-date"><strong>date:</strong><span id="date">nov 25th 1999</span></p>
+                <p id="card-description"><strong>description:</strong><span id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, optio expedita. Debitis maxime eveniet quasi voluptates saepe, distinctio sequi.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

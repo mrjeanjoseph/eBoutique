@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.inputTag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #5372f0;
+}
+
+.inputTag-wrapper {
+    width: 500px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px 25px 20px;
+}
+
+.inputTag-wrapper :where(.inputTag-title, li, li i, .inputTag-details) {
+    display: flex;
+    align-items: center;
+}
+
+.inputTag-wrapper .inputTag-title img {
+    max-width: 25px;
+}
+
+.inputTag-wrapper .inputTag-title h2 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+.inputTag-wrapper .inputTag-content p {
+    font-size: 15px;
+}
+
+.inputTag-content ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 7px;
+    margin: 12px 0;
+    border-radius: 5px;
+    border: 1px solid #a6a6a6;
+}
+
+.inputTag-content ul li{
+    list-style: none;
+    margin: 4px 3px;
+    border-radius: 5px;
+    background: #f2f2f2;
+    padding: 5px 8px 5px 10px;
+    border: 1px solid #e3d1e1;
+}
+
+.inputTag-content ul li i{
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    color: #808080;
+    font-size: 12px;
+    margin-left: 10px;
+    border-radius: 50%;
+    background: #dfdfdf;
+    justify-content: center;
+}
+
+.inputTag-content ul input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.inputTag-wrapper .inputTag-details {
+    justify-content: space-between;
+}
+
+.inputTag-details button {
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: #4834d4;
+}

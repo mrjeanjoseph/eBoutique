@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random User Generator</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="user-profile">
+
+        <div class="profile-top">
+            <img id="image" src="https://randomuser.me/api/portraits/men/75.jpg" alt="">
+            <div class="profile-info">
+                <span id="name">Name</span>
+                <span>|</span>
+                <span id="gender">Gender</span>
+            </div>
+        </div>
+
+        <div class="profile-bottom">
+            <div class="profile-info">
+                <span class="material-icons"> email </span>
+                <span id="email">Email</span>
+            </div>
+            <div class="profile-info">
+                <span class="material-icons"> call </span>
+                <span id="phone">Call</span>
+            </div>
+            <div class="profile-info">
+                <span class="material-icons"> location_on </span>
+                <span id="location">Country</span>
+            </div>            
+        </div>
+    </div>
+    <button onclick="getRandomUser();">New User</button>
+
+    <script src="src/script.js"></script>
+</body>
+
+</html>
