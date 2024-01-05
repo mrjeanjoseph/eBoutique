@@ -1,0 +1,16 @@
+C:\Users\Computer\source\repos\1 - GITHUB PROJECTS\1 - CodingAllDayEveryday\ConsoleDataTable\ConsoleUI\bin\Debug\net5.0\ConsoleUI.exe
+C:\Users\Computer\source\repos\1 - GITHUB PROJECTS\1 - CodingAllDayEveryday\ConsoleDataTable\ConsoleUI\bin\Debug\net5.0\ConsoleUI.deps.json
+C:\Users\Computer\source\repos\1 - GITHUB PROJECTS\1 - CodingAllDayEveryday\ConsoleDataTable\ConsoleUI\bin\Debug\net5.0\ConsoleUI.runtimeconfig.json
+C:\Users\Computer\source\repos\1 - GITHUB PROJECTS\1 - CodingAllDayEveryday\ConsoleDataTable\ConsoleUI\bin\Debug\net5.0\ConsoleUI.runtimeconfig.dev.json
+C:\Users\Computer\source\repos\1 - GITHUB PROJECTS\1 - CodingAllDayEveryday\ConsoleDataTable\ConsoleUI\bin\Debug\net5.0\ConsoleUI.dll
+C:\Users\Computer\source\repos\1 - GITHUB PROJECTS\1 - CodingAllDayEveryday\ConsoleDataTable\ConsoleUI\bin\Debug\net5.0\ref\ConsoleUI.dll
+C:\Users\Computer\source\repos\1 - GITHUB PROJECTS\1 - CodingAllDayEveryday\ConsoleDataTable\ConsoleUI\bin\Debug\net5.0\ConsoleUI.pdb
+C:\Users\Computer\source\repos\1 - GITHUB PROJECTS\1 - CodingAllDayEveryday\ConsoleDataTable\ConsoleUI\obj\Debug\net5.0\ConsoleUI.csprojAssemblyReference.cache
+C:\Users\Computer\source\repos\1 - GITHUB PROJECTS\1 - CodingAllDayEveryday\ConsoleDataTable\ConsoleUI\obj\Debug\net5.0\ConsoleUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Computer\source\repos\1 - GITHUB PROJECTS\1 - CodingAllDayEveryday\ConsoleDataTable\ConsoleUI\obj\Debug\net5.0\ConsoleUI.AssemblyInfoInputs.cache
+C:\Users\Computer\source\repos\1 - GITHUB PROJECTS\1 - CodingAllDayEveryday\ConsoleDataTable\ConsoleUI\obj\Debug\net5.0\ConsoleUI.AssemblyInfo.cs
+C:\Users\Computer\source\repos\1 - GITHUB PROJECTS\1 - CodingAllDayEveryday\ConsoleDataTable\ConsoleUI\obj\Debug\net5.0\ConsoleUI.csproj.CoreCompileInputs.cache
+C:\Users\Computer\source\repos\1 - GITHUB PROJECTS\1 - CodingAllDayEveryday\ConsoleDataTable\ConsoleUI\obj\Debug\net5.0\ConsoleUI.dll
+C:\Users\Computer\source\repos\1 - GITHUB PROJECTS\1 - CodingAllDayEveryday\ConsoleDataTable\ConsoleUI\obj\Debug\net5.0\ref\ConsoleUI.dll
+C:\Users\Computer\source\repos\1 - GITHUB PROJECTS\1 - CodingAllDayEveryday\ConsoleDataTable\ConsoleUI\obj\Debug\net5.0\ConsoleUI.pdb
+C:\Users\Computer\source\repos\1 - GITHUB PROJECTS\1 - CodingAllDayEveryday\ConsoleDataTable\ConsoleUI\obj\Debug\net5.0\ConsoleUI.genruntimeconfig.cache

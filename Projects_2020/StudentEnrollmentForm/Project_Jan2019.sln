@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ADynamicWebsite", "ADynamicWebsite\", "{428D53D7-E604-4A7A-BE14-81B864D0413F}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_17604"
+		Debug.AspNetCompiler.PhysicalPath = "ADynamicWebsite\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_17604\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_17604"
+		Release.AspNetCompiler.PhysicalPath = "ADynamicWebsite\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_17604\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "17604"
+		SlnRelativePath = "ADynamicWebsite\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{428D53D7-E604-4A7A-BE14-81B864D0413F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{428D53D7-E604-4A7A-BE14-81B864D0413F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{428D53D7-E604-4A7A-BE14-81B864D0413F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{428D53D7-E604-4A7A-BE14-81B864D0413F}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36C77DDE-215D-4C8B-ADF6-F6578AECEBA8}
+	EndGlobalSection
+EndGlobal
