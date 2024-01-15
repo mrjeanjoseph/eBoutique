@@ -1,1 +1,0 @@
-All of the cheatsheet I wish I had 5yrs ago when I started programming.
